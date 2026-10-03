@@ -1,0 +1,162 @@
+{
+  "$defs": {
+    "Usage": {
+      "additionalProperties": false,
+      "properties": {
+        "model_calls": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Model Calls",
+          "type": "integer"
+        },
+        "tool_calls": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Tool Calls",
+          "type": "integer"
+        },
+        "input_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Input Tokens",
+          "type": "integer"
+        },
+        "output_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Output Tokens",
+          "type": "integer"
+        }
+      },
+      "title": "Usage",
+      "type": "object"
+    },
+    "Versions": {
+      "additionalProperties": false,
+      "properties": {
+        "model": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Model",
+          "type": "string"
+        },
+        "prompt": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Prompt",
+          "type": "string"
+        },
+        "tools": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Tools",
+          "type": "string"
+        },
+        "fixtures": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Fixtures",
+          "type": "string"
+        }
+      },
+      "required": [
+        "model",
+        "prompt",
+        "tools",
+        "fixtures"
+      ],
+      "title": "Versions",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "run_id": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+      "title": "Run Id",
+      "type": "string"
+    },
+    "request_id": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+      "title": "Request Id",
+      "type": "string"
+    },
+    "mode": {
+      "enum": [
+        "local_stub",
+        "aws_live"
+      ],
+      "title": "Mode",
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "pending",
+        "investigating",
+        "incomplete",
+        "awaiting_approval",
+        "rejected",
+        "expired",
+        "executing",
+        "verifying",
+        "resolved",
+        "unresolved",
+        "failed",
+        "escalated"
+      ],
+      "title": "State",
+      "type": "string"
+    },
+    "versions": {
+      "$ref": "#/$defs/Versions"
+    },
+    "started_at": {
+      "format": "date-time",
+      "title": "Started At",
+      "type": "string"
+    },
+    "finished_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Finished At"
+    },
+    "active_latency_ms": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Active Latency Ms",
+      "type": "integer"
+    },
+    "usage": {
+      "$ref": "#/$defs/Usage",
+      "default": {
+        "model_calls": 0,
+        "tool_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      }
+    },
+    "trace_ids": {
+      "default": [],
+      "items": {
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+        "type": "string"
+      },
+      "title": "Trace Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "run_id",
+    "request_id",
+    "mode",
+    "state",
+    "versions",
+    "started_at"
+  ],
+  "title": "Run",
+  "type": "object"
+}

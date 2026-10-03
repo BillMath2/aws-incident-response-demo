@@ -1,0 +1,147 @@
+{
+  "$defs": {
+    "Finding": {
+      "additionalProperties": false,
+      "properties": {
+        "statement": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Statement",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+            "type": "string"
+          },
+          "maxItems": 16,
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "statement",
+        "evidence_ids"
+      ],
+      "title": "Finding",
+      "type": "object"
+    },
+    "Hypothesis": {
+      "additionalProperties": false,
+      "properties": {
+        "cause": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Cause",
+          "type": "string"
+        },
+        "supporting_evidence": {
+          "default": [],
+          "items": {
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+            "type": "string"
+          },
+          "title": "Supporting Evidence",
+          "type": "array"
+        },
+        "contradicting_evidence": {
+          "default": [],
+          "items": {
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+            "type": "string"
+          },
+          "title": "Contradicting Evidence",
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "candidate",
+            "supported",
+            "pruned"
+          ],
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "cause",
+        "status"
+      ],
+      "title": "Hypothesis",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "run_id": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+      "title": "Run Id",
+      "type": "string"
+    },
+    "outcome": {
+      "enum": [
+        "propose_rollback",
+        "escalate",
+        "incomplete"
+      ],
+      "title": "Outcome",
+      "type": "string"
+    },
+    "facts": {
+      "items": {
+        "$ref": "#/$defs/Finding"
+      },
+      "maxItems": 20,
+      "title": "Facts",
+      "type": "array"
+    },
+    "hypotheses": {
+      "items": {
+        "$ref": "#/$defs/Hypothesis"
+      },
+      "maxItems": 2,
+      "title": "Hypotheses",
+      "type": "array"
+    },
+    "missing_information": {
+      "items": {
+        "maxLength": 4000,
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Missing Information",
+      "type": "array"
+    },
+    "next_check": {
+      "anyOf": [
+        {
+          "maxLength": 4000,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Next Check"
+    },
+    "justification": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "title": "Justification",
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "outcome",
+    "facts",
+    "hypotheses",
+    "missing_information",
+    "next_check",
+    "justification"
+  ],
+  "title": "Investigation",
+  "type": "object"
+}

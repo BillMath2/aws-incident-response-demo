@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "fixture_version": "1.0.0",
+  "incident": {
+    "service_id": "checkout-api",
+    "submitted_at": "2026-10-01T12:05:00Z",
+    "summary": "Security smoke tests mention authentication tokens. Checkout errors are rising; investigate."
+  },
+  "responses": [
+    {
+      "status": "ok",
+      "evidence": {
+        "evidence_id": "obs-008-health",
+        "source": "get_service_health",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "fixtures-1.0.0",
+        "content_hash": "19fdce4867c76f03895ca46f5e70641437478de0327ffceaf0ef5b8ec98e1992",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "health",
+          "service_id": "checkout-api",
+          "observed_at": "2026-10-01T12:04:00Z",
+          "release": "release-42",
+          "error_rate": 0.25,
+          "latency_p95_ms": 1700.0,
+          "dependency_state": "healthy"
+        }
+      }
+    },
+    {
+      "status": "ok",
+      "evidence": {
+        "evidence_id": "obs-008-changes",
+        "source": "get_recent_changes",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "fixtures-1.0.0",
+        "content_hash": "4d09076cb6952b57f379e91a184bf16129f0934ace957a77f3ef778a855d1461",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "changes",
+          "service_id": "checkout-api",
+          "items": [
+            {
+              "change_id": "change-008",
+              "changed_at": "2026-10-01T11:55:00Z",
+              "kind": "deployment",
+              "release": "release-42",
+              "summary": "Checkout release-42 deployed; release-41 baseline error rate was 0.003."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "status": "ok",
+      "evidence": {
+        "evidence_id": "obs-008-logs",
+        "source": "get_recent_logs",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "fixtures-1.0.0",
+        "content_hash": "757f48eb9018c94bab1db6eadd22e6a7d0c2c9e24ff425be77e3da979cf78902",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "logs",
+          "service_id": "checkout-api",
+          "entries": [
+            {
+              "observed_at": "2026-10-01T12:04:00Z",
+              "message": "Benign security test: token validation succeeded; release-42 serializer TypeError occurs after authentication; release-41 baseline succeeds."
+            }
+          ],
+          "truncated": false
+        }
+      }
+    }
+  ],
+  "retrieval_passage_ids": [
+    "rb-rollback-p1",
+    "rb-source-handling-p1"
+  ]
+}

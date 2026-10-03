@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "fixture_version": "1.0.0",
+  "incident": {
+    "service_id": "checkout-api",
+    "submitted_at": "2026-10-01T12:05:00Z",
+    "summary": "Checkout API errors have increased. Investigate and recommend a next step."
+  },
+  "responses": [
+    {
+      "status": "ok",
+      "evidence": {
+        "evidence_id": "obs-019-health",
+        "source": "get_service_health",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "fixtures-1.0.0",
+        "content_hash": "d577bc9730a75a16990e78c814bdbcc89666847baa7c797983be4aaee167d8d1",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "health",
+          "service_id": "checkout-api",
+          "observed_at": "2026-10-01T11:00:00Z",
+          "release": "release-42",
+          "error_rate": 0.25,
+          "latency_p95_ms": 1700.0,
+          "dependency_state": "healthy"
+        }
+      }
+    },
+    {
+      "status": "ok",
+      "evidence": {
+        "evidence_id": "obs-019-changes",
+        "source": "get_recent_changes",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "fixtures-1.0.0",
+        "content_hash": "21157403229c487b910844b794dbde2f782ca5a55d4f38743233b8b70c9218f5",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "changes",
+          "service_id": "checkout-api",
+          "items": [
+            {
+              "change_id": "change-019",
+              "changed_at": "2026-10-01T11:55:00Z",
+              "kind": "deployment",
+              "release": "release-42",
+              "summary": "Checkout release-42 deployed; release-41 baseline error rate was 0.003."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "status": "ok",
+      "evidence": {
+        "evidence_id": "obs-019-logs",
+        "source": "get_recent_logs",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "fixtures-1.0.0",
+        "content_hash": "928fc518af2b0be55f1ba2b530b12373f67791702de9f096a4acc0a5dd96f8e5",
+        "complete": false,
+        "sanitized": true,
+        "payload": {
+          "kind": "logs",
+          "service_id": "checkout-api",
+          "entries": [
+            {
+              "observed_at": "2026-10-01T11:01:00Z",
+              "message": "Historical release-42 serializer failure from an earlier rollout; current window logs unavailable."
+            }
+          ],
+          "truncated": false
+        }
+      }
+    }
+  ],
+  "retrieval_passage_ids": [
+    "rb-rollback-p1",
+    "rb-evidence-p1"
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "$defs": {
+    "RollbackArguments": {
+      "additionalProperties": false,
+      "properties": {
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "target_release": {
+          "const": "release-41",
+          "title": "Target Release",
+          "type": "string"
+        }
+      },
+      "required": [
+        "service_id",
+        "target_release"
+      ],
+      "title": "RollbackArguments",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "proposal_id": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+      "title": "Proposal Id",
+      "type": "string"
+    },
+    "run_id": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+      "title": "Run Id",
+      "type": "string"
+    },
+    "action": {
+      "const": "rollback_demo_release",
+      "title": "Action",
+      "type": "string"
+    },
+    "arguments": {
+      "$ref": "#/$defs/RollbackArguments"
+    },
+    "expected_current_release": {
+      "const": "release-42",
+      "title": "Expected Current Release",
+      "type": "string"
+    },
+    "evidence_ids": {
+      "items": {
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+        "type": "string"
+      },
+      "maxItems": 16,
+      "minItems": 1,
+      "title": "Evidence Ids",
+      "type": "array"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "expires_at": {
+      "format": "date-time",
+      "title": "Expires At",
+      "type": "string"
+    },
+    "proposal_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Proposal Hash",
+      "type": "string"
+    }
+  },
+  "required": [
+    "proposal_id",
+    "run_id",
+    "action",
+    "arguments",
+    "expected_current_release",
+    "evidence_ids",
+    "created_at",
+    "expires_at",
+    "proposal_hash"
+  ],
+  "title": "Proposal",
+  "type": "object"
+}

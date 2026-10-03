@@ -1,0 +1,88 @@
+{
+  "$defs": {
+    "ServiceState": {
+      "additionalProperties": false,
+      "properties": {
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "release": {
+          "enum": [
+            "release-41",
+            "release-42"
+          ],
+          "title": "Release",
+          "type": "string"
+        },
+        "revision": {
+          "minimum": 0,
+          "title": "Revision",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "service_id",
+        "release",
+        "revision"
+      ],
+      "title": "ServiceState",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "receipt_id": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+      "title": "Receipt Id",
+      "type": "string"
+    },
+    "idempotency_key": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+      "title": "Idempotency Key",
+      "type": "string"
+    },
+    "proposal_id": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+      "title": "Proposal Id",
+      "type": "string"
+    },
+    "proposal_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Proposal Hash",
+      "type": "string"
+    },
+    "before": {
+      "$ref": "#/$defs/ServiceState"
+    },
+    "after": {
+      "$ref": "#/$defs/ServiceState"
+    },
+    "status": {
+      "enum": [
+        "applied",
+        "not_applied"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "audited_at": {
+      "format": "date-time",
+      "title": "Audited At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "receipt_id",
+    "idempotency_key",
+    "proposal_id",
+    "proposal_hash",
+    "before",
+    "after",
+    "status",
+    "audited_at"
+  ],
+  "title": "ActionReceipt",
+  "type": "object"
+}

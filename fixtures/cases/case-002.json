@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "fixture_version": "1.0.0",
+  "incident": {
+    "service_id": "checkout-api",
+    "submitted_at": "2026-10-01T12:05:00Z",
+    "summary": "Checkout API errors have increased. Investigate and recommend a next step."
+  },
+  "responses": [
+    {
+      "status": "ok",
+      "evidence": {
+        "evidence_id": "obs-002-health",
+        "source": "get_service_health",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "fixtures-1.0.0",
+        "content_hash": "d050a8e7e3dbda54db778ebde022dfced3d7677dd45bfdfeae8ea98be738f19f",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "health",
+          "service_id": "checkout-api",
+          "observed_at": "2026-10-01T12:04:00Z",
+          "release": "release-42",
+          "error_rate": 0.25,
+          "latency_p95_ms": 1700.0,
+          "dependency_state": "degraded"
+        }
+      }
+    },
+    {
+      "status": "ok",
+      "evidence": {
+        "evidence_id": "obs-002-changes",
+        "source": "get_recent_changes",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "fixtures-1.0.0",
+        "content_hash": "f93be8ff9e326b8db03eb78a95fcfa16347337387677012652eb6662823ab2a7",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "changes",
+          "service_id": "checkout-api",
+          "items": [
+            {
+              "change_id": "change-002",
+              "changed_at": "2026-10-01T11:55:00Z",
+              "kind": "deployment",
+              "release": "release-42",
+              "summary": "Checkout release-42 deployed; release-41 baseline error rate was 0.003."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "status": "ok",
+      "evidence": {
+        "evidence_id": "obs-002-logs",
+        "source": "get_recent_logs",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "fixtures-1.0.0",
+        "content_hash": "f6f386bf2ee9774b5a8a69ac6089b060de974333475d8cad8b7c7652a3e8390a",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "logs",
+          "service_id": "checkout-api",
+          "entries": [
+            {
+              "observed_at": "2026-10-01T12:04:00Z",
+              "message": "payment-provider timeout; upstream probe failing on release-41 and release-42"
+            }
+          ],
+          "truncated": false
+        }
+      }
+    }
+  ],
+  "retrieval_passage_ids": [
+    "rb-dependency-p1",
+    "rb-evidence-p1"
+  ]
+}

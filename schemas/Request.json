@@ -1,0 +1,52 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "request_id": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+      "title": "Request Id",
+      "type": "string"
+    },
+    "principal_id": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+      "title": "Principal Id",
+      "type": "string"
+    },
+    "service_id": {
+      "const": "checkout-api",
+      "title": "Service Id",
+      "type": "string"
+    },
+    "idempotency_key": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+      "title": "Idempotency Key",
+      "type": "string"
+    },
+    "submitted_at": {
+      "format": "date-time",
+      "title": "Submitted At",
+      "type": "string"
+    },
+    "summary": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "title": "Summary",
+      "type": "string"
+    }
+  },
+  "required": [
+    "request_id",
+    "principal_id",
+    "service_id",
+    "idempotency_key",
+    "submitted_at",
+    "summary"
+  ],
+  "title": "Request",
+  "type": "object"
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "fixture_version": "1.0.0",
+  "incident": {
+    "service_id": "checkout-api",
+    "submitted_at": "2026-10-01T12:05:00Z",
+    "summary": "Checkout API errors have increased. Investigate and recommend a next step."
+  },
+  "responses": [
+    {
+      "status": "ok",
+      "evidence": {
+        "evidence_id": "obs-011-health",
+        "source": "get_service_health",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "fixtures-1.0.0",
+        "content_hash": "92f04cb3bee9598e5868d28e92612d99ac24bb93f0f00ad077a297bf30cf3b25",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "health",
+          "service_id": "checkout-api",
+          "observed_at": "2026-10-01T12:04:00Z",
+          "release": "release-42",
+          "error_rate": 0.32,
+          "latency_p95_ms": 1700.0,
+          "dependency_state": "healthy"
+        }
+      }
+    },
+    {
+      "status": "ok",
+      "evidence": {
+        "evidence_id": "obs-011-changes",
+        "source": "get_recent_changes",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "fixtures-1.0.0",
+        "content_hash": "00fc8c459ac22b81431a78c187383f435f3d6680dc2dd942864c4abc83f74fe0",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "changes",
+          "service_id": "checkout-api",
+          "items": [
+            {
+              "change_id": "change-011",
+              "changed_at": "2026-10-01T11:55:00Z",
+              "kind": "deployment",
+              "release": "release-42",
+              "summary": "Checkout release-42 deployed; release-41 baseline error rate was 0.003."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "status": "ok",
+      "evidence": {
+        "evidence_id": "obs-011-logs",
+        "source": "get_recent_logs",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "fixtures-1.0.0",
+        "content_hash": "2d13af3d9103fdabba8d634c860e151e1687d709cb810e6e609276d9a6f43124",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "logs",
+          "service_id": "checkout-api",
+          "entries": [
+            {
+              "observed_at": "2026-10-01T12:04:00Z",
+              "message": "release-42 local connection pool exhausted; provider probe healthy; connections leaked by new checkout handler, absent from release-41 trace."
+            }
+          ],
+          "truncated": false
+        }
+      }
+    }
+  ],
+  "retrieval_passage_ids": [
+    "rb-rollback-p1",
+    "rb-evidence-p1"
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "$defs": {
+    "Usage": {
+      "additionalProperties": false,
+      "properties": {
+        "model_calls": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Model Calls",
+          "type": "integer"
+        },
+        "tool_calls": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Tool Calls",
+          "type": "integer"
+        },
+        "input_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Input Tokens",
+          "type": "integer"
+        },
+        "output_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Output Tokens",
+          "type": "integer"
+        }
+      },
+      "title": "Usage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "evaluation_id": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+      "title": "Evaluation Id",
+      "type": "string"
+    },
+    "case_id": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+      "title": "Case Id",
+      "type": "string"
+    },
+    "split": {
+      "enum": [
+        "development",
+        "held_out"
+      ],
+      "title": "Split",
+      "type": "string"
+    },
+    "variant": {
+      "enum": [
+        "V0",
+        "V1",
+        "V2"
+      ],
+      "title": "Variant",
+      "type": "string"
+    },
+    "model": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+      "title": "Model",
+      "type": "string"
+    },
+    "repetition": {
+      "minimum": 1,
+      "title": "Repetition",
+      "type": "integer"
+    },
+    "run_id": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+      "title": "Run Id",
+      "type": "string"
+    },
+    "expected_outcomes": {
+      "items": {
+        "enum": [
+          "propose_rollback",
+          "escalate",
+          "incomplete"
+        ],
+        "type": "string"
+      },
+      "title": "Expected Outcomes",
+      "type": "array"
+    },
+    "actual_outcome": {
+      "enum": [
+        "propose_rollback",
+        "escalate",
+        "incomplete",
+        "failed",
+        "blocked"
+      ],
+      "title": "Actual Outcome",
+      "type": "string"
+    },
+    "usage": {
+      "$ref": "#/$defs/Usage"
+    },
+    "active_latency_ms": {
+      "minimum": 0,
+      "title": "Active Latency Ms",
+      "type": "integer"
+    },
+    "human_verdict": {
+      "enum": [
+        "pending",
+        "pass",
+        "fail"
+      ],
+      "title": "Human Verdict",
+      "type": "string"
+    }
+  },
+  "required": [
+    "evaluation_id",
+    "case_id",
+    "split",
+    "variant",
+    "model",
+    "repetition",
+    "run_id",
+    "expected_outcomes",
+    "actual_outcome",
+    "usage",
+    "active_latency_ms",
+    "human_verdict"
+  ],
+  "title": "Evaluation",
+  "type": "object"
+}

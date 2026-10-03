@@ -2,9 +2,16 @@
 
 Date: October 3, 2026  
 Prepared for: Bill Mathers  
-Status: Draft for review; this document does not report completed implementation  
+Status: P01 implemented and locally verified; later packages remain planned
+
 Project destination: C:\Github\aws-incident-response-demo  
 Target role: [Duke job description](DukeJob.txt)
+
+Implementation update (October 3, 2026): P01 now has a pinned local environment, shared contracts
+and JSON Schemas, eight versioned runbooks, twenty frozen cases (eight development / twelve
+held-out), and offline CI configuration. See [P01 acceptance evidence](p01-acceptance.md) for
+local check results and review limitations. Hosted CI and all live AWS gates remain unverified.
+P02 is next. The design and estimates below are retained as the planning baseline.
 
 Build one focused incident-response demonstration using LangGraph and LangChain on Amazon Bedrock AgentCore Runtime. Begin with a small local prototype, then prove live Bedrock inference, Knowledge Base retrieval, Guardrails, and an event-driven approval workflow on AWS. Compare three prompt strategies and two models using a controlled evaluation.
 
@@ -216,7 +223,7 @@ Report: case success by category; useful resolution and appropriate escalation; 
 
 **9 Work packages and dependencies**
 
-Estimates are focused engineering hours for one developer, not elapsed commitments. No package is marked complete by this draft. Each package must produce retained acceptance evidence; a green offline CI run is not a live AWS gate.
+Estimates are focused engineering hours for one developer, not elapsed commitments. P01 has passed local acceptance; see the implementation update above. Each package must produce retained acceptance evidence; a green offline CI run is not a live AWS gate.
 
 | Package | Work | Depends on | Hours | Completion evidence |
 |---|---|---|---|---|
@@ -275,7 +282,7 @@ The recording shows one live investigation, evidence and uncertainty, approval a
 
 **12 Definition of done and planning status**
 
-The master plan is ready for implementation review when its scope, milestones, unresolved AWS selections, and evaluation budget are understood. This drafting task creates documentation only.
+The master plan is ready for implementation review when its scope, milestones, unresolved AWS selections, and evaluation budget are understood. The original drafting task created documentation only; subsequent P01 implementation is recorded in the update above.
 
 The implemented AWS demo is complete only when:
 
@@ -286,4 +293,4 @@ The implemented AWS demo is complete only when:
 - Project-owned resources are inventoried before cleanup; retained evidence is exported; deletion and any remaining billable resources are verified.
 - Unresolved limitations are stated, including the synthetic workload, small evaluation set, and absence of production customer operations.
 
-The next implementation package, when requested, is P01. Drafting this master plan does not start P01, deploy AWS resources, or modify either original plan or comparison.
+The next implementation package is P02: the thin local end-to-end slice. P01 did not deploy AWS resources or modify either original plan or comparison.

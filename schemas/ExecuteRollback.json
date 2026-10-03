@@ -1,0 +1,28 @@
+{
+  "additionalProperties": false,
+  "description": "Executor-only input; arguments are resolved from the persisted proposal.",
+  "properties": {
+    "proposal_id": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+      "title": "Proposal Id",
+      "type": "string"
+    },
+    "approval_id": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+      "title": "Approval Id",
+      "type": "string"
+    },
+    "idempotency_key": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+      "title": "Idempotency Key",
+      "type": "string"
+    }
+  },
+  "required": [
+    "proposal_id",
+    "approval_id",
+    "idempotency_key"
+  ],
+  "title": "ExecuteRollback",
+  "type": "object"
+}

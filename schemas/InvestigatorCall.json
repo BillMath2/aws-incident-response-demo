@@ -1,0 +1,201 @@
+{
+  "$defs": {
+    "ChangesArgs": {
+      "additionalProperties": false,
+      "properties": {
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "window_minutes": {
+          "default": 60,
+          "maximum": 120,
+          "minimum": 1,
+          "title": "Window Minutes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "service_id"
+      ],
+      "title": "ChangesArgs",
+      "type": "object"
+    },
+    "ChangesCall": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "const": "get_recent_changes",
+          "title": "Name",
+          "type": "string"
+        },
+        "arguments": {
+          "$ref": "#/$defs/ChangesArgs"
+        }
+      },
+      "required": [
+        "name",
+        "arguments"
+      ],
+      "title": "ChangesCall",
+      "type": "object"
+    },
+    "HealthArgs": {
+      "additionalProperties": false,
+      "properties": {
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "service_id"
+      ],
+      "title": "HealthArgs",
+      "type": "object"
+    },
+    "HealthCall": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "const": "get_service_health",
+          "title": "Name",
+          "type": "string"
+        },
+        "arguments": {
+          "$ref": "#/$defs/HealthArgs"
+        }
+      },
+      "required": [
+        "name",
+        "arguments"
+      ],
+      "title": "HealthCall",
+      "type": "object"
+    },
+    "LogsArgs": {
+      "additionalProperties": false,
+      "properties": {
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "filter": {
+          "default": "errors",
+          "enum": [
+            "errors",
+            "dependency",
+            "deployment"
+          ],
+          "title": "Filter",
+          "type": "string"
+        },
+        "limit": {
+          "default": 20,
+          "maximum": 50,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "service_id"
+      ],
+      "title": "LogsArgs",
+      "type": "object"
+    },
+    "LogsCall": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "const": "get_recent_logs",
+          "title": "Name",
+          "type": "string"
+        },
+        "arguments": {
+          "$ref": "#/$defs/LogsArgs"
+        }
+      },
+      "required": [
+        "name",
+        "arguments"
+      ],
+      "title": "LogsCall",
+      "type": "object"
+    },
+    "RetrievalArgs": {
+      "additionalProperties": false,
+      "properties": {
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "query": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Query",
+          "type": "string"
+        },
+        "limit": {
+          "default": 3,
+          "maximum": 5,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "service_id",
+        "query"
+      ],
+      "title": "RetrievalArgs",
+      "type": "object"
+    },
+    "RetrievalCall": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "const": "retrieve_runbook",
+          "title": "Name",
+          "type": "string"
+        },
+        "arguments": {
+          "$ref": "#/$defs/RetrievalArgs"
+        }
+      },
+      "required": [
+        "name",
+        "arguments"
+      ],
+      "title": "RetrievalCall",
+      "type": "object"
+    }
+  },
+  "discriminator": {
+    "mapping": {
+      "get_recent_changes": "#/$defs/ChangesCall",
+      "get_recent_logs": "#/$defs/LogsCall",
+      "get_service_health": "#/$defs/HealthCall",
+      "retrieve_runbook": "#/$defs/RetrievalCall"
+    },
+    "propertyName": "name"
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/HealthCall"
+    },
+    {
+      "$ref": "#/$defs/ChangesCall"
+    },
+    {
+      "$ref": "#/$defs/LogsCall"
+    },
+    {
+      "$ref": "#/$defs/RetrievalCall"
+    }
+  ]
+}

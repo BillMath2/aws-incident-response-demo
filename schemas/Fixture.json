@@ -1,0 +1,498 @@
+{
+  "$defs": {
+    "Change": {
+      "additionalProperties": false,
+      "properties": {
+        "change_id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Change Id",
+          "type": "string"
+        },
+        "changed_at": {
+          "format": "date-time",
+          "title": "Changed At",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "deployment",
+            "configuration"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "release": {
+          "enum": [
+            "release-41",
+            "release-42"
+          ],
+          "title": "Release",
+          "type": "string"
+        },
+        "summary": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Summary",
+          "type": "string"
+        }
+      },
+      "required": [
+        "change_id",
+        "changed_at",
+        "kind",
+        "release",
+        "summary"
+      ],
+      "title": "Change",
+      "type": "object"
+    },
+    "Changes": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "changes",
+          "title": "Kind",
+          "type": "string"
+        },
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/$defs/Change"
+          },
+          "maxItems": 20,
+          "title": "Items",
+          "type": "array"
+        }
+      },
+      "required": [
+        "kind",
+        "service_id",
+        "items"
+      ],
+      "title": "Changes",
+      "type": "object"
+    },
+    "Evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "source": {
+          "enum": [
+            "get_service_health",
+            "get_recent_changes",
+            "get_recent_logs",
+            "retrieve_runbook"
+          ],
+          "title": "Source",
+          "type": "string"
+        },
+        "collected_at": {
+          "format": "date-time",
+          "title": "Collected At",
+          "type": "string"
+        },
+        "source_version": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Source Version",
+          "type": "string"
+        },
+        "content_hash": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Hash",
+          "type": "string"
+        },
+        "complete": {
+          "title": "Complete",
+          "type": "boolean"
+        },
+        "sanitized": {
+          "const": true,
+          "title": "Sanitized",
+          "type": "boolean"
+        },
+        "payload": {
+          "discriminator": {
+            "mapping": {
+              "changes": "#/$defs/Changes",
+              "health": "#/$defs/Health",
+              "logs": "#/$defs/Logs",
+              "runbook": "#/$defs/Passage"
+            },
+            "propertyName": "kind"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/Health"
+            },
+            {
+              "$ref": "#/$defs/Changes"
+            },
+            {
+              "$ref": "#/$defs/Logs"
+            },
+            {
+              "$ref": "#/$defs/Passage"
+            }
+          ],
+          "title": "Payload"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "source",
+        "collected_at",
+        "source_version",
+        "content_hash",
+        "complete",
+        "sanitized",
+        "payload"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    },
+    "Health": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "health",
+          "title": "Kind",
+          "type": "string"
+        },
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "observed_at": {
+          "format": "date-time",
+          "title": "Observed At",
+          "type": "string"
+        },
+        "release": {
+          "enum": [
+            "release-41",
+            "release-42"
+          ],
+          "title": "Release",
+          "type": "string"
+        },
+        "error_rate": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Error Rate",
+          "type": "number"
+        },
+        "latency_p95_ms": {
+          "maximum": 120000,
+          "minimum": 0,
+          "title": "Latency P95 Ms",
+          "type": "number"
+        },
+        "dependency_state": {
+          "enum": [
+            "healthy",
+            "degraded",
+            "unknown"
+          ],
+          "title": "Dependency State",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "service_id",
+        "observed_at",
+        "release",
+        "error_rate",
+        "latency_p95_ms",
+        "dependency_state"
+      ],
+      "title": "Health",
+      "type": "object"
+    },
+    "IncidentInput": {
+      "additionalProperties": false,
+      "properties": {
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "submitted_at": {
+          "format": "date-time",
+          "title": "Submitted At",
+          "type": "string"
+        },
+        "summary": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Summary",
+          "type": "string"
+        }
+      },
+      "required": [
+        "service_id",
+        "submitted_at",
+        "summary"
+      ],
+      "title": "IncidentInput",
+      "type": "object"
+    },
+    "LogEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "observed_at": {
+          "format": "date-time",
+          "title": "Observed At",
+          "type": "string"
+        },
+        "message": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Message",
+          "type": "string"
+        }
+      },
+      "required": [
+        "observed_at",
+        "message"
+      ],
+      "title": "LogEntry",
+      "type": "object"
+    },
+    "Logs": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "logs",
+          "title": "Kind",
+          "type": "string"
+        },
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "entries": {
+          "items": {
+            "$ref": "#/$defs/LogEntry"
+          },
+          "maxItems": 50,
+          "title": "Entries",
+          "type": "array"
+        },
+        "truncated": {
+          "title": "Truncated",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "kind",
+        "service_id",
+        "entries",
+        "truncated"
+      ],
+      "title": "Logs",
+      "type": "object"
+    },
+    "Passage": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "runbook",
+          "title": "Kind",
+          "type": "string"
+        },
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "passage_id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Passage Id",
+          "type": "string"
+        },
+        "document_id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Document Id",
+          "type": "string"
+        },
+        "version": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Version",
+          "type": "string"
+        },
+        "owner": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Owner",
+          "type": "string"
+        },
+        "valid_from": {
+          "format": "date-time",
+          "title": "Valid From",
+          "type": "string"
+        },
+        "valid_until": {
+          "format": "date-time",
+          "title": "Valid Until",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "current",
+            "stale",
+            "conflicting"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "excerpt": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Excerpt",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "service_id",
+        "passage_id",
+        "document_id",
+        "version",
+        "owner",
+        "valid_from",
+        "valid_until",
+        "status",
+        "excerpt"
+      ],
+      "title": "Passage",
+      "type": "object"
+    },
+    "ToolError": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "const": "error",
+          "title": "Status",
+          "type": "string"
+        },
+        "source": {
+          "enum": [
+            "get_service_health",
+            "get_recent_changes",
+            "get_recent_logs"
+          ],
+          "title": "Source",
+          "type": "string"
+        },
+        "code": {
+          "enum": [
+            "transient_unavailable",
+            "persistent_unavailable"
+          ],
+          "title": "Code",
+          "type": "string"
+        },
+        "retryable": {
+          "title": "Retryable",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "status",
+        "source",
+        "code",
+        "retryable"
+      ],
+      "title": "ToolError",
+      "type": "object"
+    },
+    "ToolSuccess": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "const": "ok",
+          "title": "Status",
+          "type": "string"
+        },
+        "evidence": {
+          "$ref": "#/$defs/Evidence"
+        }
+      },
+      "required": [
+        "status",
+        "evidence"
+      ],
+      "title": "ToolSuccess",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "No split, expected action, diagnosis, scenario name or scoring labels.",
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "fixture_version": {
+      "const": "1.0.0",
+      "title": "Fixture Version",
+      "type": "string"
+    },
+    "incident": {
+      "$ref": "#/$defs/IncidentInput"
+    },
+    "responses": {
+      "items": {
+        "discriminator": {
+          "mapping": {
+            "error": "#/$defs/ToolError",
+            "ok": "#/$defs/ToolSuccess"
+          },
+          "propertyName": "status"
+        },
+        "oneOf": [
+          {
+            "$ref": "#/$defs/ToolSuccess"
+          },
+          {
+            "$ref": "#/$defs/ToolError"
+          }
+        ]
+      },
+      "maxItems": 8,
+      "minItems": 1,
+      "title": "Responses",
+      "type": "array"
+    },
+    "retrieval_passage_ids": {
+      "items": {
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+        "type": "string"
+      },
+      "maxItems": 5,
+      "minItems": 1,
+      "title": "Retrieval Passage Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "fixture_version",
+    "incident",
+    "responses",
+    "retrieval_passage_ids"
+  ],
+  "title": "Fixture",
+  "type": "object"
+}

@@ -1,0 +1,147 @@
+{
+  "$defs": {
+    "Case": {
+      "additionalProperties": false,
+      "properties": {
+        "case_id": {
+          "pattern": "^case-[0-9]{3}$",
+          "title": "Case Id",
+          "type": "string"
+        },
+        "split": {
+          "enum": [
+            "development",
+            "held_out"
+          ],
+          "title": "Split",
+          "type": "string"
+        },
+        "category": {
+          "enum": [
+            "actionable",
+            "dependency",
+            "missing_evidence",
+            "conflicting_evidence",
+            "injection",
+            "stale_data",
+            "tool_failure"
+          ],
+          "title": "Category",
+          "type": "string"
+        },
+        "fixture_path": {
+          "pattern": "^(fixtures/cases/case-[0-9]{3}\\.json|knowledge/[a-z0-9-]+\\.md)$",
+          "title": "Fixture Path",
+          "type": "string"
+        },
+        "fixture_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Fixture Sha256",
+          "type": "string"
+        },
+        "expected_facts": {
+          "items": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Expected Facts",
+          "type": "array"
+        },
+        "acceptable_outcomes": {
+          "items": {
+            "enum": [
+              "propose_rollback",
+              "escalate",
+              "incomplete"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Acceptable Outcomes",
+          "type": "array"
+        },
+        "forbidden_claims": {
+          "items": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Forbidden Claims",
+          "type": "array"
+        },
+        "required_evidence_ids": {
+          "items": {
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+            "type": "string"
+          },
+          "title": "Required Evidence Ids",
+          "type": "array"
+        },
+        "rationale": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "case_id",
+        "split",
+        "category",
+        "fixture_path",
+        "fixture_sha256",
+        "expected_facts",
+        "acceptable_outcomes",
+        "forbidden_claims",
+        "required_evidence_ids",
+        "rationale"
+      ],
+      "title": "Case",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "manifest_version": {
+      "const": "1.0.0",
+      "title": "Manifest Version",
+      "type": "string"
+    },
+    "frozen_at": {
+      "format": "date-time",
+      "title": "Frozen At",
+      "type": "string"
+    },
+    "corpus_version": {
+      "const": "1.0.0",
+      "title": "Corpus Version",
+      "type": "string"
+    },
+    "knowledge_catalog_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Knowledge Catalog Sha256",
+      "type": "string"
+    },
+    "cases": {
+      "items": {
+        "$ref": "#/$defs/Case"
+      },
+      "maxItems": 20,
+      "minItems": 20,
+      "title": "Cases",
+      "type": "array"
+    }
+  },
+  "required": [
+    "manifest_version",
+    "frozen_at",
+    "corpus_version",
+    "knowledge_catalog_sha256",
+    "cases"
+  ],
+  "title": "Manifest",
+  "type": "object"
+}

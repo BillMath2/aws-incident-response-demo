@@ -1,0 +1,126 @@
+{
+  "$defs": {
+    "Passage": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "runbook",
+          "title": "Kind",
+          "type": "string"
+        },
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "passage_id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Passage Id",
+          "type": "string"
+        },
+        "document_id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Document Id",
+          "type": "string"
+        },
+        "version": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Version",
+          "type": "string"
+        },
+        "owner": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Owner",
+          "type": "string"
+        },
+        "valid_from": {
+          "format": "date-time",
+          "title": "Valid From",
+          "type": "string"
+        },
+        "valid_until": {
+          "format": "date-time",
+          "title": "Valid Until",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "current",
+            "stale",
+            "conflicting"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "excerpt": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Excerpt",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "service_id",
+        "passage_id",
+        "document_id",
+        "version",
+        "owner",
+        "valid_from",
+        "valid_until",
+        "status",
+        "excerpt"
+      ],
+      "title": "Passage",
+      "type": "object"
+    },
+    "RunbookEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "pattern": "^(fixtures/cases/case-[0-9]{3}\\.json|knowledge/[a-z0-9-]+\\.md)$",
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "passage": {
+          "$ref": "#/$defs/Passage"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "passage"
+      ],
+      "title": "RunbookEntry",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "corpus_version": {
+      "const": "1.0.0",
+      "title": "Corpus Version",
+      "type": "string"
+    },
+    "documents": {
+      "items": {
+        "$ref": "#/$defs/RunbookEntry"
+      },
+      "maxItems": 8,
+      "minItems": 8,
+      "title": "Documents",
+      "type": "array"
+    }
+  },
+  "required": [
+    "corpus_version",
+    "documents"
+  ],
+  "title": "KnowledgeCatalog",
+  "type": "object"
+}
