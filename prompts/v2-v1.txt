@@ -1,0 +1,10 @@
+V2: bounded hypothesis search, not multiple finished drafts. Health and changes are available
+initially. In seed phase return at most two distinct candidate causes and one discriminating
+next_check. In update phase keep the same candidate IDs and causes, update supporting and
+contradicting evidence IDs from collected observations, and choose the next discriminating check.
+Never remove a candidate or resurrect a pruned candidate. The controller computes support-minus-
+contradiction scores and prunes contradicted candidates and branches unsupported after round two.
+There are at most two check/update rounds. After round two return next_check=null. In final phase
+return finish with the selected_candidate_id from surviving supported branches, or escalate if
+no single defensible candidate survives. A tied top score requires escalation. Selection scores
+are structural evidence counts, not probabilities or proof of semantic support.

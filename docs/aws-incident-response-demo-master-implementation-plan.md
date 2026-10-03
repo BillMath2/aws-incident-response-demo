@@ -2,7 +2,7 @@
 
 Date: October 3, 2026  
 Prepared for: Bill Mathers  
-Status: P01 and P02 implemented and locally verified; later packages remain planned
+Status: P01-P03 implemented and locally verified; later packages remain planned
 
 Project destination: C:\Github\aws-incident-response-demo  
 Target role: [Duke job description](DukeJob.txt)
@@ -14,8 +14,13 @@ local check results and review limitations. Hosted CI and all live AWS gates rem
 P02 update: the labeled local stub now presents proposals, accepts simulated approval/rejection,
 applies an in-memory sandbox transition, independently verifies synthetic health, and exports
 JSON evidence. See [P02 acceptance and retained walkthroughs](p02-acceptance.md).
-M1 is locally demonstrated; P03 is next, and P04 can begin independently after AWS readiness
-decisions. The design and estimates below are retained as the planning baseline.
+P02 GitHub CI was reported green by Bill. M1 is locally demonstrated.
+
+P03 update: versioned V0/V1/V2 prompts now run through bounded LangGraph control flow with a
+scripted offline provider. The development harness freezes trial inputs, retains failures,
+and separates automatic checks from human semantic review. See [P03 acceptance](p03-acceptance.md).
+P04 AWS readiness is next; P03 does not claim live model quality or held-out evaluation.
+The design and estimates below are retained as the planning baseline.
 
 Build one focused incident-response demonstration using LangGraph and LangChain on Amazon Bedrock AgentCore Runtime. Begin with a small local prototype, then prove live Bedrock inference, Knowledge Base retrieval, Guardrails, and an event-driven approval workflow on AWS. Compare three prompt strategies and two models using a controlled evaluation.
 
@@ -227,7 +232,7 @@ Report: case success by category; useful resolution and appropriate escalation; 
 
 **9 Work packages and dependencies**
 
-Estimates are focused engineering hours for one developer, not elapsed commitments. P01 and P02 have passed local acceptance; see the implementation updates above. Each package must produce retained acceptance evidence; a green offline CI run is not a live AWS gate.
+Estimates are focused engineering hours for one developer, not elapsed commitments. P01-P03 have passed local acceptance; see the implementation updates above. Each package must produce retained acceptance evidence; a green offline CI run is not a live AWS gate.
 
 | Package | Work | Depends on | Hours | Completion evidence |
 |---|---|---|---|---|
@@ -286,7 +291,7 @@ The recording shows one live investigation, evidence and uncertainty, approval a
 
 **12 Definition of done and planning status**
 
-The master plan is ready for implementation review when its scope, milestones, unresolved AWS selections, and evaluation budget are understood. The original drafting task created documentation only; subsequent P01/P02 implementation is recorded in the updates above.
+The master plan is ready for implementation review when its scope, milestones, unresolved AWS selections, and evaluation budget are understood. The original drafting task created documentation only; subsequent P01-P03 implementation is recorded in the updates above.
 
 The implemented AWS demo is complete only when:
 
@@ -297,4 +302,4 @@ The implemented AWS demo is complete only when:
 - Project-owned resources are inventoried before cleanup; retained evidence is exported; deletion and any remaining billable resources are verified.
 - Unresolved limitations are stated, including the synthetic workload, small evaluation set, and absence of production customer operations.
 
-The next implementation package is P03: prompt variants and the evaluation harness. P04 AWS readiness can also begin after P02. P01/P02 did not deploy AWS resources or modify either original plan or comparison.
+The next implementation package is P04: AWS readiness and deployment foundation. P01-P03 did not deploy AWS resources or modify either original plan or comparison. Live inference, retrieval, filtering and workflow gates remain P05-P08 work.

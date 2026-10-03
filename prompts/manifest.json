@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "shared_output_contract": "Investigation",
+  "files": {
+    "shared-v1.txt": "e1baff7bc78140c346966a324caea997054dc5036138397f47d3c758795027fb",
+    "v0-v1.txt": "ccfb70bcef756b481eed33670fdf2380256d0abad9fed71959cb2d611cdb233f",
+    "v1-v1.txt": "c870b0faaa0d4e7fe77f841df60b72118974c239911456374b4b9e96dcd4dd59",
+    "v2-v1.txt": "d2341fdb2a5adeb8a5bd177930361b7312e65087caf6336be5ea4d07e2b021fc"
+  },
+  "variants": {
+    "V0": "v0-v1.txt",
+    "V1": "v1-v1.txt",
+    "V2": "v2-v1.txt"
+  }
+}

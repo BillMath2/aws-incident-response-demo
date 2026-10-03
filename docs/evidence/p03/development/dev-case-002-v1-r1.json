@@ -1,0 +1,178 @@
+{
+  "trial": {
+    "trial_id": "dev-case-002-v1-r1",
+    "case_id": "case-002",
+    "variant": "V1",
+    "repetition": 1
+  },
+  "result": {
+    "run_id": "experiment-03d8debb44a0453c889c9d593f9d5aec",
+    "variant": "V1",
+    "mode": "offline_scripted",
+    "status": "complete",
+    "stop_reason": "finished",
+    "investigation": {
+      "run_id": "experiment-03d8debb44a0453c889c9d593f9d5aec",
+      "outcome": "escalate",
+      "facts": [
+        {
+          "statement": "Observed error rate 25.0%, release release-42, dependency state degraded.",
+          "evidence_ids": [
+            "obs-002-health"
+          ]
+        }
+      ],
+      "hypotheses": [
+        {
+          "cause": "Deployment regression",
+          "supporting_evidence": [],
+          "contradicting_evidence": [],
+          "status": "candidate"
+        }
+      ],
+      "missing_information": [
+        "A required diagnostic observation is missing",
+        "Healthy dependencies have not been established",
+        "The local stub cannot corroborate its known serializer regression pattern",
+        "Current checkout rollback guidance is unavailable"
+      ],
+      "next_check": "Ask an operator to refresh or reconcile the missing evidence",
+      "justification": "LOCAL STUB: A required diagnostic observation is missing; Healthy dependencies have not been established; The local stub cannot corroborate its known serializer regression pattern; Current checkout rollback guidance is unavailable"
+    },
+    "evidence": [
+      {
+        "evidence_id": "obs-002-health",
+        "source": "get_service_health",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "fixtures-1.0.0",
+        "content_hash": "d050a8e7e3dbda54db778ebde022dfced3d7677dd45bfdfeae8ea98be738f19f",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "health",
+          "service_id": "checkout-api",
+          "observed_at": "2026-10-01T12:04:00Z",
+          "release": "release-42",
+          "error_rate": 0.25,
+          "latency_p95_ms": 1700.0,
+          "dependency_state": "degraded"
+        }
+      }
+    ],
+    "trace": [
+      {
+        "event": "boundary_checked",
+        "phase": "gather",
+        "round": 0,
+        "call": null,
+        "detail": "input: pass",
+        "branches": []
+      },
+      {
+        "event": "provider_attempt",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "Offline provider attempt 1; not a model call",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "output: pass",
+        "branches": []
+      },
+      {
+        "event": "tool_selected",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_service_health",
+          "arguments": {
+            "service_id": "checkout-api"
+          }
+        },
+        "detail": "Collect missing health evidence",
+        "branches": []
+      },
+      {
+        "event": "tool_attempt",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_service_health",
+          "arguments": {
+            "service_id": "checkout-api"
+          }
+        },
+        "detail": "attempt 1",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "source: pass",
+        "branches": []
+      },
+      {
+        "event": "tool_observed",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_service_health",
+          "arguments": {
+            "service_id": "checkout-api"
+          }
+        },
+        "detail": "Validated observations collected",
+        "branches": []
+      },
+      {
+        "event": "provider_attempt",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "Offline provider attempt 1; not a model call",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "output: pass",
+        "branches": []
+      },
+      {
+        "event": "finished",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "Accepted structured escalate; semantic support still needs review",
+        "branches": []
+      }
+    ],
+    "provider_calls": 2,
+    "usage": {
+      "model_calls": 0,
+      "tool_calls": 1,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    "active_latency_ms": 21
+  },
+  "score": {
+    "trial_id": "dev-case-002-v1-r1",
+    "case_id": "case-002",
+    "variant": "V1",
+    "outcome_match": true,
+    "citations_exist": true,
+    "required_evidence_present": false,
+    "human_verdict": "pending",
+    "case_success": false
+  }
+}

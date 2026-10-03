@@ -1,0 +1,4 @@
+V0: structured decomposition baseline. The controller has already gathered health, changes,
+logs and runbooks in that fixed order. Return one finish response. Assess the symptoms, change
+timeline, corroborating and conflicting observations, missing information and appropriate action
+using Investigation fields. No extra tools and no hidden reasoning transcript are requested.

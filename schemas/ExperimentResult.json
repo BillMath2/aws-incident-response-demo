@@ -1,0 +1,933 @@
+{
+  "$defs": {
+    "Branch": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate": {
+          "$ref": "#/$defs/Candidate"
+        },
+        "status": {
+          "enum": [
+            "candidate",
+            "supported",
+            "pruned"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "score": {
+          "title": "Score",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "candidate",
+        "status",
+        "score"
+      ],
+      "title": "Branch",
+      "type": "object"
+    },
+    "Candidate": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "cause": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Cause",
+          "type": "string"
+        },
+        "supporting_evidence": {
+          "default": [],
+          "items": {
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+            "type": "string"
+          },
+          "maxItems": 16,
+          "title": "Supporting Evidence",
+          "type": "array"
+        },
+        "contradicting_evidence": {
+          "default": [],
+          "items": {
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+            "type": "string"
+          },
+          "maxItems": 16,
+          "title": "Contradicting Evidence",
+          "type": "array"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "cause"
+      ],
+      "title": "Candidate",
+      "type": "object"
+    },
+    "Change": {
+      "additionalProperties": false,
+      "properties": {
+        "change_id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Change Id",
+          "type": "string"
+        },
+        "changed_at": {
+          "format": "date-time",
+          "title": "Changed At",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "deployment",
+            "configuration"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "release": {
+          "enum": [
+            "release-41",
+            "release-42"
+          ],
+          "title": "Release",
+          "type": "string"
+        },
+        "summary": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Summary",
+          "type": "string"
+        }
+      },
+      "required": [
+        "change_id",
+        "changed_at",
+        "kind",
+        "release",
+        "summary"
+      ],
+      "title": "Change",
+      "type": "object"
+    },
+    "Changes": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "changes",
+          "title": "Kind",
+          "type": "string"
+        },
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/$defs/Change"
+          },
+          "maxItems": 20,
+          "title": "Items",
+          "type": "array"
+        }
+      },
+      "required": [
+        "kind",
+        "service_id",
+        "items"
+      ],
+      "title": "Changes",
+      "type": "object"
+    },
+    "ChangesArgs": {
+      "additionalProperties": false,
+      "properties": {
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "window_minutes": {
+          "default": 60,
+          "maximum": 120,
+          "minimum": 1,
+          "title": "Window Minutes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "service_id"
+      ],
+      "title": "ChangesArgs",
+      "type": "object"
+    },
+    "ChangesCall": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "const": "get_recent_changes",
+          "title": "Name",
+          "type": "string"
+        },
+        "arguments": {
+          "$ref": "#/$defs/ChangesArgs"
+        }
+      },
+      "required": [
+        "name",
+        "arguments"
+      ],
+      "title": "ChangesCall",
+      "type": "object"
+    },
+    "Evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "source": {
+          "enum": [
+            "get_service_health",
+            "get_recent_changes",
+            "get_recent_logs",
+            "retrieve_runbook"
+          ],
+          "title": "Source",
+          "type": "string"
+        },
+        "collected_at": {
+          "format": "date-time",
+          "title": "Collected At",
+          "type": "string"
+        },
+        "source_version": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Source Version",
+          "type": "string"
+        },
+        "content_hash": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Content Hash",
+          "type": "string"
+        },
+        "complete": {
+          "title": "Complete",
+          "type": "boolean"
+        },
+        "sanitized": {
+          "const": true,
+          "title": "Sanitized",
+          "type": "boolean"
+        },
+        "payload": {
+          "discriminator": {
+            "mapping": {
+              "changes": "#/$defs/Changes",
+              "health": "#/$defs/Health",
+              "logs": "#/$defs/Logs",
+              "runbook": "#/$defs/Passage"
+            },
+            "propertyName": "kind"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/Health"
+            },
+            {
+              "$ref": "#/$defs/Changes"
+            },
+            {
+              "$ref": "#/$defs/Logs"
+            },
+            {
+              "$ref": "#/$defs/Passage"
+            }
+          ],
+          "title": "Payload"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "source",
+        "collected_at",
+        "source_version",
+        "content_hash",
+        "complete",
+        "sanitized",
+        "payload"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    },
+    "Finding": {
+      "additionalProperties": false,
+      "properties": {
+        "statement": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Statement",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+            "type": "string"
+          },
+          "maxItems": 16,
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "statement",
+        "evidence_ids"
+      ],
+      "title": "Finding",
+      "type": "object"
+    },
+    "Health": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "health",
+          "title": "Kind",
+          "type": "string"
+        },
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "observed_at": {
+          "format": "date-time",
+          "title": "Observed At",
+          "type": "string"
+        },
+        "release": {
+          "enum": [
+            "release-41",
+            "release-42"
+          ],
+          "title": "Release",
+          "type": "string"
+        },
+        "error_rate": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Error Rate",
+          "type": "number"
+        },
+        "latency_p95_ms": {
+          "maximum": 120000,
+          "minimum": 0,
+          "title": "Latency P95 Ms",
+          "type": "number"
+        },
+        "dependency_state": {
+          "enum": [
+            "healthy",
+            "degraded",
+            "unknown"
+          ],
+          "title": "Dependency State",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "service_id",
+        "observed_at",
+        "release",
+        "error_rate",
+        "latency_p95_ms",
+        "dependency_state"
+      ],
+      "title": "Health",
+      "type": "object"
+    },
+    "HealthArgs": {
+      "additionalProperties": false,
+      "properties": {
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "service_id"
+      ],
+      "title": "HealthArgs",
+      "type": "object"
+    },
+    "HealthCall": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "const": "get_service_health",
+          "title": "Name",
+          "type": "string"
+        },
+        "arguments": {
+          "$ref": "#/$defs/HealthArgs"
+        }
+      },
+      "required": [
+        "name",
+        "arguments"
+      ],
+      "title": "HealthCall",
+      "type": "object"
+    },
+    "Hypothesis": {
+      "additionalProperties": false,
+      "properties": {
+        "cause": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Cause",
+          "type": "string"
+        },
+        "supporting_evidence": {
+          "default": [],
+          "items": {
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+            "type": "string"
+          },
+          "title": "Supporting Evidence",
+          "type": "array"
+        },
+        "contradicting_evidence": {
+          "default": [],
+          "items": {
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+            "type": "string"
+          },
+          "title": "Contradicting Evidence",
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "candidate",
+            "supported",
+            "pruned"
+          ],
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "cause",
+        "status"
+      ],
+      "title": "Hypothesis",
+      "type": "object"
+    },
+    "Investigation": {
+      "additionalProperties": false,
+      "properties": {
+        "run_id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "outcome": {
+          "enum": [
+            "propose_rollback",
+            "escalate",
+            "incomplete"
+          ],
+          "title": "Outcome",
+          "type": "string"
+        },
+        "facts": {
+          "items": {
+            "$ref": "#/$defs/Finding"
+          },
+          "maxItems": 20,
+          "title": "Facts",
+          "type": "array"
+        },
+        "hypotheses": {
+          "items": {
+            "$ref": "#/$defs/Hypothesis"
+          },
+          "maxItems": 2,
+          "title": "Hypotheses",
+          "type": "array"
+        },
+        "missing_information": {
+          "items": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Missing Information",
+          "type": "array"
+        },
+        "next_check": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Next Check"
+        },
+        "justification": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Justification",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "outcome",
+        "facts",
+        "hypotheses",
+        "missing_information",
+        "next_check",
+        "justification"
+      ],
+      "title": "Investigation",
+      "type": "object"
+    },
+    "LogEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "observed_at": {
+          "format": "date-time",
+          "title": "Observed At",
+          "type": "string"
+        },
+        "message": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Message",
+          "type": "string"
+        }
+      },
+      "required": [
+        "observed_at",
+        "message"
+      ],
+      "title": "LogEntry",
+      "type": "object"
+    },
+    "Logs": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "logs",
+          "title": "Kind",
+          "type": "string"
+        },
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "entries": {
+          "items": {
+            "$ref": "#/$defs/LogEntry"
+          },
+          "maxItems": 50,
+          "title": "Entries",
+          "type": "array"
+        },
+        "truncated": {
+          "title": "Truncated",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "kind",
+        "service_id",
+        "entries",
+        "truncated"
+      ],
+      "title": "Logs",
+      "type": "object"
+    },
+    "LogsArgs": {
+      "additionalProperties": false,
+      "properties": {
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "filter": {
+          "default": "errors",
+          "enum": [
+            "errors",
+            "dependency",
+            "deployment"
+          ],
+          "title": "Filter",
+          "type": "string"
+        },
+        "limit": {
+          "default": 20,
+          "maximum": 50,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "service_id"
+      ],
+      "title": "LogsArgs",
+      "type": "object"
+    },
+    "LogsCall": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "const": "get_recent_logs",
+          "title": "Name",
+          "type": "string"
+        },
+        "arguments": {
+          "$ref": "#/$defs/LogsArgs"
+        }
+      },
+      "required": [
+        "name",
+        "arguments"
+      ],
+      "title": "LogsCall",
+      "type": "object"
+    },
+    "Passage": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "runbook",
+          "title": "Kind",
+          "type": "string"
+        },
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "passage_id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Passage Id",
+          "type": "string"
+        },
+        "document_id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Document Id",
+          "type": "string"
+        },
+        "version": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Version",
+          "type": "string"
+        },
+        "owner": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Owner",
+          "type": "string"
+        },
+        "valid_from": {
+          "format": "date-time",
+          "title": "Valid From",
+          "type": "string"
+        },
+        "valid_until": {
+          "format": "date-time",
+          "title": "Valid Until",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "current",
+            "stale",
+            "conflicting"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "excerpt": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Excerpt",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "service_id",
+        "passage_id",
+        "document_id",
+        "version",
+        "owner",
+        "valid_from",
+        "valid_until",
+        "status",
+        "excerpt"
+      ],
+      "title": "Passage",
+      "type": "object"
+    },
+    "RetrievalArgs": {
+      "additionalProperties": false,
+      "properties": {
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "query": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Query",
+          "type": "string"
+        },
+        "limit": {
+          "default": 3,
+          "maximum": 5,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "service_id",
+        "query"
+      ],
+      "title": "RetrievalArgs",
+      "type": "object"
+    },
+    "RetrievalCall": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "const": "retrieve_runbook",
+          "title": "Name",
+          "type": "string"
+        },
+        "arguments": {
+          "$ref": "#/$defs/RetrievalArgs"
+        }
+      },
+      "required": [
+        "name",
+        "arguments"
+      ],
+      "title": "RetrievalCall",
+      "type": "object"
+    },
+    "TraceEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "event": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Event",
+          "type": "string"
+        },
+        "phase": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Phase",
+          "type": "string"
+        },
+        "round": {
+          "default": 0,
+          "maximum": 2,
+          "minimum": 0,
+          "title": "Round",
+          "type": "integer"
+        },
+        "call": {
+          "anyOf": [
+            {
+              "discriminator": {
+                "mapping": {
+                  "get_recent_changes": "#/$defs/ChangesCall",
+                  "get_recent_logs": "#/$defs/LogsCall",
+                  "get_service_health": "#/$defs/HealthCall",
+                  "retrieve_runbook": "#/$defs/RetrievalCall"
+                },
+                "propertyName": "name"
+              },
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/HealthCall"
+                },
+                {
+                  "$ref": "#/$defs/ChangesCall"
+                },
+                {
+                  "$ref": "#/$defs/LogsCall"
+                },
+                {
+                  "$ref": "#/$defs/RetrievalCall"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Call"
+        },
+        "detail": {
+          "maxLength": 1000,
+          "minLength": 1,
+          "title": "Detail",
+          "type": "string"
+        },
+        "branches": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Branch"
+          },
+          "maxItems": 2,
+          "title": "Branches",
+          "type": "array"
+        }
+      },
+      "required": [
+        "event",
+        "phase",
+        "detail"
+      ],
+      "title": "TraceEvent",
+      "type": "object"
+    },
+    "Usage": {
+      "additionalProperties": false,
+      "properties": {
+        "model_calls": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Model Calls",
+          "type": "integer"
+        },
+        "tool_calls": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Tool Calls",
+          "type": "integer"
+        },
+        "input_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Input Tokens",
+          "type": "integer"
+        },
+        "output_tokens": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Output Tokens",
+          "type": "integer"
+        }
+      },
+      "title": "Usage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "run_id": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+      "title": "Run Id",
+      "type": "string"
+    },
+    "variant": {
+      "enum": [
+        "V0",
+        "V1",
+        "V2"
+      ],
+      "title": "Variant",
+      "type": "string"
+    },
+    "mode": {
+      "const": "offline_scripted",
+      "default": "offline_scripted",
+      "title": "Mode",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "complete",
+        "incomplete",
+        "failed",
+        "blocked"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "stop_reason": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+      "title": "Stop Reason",
+      "type": "string"
+    },
+    "investigation": {
+      "$ref": "#/$defs/Investigation"
+    },
+    "evidence": {
+      "items": {
+        "$ref": "#/$defs/Evidence"
+      },
+      "title": "Evidence",
+      "type": "array"
+    },
+    "trace": {
+      "items": {
+        "$ref": "#/$defs/TraceEvent"
+      },
+      "title": "Trace",
+      "type": "array"
+    },
+    "provider_calls": {
+      "minimum": 0,
+      "title": "Provider Calls",
+      "type": "integer"
+    },
+    "usage": {
+      "$ref": "#/$defs/Usage"
+    },
+    "active_latency_ms": {
+      "minimum": 0,
+      "title": "Active Latency Ms",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "run_id",
+    "variant",
+    "status",
+    "stop_reason",
+    "investigation",
+    "evidence",
+    "trace",
+    "provider_calls",
+    "usage",
+    "active_latency_ms"
+  ],
+  "title": "ExperimentResult",
+  "type": "object"
+}

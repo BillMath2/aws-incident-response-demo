@@ -1,0 +1,489 @@
+{
+  "trial": {
+    "trial_id": "dev-case-001-v1-r1",
+    "case_id": "case-001",
+    "variant": "V1",
+    "repetition": 1
+  },
+  "result": {
+    "run_id": "experiment-7326efbca1444f79b20e4c8781288805",
+    "variant": "V1",
+    "mode": "offline_scripted",
+    "status": "complete",
+    "stop_reason": "finished",
+    "investigation": {
+      "run_id": "experiment-7326efbca1444f79b20e4c8781288805",
+      "outcome": "propose_rollback",
+      "facts": [
+        {
+          "statement": "Observed error rate 25.0%, release release-42, dependency state healthy.",
+          "evidence_ids": [
+            "obs-001-health"
+          ]
+        },
+        {
+          "statement": "Latest observed deployment is release-42.",
+          "evidence_ids": [
+            "obs-001-changes"
+          ]
+        },
+        {
+          "statement": "Logs report release-42 serializer errors and a successful release-41 baseline.",
+          "evidence_ids": [
+            "obs-001-logs"
+          ]
+        },
+        {
+          "statement": "Current guidance requires separate approval and verification.",
+          "evidence_ids": [
+            "rb-rollback-p1"
+          ]
+        }
+      ],
+      "hypotheses": [
+        {
+          "cause": "Deployment regression",
+          "supporting_evidence": [
+            "obs-001-logs"
+          ],
+          "contradicting_evidence": [],
+          "status": "supported"
+        }
+      ],
+      "missing_information": [],
+      "next_check": null,
+      "justification": "LOCAL STUB: Fresh diagnostics match the known serializer regression pattern. Propose a sandbox rollback for human review."
+    },
+    "evidence": [
+      {
+        "evidence_id": "obs-001-health",
+        "source": "get_service_health",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "fixtures-1.0.0",
+        "content_hash": "19fdce4867c76f03895ca46f5e70641437478de0327ffceaf0ef5b8ec98e1992",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "health",
+          "service_id": "checkout-api",
+          "observed_at": "2026-10-01T12:04:00Z",
+          "release": "release-42",
+          "error_rate": 0.25,
+          "latency_p95_ms": 1700.0,
+          "dependency_state": "healthy"
+        }
+      },
+      {
+        "evidence_id": "obs-001-changes",
+        "source": "get_recent_changes",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "fixtures-1.0.0",
+        "content_hash": "9d04ff37b2e1ddedc283b089a8a5e452e7e922984edaf97eb99c84ffeab7221f",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "changes",
+          "service_id": "checkout-api",
+          "items": [
+            {
+              "change_id": "change-001",
+              "changed_at": "2026-10-01T11:55:00Z",
+              "kind": "deployment",
+              "release": "release-42",
+              "summary": "Checkout release-42 deployed; release-41 baseline error rate was 0.003."
+            }
+          ]
+        }
+      },
+      {
+        "evidence_id": "obs-001-logs",
+        "source": "get_recent_logs",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "fixtures-1.0.0",
+        "content_hash": "ede9bfd04b44cfdd3ca8e1b4e8258a8aa7044e18d057ff9d0ac80a101d5bc6ae",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "logs",
+          "service_id": "checkout-api",
+          "entries": [
+            {
+              "observed_at": "2026-10-01T12:03:00Z",
+              "message": "release-42 checkout serializer raises TypeError; same requests succeeded on release-41."
+            }
+          ],
+          "truncated": false
+        }
+      },
+      {
+        "evidence_id": "rb-rollback-p1",
+        "source": "retrieve_runbook",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "2.0.0",
+        "content_hash": "b951263d782c3a9b1e57cda9bb2efb2516af0a4231127f69643544ed2b3321e9",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "runbook",
+          "service_id": "checkout-api",
+          "passage_id": "rb-rollback-p1",
+          "document_id": "rb-rollback",
+          "version": "2.0.0",
+          "owner": "checkout-operations",
+          "valid_from": "2026-08-01T00:00:00Z",
+          "valid_until": "2027-01-01T00:00:00Z",
+          "status": "current",
+          "excerpt": "# Checkout release rollback\n\nScope: checkout-api sandbox only. A rollback proposal may target release-41 only when the current release is release-42, recent complete observations show elevated errors, dependencies are healthy, and logs corroborate a defect introduced by that deployment. Temporal correlation alone is insufficient. Read health, recent changes and logs. Health and relevant error observations must be no older than five minutes at investigation time. Changes can be collected over a bounded 120-minute window. If evidence is absent, contradictory, stale or dependencies are degraded, escalate for more evidence.\n\nThe investigator proposes; an independently authorized human approves the exact proposal hash before its expiry. Only the executor can conditionally update sandbox state. No shell command or real deployment is permitted. A receipt means a synthetic state transition, not recovery; obtain a separate subsequent health observation.\n"
+        }
+      },
+      {
+        "evidence_id": "rb-evidence-p1",
+        "source": "retrieve_runbook",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "1.0.0",
+        "content_hash": "94a972b57c995d78fb4a93afbc1f9145c1dd2d7a3a67f524f5bfa6a0972cbb4c",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "runbook",
+          "service_id": "checkout-api",
+          "passage_id": "rb-evidence-p1",
+          "document_id": "rb-evidence",
+          "version": "1.0.0",
+          "owner": "incident-operations",
+          "valid_from": "2026-08-01T00:00:00Z",
+          "valid_until": "2027-01-01T00:00:00Z",
+          "status": "current",
+          "excerpt": "# Missing and conflicting evidence\n\nSeparate observed facts from hypotheses. Cite immutable observation IDs or passage IDs for each material claim. Missing logs, incomplete deployment history, truncated error streams and contradictory release attribution require a next check or escalation. An empty result is not proof of absence when the source is incomplete. Cite conflicting observations explicitly and do not choose a cause just to produce an action.\n"
+        }
+      }
+    ],
+    "trace": [
+      {
+        "event": "boundary_checked",
+        "phase": "gather",
+        "round": 0,
+        "call": null,
+        "detail": "input: pass",
+        "branches": []
+      },
+      {
+        "event": "provider_attempt",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "Offline provider attempt 1; not a model call",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "output: pass",
+        "branches": []
+      },
+      {
+        "event": "tool_selected",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_service_health",
+          "arguments": {
+            "service_id": "checkout-api"
+          }
+        },
+        "detail": "Collect missing health evidence",
+        "branches": []
+      },
+      {
+        "event": "tool_attempt",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_service_health",
+          "arguments": {
+            "service_id": "checkout-api"
+          }
+        },
+        "detail": "attempt 1",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "source: pass",
+        "branches": []
+      },
+      {
+        "event": "tool_observed",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_service_health",
+          "arguments": {
+            "service_id": "checkout-api"
+          }
+        },
+        "detail": "Validated observations collected",
+        "branches": []
+      },
+      {
+        "event": "provider_attempt",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "Offline provider attempt 1; not a model call",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "output: pass",
+        "branches": []
+      },
+      {
+        "event": "tool_selected",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_recent_changes",
+          "arguments": {
+            "service_id": "checkout-api",
+            "window_minutes": 60
+          }
+        },
+        "detail": "Collect missing changes evidence",
+        "branches": []
+      },
+      {
+        "event": "tool_attempt",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_recent_changes",
+          "arguments": {
+            "service_id": "checkout-api",
+            "window_minutes": 60
+          }
+        },
+        "detail": "attempt 1",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "source: pass",
+        "branches": []
+      },
+      {
+        "event": "tool_observed",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_recent_changes",
+          "arguments": {
+            "service_id": "checkout-api",
+            "window_minutes": 60
+          }
+        },
+        "detail": "Validated observations collected",
+        "branches": []
+      },
+      {
+        "event": "provider_attempt",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "Offline provider attempt 1; not a model call",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "output: pass",
+        "branches": []
+      },
+      {
+        "event": "tool_selected",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_recent_logs",
+          "arguments": {
+            "service_id": "checkout-api",
+            "filter": "errors",
+            "limit": 20
+          }
+        },
+        "detail": "Collect missing logs evidence",
+        "branches": []
+      },
+      {
+        "event": "tool_attempt",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_recent_logs",
+          "arguments": {
+            "service_id": "checkout-api",
+            "filter": "errors",
+            "limit": 20
+          }
+        },
+        "detail": "attempt 1",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "source: pass",
+        "branches": []
+      },
+      {
+        "event": "tool_observed",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_recent_logs",
+          "arguments": {
+            "service_id": "checkout-api",
+            "filter": "errors",
+            "limit": 20
+          }
+        },
+        "detail": "Validated observations collected",
+        "branches": []
+      },
+      {
+        "event": "provider_attempt",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "Offline provider attempt 1; not a model call",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "output: pass",
+        "branches": []
+      },
+      {
+        "event": "tool_selected",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "retrieve_runbook",
+          "arguments": {
+            "service_id": "checkout-api",
+            "query": "checkout rollback policy",
+            "limit": 5
+          }
+        },
+        "detail": "Collect missing runbook evidence",
+        "branches": []
+      },
+      {
+        "event": "tool_attempt",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "retrieve_runbook",
+          "arguments": {
+            "service_id": "checkout-api",
+            "query": "checkout rollback policy",
+            "limit": 5
+          }
+        },
+        "detail": "attempt 1",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "source: pass",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "source: pass",
+        "branches": []
+      },
+      {
+        "event": "tool_observed",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "retrieve_runbook",
+          "arguments": {
+            "service_id": "checkout-api",
+            "query": "checkout rollback policy",
+            "limit": 5
+          }
+        },
+        "detail": "Validated observations collected",
+        "branches": []
+      },
+      {
+        "event": "provider_attempt",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "Offline provider attempt 1; not a model call",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "output: pass",
+        "branches": []
+      },
+      {
+        "event": "finished",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "Accepted structured propose_rollback; semantic support still needs review",
+        "branches": []
+      }
+    ],
+    "provider_calls": 5,
+    "usage": {
+      "model_calls": 0,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    "active_latency_ms": 72
+  },
+  "score": {
+    "trial_id": "dev-case-001-v1-r1",
+    "case_id": "case-001",
+    "variant": "V1",
+    "outcome_match": true,
+    "citations_exist": true,
+    "required_evidence_present": true,
+    "human_verdict": "pending",
+    "case_success": null
+  }
+}

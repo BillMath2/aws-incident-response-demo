@@ -1,0 +1,173 @@
+{
+  "version": "1.0.0",
+  "split": "development",
+  "created_at": "2026-10-03T18:33:29.554396Z",
+  "settings": {
+    "mode": "offline_scripted",
+    "model": "offline-scripted-v1",
+    "temperature": 0.0,
+    "max_output_tokens": 2048,
+    "retrieval_limit": 5,
+    "cache": "disabled",
+    "guardrail_policy": "offline-boundary-check-v1",
+    "limits": {
+      "model_calls": 6,
+      "tool_calls": 8,
+      "retries": 1,
+      "deadline_seconds": 120.0,
+      "candidates": 2,
+      "expansion_rounds": 2
+    }
+  },
+  "corpus_sha256": "b146a8b3c30cd7b5c18d21a9c600f49564d61f3633790beacd4079caeefa73dd",
+  "prompts_sha256": "cbed1d3ad143854ce0bf9cf20d55d2eb64a225a2ec4663850238d8bff2b9c0ff",
+  "rubric_sha256": "80611c66b38f58b8c1d20067028efb1b9def2659e85a5f2ef59cbf945e439744",
+  "source_sha256": "af2ed5ea72bb74ca2a2ebf4e1be152ba469900c5c6a69c61538c330956899cf8",
+  "lock_sha256": "e770c648ffbf5fda4a761a7c111054a52c3797c4774687a76fe11c01051cf426",
+  "trials": [
+    {
+      "trial_id": "dev-case-001-v0-r1",
+      "case_id": "case-001",
+      "variant": "V0",
+      "repetition": 1
+    },
+    {
+      "trial_id": "dev-case-001-v1-r1",
+      "case_id": "case-001",
+      "variant": "V1",
+      "repetition": 1
+    },
+    {
+      "trial_id": "dev-case-001-v2-r1",
+      "case_id": "case-001",
+      "variant": "V2",
+      "repetition": 1
+    },
+    {
+      "trial_id": "dev-case-002-v0-r1",
+      "case_id": "case-002",
+      "variant": "V0",
+      "repetition": 1
+    },
+    {
+      "trial_id": "dev-case-002-v1-r1",
+      "case_id": "case-002",
+      "variant": "V1",
+      "repetition": 1
+    },
+    {
+      "trial_id": "dev-case-002-v2-r1",
+      "case_id": "case-002",
+      "variant": "V2",
+      "repetition": 1
+    },
+    {
+      "trial_id": "dev-case-003-v0-r1",
+      "case_id": "case-003",
+      "variant": "V0",
+      "repetition": 1
+    },
+    {
+      "trial_id": "dev-case-003-v1-r1",
+      "case_id": "case-003",
+      "variant": "V1",
+      "repetition": 1
+    },
+    {
+      "trial_id": "dev-case-003-v2-r1",
+      "case_id": "case-003",
+      "variant": "V2",
+      "repetition": 1
+    },
+    {
+      "trial_id": "dev-case-004-v0-r1",
+      "case_id": "case-004",
+      "variant": "V0",
+      "repetition": 1
+    },
+    {
+      "trial_id": "dev-case-004-v1-r1",
+      "case_id": "case-004",
+      "variant": "V1",
+      "repetition": 1
+    },
+    {
+      "trial_id": "dev-case-004-v2-r1",
+      "case_id": "case-004",
+      "variant": "V2",
+      "repetition": 1
+    },
+    {
+      "trial_id": "dev-case-005-v0-r1",
+      "case_id": "case-005",
+      "variant": "V0",
+      "repetition": 1
+    },
+    {
+      "trial_id": "dev-case-005-v1-r1",
+      "case_id": "case-005",
+      "variant": "V1",
+      "repetition": 1
+    },
+    {
+      "trial_id": "dev-case-005-v2-r1",
+      "case_id": "case-005",
+      "variant": "V2",
+      "repetition": 1
+    },
+    {
+      "trial_id": "dev-case-006-v0-r1",
+      "case_id": "case-006",
+      "variant": "V0",
+      "repetition": 1
+    },
+    {
+      "trial_id": "dev-case-006-v1-r1",
+      "case_id": "case-006",
+      "variant": "V1",
+      "repetition": 1
+    },
+    {
+      "trial_id": "dev-case-006-v2-r1",
+      "case_id": "case-006",
+      "variant": "V2",
+      "repetition": 1
+    },
+    {
+      "trial_id": "dev-case-007-v0-r1",
+      "case_id": "case-007",
+      "variant": "V0",
+      "repetition": 1
+    },
+    {
+      "trial_id": "dev-case-007-v1-r1",
+      "case_id": "case-007",
+      "variant": "V1",
+      "repetition": 1
+    },
+    {
+      "trial_id": "dev-case-007-v2-r1",
+      "case_id": "case-007",
+      "variant": "V2",
+      "repetition": 1
+    },
+    {
+      "trial_id": "dev-case-008-v0-r1",
+      "case_id": "case-008",
+      "variant": "V0",
+      "repetition": 1
+    },
+    {
+      "trial_id": "dev-case-008-v1-r1",
+      "case_id": "case-008",
+      "variant": "V1",
+      "repetition": 1
+    },
+    {
+      "trial_id": "dev-case-008-v2-r1",
+      "case_id": "case-008",
+      "variant": "V2",
+      "repetition": 1
+    }
+  ]
+}

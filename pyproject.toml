@@ -8,7 +8,10 @@ version = "0.1.0"
 description = "Synthetic incident response contracts and offline fixtures"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
-dependencies = ["pydantic==2.12.3"]
+dependencies = [
+    "langgraph==1.2.12",
+    "pydantic==2.12.3",
+]
 
 [project.scripts]
 incident-demo = "incident_demo.cli:main"

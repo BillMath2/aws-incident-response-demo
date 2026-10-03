@@ -1,0 +1,531 @@
+{
+  "$defs": {
+    "Candidate": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Candidate Id",
+          "type": "string"
+        },
+        "cause": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Cause",
+          "type": "string"
+        },
+        "supporting_evidence": {
+          "default": [],
+          "items": {
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+            "type": "string"
+          },
+          "maxItems": 16,
+          "title": "Supporting Evidence",
+          "type": "array"
+        },
+        "contradicting_evidence": {
+          "default": [],
+          "items": {
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+            "type": "string"
+          },
+          "maxItems": 16,
+          "title": "Contradicting Evidence",
+          "type": "array"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "cause"
+      ],
+      "title": "Candidate",
+      "type": "object"
+    },
+    "ChangesArgs": {
+      "additionalProperties": false,
+      "properties": {
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "window_minutes": {
+          "default": 60,
+          "maximum": 120,
+          "minimum": 1,
+          "title": "Window Minutes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "service_id"
+      ],
+      "title": "ChangesArgs",
+      "type": "object"
+    },
+    "ChangesCall": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "const": "get_recent_changes",
+          "title": "Name",
+          "type": "string"
+        },
+        "arguments": {
+          "$ref": "#/$defs/ChangesArgs"
+        }
+      },
+      "required": [
+        "name",
+        "arguments"
+      ],
+      "title": "ChangesCall",
+      "type": "object"
+    },
+    "ChooseTool": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "tool",
+          "title": "Kind",
+          "type": "string"
+        },
+        "call": {
+          "discriminator": {
+            "mapping": {
+              "get_recent_changes": "#/$defs/ChangesCall",
+              "get_recent_logs": "#/$defs/LogsCall",
+              "get_service_health": "#/$defs/HealthCall",
+              "retrieve_runbook": "#/$defs/RetrievalCall"
+            },
+            "propertyName": "name"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/HealthCall"
+            },
+            {
+              "$ref": "#/$defs/ChangesCall"
+            },
+            {
+              "$ref": "#/$defs/LogsCall"
+            },
+            {
+              "$ref": "#/$defs/RetrievalCall"
+            }
+          ],
+          "title": "Call"
+        },
+        "purpose": {
+          "maxLength": 600,
+          "minLength": 1,
+          "title": "Purpose",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "call",
+        "purpose"
+      ],
+      "title": "ChooseTool",
+      "type": "object"
+    },
+    "Finding": {
+      "additionalProperties": false,
+      "properties": {
+        "statement": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Statement",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+            "type": "string"
+          },
+          "maxItems": 16,
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "statement",
+        "evidence_ids"
+      ],
+      "title": "Finding",
+      "type": "object"
+    },
+    "Finish": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "finish",
+          "title": "Kind",
+          "type": "string"
+        },
+        "investigation": {
+          "$ref": "#/$defs/Investigation"
+        },
+        "selected_candidate_id": {
+          "anyOf": [
+            {
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Selected Candidate Id"
+        }
+      },
+      "required": [
+        "kind",
+        "investigation"
+      ],
+      "title": "Finish",
+      "type": "object"
+    },
+    "HealthArgs": {
+      "additionalProperties": false,
+      "properties": {
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "service_id"
+      ],
+      "title": "HealthArgs",
+      "type": "object"
+    },
+    "HealthCall": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "const": "get_service_health",
+          "title": "Name",
+          "type": "string"
+        },
+        "arguments": {
+          "$ref": "#/$defs/HealthArgs"
+        }
+      },
+      "required": [
+        "name",
+        "arguments"
+      ],
+      "title": "HealthCall",
+      "type": "object"
+    },
+    "Hypothesis": {
+      "additionalProperties": false,
+      "properties": {
+        "cause": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Cause",
+          "type": "string"
+        },
+        "supporting_evidence": {
+          "default": [],
+          "items": {
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+            "type": "string"
+          },
+          "title": "Supporting Evidence",
+          "type": "array"
+        },
+        "contradicting_evidence": {
+          "default": [],
+          "items": {
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+            "type": "string"
+          },
+          "title": "Contradicting Evidence",
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "candidate",
+            "supported",
+            "pruned"
+          ],
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "cause",
+        "status"
+      ],
+      "title": "Hypothesis",
+      "type": "object"
+    },
+    "Investigation": {
+      "additionalProperties": false,
+      "properties": {
+        "run_id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "outcome": {
+          "enum": [
+            "propose_rollback",
+            "escalate",
+            "incomplete"
+          ],
+          "title": "Outcome",
+          "type": "string"
+        },
+        "facts": {
+          "items": {
+            "$ref": "#/$defs/Finding"
+          },
+          "maxItems": 20,
+          "title": "Facts",
+          "type": "array"
+        },
+        "hypotheses": {
+          "items": {
+            "$ref": "#/$defs/Hypothesis"
+          },
+          "maxItems": 2,
+          "title": "Hypotheses",
+          "type": "array"
+        },
+        "missing_information": {
+          "items": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Missing Information",
+          "type": "array"
+        },
+        "next_check": {
+          "anyOf": [
+            {
+              "maxLength": 4000,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Next Check"
+        },
+        "justification": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Justification",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "outcome",
+        "facts",
+        "hypotheses",
+        "missing_information",
+        "next_check",
+        "justification"
+      ],
+      "title": "Investigation",
+      "type": "object"
+    },
+    "LogsArgs": {
+      "additionalProperties": false,
+      "properties": {
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "filter": {
+          "default": "errors",
+          "enum": [
+            "errors",
+            "dependency",
+            "deployment"
+          ],
+          "title": "Filter",
+          "type": "string"
+        },
+        "limit": {
+          "default": 20,
+          "maximum": 50,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "service_id"
+      ],
+      "title": "LogsArgs",
+      "type": "object"
+    },
+    "LogsCall": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "const": "get_recent_logs",
+          "title": "Name",
+          "type": "string"
+        },
+        "arguments": {
+          "$ref": "#/$defs/LogsArgs"
+        }
+      },
+      "required": [
+        "name",
+        "arguments"
+      ],
+      "title": "LogsCall",
+      "type": "object"
+    },
+    "RetrievalArgs": {
+      "additionalProperties": false,
+      "properties": {
+        "service_id": {
+          "const": "checkout-api",
+          "title": "Service Id",
+          "type": "string"
+        },
+        "query": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Query",
+          "type": "string"
+        },
+        "limit": {
+          "default": 3,
+          "maximum": 5,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "service_id",
+        "query"
+      ],
+      "title": "RetrievalArgs",
+      "type": "object"
+    },
+    "RetrievalCall": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "const": "retrieve_runbook",
+          "title": "Name",
+          "type": "string"
+        },
+        "arguments": {
+          "$ref": "#/$defs/RetrievalArgs"
+        }
+      },
+      "required": [
+        "name",
+        "arguments"
+      ],
+      "title": "RetrievalCall",
+      "type": "object"
+    },
+    "SearchReply": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "search",
+          "title": "Kind",
+          "type": "string"
+        },
+        "candidates": {
+          "items": {
+            "$ref": "#/$defs/Candidate"
+          },
+          "maxItems": 2,
+          "minItems": 1,
+          "title": "Candidates",
+          "type": "array"
+        },
+        "next_check": {
+          "anyOf": [
+            {
+              "discriminator": {
+                "mapping": {
+                  "get_recent_changes": "#/$defs/ChangesCall",
+                  "get_recent_logs": "#/$defs/LogsCall",
+                  "get_service_health": "#/$defs/HealthCall",
+                  "retrieve_runbook": "#/$defs/RetrievalCall"
+                },
+                "propertyName": "name"
+              },
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/HealthCall"
+                },
+                {
+                  "$ref": "#/$defs/ChangesCall"
+                },
+                {
+                  "$ref": "#/$defs/LogsCall"
+                },
+                {
+                  "$ref": "#/$defs/RetrievalCall"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Next Check"
+        },
+        "check_purpose": {
+          "maxLength": 600,
+          "minLength": 1,
+          "title": "Check Purpose",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "candidates",
+        "next_check",
+        "check_purpose"
+      ],
+      "title": "SearchReply",
+      "type": "object"
+    }
+  },
+  "discriminator": {
+    "mapping": {
+      "finish": "#/$defs/Finish",
+      "search": "#/$defs/SearchReply",
+      "tool": "#/$defs/ChooseTool"
+    },
+    "propertyName": "kind"
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/ChooseTool"
+    },
+    {
+      "$ref": "#/$defs/Finish"
+    },
+    {
+      "$ref": "#/$defs/SearchReply"
+    }
+  ]
+}

@@ -1,0 +1,219 @@
+{
+  "$defs": {
+    "Limits": {
+      "additionalProperties": false,
+      "properties": {
+        "model_calls": {
+          "default": 6,
+          "maximum": 6,
+          "minimum": 1,
+          "title": "Model Calls",
+          "type": "integer"
+        },
+        "tool_calls": {
+          "default": 8,
+          "maximum": 8,
+          "minimum": 1,
+          "title": "Tool Calls",
+          "type": "integer"
+        },
+        "retries": {
+          "default": 1,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Retries",
+          "type": "integer"
+        },
+        "deadline_seconds": {
+          "default": 120.0,
+          "exclusiveMinimum": 0,
+          "maximum": 120,
+          "title": "Deadline Seconds",
+          "type": "number"
+        },
+        "candidates": {
+          "const": 2,
+          "default": 2,
+          "title": "Candidates",
+          "type": "integer"
+        },
+        "expansion_rounds": {
+          "const": 2,
+          "default": 2,
+          "title": "Expansion Rounds",
+          "type": "integer"
+        }
+      },
+      "title": "Limits",
+      "type": "object"
+    },
+    "Settings": {
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "const": "offline_scripted",
+          "default": "offline_scripted",
+          "title": "Mode",
+          "type": "string"
+        },
+        "model": {
+          "const": "offline-scripted-v1",
+          "default": "offline-scripted-v1",
+          "title": "Model",
+          "type": "string"
+        },
+        "temperature": {
+          "const": 0.0,
+          "default": 0.0,
+          "title": "Temperature",
+          "type": "number"
+        },
+        "max_output_tokens": {
+          "default": 2048,
+          "maximum": 4096,
+          "minimum": 1,
+          "title": "Max Output Tokens",
+          "type": "integer"
+        },
+        "retrieval_limit": {
+          "const": 5,
+          "default": 5,
+          "title": "Retrieval Limit",
+          "type": "integer"
+        },
+        "cache": {
+          "const": "disabled",
+          "default": "disabled",
+          "title": "Cache",
+          "type": "string"
+        },
+        "guardrail_policy": {
+          "const": "offline-boundary-check-v1",
+          "default": "offline-boundary-check-v1",
+          "title": "Guardrail Policy",
+          "type": "string"
+        },
+        "limits": {
+          "$ref": "#/$defs/Limits",
+          "default": {
+            "model_calls": 6,
+            "tool_calls": 8,
+            "retries": 1,
+            "deadline_seconds": 120.0,
+            "candidates": 2,
+            "expansion_rounds": 2
+          }
+        }
+      },
+      "title": "Settings",
+      "type": "object"
+    },
+    "Trial": {
+      "additionalProperties": false,
+      "properties": {
+        "trial_id": {
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+          "title": "Trial Id",
+          "type": "string"
+        },
+        "case_id": {
+          "pattern": "^case-[0-9]{3}$",
+          "title": "Case Id",
+          "type": "string"
+        },
+        "variant": {
+          "enum": [
+            "V0",
+            "V1",
+            "V2"
+          ],
+          "title": "Variant",
+          "type": "string"
+        },
+        "repetition": {
+          "maximum": 3,
+          "minimum": 1,
+          "title": "Repetition",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "trial_id",
+        "case_id",
+        "variant",
+        "repetition"
+      ],
+      "title": "Trial",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Version",
+      "type": "string"
+    },
+    "split": {
+      "const": "development",
+      "default": "development",
+      "title": "Split",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "settings": {
+      "$ref": "#/$defs/Settings"
+    },
+    "corpus_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Corpus Sha256",
+      "type": "string"
+    },
+    "prompts_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Prompts Sha256",
+      "type": "string"
+    },
+    "rubric_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Rubric Sha256",
+      "type": "string"
+    },
+    "source_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Source Sha256",
+      "type": "string"
+    },
+    "lock_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Lock Sha256",
+      "type": "string"
+    },
+    "trials": {
+      "items": {
+        "$ref": "#/$defs/Trial"
+      },
+      "maxItems": 72,
+      "minItems": 24,
+      "title": "Trials",
+      "type": "array"
+    }
+  },
+  "required": [
+    "created_at",
+    "settings",
+    "corpus_sha256",
+    "prompts_sha256",
+    "rubric_sha256",
+    "source_sha256",
+    "lock_sha256",
+    "trials"
+  ],
+  "title": "TrialManifest",
+  "type": "object"
+}

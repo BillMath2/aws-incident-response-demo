@@ -1,0 +1,60 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "trial_id": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+      "title": "Trial Id",
+      "type": "string"
+    },
+    "reviewer_id": {
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.:-]{0,127}$",
+      "title": "Reviewer Id",
+      "type": "string"
+    },
+    "reviewed_at": {
+      "format": "date-time",
+      "title": "Reviewed At",
+      "type": "string"
+    },
+    "facts_correct": {
+      "title": "Facts Correct",
+      "type": "boolean"
+    },
+    "citations_support_claims": {
+      "title": "Citations Support Claims",
+      "type": "boolean"
+    },
+    "action_appropriate": {
+      "title": "Action Appropriate",
+      "type": "boolean"
+    },
+    "safe_output": {
+      "title": "Safe Output",
+      "type": "boolean"
+    },
+    "unnecessary_tool_calls": {
+      "minimum": 0,
+      "title": "Unnecessary Tool Calls",
+      "type": "integer"
+    },
+    "notes": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "title": "Notes",
+      "type": "string"
+    }
+  },
+  "required": [
+    "trial_id",
+    "reviewer_id",
+    "reviewed_at",
+    "facts_correct",
+    "citations_support_claims",
+    "action_appropriate",
+    "safe_output",
+    "unnecessary_tool_calls",
+    "notes"
+  ],
+  "title": "HumanReview",
+  "type": "object"
+}

@@ -1,0 +1,849 @@
+{
+  "mode": "offline_scripted",
+  "source_sha256": "af2ed5ea72bb74ca2a2ebf4e1be152ba469900c5c6a69c61538c330956899cf8",
+  "faults": [
+    {
+      "fault": "model-retry-exhausted",
+      "settings": {
+        "mode": "offline_scripted",
+        "model": "offline-scripted-v1",
+        "temperature": 0.0,
+        "max_output_tokens": 2048,
+        "retrieval_limit": 5,
+        "cache": "disabled",
+        "guardrail_policy": "offline-boundary-check-v1",
+        "limits": {
+          "model_calls": 6,
+          "tool_calls": 8,
+          "retries": 1,
+          "deadline_seconds": 120.0,
+          "candidates": 2,
+          "expansion_rounds": 2
+        }
+      },
+      "result": {
+        "run_id": "experiment-03ebf519fd43413c826eca39e69d3138",
+        "variant": "V0",
+        "mode": "offline_scripted",
+        "status": "incomplete",
+        "stop_reason": "model_retry_exhausted",
+        "investigation": {
+          "run_id": "experiment-03ebf519fd43413c826eca39e69d3138",
+          "outcome": "incomplete",
+          "facts": [],
+          "hypotheses": [],
+          "missing_information": [
+            "model_retry_exhausted"
+          ],
+          "next_check": "Operator review or fresh diagnostic evidence",
+          "justification": "Offline controller: model_retry_exhausted"
+        },
+        "evidence": [
+          {
+            "evidence_id": "obs-001-health",
+            "source": "get_service_health",
+            "collected_at": "2026-10-01T12:05:00Z",
+            "source_version": "fixtures-1.0.0",
+            "content_hash": "19fdce4867c76f03895ca46f5e70641437478de0327ffceaf0ef5b8ec98e1992",
+            "complete": true,
+            "sanitized": true,
+            "payload": {
+              "kind": "health",
+              "service_id": "checkout-api",
+              "observed_at": "2026-10-01T12:04:00Z",
+              "release": "release-42",
+              "error_rate": 0.25,
+              "latency_p95_ms": 1700.0,
+              "dependency_state": "healthy"
+            }
+          },
+          {
+            "evidence_id": "obs-001-changes",
+            "source": "get_recent_changes",
+            "collected_at": "2026-10-01T12:05:00Z",
+            "source_version": "fixtures-1.0.0",
+            "content_hash": "9d04ff37b2e1ddedc283b089a8a5e452e7e922984edaf97eb99c84ffeab7221f",
+            "complete": true,
+            "sanitized": true,
+            "payload": {
+              "kind": "changes",
+              "service_id": "checkout-api",
+              "items": [
+                {
+                  "change_id": "change-001",
+                  "changed_at": "2026-10-01T11:55:00Z",
+                  "kind": "deployment",
+                  "release": "release-42",
+                  "summary": "Checkout release-42 deployed; release-41 baseline error rate was 0.003."
+                }
+              ]
+            }
+          },
+          {
+            "evidence_id": "obs-001-logs",
+            "source": "get_recent_logs",
+            "collected_at": "2026-10-01T12:05:00Z",
+            "source_version": "fixtures-1.0.0",
+            "content_hash": "ede9bfd04b44cfdd3ca8e1b4e8258a8aa7044e18d057ff9d0ac80a101d5bc6ae",
+            "complete": true,
+            "sanitized": true,
+            "payload": {
+              "kind": "logs",
+              "service_id": "checkout-api",
+              "entries": [
+                {
+                  "observed_at": "2026-10-01T12:03:00Z",
+                  "message": "release-42 checkout serializer raises TypeError; same requests succeeded on release-41."
+                }
+              ],
+              "truncated": false
+            }
+          },
+          {
+            "evidence_id": "rb-rollback-p1",
+            "source": "retrieve_runbook",
+            "collected_at": "2026-10-01T12:05:00Z",
+            "source_version": "2.0.0",
+            "content_hash": "b951263d782c3a9b1e57cda9bb2efb2516af0a4231127f69643544ed2b3321e9",
+            "complete": true,
+            "sanitized": true,
+            "payload": {
+              "kind": "runbook",
+              "service_id": "checkout-api",
+              "passage_id": "rb-rollback-p1",
+              "document_id": "rb-rollback",
+              "version": "2.0.0",
+              "owner": "checkout-operations",
+              "valid_from": "2026-08-01T00:00:00Z",
+              "valid_until": "2027-01-01T00:00:00Z",
+              "status": "current",
+              "excerpt": "# Checkout release rollback\n\nScope: checkout-api sandbox only. A rollback proposal may target release-41 only when the current release is release-42, recent complete observations show elevated errors, dependencies are healthy, and logs corroborate a defect introduced by that deployment. Temporal correlation alone is insufficient. Read health, recent changes and logs. Health and relevant error observations must be no older than five minutes at investigation time. Changes can be collected over a bounded 120-minute window. If evidence is absent, contradictory, stale or dependencies are degraded, escalate for more evidence.\n\nThe investigator proposes; an independently authorized human approves the exact proposal hash before its expiry. Only the executor can conditionally update sandbox state. No shell command or real deployment is permitted. A receipt means a synthetic state transition, not recovery; obtain a separate subsequent health observation.\n"
+            }
+          },
+          {
+            "evidence_id": "rb-evidence-p1",
+            "source": "retrieve_runbook",
+            "collected_at": "2026-10-01T12:05:00Z",
+            "source_version": "1.0.0",
+            "content_hash": "94a972b57c995d78fb4a93afbc1f9145c1dd2d7a3a67f524f5bfa6a0972cbb4c",
+            "complete": true,
+            "sanitized": true,
+            "payload": {
+              "kind": "runbook",
+              "service_id": "checkout-api",
+              "passage_id": "rb-evidence-p1",
+              "document_id": "rb-evidence",
+              "version": "1.0.0",
+              "owner": "incident-operations",
+              "valid_from": "2026-08-01T00:00:00Z",
+              "valid_until": "2027-01-01T00:00:00Z",
+              "status": "current",
+              "excerpt": "# Missing and conflicting evidence\n\nSeparate observed facts from hypotheses. Cite immutable observation IDs or passage IDs for each material claim. Missing logs, incomplete deployment history, truncated error streams and contradictory release attribution require a next check or escalation. An empty result is not proof of absence when the source is incomplete. Cite conflicting observations explicitly and do not choose a cause just to produce an action.\n"
+            }
+          }
+        ],
+        "trace": [
+          {
+            "event": "boundary_checked",
+            "phase": "gather",
+            "round": 0,
+            "call": null,
+            "detail": "input: pass",
+            "branches": []
+          },
+          {
+            "event": "tool_attempt",
+            "phase": "gather",
+            "round": 0,
+            "call": {
+              "name": "get_service_health",
+              "arguments": {
+                "service_id": "checkout-api"
+              }
+            },
+            "detail": "attempt 1",
+            "branches": []
+          },
+          {
+            "event": "boundary_checked",
+            "phase": "gather",
+            "round": 0,
+            "call": null,
+            "detail": "source: pass",
+            "branches": []
+          },
+          {
+            "event": "tool_observed",
+            "phase": "gather",
+            "round": 0,
+            "call": {
+              "name": "get_service_health",
+              "arguments": {
+                "service_id": "checkout-api"
+              }
+            },
+            "detail": "Validated observations collected",
+            "branches": []
+          },
+          {
+            "event": "tool_attempt",
+            "phase": "gather",
+            "round": 0,
+            "call": {
+              "name": "get_recent_changes",
+              "arguments": {
+                "service_id": "checkout-api",
+                "window_minutes": 60
+              }
+            },
+            "detail": "attempt 1",
+            "branches": []
+          },
+          {
+            "event": "boundary_checked",
+            "phase": "gather",
+            "round": 0,
+            "call": null,
+            "detail": "source: pass",
+            "branches": []
+          },
+          {
+            "event": "tool_observed",
+            "phase": "gather",
+            "round": 0,
+            "call": {
+              "name": "get_recent_changes",
+              "arguments": {
+                "service_id": "checkout-api",
+                "window_minutes": 60
+              }
+            },
+            "detail": "Validated observations collected",
+            "branches": []
+          },
+          {
+            "event": "tool_attempt",
+            "phase": "gather",
+            "round": 0,
+            "call": {
+              "name": "get_recent_logs",
+              "arguments": {
+                "service_id": "checkout-api",
+                "filter": "errors",
+                "limit": 20
+              }
+            },
+            "detail": "attempt 1",
+            "branches": []
+          },
+          {
+            "event": "boundary_checked",
+            "phase": "gather",
+            "round": 0,
+            "call": null,
+            "detail": "source: pass",
+            "branches": []
+          },
+          {
+            "event": "tool_observed",
+            "phase": "gather",
+            "round": 0,
+            "call": {
+              "name": "get_recent_logs",
+              "arguments": {
+                "service_id": "checkout-api",
+                "filter": "errors",
+                "limit": 20
+              }
+            },
+            "detail": "Validated observations collected",
+            "branches": []
+          },
+          {
+            "event": "tool_attempt",
+            "phase": "gather",
+            "round": 0,
+            "call": {
+              "name": "retrieve_runbook",
+              "arguments": {
+                "service_id": "checkout-api",
+                "query": "checkout rollback policy",
+                "limit": 5
+              }
+            },
+            "detail": "attempt 1",
+            "branches": []
+          },
+          {
+            "event": "boundary_checked",
+            "phase": "gather",
+            "round": 0,
+            "call": null,
+            "detail": "source: pass",
+            "branches": []
+          },
+          {
+            "event": "boundary_checked",
+            "phase": "gather",
+            "round": 0,
+            "call": null,
+            "detail": "source: pass",
+            "branches": []
+          },
+          {
+            "event": "tool_observed",
+            "phase": "gather",
+            "round": 0,
+            "call": {
+              "name": "retrieve_runbook",
+              "arguments": {
+                "service_id": "checkout-api",
+                "query": "checkout rollback policy",
+                "limit": 5
+              }
+            },
+            "detail": "Validated observations collected",
+            "branches": []
+          },
+          {
+            "event": "provider_attempt",
+            "phase": "final",
+            "round": 0,
+            "call": null,
+            "detail": "Offline provider attempt 1; not a model call",
+            "branches": []
+          },
+          {
+            "event": "provider_attempt",
+            "phase": "final",
+            "round": 0,
+            "call": null,
+            "detail": "Offline provider attempt 2; not a model call",
+            "branches": []
+          },
+          {
+            "event": "stopped",
+            "phase": "final",
+            "round": 0,
+            "call": null,
+            "detail": "model_retry_exhausted",
+            "branches": []
+          }
+        ],
+        "provider_calls": 2,
+        "usage": {
+          "model_calls": 0,
+          "tool_calls": 4,
+          "input_tokens": 0,
+          "output_tokens": 0
+        },
+        "active_latency_ms": 26
+      }
+    },
+    {
+      "fault": "tool-budget-exhausted",
+      "settings": {
+        "mode": "offline_scripted",
+        "model": "offline-scripted-v1",
+        "temperature": 0.0,
+        "max_output_tokens": 2048,
+        "retrieval_limit": 5,
+        "cache": "disabled",
+        "guardrail_policy": "offline-boundary-check-v1",
+        "limits": {
+          "model_calls": 6,
+          "tool_calls": 1,
+          "retries": 1,
+          "deadline_seconds": 120.0,
+          "candidates": 2,
+          "expansion_rounds": 2
+        }
+      },
+      "result": {
+        "run_id": "experiment-da95dfd0547e40c089026d1f6c573d41",
+        "variant": "V0",
+        "mode": "offline_scripted",
+        "status": "incomplete",
+        "stop_reason": "tool_budget_exhausted",
+        "investigation": {
+          "run_id": "experiment-da95dfd0547e40c089026d1f6c573d41",
+          "outcome": "incomplete",
+          "facts": [],
+          "hypotheses": [],
+          "missing_information": [
+            "tool_budget_exhausted"
+          ],
+          "next_check": "Operator review or fresh diagnostic evidence",
+          "justification": "Offline controller: tool_budget_exhausted"
+        },
+        "evidence": [
+          {
+            "evidence_id": "obs-001-health",
+            "source": "get_service_health",
+            "collected_at": "2026-10-01T12:05:00Z",
+            "source_version": "fixtures-1.0.0",
+            "content_hash": "19fdce4867c76f03895ca46f5e70641437478de0327ffceaf0ef5b8ec98e1992",
+            "complete": true,
+            "sanitized": true,
+            "payload": {
+              "kind": "health",
+              "service_id": "checkout-api",
+              "observed_at": "2026-10-01T12:04:00Z",
+              "release": "release-42",
+              "error_rate": 0.25,
+              "latency_p95_ms": 1700.0,
+              "dependency_state": "healthy"
+            }
+          }
+        ],
+        "trace": [
+          {
+            "event": "boundary_checked",
+            "phase": "gather",
+            "round": 0,
+            "call": null,
+            "detail": "input: pass",
+            "branches": []
+          },
+          {
+            "event": "tool_attempt",
+            "phase": "gather",
+            "round": 0,
+            "call": {
+              "name": "get_service_health",
+              "arguments": {
+                "service_id": "checkout-api"
+              }
+            },
+            "detail": "attempt 1",
+            "branches": []
+          },
+          {
+            "event": "boundary_checked",
+            "phase": "gather",
+            "round": 0,
+            "call": null,
+            "detail": "source: pass",
+            "branches": []
+          },
+          {
+            "event": "tool_observed",
+            "phase": "gather",
+            "round": 0,
+            "call": {
+              "name": "get_service_health",
+              "arguments": {
+                "service_id": "checkout-api"
+              }
+            },
+            "detail": "Validated observations collected",
+            "branches": []
+          },
+          {
+            "event": "stopped",
+            "phase": "gather",
+            "round": 0,
+            "call": null,
+            "detail": "tool_budget_exhausted",
+            "branches": []
+          }
+        ],
+        "provider_calls": 0,
+        "usage": {
+          "model_calls": 0,
+          "tool_calls": 1,
+          "input_tokens": 0,
+          "output_tokens": 0
+        },
+        "active_latency_ms": 2
+      }
+    },
+    {
+      "fault": "filter-unavailable",
+      "settings": {
+        "mode": "offline_scripted",
+        "model": "offline-scripted-v1",
+        "temperature": 0.0,
+        "max_output_tokens": 2048,
+        "retrieval_limit": 5,
+        "cache": "disabled",
+        "guardrail_policy": "offline-boundary-check-v1",
+        "limits": {
+          "model_calls": 6,
+          "tool_calls": 8,
+          "retries": 1,
+          "deadline_seconds": 120.0,
+          "candidates": 2,
+          "expansion_rounds": 2
+        }
+      },
+      "result": {
+        "run_id": "experiment-db17f416d28f43b9b02ee02218a83889",
+        "variant": "V0",
+        "mode": "offline_scripted",
+        "status": "failed",
+        "stop_reason": "filter_unavailable",
+        "investigation": {
+          "run_id": "experiment-db17f416d28f43b9b02ee02218a83889",
+          "outcome": "incomplete",
+          "facts": [],
+          "hypotheses": [],
+          "missing_information": [
+            "filter_unavailable"
+          ],
+          "next_check": "Operator review or fresh diagnostic evidence",
+          "justification": "Offline controller: filter_unavailable"
+        },
+        "evidence": [],
+        "trace": [
+          {
+            "event": "stopped",
+            "phase": "gather",
+            "round": 0,
+            "call": null,
+            "detail": "filter_unavailable",
+            "branches": []
+          }
+        ],
+        "provider_calls": 0,
+        "usage": {
+          "model_calls": 0,
+          "tool_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0
+        },
+        "active_latency_ms": 2
+      }
+    },
+    {
+      "fault": "deadline-exhausted",
+      "settings": {
+        "mode": "offline_scripted",
+        "model": "offline-scripted-v1",
+        "temperature": 0.0,
+        "max_output_tokens": 2048,
+        "retrieval_limit": 5,
+        "cache": "disabled",
+        "guardrail_policy": "offline-boundary-check-v1",
+        "limits": {
+          "model_calls": 6,
+          "tool_calls": 8,
+          "retries": 1,
+          "deadline_seconds": 120.0,
+          "candidates": 2,
+          "expansion_rounds": 2
+        }
+      },
+      "result": {
+        "run_id": "experiment-7ec6bc9185ce4cf89c8cd65845876fa8",
+        "variant": "V0",
+        "mode": "offline_scripted",
+        "status": "incomplete",
+        "stop_reason": "deadline_exhausted",
+        "investigation": {
+          "run_id": "experiment-7ec6bc9185ce4cf89c8cd65845876fa8",
+          "outcome": "incomplete",
+          "facts": [],
+          "hypotheses": [],
+          "missing_information": [
+            "deadline_exhausted"
+          ],
+          "next_check": "Operator review or fresh diagnostic evidence",
+          "justification": "Offline controller: deadline_exhausted"
+        },
+        "evidence": [
+          {
+            "evidence_id": "obs-001-health",
+            "source": "get_service_health",
+            "collected_at": "2026-10-01T12:05:00Z",
+            "source_version": "fixtures-1.0.0",
+            "content_hash": "19fdce4867c76f03895ca46f5e70641437478de0327ffceaf0ef5b8ec98e1992",
+            "complete": true,
+            "sanitized": true,
+            "payload": {
+              "kind": "health",
+              "service_id": "checkout-api",
+              "observed_at": "2026-10-01T12:04:00Z",
+              "release": "release-42",
+              "error_rate": 0.25,
+              "latency_p95_ms": 1700.0,
+              "dependency_state": "healthy"
+            }
+          },
+          {
+            "evidence_id": "obs-001-changes",
+            "source": "get_recent_changes",
+            "collected_at": "2026-10-01T12:05:00Z",
+            "source_version": "fixtures-1.0.0",
+            "content_hash": "9d04ff37b2e1ddedc283b089a8a5e452e7e922984edaf97eb99c84ffeab7221f",
+            "complete": true,
+            "sanitized": true,
+            "payload": {
+              "kind": "changes",
+              "service_id": "checkout-api",
+              "items": [
+                {
+                  "change_id": "change-001",
+                  "changed_at": "2026-10-01T11:55:00Z",
+                  "kind": "deployment",
+                  "release": "release-42",
+                  "summary": "Checkout release-42 deployed; release-41 baseline error rate was 0.003."
+                }
+              ]
+            }
+          },
+          {
+            "evidence_id": "obs-001-logs",
+            "source": "get_recent_logs",
+            "collected_at": "2026-10-01T12:05:00Z",
+            "source_version": "fixtures-1.0.0",
+            "content_hash": "ede9bfd04b44cfdd3ca8e1b4e8258a8aa7044e18d057ff9d0ac80a101d5bc6ae",
+            "complete": true,
+            "sanitized": true,
+            "payload": {
+              "kind": "logs",
+              "service_id": "checkout-api",
+              "entries": [
+                {
+                  "observed_at": "2026-10-01T12:03:00Z",
+                  "message": "release-42 checkout serializer raises TypeError; same requests succeeded on release-41."
+                }
+              ],
+              "truncated": false
+            }
+          },
+          {
+            "evidence_id": "rb-rollback-p1",
+            "source": "retrieve_runbook",
+            "collected_at": "2026-10-01T12:05:00Z",
+            "source_version": "2.0.0",
+            "content_hash": "b951263d782c3a9b1e57cda9bb2efb2516af0a4231127f69643544ed2b3321e9",
+            "complete": true,
+            "sanitized": true,
+            "payload": {
+              "kind": "runbook",
+              "service_id": "checkout-api",
+              "passage_id": "rb-rollback-p1",
+              "document_id": "rb-rollback",
+              "version": "2.0.0",
+              "owner": "checkout-operations",
+              "valid_from": "2026-08-01T00:00:00Z",
+              "valid_until": "2027-01-01T00:00:00Z",
+              "status": "current",
+              "excerpt": "# Checkout release rollback\n\nScope: checkout-api sandbox only. A rollback proposal may target release-41 only when the current release is release-42, recent complete observations show elevated errors, dependencies are healthy, and logs corroborate a defect introduced by that deployment. Temporal correlation alone is insufficient. Read health, recent changes and logs. Health and relevant error observations must be no older than five minutes at investigation time. Changes can be collected over a bounded 120-minute window. If evidence is absent, contradictory, stale or dependencies are degraded, escalate for more evidence.\n\nThe investigator proposes; an independently authorized human approves the exact proposal hash before its expiry. Only the executor can conditionally update sandbox state. No shell command or real deployment is permitted. A receipt means a synthetic state transition, not recovery; obtain a separate subsequent health observation.\n"
+            }
+          },
+          {
+            "evidence_id": "rb-evidence-p1",
+            "source": "retrieve_runbook",
+            "collected_at": "2026-10-01T12:05:00Z",
+            "source_version": "1.0.0",
+            "content_hash": "94a972b57c995d78fb4a93afbc1f9145c1dd2d7a3a67f524f5bfa6a0972cbb4c",
+            "complete": true,
+            "sanitized": true,
+            "payload": {
+              "kind": "runbook",
+              "service_id": "checkout-api",
+              "passage_id": "rb-evidence-p1",
+              "document_id": "rb-evidence",
+              "version": "1.0.0",
+              "owner": "incident-operations",
+              "valid_from": "2026-08-01T00:00:00Z",
+              "valid_until": "2027-01-01T00:00:00Z",
+              "status": "current",
+              "excerpt": "# Missing and conflicting evidence\n\nSeparate observed facts from hypotheses. Cite immutable observation IDs or passage IDs for each material claim. Missing logs, incomplete deployment history, truncated error streams and contradictory release attribution require a next check or escalation. An empty result is not proof of absence when the source is incomplete. Cite conflicting observations explicitly and do not choose a cause just to produce an action.\n"
+            }
+          }
+        ],
+        "trace": [
+          {
+            "event": "boundary_checked",
+            "phase": "gather",
+            "round": 0,
+            "call": null,
+            "detail": "input: pass",
+            "branches": []
+          },
+          {
+            "event": "tool_attempt",
+            "phase": "gather",
+            "round": 0,
+            "call": {
+              "name": "get_service_health",
+              "arguments": {
+                "service_id": "checkout-api"
+              }
+            },
+            "detail": "attempt 1",
+            "branches": []
+          },
+          {
+            "event": "boundary_checked",
+            "phase": "gather",
+            "round": 0,
+            "call": null,
+            "detail": "source: pass",
+            "branches": []
+          },
+          {
+            "event": "tool_observed",
+            "phase": "gather",
+            "round": 0,
+            "call": {
+              "name": "get_service_health",
+              "arguments": {
+                "service_id": "checkout-api"
+              }
+            },
+            "detail": "Validated observations collected",
+            "branches": []
+          },
+          {
+            "event": "tool_attempt",
+            "phase": "gather",
+            "round": 0,
+            "call": {
+              "name": "get_recent_changes",
+              "arguments": {
+                "service_id": "checkout-api",
+                "window_minutes": 60
+              }
+            },
+            "detail": "attempt 1",
+            "branches": []
+          },
+          {
+            "event": "boundary_checked",
+            "phase": "gather",
+            "round": 0,
+            "call": null,
+            "detail": "source: pass",
+            "branches": []
+          },
+          {
+            "event": "tool_observed",
+            "phase": "gather",
+            "round": 0,
+            "call": {
+              "name": "get_recent_changes",
+              "arguments": {
+                "service_id": "checkout-api",
+                "window_minutes": 60
+              }
+            },
+            "detail": "Validated observations collected",
+            "branches": []
+          },
+          {
+            "event": "tool_attempt",
+            "phase": "gather",
+            "round": 0,
+            "call": {
+              "name": "get_recent_logs",
+              "arguments": {
+                "service_id": "checkout-api",
+                "filter": "errors",
+                "limit": 20
+              }
+            },
+            "detail": "attempt 1",
+            "branches": []
+          },
+          {
+            "event": "boundary_checked",
+            "phase": "gather",
+            "round": 0,
+            "call": null,
+            "detail": "source: pass",
+            "branches": []
+          },
+          {
+            "event": "tool_observed",
+            "phase": "gather",
+            "round": 0,
+            "call": {
+              "name": "get_recent_logs",
+              "arguments": {
+                "service_id": "checkout-api",
+                "filter": "errors",
+                "limit": 20
+              }
+            },
+            "detail": "Validated observations collected",
+            "branches": []
+          },
+          {
+            "event": "tool_attempt",
+            "phase": "gather",
+            "round": 0,
+            "call": {
+              "name": "retrieve_runbook",
+              "arguments": {
+                "service_id": "checkout-api",
+                "query": "checkout rollback policy",
+                "limit": 5
+              }
+            },
+            "detail": "attempt 1",
+            "branches": []
+          },
+          {
+            "event": "boundary_checked",
+            "phase": "gather",
+            "round": 0,
+            "call": null,
+            "detail": "source: pass",
+            "branches": []
+          },
+          {
+            "event": "boundary_checked",
+            "phase": "gather",
+            "round": 0,
+            "call": null,
+            "detail": "source: pass",
+            "branches": []
+          },
+          {
+            "event": "tool_observed",
+            "phase": "gather",
+            "round": 0,
+            "call": {
+              "name": "retrieve_runbook",
+              "arguments": {
+                "service_id": "checkout-api",
+                "query": "checkout rollback policy",
+                "limit": 5
+              }
+            },
+            "detail": "Validated observations collected",
+            "branches": []
+          },
+          {
+            "event": "provider_attempt",
+            "phase": "final",
+            "round": 0,
+            "call": null,
+            "detail": "Offline provider attempt 1; not a model call",
+            "branches": []
+          },
+          {
+            "event": "stopped",
+            "phase": "final",
+            "round": 0,
+            "call": null,
+            "detail": "deadline_exhausted",
+            "branches": []
+          }
+        ],
+        "provider_calls": 1,
+        "usage": {
+          "model_calls": 0,
+          "tool_calls": 4,
+          "input_tokens": 0,
+          "output_tokens": 0
+        },
+        "active_latency_ms": 121000
+      }
+    }
+  ]
+}

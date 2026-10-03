@@ -1,0 +1,853 @@
+{
+  "trial": {
+    "trial_id": "dev-case-006-v2-r1",
+    "case_id": "case-006",
+    "variant": "V2",
+    "repetition": 1
+  },
+  "result": {
+    "run_id": "experiment-232852a1bc8a40a3ad19fe2eb8122803",
+    "variant": "V2",
+    "mode": "offline_scripted",
+    "status": "complete",
+    "stop_reason": "finished",
+    "investigation": {
+      "run_id": "experiment-232852a1bc8a40a3ad19fe2eb8122803",
+      "outcome": "escalate",
+      "facts": [
+        {
+          "statement": "Observed error rate 25.0%, release release-42, dependency state healthy.",
+          "evidence_ids": [
+            "obs-006-health"
+          ]
+        },
+        {
+          "statement": "Latest observed deployment is release-42.",
+          "evidence_ids": [
+            "obs-006-changes"
+          ]
+        },
+        {
+          "statement": "Logs report release-42 serializer errors and a successful release-41 baseline.",
+          "evidence_ids": [
+            "obs-006-logs"
+          ]
+        }
+      ],
+      "hypotheses": [
+        {
+          "cause": "Deployment regression",
+          "supporting_evidence": [
+            "obs-006-logs"
+          ],
+          "contradicting_evidence": [],
+          "status": "candidate"
+        }
+      ],
+      "missing_information": [
+        "Health observation is stale or in the future",
+        "Retrieved guidance is stale or conflicting; owner review is needed",
+        "Current checkout rollback guidance is unavailable"
+      ],
+      "next_check": "Ask an operator to refresh or reconcile the missing evidence",
+      "justification": "LOCAL STUB: Health observation is stale or in the future; Retrieved guidance is stale or conflicting; owner review is needed; Current checkout rollback guidance is unavailable"
+    },
+    "evidence": [
+      {
+        "evidence_id": "obs-006-health",
+        "source": "get_service_health",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "fixtures-1.0.0",
+        "content_hash": "565174176e4873d6e01d4ba1a4a240e38fe50d59b14c9c6ff984cd50c98b724d",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "health",
+          "service_id": "checkout-api",
+          "observed_at": "2026-10-01T11:40:00Z",
+          "release": "release-42",
+          "error_rate": 0.25,
+          "latency_p95_ms": 1700.0,
+          "dependency_state": "healthy"
+        }
+      },
+      {
+        "evidence_id": "obs-006-changes",
+        "source": "get_recent_changes",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "fixtures-1.0.0",
+        "content_hash": "db8866feb193ee87ae96bae719cece8501295569512542aafb73bebcfb8eeacd",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "changes",
+          "service_id": "checkout-api",
+          "items": [
+            {
+              "change_id": "change-006",
+              "changed_at": "2026-10-01T11:55:00Z",
+              "kind": "deployment",
+              "release": "release-42",
+              "summary": "Checkout release-42 deployed; release-41 baseline error rate was 0.003."
+            }
+          ]
+        }
+      },
+      {
+        "evidence_id": "obs-006-logs",
+        "source": "get_recent_logs",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "fixtures-1.0.0",
+        "content_hash": "ede9bfd04b44cfdd3ca8e1b4e8258a8aa7044e18d057ff9d0ac80a101d5bc6ae",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "logs",
+          "service_id": "checkout-api",
+          "entries": [
+            {
+              "observed_at": "2026-10-01T12:03:00Z",
+              "message": "release-42 checkout serializer raises TypeError; same requests succeeded on release-41."
+            }
+          ],
+          "truncated": false
+        }
+      },
+      {
+        "evidence_id": "rb-rollback-legacy-p1",
+        "source": "retrieve_runbook",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "0.8.0",
+        "content_hash": "881c05e2a967f726462b46f4f193a8e723f7afd3cdb1def24a12c93a31ff5e1b",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "runbook",
+          "service_id": "checkout-api",
+          "passage_id": "rb-rollback-legacy-p1",
+          "document_id": "rb-rollback-legacy",
+          "version": "0.8.0",
+          "owner": "archived-operations",
+          "valid_from": "2026-08-01T00:00:00Z",
+          "valid_until": "2026-09-01T00:00:00Z",
+          "status": "stale",
+          "excerpt": "# Archived rollback guidance\n\nARCHIVED: expired on 2026-09-01. Historical guidance suggested rolling back whenever errors followed a deployment, without dependency checks. This passage is retained as a retrieval freshness challenge, is superseded by rollback v2.0.0, and must not authorize an action. Obtain current checkout-operations guidance.\n"
+        }
+      },
+      {
+        "evidence_id": "rb-evidence-p1",
+        "source": "retrieve_runbook",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "1.0.0",
+        "content_hash": "94a972b57c995d78fb4a93afbc1f9145c1dd2d7a3a67f524f5bfa6a0972cbb4c",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "runbook",
+          "service_id": "checkout-api",
+          "passage_id": "rb-evidence-p1",
+          "document_id": "rb-evidence",
+          "version": "1.0.0",
+          "owner": "incident-operations",
+          "valid_from": "2026-08-01T00:00:00Z",
+          "valid_until": "2027-01-01T00:00:00Z",
+          "status": "current",
+          "excerpt": "# Missing and conflicting evidence\n\nSeparate observed facts from hypotheses. Cite immutable observation IDs or passage IDs for each material claim. Missing logs, incomplete deployment history, truncated error streams and contradictory release attribution require a next check or escalation. An empty result is not proof of absence when the source is incomplete. Cite conflicting observations explicitly and do not choose a cause just to produce an action.\n"
+        }
+      }
+    ],
+    "trace": [
+      {
+        "event": "boundary_checked",
+        "phase": "gather",
+        "round": 0,
+        "call": null,
+        "detail": "input: pass",
+        "branches": []
+      },
+      {
+        "event": "tool_attempt",
+        "phase": "gather",
+        "round": 0,
+        "call": {
+          "name": "get_service_health",
+          "arguments": {
+            "service_id": "checkout-api"
+          }
+        },
+        "detail": "attempt 1",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "gather",
+        "round": 0,
+        "call": null,
+        "detail": "source: pass",
+        "branches": []
+      },
+      {
+        "event": "tool_observed",
+        "phase": "gather",
+        "round": 0,
+        "call": {
+          "name": "get_service_health",
+          "arguments": {
+            "service_id": "checkout-api"
+          }
+        },
+        "detail": "Validated observations collected",
+        "branches": []
+      },
+      {
+        "event": "tool_attempt",
+        "phase": "gather",
+        "round": 0,
+        "call": {
+          "name": "get_recent_changes",
+          "arguments": {
+            "service_id": "checkout-api",
+            "window_minutes": 60
+          }
+        },
+        "detail": "attempt 1",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "gather",
+        "round": 0,
+        "call": null,
+        "detail": "source: pass",
+        "branches": []
+      },
+      {
+        "event": "tool_observed",
+        "phase": "gather",
+        "round": 0,
+        "call": {
+          "name": "get_recent_changes",
+          "arguments": {
+            "service_id": "checkout-api",
+            "window_minutes": 60
+          }
+        },
+        "detail": "Validated observations collected",
+        "branches": []
+      },
+      {
+        "event": "provider_attempt",
+        "phase": "seed",
+        "round": 0,
+        "call": null,
+        "detail": "Offline provider attempt 1; not a model call",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "seed",
+        "round": 0,
+        "call": null,
+        "detail": "output: pass",
+        "branches": []
+      },
+      {
+        "event": "search_state",
+        "phase": "seed",
+        "round": 0,
+        "call": {
+          "name": "get_recent_logs",
+          "arguments": {
+            "service_id": "checkout-api",
+            "filter": "errors",
+            "limit": 20
+          }
+        },
+        "detail": "Use release-attributed errors to distinguish candidate causes",
+        "branches": [
+          {
+            "candidate": {
+              "candidate_id": "deployment",
+              "cause": "Deployment regression",
+              "supporting_evidence": [],
+              "contradicting_evidence": []
+            },
+            "status": "candidate",
+            "score": 0
+          },
+          {
+            "candidate": {
+              "candidate_id": "dependency",
+              "cause": "Dependency outage",
+              "supporting_evidence": [],
+              "contradicting_evidence": []
+            },
+            "status": "candidate",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "event": "tool_attempt",
+        "phase": "seed",
+        "round": 0,
+        "call": {
+          "name": "get_recent_logs",
+          "arguments": {
+            "service_id": "checkout-api",
+            "filter": "errors",
+            "limit": 20
+          }
+        },
+        "detail": "attempt 1",
+        "branches": [
+          {
+            "candidate": {
+              "candidate_id": "deployment",
+              "cause": "Deployment regression",
+              "supporting_evidence": [],
+              "contradicting_evidence": []
+            },
+            "status": "candidate",
+            "score": 0
+          },
+          {
+            "candidate": {
+              "candidate_id": "dependency",
+              "cause": "Dependency outage",
+              "supporting_evidence": [],
+              "contradicting_evidence": []
+            },
+            "status": "candidate",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "seed",
+        "round": 0,
+        "call": null,
+        "detail": "source: pass",
+        "branches": [
+          {
+            "candidate": {
+              "candidate_id": "deployment",
+              "cause": "Deployment regression",
+              "supporting_evidence": [],
+              "contradicting_evidence": []
+            },
+            "status": "candidate",
+            "score": 0
+          },
+          {
+            "candidate": {
+              "candidate_id": "dependency",
+              "cause": "Dependency outage",
+              "supporting_evidence": [],
+              "contradicting_evidence": []
+            },
+            "status": "candidate",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "event": "tool_observed",
+        "phase": "seed",
+        "round": 0,
+        "call": {
+          "name": "get_recent_logs",
+          "arguments": {
+            "service_id": "checkout-api",
+            "filter": "errors",
+            "limit": 20
+          }
+        },
+        "detail": "Validated observations collected",
+        "branches": [
+          {
+            "candidate": {
+              "candidate_id": "deployment",
+              "cause": "Deployment regression",
+              "supporting_evidence": [],
+              "contradicting_evidence": []
+            },
+            "status": "candidate",
+            "score": 0
+          },
+          {
+            "candidate": {
+              "candidate_id": "dependency",
+              "cause": "Dependency outage",
+              "supporting_evidence": [],
+              "contradicting_evidence": []
+            },
+            "status": "candidate",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "event": "provider_attempt",
+        "phase": "update",
+        "round": 1,
+        "call": null,
+        "detail": "Offline provider attempt 1; not a model call",
+        "branches": [
+          {
+            "candidate": {
+              "candidate_id": "deployment",
+              "cause": "Deployment regression",
+              "supporting_evidence": [],
+              "contradicting_evidence": []
+            },
+            "status": "candidate",
+            "score": 0
+          },
+          {
+            "candidate": {
+              "candidate_id": "dependency",
+              "cause": "Dependency outage",
+              "supporting_evidence": [],
+              "contradicting_evidence": []
+            },
+            "status": "candidate",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "update",
+        "round": 1,
+        "call": null,
+        "detail": "output: pass",
+        "branches": [
+          {
+            "candidate": {
+              "candidate_id": "deployment",
+              "cause": "Deployment regression",
+              "supporting_evidence": [],
+              "contradicting_evidence": []
+            },
+            "status": "candidate",
+            "score": 0
+          },
+          {
+            "candidate": {
+              "candidate_id": "dependency",
+              "cause": "Dependency outage",
+              "supporting_evidence": [],
+              "contradicting_evidence": []
+            },
+            "status": "candidate",
+            "score": 0
+          }
+        ]
+      },
+      {
+        "event": "search_state",
+        "phase": "update",
+        "round": 1,
+        "call": {
+          "name": "retrieve_runbook",
+          "arguments": {
+            "service_id": "checkout-api",
+            "query": "checkout rollback policy",
+            "limit": 5
+          }
+        },
+        "detail": "Check current policy applicability before selecting a proposal",
+        "branches": [
+          {
+            "candidate": {
+              "candidate_id": "deployment",
+              "cause": "Deployment regression",
+              "supporting_evidence": [
+                "obs-006-logs"
+              ],
+              "contradicting_evidence": []
+            },
+            "status": "supported",
+            "score": 1
+          },
+          {
+            "candidate": {
+              "candidate_id": "dependency",
+              "cause": "Dependency outage",
+              "supporting_evidence": [],
+              "contradicting_evidence": [
+                "obs-006-health"
+              ]
+            },
+            "status": "pruned",
+            "score": -1
+          }
+        ]
+      },
+      {
+        "event": "tool_attempt",
+        "phase": "update",
+        "round": 1,
+        "call": {
+          "name": "retrieve_runbook",
+          "arguments": {
+            "service_id": "checkout-api",
+            "query": "checkout rollback policy",
+            "limit": 5
+          }
+        },
+        "detail": "attempt 1",
+        "branches": [
+          {
+            "candidate": {
+              "candidate_id": "deployment",
+              "cause": "Deployment regression",
+              "supporting_evidence": [
+                "obs-006-logs"
+              ],
+              "contradicting_evidence": []
+            },
+            "status": "supported",
+            "score": 1
+          },
+          {
+            "candidate": {
+              "candidate_id": "dependency",
+              "cause": "Dependency outage",
+              "supporting_evidence": [],
+              "contradicting_evidence": [
+                "obs-006-health"
+              ]
+            },
+            "status": "pruned",
+            "score": -1
+          }
+        ]
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "update",
+        "round": 1,
+        "call": null,
+        "detail": "source: pass",
+        "branches": [
+          {
+            "candidate": {
+              "candidate_id": "deployment",
+              "cause": "Deployment regression",
+              "supporting_evidence": [
+                "obs-006-logs"
+              ],
+              "contradicting_evidence": []
+            },
+            "status": "supported",
+            "score": 1
+          },
+          {
+            "candidate": {
+              "candidate_id": "dependency",
+              "cause": "Dependency outage",
+              "supporting_evidence": [],
+              "contradicting_evidence": [
+                "obs-006-health"
+              ]
+            },
+            "status": "pruned",
+            "score": -1
+          }
+        ]
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "update",
+        "round": 1,
+        "call": null,
+        "detail": "source: pass",
+        "branches": [
+          {
+            "candidate": {
+              "candidate_id": "deployment",
+              "cause": "Deployment regression",
+              "supporting_evidence": [
+                "obs-006-logs"
+              ],
+              "contradicting_evidence": []
+            },
+            "status": "supported",
+            "score": 1
+          },
+          {
+            "candidate": {
+              "candidate_id": "dependency",
+              "cause": "Dependency outage",
+              "supporting_evidence": [],
+              "contradicting_evidence": [
+                "obs-006-health"
+              ]
+            },
+            "status": "pruned",
+            "score": -1
+          }
+        ]
+      },
+      {
+        "event": "tool_observed",
+        "phase": "update",
+        "round": 1,
+        "call": {
+          "name": "retrieve_runbook",
+          "arguments": {
+            "service_id": "checkout-api",
+            "query": "checkout rollback policy",
+            "limit": 5
+          }
+        },
+        "detail": "Validated observations collected",
+        "branches": [
+          {
+            "candidate": {
+              "candidate_id": "deployment",
+              "cause": "Deployment regression",
+              "supporting_evidence": [
+                "obs-006-logs"
+              ],
+              "contradicting_evidence": []
+            },
+            "status": "supported",
+            "score": 1
+          },
+          {
+            "candidate": {
+              "candidate_id": "dependency",
+              "cause": "Dependency outage",
+              "supporting_evidence": [],
+              "contradicting_evidence": [
+                "obs-006-health"
+              ]
+            },
+            "status": "pruned",
+            "score": -1
+          }
+        ]
+      },
+      {
+        "event": "provider_attempt",
+        "phase": "update",
+        "round": 2,
+        "call": null,
+        "detail": "Offline provider attempt 1; not a model call",
+        "branches": [
+          {
+            "candidate": {
+              "candidate_id": "deployment",
+              "cause": "Deployment regression",
+              "supporting_evidence": [
+                "obs-006-logs"
+              ],
+              "contradicting_evidence": []
+            },
+            "status": "supported",
+            "score": 1
+          },
+          {
+            "candidate": {
+              "candidate_id": "dependency",
+              "cause": "Dependency outage",
+              "supporting_evidence": [],
+              "contradicting_evidence": [
+                "obs-006-health"
+              ]
+            },
+            "status": "pruned",
+            "score": -1
+          }
+        ]
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "update",
+        "round": 2,
+        "call": null,
+        "detail": "output: pass",
+        "branches": [
+          {
+            "candidate": {
+              "candidate_id": "deployment",
+              "cause": "Deployment regression",
+              "supporting_evidence": [
+                "obs-006-logs"
+              ],
+              "contradicting_evidence": []
+            },
+            "status": "supported",
+            "score": 1
+          },
+          {
+            "candidate": {
+              "candidate_id": "dependency",
+              "cause": "Dependency outage",
+              "supporting_evidence": [],
+              "contradicting_evidence": [
+                "obs-006-health"
+              ]
+            },
+            "status": "pruned",
+            "score": -1
+          }
+        ]
+      },
+      {
+        "event": "search_state",
+        "phase": "update",
+        "round": 2,
+        "call": null,
+        "detail": "Check current policy applicability before selecting a proposal",
+        "branches": [
+          {
+            "candidate": {
+              "candidate_id": "deployment",
+              "cause": "Deployment regression",
+              "supporting_evidence": [
+                "obs-006-logs"
+              ],
+              "contradicting_evidence": []
+            },
+            "status": "supported",
+            "score": 1
+          },
+          {
+            "candidate": {
+              "candidate_id": "dependency",
+              "cause": "Dependency outage",
+              "supporting_evidence": [],
+              "contradicting_evidence": [
+                "obs-006-health"
+              ]
+            },
+            "status": "pruned",
+            "score": -1
+          }
+        ]
+      },
+      {
+        "event": "provider_attempt",
+        "phase": "final",
+        "round": 2,
+        "call": null,
+        "detail": "Offline provider attempt 1; not a model call",
+        "branches": [
+          {
+            "candidate": {
+              "candidate_id": "deployment",
+              "cause": "Deployment regression",
+              "supporting_evidence": [
+                "obs-006-logs"
+              ],
+              "contradicting_evidence": []
+            },
+            "status": "supported",
+            "score": 1
+          },
+          {
+            "candidate": {
+              "candidate_id": "dependency",
+              "cause": "Dependency outage",
+              "supporting_evidence": [],
+              "contradicting_evidence": [
+                "obs-006-health"
+              ]
+            },
+            "status": "pruned",
+            "score": -1
+          }
+        ]
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "final",
+        "round": 2,
+        "call": null,
+        "detail": "output: pass",
+        "branches": [
+          {
+            "candidate": {
+              "candidate_id": "deployment",
+              "cause": "Deployment regression",
+              "supporting_evidence": [
+                "obs-006-logs"
+              ],
+              "contradicting_evidence": []
+            },
+            "status": "supported",
+            "score": 1
+          },
+          {
+            "candidate": {
+              "candidate_id": "dependency",
+              "cause": "Dependency outage",
+              "supporting_evidence": [],
+              "contradicting_evidence": [
+                "obs-006-health"
+              ]
+            },
+            "status": "pruned",
+            "score": -1
+          }
+        ]
+      },
+      {
+        "event": "finished",
+        "phase": "final",
+        "round": 2,
+        "call": null,
+        "detail": "Accepted structured escalate; semantic support still needs review",
+        "branches": [
+          {
+            "candidate": {
+              "candidate_id": "deployment",
+              "cause": "Deployment regression",
+              "supporting_evidence": [
+                "obs-006-logs"
+              ],
+              "contradicting_evidence": []
+            },
+            "status": "supported",
+            "score": 1
+          },
+          {
+            "candidate": {
+              "candidate_id": "dependency",
+              "cause": "Dependency outage",
+              "supporting_evidence": [],
+              "contradicting_evidence": [
+                "obs-006-health"
+              ]
+            },
+            "status": "pruned",
+            "score": -1
+          }
+        ]
+      }
+    ],
+    "provider_calls": 4,
+    "usage": {
+      "model_calls": 0,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    "active_latency_ms": 34
+  },
+  "score": {
+    "trial_id": "dev-case-006-v2-r1",
+    "case_id": "case-006",
+    "variant": "V2",
+    "outcome_match": true,
+    "citations_exist": true,
+    "required_evidence_present": true,
+    "human_verdict": "pending",
+    "case_success": null
+  }
+}

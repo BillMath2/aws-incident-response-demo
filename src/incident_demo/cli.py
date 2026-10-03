@@ -5,6 +5,12 @@ from pathlib import Path
 
 from pydantic import ValidationError
 
+from incident_demo.contracts.experiments import (
+    DECISION_ADAPTER,
+    ExperimentResult,
+    HumanReview,
+    TrialManifest,
+)
 from incident_demo.contracts.local import LocalRunRecord
 from incident_demo.contracts.records import (
     ActionReceipt,
@@ -19,6 +25,13 @@ from incident_demo.contracts.records import (
 )
 from incident_demo.contracts.tools import CALL_ADAPTER
 from incident_demo.corpus import Fixture, KnowledgeCatalog, Manifest, json_document, validate_corpus
+from incident_demo.evaluation.harness import (
+    TrialRecord,
+    create_manifest,
+    report_trials,
+    run_trials,
+    write_new,
+)
 from incident_demo.local_cli import run_demo
 from incident_demo.local_tools import VerificationFixtures
 from incident_demo.workflow.local import LOCAL_ROLES
@@ -38,12 +51,17 @@ SCHEMAS = (
     Manifest,
     LocalRunRecord,
     VerificationFixtures,
+    ExperimentResult,
+    TrialManifest,
+    TrialRecord,
+    HumanReview,
 )
 
 
 def export_schemas(root: Path, check: bool = False) -> None:
     schemas = {model.__name__: model.model_json_schema() for model in SCHEMAS}
     schemas["InvestigatorCall"] = CALL_ADAPTER.json_schema()
+    schemas["InvestigatorDecision"] = DECISION_ADAPTER.json_schema()
     folder = root / "schemas"
     if not check:
         folder.mkdir(parents=True, exist_ok=True)
@@ -92,6 +110,20 @@ def main() -> None:
     demo.add_argument(
         "--output", type=Path, help="new JSON evidence file; existing files are refused"
     )
+    plan = sub.add_parser("eval-plan", help="freeze an offline development trial manifest")
+    plan.add_argument("--repetitions", type=int, choices=[1, 2, 3], default=1)
+    plan.add_argument("--output", type=Path, required=True)
+    evaluate = sub.add_parser(
+        "eval-run", help="run all planned offline trials; no live quality claim"
+    )
+    evaluate.add_argument("--manifest", type=Path, required=True)
+    evaluate.add_argument("--output", type=Path, required=True, help="new output directory")
+    report = sub.add_parser(
+        "eval-report", help="recompute retained scores with optional human reviews"
+    )
+    report.add_argument("--directory", type=Path, required=True)
+    report.add_argument("--reviews", type=Path)
+    report.add_argument("--output", type=Path, required=True, help="new report file")
     args = parser.parse_args()
     try:
         if args.command == "validate-corpus":
@@ -100,6 +132,19 @@ def main() -> None:
         elif args.command == "schemas":
             export_schemas(args.root, args.check)
             print("Schemas verified." if args.check else "Schemas exported.")
+        elif args.command == "eval-plan":
+            manifest = create_manifest(args.root, args.repetitions)
+            write_new(args.output, manifest.model_dump(mode="json"))
+            print(f"Frozen {len(manifest.trials)} offline development trials: {args.output}")
+        elif args.command == "eval-run":
+            manifest = TrialManifest.model_validate_json(args.manifest.read_bytes())
+            report = run_trials(args.root, manifest, args.output)
+            print(f"Retained {report['retained_trials']} trials: {args.output}")
+            print(report["label"])
+        elif args.command == "eval-report":
+            report = report_trials(args.root, args.directory, args.reviews)
+            write_new(args.output, report)
+            print(f"Offline report written: {args.output}; live gate remains false")
         else:
             parser.exit(run_demo(args))
     except ValidationError:

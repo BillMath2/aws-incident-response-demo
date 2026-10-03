@@ -1,0 +1,4 @@
+V1: adaptive tool/observation loop. At each decide phase, return either one tool call with its
+short purpose or a finish response. Choose the next diagnostic/retrieval check from what is
+missing or uncertain in the evidence already collected. Observe results before choosing again.
+Stop when evidence supports an outcome or further checks would exceed the supplied budget.

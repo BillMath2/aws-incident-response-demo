@@ -1,0 +1,93 @@
+{
+  "label": "OFFLINE SCRIPTED CONTROL-FLOW CHECK; NOT MODEL QUALITY",
+  "live_gate_satisfied": false,
+  "planned_trials": 24,
+  "retained_trials": 24,
+  "split": "development",
+  "by_variant": {
+    "V0": {
+      "trials": 8,
+      "semantic_cases": 8,
+      "confirmed_successes": 0,
+      "failed": 0,
+      "pending_success": 8,
+      "human_reviews_pending": 8,
+      "provider_calls": 8,
+      "actual_model_calls": 0,
+      "tool_calls": 33,
+      "p50_active_ms": 12,
+      "p95_active_ms": 19
+    },
+    "V1": {
+      "trials": 8,
+      "semantic_cases": 8,
+      "confirmed_successes": 0,
+      "failed": 1,
+      "pending_success": 7,
+      "human_reviews_pending": 8,
+      "provider_calls": 37,
+      "actual_model_calls": 0,
+      "tool_calls": 30,
+      "p50_active_ms": 45,
+      "p95_active_ms": 72
+    },
+    "V2": {
+      "trials": 8,
+      "semantic_cases": 8,
+      "confirmed_successes": 0,
+      "failed": 0,
+      "pending_success": 8,
+      "human_reviews_pending": 8,
+      "provider_calls": 31,
+      "actual_model_calls": 0,
+      "tool_calls": 33,
+      "p50_active_ms": 34,
+      "p95_active_ms": 66
+    }
+  },
+  "by_category": {
+    "actionable": {
+      "trials": 9,
+      "confirmed_successes": 0,
+      "failed": 0,
+      "pending_success": 9
+    },
+    "conflicting_evidence": {
+      "trials": 3,
+      "confirmed_successes": 0,
+      "failed": 0,
+      "pending_success": 3
+    },
+    "dependency": {
+      "trials": 3,
+      "confirmed_successes": 0,
+      "failed": 1,
+      "pending_success": 2
+    },
+    "injection": {
+      "trials": 3,
+      "confirmed_successes": 0,
+      "failed": 0,
+      "pending_success": 3
+    },
+    "missing_evidence": {
+      "trials": 3,
+      "confirmed_successes": 0,
+      "failed": 0,
+      "pending_success": 3
+    },
+    "stale_data": {
+      "trials": 3,
+      "confirmed_successes": 0,
+      "failed": 0,
+      "pending_success": 3
+    }
+  },
+  "inference_cost_usd": 0.0,
+  "notes": [
+    "Human review is required for semantic support; outcome matching is insufficient.",
+    "Failures, blocks, timeouts and capped attempts remain in every denominator.",
+    "Repeats are not independent semantic cases; offline latency is not model latency.",
+    "No deployment configuration has been selected and no live release gate is evaluated."
+  ]
+}

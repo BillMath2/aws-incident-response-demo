@@ -1,13 +1,15 @@
 # AWS incident response demo
 
 A synthetic checkout incident-response demonstration being built with Python, LangGraph,
-LangChain and Amazon Bedrock AgentCore. **P01 and P02 are implemented and locally verified:**
-contracts, a frozen case corpus, and a CLI investigation/approval/sandbox-action walkthrough.
-No live AWS behavior or model-quality results are claimed yet.
+LangChain and Amazon Bedrock AgentCore. **P01-P03 are implemented and locally verified:**
+contracts, a frozen case corpus, a local approval walkthrough, and executable LangGraph
+investigation variants with an offline evaluation harness. No live AWS behavior or model-quality
+results are claimed yet.
 
 The [master implementation plan](docs/aws-incident-response-demo-master-implementation-plan.md)
 defines scope. See [P01 acceptance](docs/p01-acceptance.md) and
-[P02 acceptance and retained walkthroughs](docs/p02-acceptance.md).
+[P02 acceptance and retained walkthroughs](docs/p02-acceptance.md), and
+[P03 acceptance](docs/p03-acceptance.md).
 
 ## Setup
 
@@ -106,6 +108,45 @@ state and idempotency memory disappear on process exit. Exit code 0 means the co
 inspect the exported run state for resolution, rejection, escalation or incompleteness. Control
 rejections and observer failures return 2; setup/contract/export failures return 1.
 
+## Offline prompt experiments (P03)
+
+Run setup again to install the locked LangGraph dependency. Then freeze and execute a development
+batch (8 cases x 3 variants x 1 repetition = 24 trials):
+
+```powershell
+.\.venv\Scripts\incident-demo.exe eval-plan --output runs/p03-plan.json
+.\.venv\Scripts\incident-demo.exe eval-run --manifest runs/p03-plan.json --output runs/p03-development
+.\.venv\Scripts\incident-demo.exe eval-report --directory runs/p03-development --output runs/p03-report.json
+```
+
+These commands require new output paths. `eval-plan --repetitions 3` creates 72 development trials.
+The manifest pins settings, prompts, code, dependencies, rubric and corpus; execution rejects drift.
+No held-out execution or live provider can be enabled through these commands.
+
+| Variant | Executable control flow |
+|---|---|
+| V0 | Fixed health/change/log/runbook gathering, then one structured response |
+| V1 | Provider selects a diagnostic or retrieval call, observes its result, then continues or finishes |
+| V2 | Initial health/changes, at most two candidate causes and two check/update rounds; prune, select or escalate |
+
+The same LangGraph controller enforces a maximum of six provider invocations, eight tool calls,
+one retry per transient operation within those totals, and a 120-second cooperative deadline.
+V2 keeps concise candidate states, evidence IDs, check choices and pruning decisions. It is not
+three finished drafts. The scripted provider exercises these paths using development fixtures;
+it is not an LLM and the controller's evidence-count ranking is not proof of claim support.
+
+All variants use shared tool/output contracts and input/source/output boundary hooks. P03's
+boundary implementation only checks synthetic canary values; it is not Bedrock Guardrails.
+Remote LangSmith tracing is explicitly disabled for these offline graphs. There is no approval
+or executor in the experiment harness; P02's `demo` command remains a separate walkthrough.
+
+Every planned result, including failures, blocks and caps, is retained. `provider_calls` records
+scripted invocations while actual model calls, tokens and inference cost stay zero. Automated
+checks can fail a case, but a matching outcome cannot pass without human review of material facts,
+semantic citation support, action appropriateness and output safety. Reports always mark the live
+gate false. See [rubric and review workflow](evals/README.md) and
+[retained P03 report](docs/evidence/p03/development/report.json).
+
 ## Repository contents
 
 | Location | Purpose |
@@ -113,6 +154,9 @@ rejections and observer failures return 2; setup/contract/export failures return
 | `src/incident_demo/contracts/` | Strict Pydantic tool and record contracts |
 | `src/incident_demo/corpus.py` | Separate fixture, knowledge and evaluator loaders |
 | `src/incident_demo/investigator/` | Explicitly labeled deterministic local stub |
+| `src/incident_demo/investigator/engine.py` | LangGraph V0/V1/V2 control flow and shared bounds |
+| `src/incident_demo/evaluation/` | Frozen trial planning, execution, scoring and reporting |
+| `prompts/` | Shared instructions, three versioned variants and a hashed manifest |
 | `src/incident_demo/workflow/`, `storage/` | Local orchestration and in-memory state adapter |
 | `src/incident_demo/local_tools.py` | Fixture diagnostics and independent synthetic verification |
 | `schemas/` | Generated JSON Schemas; CI checks for drift |
@@ -123,9 +167,8 @@ rejections and observer failures return 2; setup/contract/export failures return
 | `tests/` | Offline contract and corpus integrity checks |
 | `.github/workflows/ci.yml` | Lint, format, unit, corpus and schema checks |
 
-Future runtime adapters and infrastructure will be added with their work packages. LangGraph,
-LangChain and AWS dependencies are deferred until they have an implemented consumer and can be
-verified against the selected AWS runtime.
+LangGraph 1.2.12 now runs the offline strategies; its dependencies are locked. The Bedrock
+LangChain integration and live runtime adapters remain P05 work after P04 readiness decisions.
 
 ## Contract boundaries
 

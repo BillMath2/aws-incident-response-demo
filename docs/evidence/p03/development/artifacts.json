@@ -1,0 +1,30 @@
+{
+  "sha256": {
+    "dev-case-001-v0-r1.json": "b328cc8872a75bfda11a9a0d7e40c21a3564c1836d69e68dc89a779b88892ad4",
+    "dev-case-001-v1-r1.json": "7cae16e39d69d9fd7942401b7f73201366ac0f4bde20334b4b9293ae782027b5",
+    "dev-case-001-v2-r1.json": "e232f5902c2983d3379f4540dbdfef723167eb7ba956a5990bbfef18fe703f98",
+    "dev-case-002-v0-r1.json": "931dfda277e4ca5ae271582478c94b1e025c03d1ddf0de590d04c8cd9f5a8a73",
+    "dev-case-002-v1-r1.json": "6ceefc1ab0aee543e6bad0a442fc9f345c7e08532090805da1cb37730c9841d6",
+    "dev-case-002-v2-r1.json": "1bb348d11d3b3de8b2fb317c0a8396e825a9c71ba9b35acd2408b687228bf9f7",
+    "dev-case-003-v0-r1.json": "9b4ff5d9955e7e677acaffd7787c2b7d43e64322f50405369cdcd28fa3be23b2",
+    "dev-case-003-v1-r1.json": "cabd1d895e9979ec6bb8fd4d4e85a241b0b13e128f1625e77fe32f11a24f25de",
+    "dev-case-003-v2-r1.json": "99772fed42b0fda9f28d368f36a021b23e2f7d5e933961d869e1681b1717e9d6",
+    "dev-case-004-v0-r1.json": "2ef367816d3fe919904d57d61b2a8b3ee1b46a6d1dd76b2451ec58f28c95a508",
+    "dev-case-004-v1-r1.json": "a8f6e92f2eb56acb71e1e9a9ad4b5579def02e2780cd9d292c978e3047adb08a",
+    "dev-case-004-v2-r1.json": "707da0046557bf027805e3d2b98cd68f8219bfdd5ebe4bbfd8d4c59fda5b0e15",
+    "dev-case-005-v0-r1.json": "7370a99182544551726e32b88daa371331eca0f1f5da5bbb372da6fceaf0d6c3",
+    "dev-case-005-v1-r1.json": "59def1e2e17dcaac30b85762f1e3f57a29ebe2e79294036253bf3a66864f694c",
+    "dev-case-005-v2-r1.json": "5873b182cb56d093dc85c7c0a389451bf80505477cb738546030393c5f5b46e9",
+    "dev-case-006-v0-r1.json": "e57e4613e3d6d8eafaef77b982e5ce38a6bf96c58a68e187191ff99e5af47e0a",
+    "dev-case-006-v1-r1.json": "3d4118d609d462ff8203b387e9bab34a1dfaa1213d149012271e1bbd13ad86f9",
+    "dev-case-006-v2-r1.json": "9012bb0ed3d33031aad754d5c7df4bd4f8eaab3ef0dd92200b3d0ffb4e23e326",
+    "dev-case-007-v0-r1.json": "51d823ea87da594cc6dcc5d247f008415f534d796772f4c21b2167f89eaf04c1",
+    "dev-case-007-v1-r1.json": "01a818d1d05d8741eeb2354b893f37f1de1843066d7f279553cf4714aad40d57",
+    "dev-case-007-v2-r1.json": "6627f7fc4bcd505b70c5f2d6e8b6c6d5b1dbfd20adf42838167513590b10eb2b",
+    "dev-case-008-v0-r1.json": "52a41371fbda7285eace7e1553fe3cc4eca2bf9ed090ac4e6459243782552321",
+    "dev-case-008-v1-r1.json": "2af853fc77548e8686cf1cee6863ad64c9449510be12edf01b6dace6998ad0b8",
+    "dev-case-008-v2-r1.json": "2dc9f091ea6198d6e35bbc32655acbd9b830d0fb01cdaa7c8aed742a8e944725",
+    "manifest.json": "9ac722bdbaae29e14bed5de5fab9159248b220fcf955fd9bd54ac1d67bd41606",
+    "report.json": "f3a75c1d895c2ea2de662c4b3cffc3d1ffee585892b26e5572e1ed15a1442eb0"
+  }
+}
