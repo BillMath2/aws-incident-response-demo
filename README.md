@@ -1,19 +1,19 @@
 # AWS incident response demo
 
 A synthetic checkout incident-response demonstration being built with Python, LangGraph,
-LangChain and Amazon Bedrock AgentCore. **P01 is implemented and locally verified:** contracts,
-runbooks, a frozen case corpus and offline checks. Investigation, approval and sandbox execution
-start in P02. No live AWS behavior or model-quality results are claimed yet.
+LangChain and Amazon Bedrock AgentCore. **P01 and P02 are implemented and locally verified:**
+contracts, a frozen case corpus, and a CLI investigation/approval/sandbox-action walkthrough.
+No live AWS behavior or model-quality results are claimed yet.
 
 The [master implementation plan](docs/aws-incident-response-demo-master-implementation-plan.md)
-defines scope. [P01 acceptance evidence and review notes](docs/p01-acceptance.md) record the current
-state and remaining limitations.
+defines scope. See [P01 acceptance](docs/p01-acceptance.md) and
+[P02 acceptance and retained walkthroughs](docs/p02-acceptance.md).
 
 ## Setup
 
 Use uv **0.9.5** and Python **3.12.12**. The Python version is in `.python-version`; direct
 dependencies and the build backend are pinned in `pyproject.toml`, with transitive versions
-and artifact hashes in `uv.lock`. P01 needs no AWS account, credentials or environment variables.
+and artifact hashes in `uv.lock`. Local mode needs no AWS account, credentials or environment variables.
 It does not read `.env`.
 
 With [uv installed](https://docs.astral.sh/uv/getting-started/installation/), run from the repository:
@@ -48,14 +48,76 @@ GitHub Actions runs the checks on Windows and Linux, without AWS secrets or paid
 See [uv's CI guidance](https://docs.astral.sh/uv/guides/integration/github/) and
 [locking behavior](https://docs.astral.sh/uv/concepts/projects/sync/).
 
+## Local walkthrough (P02)
+
+From this Windows workspace, start interactive review:
+
+```powershell
+.\.venv\Scripts\incident-demo.exe demo --case case-001
+```
+
+Or, with uv on PATH: `uv run --locked incident-demo demo --case case-001`.
+The CLI prints facts, citations, the exact proposal, its expiry and SHA-256 hash.
+Enter `approve` or `reject`, then paste that hash. Enter `pending` (or close input) to
+export an unapproved proposal. No input is never interpreted as consent.
+
+For a scripted **simulated** decision and independent health observation:
+
+```powershell
+.\.venv\Scripts\incident-demo.exe demo --case case-001 --decision approve
+.\.venv\Scripts\incident-demo.exe demo --case case-001 --decision reject
+.\.venv\Scripts\incident-demo.exe demo --case case-001 --decision approve --verification unhealthy
+.\.venv\Scripts\incident-demo.exe demo --case case-004 --decision pending
+.\.venv\Scripts\incident-demo.exe demo --case case-005 --decision approve
+```
+
+Each invocation starts a new in-memory sandbox at release-42, revision 0. The stub gathers
+health, changes, logs and fixture runbook passages. It retries a transient diagnostic at most once.
+Case 001 demonstrates a deployment regression; 002 a dependency outage; 003 incomplete evidence;
+004 injected source instructions; and 005 a transient failure followed by a successful retry.
+Cases 006-008 cover stale evidence, conflicting guidance, and benign security language.
+Only these eight development cases are available in the walkthrough CLI.
+
+The narrow stub recognizes a serializer regression pattern; other diagnoses require escalation.
+It is not a general incident classifier, model experiment, or robust injection detector.
+The original fixture corpus and evaluation manifest are unchanged. Held-out cases have not been
+used to tune this implementation or scored against it.
+
+Approval is bound to the displayed proposal hash, allowed service, release and 15-minute expiry.
+The local executor checks that binding again, consumes approval, changes the sandbox record,
+and records a receipt under one process lock. Repeated matching commands return the same receipt.
+Approval and execution roles are separate **simulated identities**, not real authentication or
+an isolation boundary against someone who controls the Python process. `--actor local-investigator`
+demonstrates that the investigator identity cannot approve.
+
+A separate synthetic health observer runs after the receipt. `--verification recovered`,
+`unhealthy`, or `missing` selects that observer's fixture, not the action result. Healthy, fresh
+post-action data is required for `resolved`; failed/missing verification is `unresolved`.
+These labels describe the sandbox demonstration only. The scenario clock starts at the fixture
+incident time and advances with elapsed time, including human waiting. Approval waiting is
+reported separately from measured active processing time.
+
+Exports go to `runs/<run-id>.json` by default. `--output <new-file.json>` selects a new destination;
+existing files are refused. Records include source hashes, versions, tool attempts, evidence,
+proposal, approval, action receipt, verification and audit events. A small scrubber removes known
+`DEMO_CANARY_` values and terminal controls before public records; it is not a general secret filter.
+Exports are review artifacts and cannot be loaded to resume a run or authorize an action. All local
+state and idempotency memory disappear on process exit. Exit code 0 means the command completed;
+inspect the exported run state for resolution, rejection, escalation or incompleteness. Control
+rejections and observer failures return 2; setup/contract/export failures return 1.
+
 ## Repository contents
 
 | Location | Purpose |
 |---|---|
 | `src/incident_demo/contracts/` | Strict Pydantic tool and record contracts |
 | `src/incident_demo/corpus.py` | Separate fixture, knowledge and evaluator loaders |
+| `src/incident_demo/investigator/` | Explicitly labeled deterministic local stub |
+| `src/incident_demo/workflow/`, `storage/` | Local orchestration and in-memory state adapter |
+| `src/incident_demo/local_tools.py` | Fixture diagnostics and independent synthetic verification |
 | `schemas/` | Generated JSON Schemas; CI checks for drift |
 | `fixtures/cases/` | Synthetic incident inputs and ordered tool responses; no answer keys |
+| `fixtures/local-verification.json` | Separate P02 verification profiles; outside the frozen incident corpus |
 | `knowledge/` | Eight versioned runbooks, including stale and conflicting passages |
 | `evals/case-manifest.json` | Evaluator-only split, expectations, acceptable outcomes and hashes |
 | `tests/` | Offline contract and corpus integrity checks |
@@ -68,7 +130,7 @@ verified against the selected AWS runtime.
 ## Contract boundaries
 
 Tool calls allow only three read-only diagnostics and runbook retrieval for `checkout-api`.
-The sole future action is a sandbox record transition from `release-42` to `release-41`.
+The sole action is a sandbox record transition from `release-42` to `release-41`.
 The investigator tool union excludes execution and approval. Executor input contains stored
 proposal and approval references, never client-supplied action arguments.
 
@@ -79,7 +141,8 @@ the hash, and normal validation verifies it on reloading. Keep untrusted input o
 path: Pydantic `model_construct` and unvalidated `model_copy(update=...)` are not input parsers.
 
 The record schema does not establish identity, authorize a person, consume an approval, check
-wall-clock freshness or perform a transaction. Those controls require P02/P07 orchestration.
+wall-clock freshness or perform a transaction. P02 implements local control checks; cloud
+authentication, durable atomicity and effective IAM enforcement remain P07 work.
 An evidence `sanitized` flag records producer responsibility; it is not a filtering engine.
 Citation validation checks existence, including retrieved passage IDs, and does not prove
 semantic support. An action receipt records a synthetic mutation and cannot claim recovery.
@@ -95,7 +158,8 @@ must exclude `evals/`; directory separation alone is not an access-control bound
 Fixture response order models diagnostics and, where present, a transient failure followed by
 a usable retry. Timestamps are synthetic: use each incident's `submitted_at` as the local scenario
 clock, not today's date. Retrieval passage IDs select fixture responses; they are not scoring labels.
-Runbook freshness and conflict resolution are application responsibilities in later packages.
+The local stub checks runbook freshness and escalates on unresolved conflicts; live retrieval and
+filtering remain later work packages.
 
 The manifest pins every fixture and the knowledge catalog; the catalog pins Markdown content
 and passage metadata. `evals/case-manifest.sha256` detects manifest drift. Git enforces LF line

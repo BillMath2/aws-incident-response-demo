@@ -1,0 +1,283 @@
+{
+  "schema_version": "1.0.0",
+  "label": "LOCAL STUB: synthetic telemetry, identities and effects; no AWS or model calls",
+  "fixture_hash": "8a9f9ac354f74e0aa3f744039065af8b4dd049bd5a635862d4cb4074299992a5",
+  "knowledge_hash": "2a8e691726b2f6bc7653a3fc8aff42f8a37f5df73acdb96a6b3708a0a0c1d50a",
+  "request": {
+    "schema_version": "1.0.0",
+    "request_id": "request-9e3fbebe49714024823170a65d1dc83f",
+    "principal_id": "local-analyst",
+    "service_id": "checkout-api",
+    "idempotency_key": "intake-ea4fe78399164e5c880645f73641587c",
+    "submitted_at": "2026-10-01T12:05:00.000070Z",
+    "summary": "Checkout API errors have increased. Investigate and recommend a next step."
+  },
+  "run": {
+    "run_id": "run-7af9ba74bcbb4f87af866e34cb44b59c",
+    "request_id": "request-9e3fbebe49714024823170a65d1dc83f",
+    "mode": "local_stub",
+    "state": "rejected",
+    "versions": {
+      "model": "none-local-stub",
+      "prompt": "stub-serializer-1.0.0",
+      "tools": "local-fixtures-1.0.0",
+      "fixtures": "1.0.0"
+    },
+    "started_at": "2026-10-01T12:05:00.000070Z",
+    "finished_at": "2026-10-01T12:05:00.004345Z",
+    "active_latency_ms": 3,
+    "usage": {
+      "model_calls": 0,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    "trace_ids": []
+  },
+  "investigation": {
+    "run_id": "run-7af9ba74bcbb4f87af866e34cb44b59c",
+    "outcome": "propose_rollback",
+    "facts": [
+      {
+        "statement": "Observed error rate 25.0%, release release-42, dependency state healthy.",
+        "evidence_ids": [
+          "obs-001-health"
+        ]
+      },
+      {
+        "statement": "Latest observed deployment is release-42.",
+        "evidence_ids": [
+          "obs-001-changes"
+        ]
+      },
+      {
+        "statement": "Logs report release-42 serializer errors and a successful release-41 baseline.",
+        "evidence_ids": [
+          "obs-001-logs"
+        ]
+      },
+      {
+        "statement": "Current guidance requires separate approval and verification.",
+        "evidence_ids": [
+          "rb-rollback-p1"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "cause": "Deployment regression",
+        "supporting_evidence": [
+          "obs-001-logs"
+        ],
+        "contradicting_evidence": [],
+        "status": "supported"
+      }
+    ],
+    "missing_information": [],
+    "next_check": null,
+    "justification": "LOCAL STUB: Fresh diagnostics match the known serializer regression pattern. Propose a sandbox rollback for human review."
+  },
+  "evidence": [
+    {
+      "evidence_id": "obs-001-health",
+      "source": "get_service_health",
+      "collected_at": "2026-10-01T12:05:00Z",
+      "source_version": "fixtures-1.0.0",
+      "content_hash": "19fdce4867c76f03895ca46f5e70641437478de0327ffceaf0ef5b8ec98e1992",
+      "complete": true,
+      "sanitized": true,
+      "payload": {
+        "kind": "health",
+        "service_id": "checkout-api",
+        "observed_at": "2026-10-01T12:04:00Z",
+        "release": "release-42",
+        "error_rate": 0.25,
+        "latency_p95_ms": 1700.0,
+        "dependency_state": "healthy"
+      }
+    },
+    {
+      "evidence_id": "obs-001-changes",
+      "source": "get_recent_changes",
+      "collected_at": "2026-10-01T12:05:00Z",
+      "source_version": "fixtures-1.0.0",
+      "content_hash": "9d04ff37b2e1ddedc283b089a8a5e452e7e922984edaf97eb99c84ffeab7221f",
+      "complete": true,
+      "sanitized": true,
+      "payload": {
+        "kind": "changes",
+        "service_id": "checkout-api",
+        "items": [
+          {
+            "change_id": "change-001",
+            "changed_at": "2026-10-01T11:55:00Z",
+            "kind": "deployment",
+            "release": "release-42",
+            "summary": "Checkout release-42 deployed; release-41 baseline error rate was 0.003."
+          }
+        ]
+      }
+    },
+    {
+      "evidence_id": "obs-001-logs",
+      "source": "get_recent_logs",
+      "collected_at": "2026-10-01T12:05:00Z",
+      "source_version": "fixtures-1.0.0",
+      "content_hash": "ede9bfd04b44cfdd3ca8e1b4e8258a8aa7044e18d057ff9d0ac80a101d5bc6ae",
+      "complete": true,
+      "sanitized": true,
+      "payload": {
+        "kind": "logs",
+        "service_id": "checkout-api",
+        "entries": [
+          {
+            "observed_at": "2026-10-01T12:03:00Z",
+            "message": "release-42 checkout serializer raises TypeError; same requests succeeded on release-41."
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "evidence_id": "rb-rollback-p1",
+      "source": "retrieve_runbook",
+      "collected_at": "2026-10-01T12:05:00.000070Z",
+      "source_version": "2.0.0",
+      "content_hash": "b951263d782c3a9b1e57cda9bb2efb2516af0a4231127f69643544ed2b3321e9",
+      "complete": true,
+      "sanitized": true,
+      "payload": {
+        "kind": "runbook",
+        "service_id": "checkout-api",
+        "passage_id": "rb-rollback-p1",
+        "document_id": "rb-rollback",
+        "version": "2.0.0",
+        "owner": "checkout-operations",
+        "valid_from": "2026-08-01T00:00:00Z",
+        "valid_until": "2027-01-01T00:00:00Z",
+        "status": "current",
+        "excerpt": "# Checkout release rollback\n\nScope: checkout-api sandbox only. A rollback proposal may target release-41 only when the current release is release-42, recent complete observations show elevated errors, dependencies are healthy, and logs corroborate a defect introduced by that deployment. Temporal correlation alone is insufficient. Read health, recent changes and logs. Health and relevant error observations must be no older than five minutes at investigation time. Changes can be collected over a bounded 120-minute window. If evidence is absent, contradictory, stale or dependencies are degraded, escalate for more evidence.\n\nThe investigator proposes; an independently authorized human approves the exact proposal hash before its expiry. Only the executor can conditionally update sandbox state. No shell command or real deployment is permitted. A receipt means a synthetic state transition, not recovery; obtain a separate subsequent health observation.\n"
+      }
+    },
+    {
+      "evidence_id": "rb-evidence-p1",
+      "source": "retrieve_runbook",
+      "collected_at": "2026-10-01T12:05:00.000070Z",
+      "source_version": "1.0.0",
+      "content_hash": "94a972b57c995d78fb4a93afbc1f9145c1dd2d7a3a67f524f5bfa6a0972cbb4c",
+      "complete": true,
+      "sanitized": true,
+      "payload": {
+        "kind": "runbook",
+        "service_id": "checkout-api",
+        "passage_id": "rb-evidence-p1",
+        "document_id": "rb-evidence",
+        "version": "1.0.0",
+        "owner": "incident-operations",
+        "valid_from": "2026-08-01T00:00:00Z",
+        "valid_until": "2027-01-01T00:00:00Z",
+        "status": "current",
+        "excerpt": "# Missing and conflicting evidence\n\nSeparate observed facts from hypotheses. Cite immutable observation IDs or passage IDs for each material claim. Missing logs, incomplete deployment history, truncated error streams and contradictory release attribution require a next check or escalation. An empty result is not proof of absence when the source is incomplete. Cite conflicting observations explicitly and do not choose a cause just to produce an action.\n"
+      }
+    }
+  ],
+  "tool_attempts": [
+    {
+      "name": "get_service_health",
+      "attempt": 1,
+      "status": "ok",
+      "error_code": null,
+      "evidence_ids": [
+        "obs-001-health"
+      ]
+    },
+    {
+      "name": "get_recent_changes",
+      "attempt": 1,
+      "status": "ok",
+      "error_code": null,
+      "evidence_ids": [
+        "obs-001-changes"
+      ]
+    },
+    {
+      "name": "get_recent_logs",
+      "attempt": 1,
+      "status": "ok",
+      "error_code": null,
+      "evidence_ids": [
+        "obs-001-logs"
+      ]
+    },
+    {
+      "name": "retrieve_runbook",
+      "attempt": 1,
+      "status": "ok",
+      "error_code": null,
+      "evidence_ids": [
+        "rb-rollback-p1",
+        "rb-evidence-p1"
+      ]
+    }
+  ],
+  "proposal": {
+    "proposal_id": "proposal-cc62af6dd15a4d8d9c4305e64e12ef8b",
+    "run_id": "run-7af9ba74bcbb4f87af866e34cb44b59c",
+    "action": "rollback_demo_release",
+    "arguments": {
+      "service_id": "checkout-api",
+      "target_release": "release-41"
+    },
+    "expected_current_release": "release-42",
+    "evidence_ids": [
+      "obs-001-health",
+      "obs-001-changes",
+      "obs-001-logs",
+      "rb-rollback-p1",
+      "rb-evidence-p1"
+    ],
+    "created_at": "2026-10-01T12:05:00.000070Z",
+    "expires_at": "2026-10-01T12:20:00.000070Z",
+    "proposal_hash": "fcf946c06cfbbedf37e2353cc78185213350653394bdf4d4baee1cec673e2ce1"
+  },
+  "approval": {
+    "approval_id": "approval-fc3378aef0a1485b92f17f43d2b825d7",
+    "proposal_id": "proposal-cc62af6dd15a4d8d9c4305e64e12ef8b",
+    "proposal_hash": "fcf946c06cfbbedf37e2353cc78185213350653394bdf4d4baee1cec673e2ce1",
+    "approver_id": "local-approver",
+    "authorized_service": "checkout-api",
+    "decision": "rejected",
+    "reason": "Reviewed the synthetic local proposal",
+    "decided_at": "2026-10-01T12:05:00.004345Z",
+    "expires_at": "2026-10-01T12:20:00.000070Z"
+  },
+  "approval_consumed": false,
+  "approval_wait_ms": 4,
+  "receipt": null,
+  "verification_evidence_id": null,
+  "service": {
+    "service_id": "checkout-api",
+    "release": "release-42",
+    "revision": 0
+  },
+  "audit": [
+    {
+      "at": "2026-10-01T12:05:00.000070Z",
+      "actor": "local-analyst",
+      "event": "intake_accepted",
+      "detail": "Synthetic local intake"
+    },
+    {
+      "at": "2026-10-01T12:05:00.000070Z",
+      "actor": "local-investigator",
+      "event": "investigation_finished",
+      "detail": "Labeled stub returned propose_rollback; zero model calls"
+    },
+    {
+      "at": "2026-10-01T12:05:00.004345Z",
+      "actor": "local-approver",
+      "event": "decision_recorded",
+      "detail": "rejected"
+    }
+  ]
+}

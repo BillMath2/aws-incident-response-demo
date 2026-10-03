@@ -1,8 +1,11 @@
-"""P01 maintenance CLI. Investigation and execution arrive in P02."""
+"""Synthetic local incident walkthrough and offline corpus maintenance."""
 
 import argparse
 from pathlib import Path
 
+from pydantic import ValidationError
+
+from incident_demo.contracts.local import LocalRunRecord
 from incident_demo.contracts.records import (
     ActionReceipt,
     Approval,
@@ -16,6 +19,9 @@ from incident_demo.contracts.records import (
 )
 from incident_demo.contracts.tools import CALL_ADAPTER
 from incident_demo.corpus import Fixture, KnowledgeCatalog, Manifest, json_document, validate_corpus
+from incident_demo.local_cli import run_demo
+from incident_demo.local_tools import VerificationFixtures
+from incident_demo.workflow.local import LOCAL_ROLES
 
 SCHEMAS = (
     Request,
@@ -30,6 +36,8 @@ SCHEMAS = (
     Fixture,
     KnowledgeCatalog,
     Manifest,
+    LocalRunRecord,
+    VerificationFixtures,
 )
 
 
@@ -56,14 +64,46 @@ def main() -> None:
     sub.add_parser("validate-corpus", help="check fixture, split and corpus integrity offline")
     schemas = sub.add_parser("schemas", help="export versioned JSON Schemas")
     schemas.add_argument("--check", action="store_true", help="fail on schema drift")
+    demo = sub.add_parser("demo", help="run a labeled, single-process local stub walkthrough")
+    demo.add_argument(
+        "--case",
+        choices=[f"case-{n:03}" for n in range(1, 9)],
+        default="case-001",
+        help="development fixture only (default: case-001)",
+    )
+    demo.add_argument(
+        "--decision",
+        choices=["approve", "reject", "pending"],
+        help="script a simulated decision; omitted means interactive review",
+    )
+    demo.add_argument(
+        "--actor",
+        choices=list(LOCAL_ROLES),
+        default="local-approver",
+        help="simulated identity; this is not real authentication",
+    )
+    demo.add_argument("--reason", default="Reviewed the synthetic local proposal")
+    demo.add_argument(
+        "--verification",
+        choices=["recovered", "unhealthy", "missing"],
+        default="recovered",
+        help="independent synthetic health profile",
+    )
+    demo.add_argument(
+        "--output", type=Path, help="new JSON evidence file; existing files are refused"
+    )
     args = parser.parse_args()
     try:
         if args.command == "validate-corpus":
             counts = validate_corpus(args.root)
             print(f"Offline corpus valid: {counts}")
-        else:
+        elif args.command == "schemas":
             export_schemas(args.root, args.check)
             print("Schemas verified." if args.check else "Schemas exported.")
+        else:
+            parser.exit(run_demo(args))
+    except ValidationError:
+        parser.exit(1, "Validation failed: input does not match the contract.\n")
     except (ValueError, OSError) as exc:
         parser.exit(1, f"Validation failed: {exc}\n")
 

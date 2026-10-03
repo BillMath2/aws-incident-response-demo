@@ -1,0 +1,337 @@
+{
+  "schema_version": "1.0.0",
+  "label": "LOCAL STUB: synthetic telemetry, identities and effects; no AWS or model calls",
+  "fixture_hash": "404ab71240cf575ec5dfa2779b9beeb6ec5beb31033c3158e5aaffc8a192a90e",
+  "knowledge_hash": "2a8e691726b2f6bc7653a3fc8aff42f8a37f5df73acdb96a6b3708a0a0c1d50a",
+  "request": {
+    "schema_version": "1.0.0",
+    "request_id": "request-b4b01f29f9c24b2e963ecaa5a847e085",
+    "principal_id": "local-analyst",
+    "service_id": "checkout-api",
+    "idempotency_key": "intake-4840e34ab2354cbea4f45527bfff1529",
+    "submitted_at": "2026-10-01T12:05:00.000052Z",
+    "summary": "Checkout API errors have increased. Investigate and recommend a next step."
+  },
+  "run": {
+    "run_id": "run-f0ac8c07581e446ab6e95cf852d99ba2",
+    "request_id": "request-b4b01f29f9c24b2e963ecaa5a847e085",
+    "mode": "local_stub",
+    "state": "resolved",
+    "versions": {
+      "model": "none-local-stub",
+      "prompt": "stub-serializer-1.0.0",
+      "tools": "local-fixtures-1.0.0",
+      "fixtures": "1.0.0"
+    },
+    "started_at": "2026-10-01T12:05:00.000052Z",
+    "finished_at": "2026-10-01T12:05:00.007231Z",
+    "active_latency_ms": 3,
+    "usage": {
+      "model_calls": 0,
+      "tool_calls": 5,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    "trace_ids": []
+  },
+  "investigation": {
+    "run_id": "run-f0ac8c07581e446ab6e95cf852d99ba2",
+    "outcome": "propose_rollback",
+    "facts": [
+      {
+        "statement": "Observed error rate 25.0%, release release-42, dependency state healthy.",
+        "evidence_ids": [
+          "obs-005-health"
+        ]
+      },
+      {
+        "statement": "Latest observed deployment is release-42.",
+        "evidence_ids": [
+          "obs-005-changes"
+        ]
+      },
+      {
+        "statement": "Logs report release-42 serializer errors and a successful release-41 baseline.",
+        "evidence_ids": [
+          "obs-005-logs"
+        ]
+      },
+      {
+        "statement": "Current guidance requires separate approval and verification.",
+        "evidence_ids": [
+          "rb-rollback-p1"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "cause": "Deployment regression",
+        "supporting_evidence": [
+          "obs-005-logs"
+        ],
+        "contradicting_evidence": [],
+        "status": "supported"
+      }
+    ],
+    "missing_information": [],
+    "next_check": null,
+    "justification": "LOCAL STUB: Fresh diagnostics match the known serializer regression pattern. Propose a sandbox rollback for human review."
+  },
+  "evidence": [
+    {
+      "evidence_id": "obs-005-health",
+      "source": "get_service_health",
+      "collected_at": "2026-10-01T12:05:00Z",
+      "source_version": "fixtures-1.0.0",
+      "content_hash": "19fdce4867c76f03895ca46f5e70641437478de0327ffceaf0ef5b8ec98e1992",
+      "complete": true,
+      "sanitized": true,
+      "payload": {
+        "kind": "health",
+        "service_id": "checkout-api",
+        "observed_at": "2026-10-01T12:04:00Z",
+        "release": "release-42",
+        "error_rate": 0.25,
+        "latency_p95_ms": 1700.0,
+        "dependency_state": "healthy"
+      }
+    },
+    {
+      "evidence_id": "obs-005-changes",
+      "source": "get_recent_changes",
+      "collected_at": "2026-10-01T12:05:00Z",
+      "source_version": "fixtures-1.0.0",
+      "content_hash": "71a39f9b805d0ffdcbfdbc606b6e96d549d46a5da938836fbbd4a1f9e779e04d",
+      "complete": true,
+      "sanitized": true,
+      "payload": {
+        "kind": "changes",
+        "service_id": "checkout-api",
+        "items": [
+          {
+            "change_id": "change-005",
+            "changed_at": "2026-10-01T11:55:00Z",
+            "kind": "deployment",
+            "release": "release-42",
+            "summary": "Checkout release-42 deployed; release-41 baseline error rate was 0.003."
+          }
+        ]
+      }
+    },
+    {
+      "evidence_id": "obs-005-logs",
+      "source": "get_recent_logs",
+      "collected_at": "2026-10-01T12:05:00Z",
+      "source_version": "fixtures-1.0.0",
+      "content_hash": "ede9bfd04b44cfdd3ca8e1b4e8258a8aa7044e18d057ff9d0ac80a101d5bc6ae",
+      "complete": true,
+      "sanitized": true,
+      "payload": {
+        "kind": "logs",
+        "service_id": "checkout-api",
+        "entries": [
+          {
+            "observed_at": "2026-10-01T12:03:00Z",
+            "message": "release-42 checkout serializer raises TypeError; same requests succeeded on release-41."
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "evidence_id": "rb-rollback-p1",
+      "source": "retrieve_runbook",
+      "collected_at": "2026-10-01T12:05:00.000052Z",
+      "source_version": "2.0.0",
+      "content_hash": "b951263d782c3a9b1e57cda9bb2efb2516af0a4231127f69643544ed2b3321e9",
+      "complete": true,
+      "sanitized": true,
+      "payload": {
+        "kind": "runbook",
+        "service_id": "checkout-api",
+        "passage_id": "rb-rollback-p1",
+        "document_id": "rb-rollback",
+        "version": "2.0.0",
+        "owner": "checkout-operations",
+        "valid_from": "2026-08-01T00:00:00Z",
+        "valid_until": "2027-01-01T00:00:00Z",
+        "status": "current",
+        "excerpt": "# Checkout release rollback\n\nScope: checkout-api sandbox only. A rollback proposal may target release-41 only when the current release is release-42, recent complete observations show elevated errors, dependencies are healthy, and logs corroborate a defect introduced by that deployment. Temporal correlation alone is insufficient. Read health, recent changes and logs. Health and relevant error observations must be no older than five minutes at investigation time. Changes can be collected over a bounded 120-minute window. If evidence is absent, contradictory, stale or dependencies are degraded, escalate for more evidence.\n\nThe investigator proposes; an independently authorized human approves the exact proposal hash before its expiry. Only the executor can conditionally update sandbox state. No shell command or real deployment is permitted. A receipt means a synthetic state transition, not recovery; obtain a separate subsequent health observation.\n"
+      }
+    },
+    {
+      "evidence_id": "rb-tool-failures-p1",
+      "source": "retrieve_runbook",
+      "collected_at": "2026-10-01T12:05:00.000052Z",
+      "source_version": "1.0.0",
+      "content_hash": "201b2c0b8805b02957be8b4acc64b82c28b81da133f1572f7f71f0c5b8f9fa21",
+      "complete": true,
+      "sanitized": true,
+      "payload": {
+        "kind": "runbook",
+        "service_id": "checkout-api",
+        "passage_id": "rb-tool-failures-p1",
+        "document_id": "rb-tool-failures",
+        "version": "1.0.0",
+        "owner": "platform-operations",
+        "valid_from": "2026-08-01T00:00:00Z",
+        "valid_until": "2027-01-01T00:00:00Z",
+        "status": "current",
+        "excerpt": "# Diagnostic failure handling\n\nRetry a transient diagnostic failure at most once, counting it in the total tool budget of eight calls. The model budget is six calls and investigation deadline is 120 seconds; these are initial development bounds. If a required diagnostic remains unavailable, return incomplete or escalate and identify the missing check. Never invent a successful response, treat an error as healthy, or execute an unchecked fallback.\n"
+      }
+    },
+    {
+      "evidence_id": "verification-d261000b60054b7d90f8941355489c15",
+      "source": "get_service_health",
+      "collected_at": "2026-10-01T12:05:00.006472Z",
+      "source_version": "local-verification-1.0.0-recovered",
+      "content_hash": "3a4bf34cbfb5a2d2bcb464289056973230def8782cb6935830331068549702b0",
+      "complete": true,
+      "sanitized": true,
+      "payload": {
+        "kind": "health",
+        "service_id": "checkout-api",
+        "observed_at": "2026-10-01T12:05:00.006472Z",
+        "release": "release-41",
+        "error_rate": 0.003,
+        "latency_p95_ms": 240.0,
+        "dependency_state": "healthy"
+      }
+    }
+  ],
+  "tool_attempts": [
+    {
+      "name": "get_service_health",
+      "attempt": 1,
+      "status": "ok",
+      "error_code": null,
+      "evidence_ids": [
+        "obs-005-health"
+      ]
+    },
+    {
+      "name": "get_recent_changes",
+      "attempt": 1,
+      "status": "ok",
+      "error_code": null,
+      "evidence_ids": [
+        "obs-005-changes"
+      ]
+    },
+    {
+      "name": "get_recent_logs",
+      "attempt": 1,
+      "status": "error",
+      "error_code": "transient_unavailable",
+      "evidence_ids": []
+    },
+    {
+      "name": "get_recent_logs",
+      "attempt": 2,
+      "status": "ok",
+      "error_code": null,
+      "evidence_ids": [
+        "obs-005-logs"
+      ]
+    },
+    {
+      "name": "retrieve_runbook",
+      "attempt": 1,
+      "status": "ok",
+      "error_code": null,
+      "evidence_ids": [
+        "rb-rollback-p1",
+        "rb-tool-failures-p1"
+      ]
+    }
+  ],
+  "proposal": {
+    "proposal_id": "proposal-c872dad59eea404d95cbd729ef78d99a",
+    "run_id": "run-f0ac8c07581e446ab6e95cf852d99ba2",
+    "action": "rollback_demo_release",
+    "arguments": {
+      "service_id": "checkout-api",
+      "target_release": "release-41"
+    },
+    "expected_current_release": "release-42",
+    "evidence_ids": [
+      "obs-005-health",
+      "obs-005-changes",
+      "obs-005-logs",
+      "rb-rollback-p1",
+      "rb-tool-failures-p1"
+    ],
+    "created_at": "2026-10-01T12:05:00.000052Z",
+    "expires_at": "2026-10-01T12:20:00.000052Z",
+    "proposal_hash": "bbc3ffc2f8058544f4803ac6c3fceaf44d8bc8cb3e9f76ecc06d5432cce842b5"
+  },
+  "approval": {
+    "approval_id": "approval-6e5fa77f51f847d693c3d9428ad03ea9",
+    "proposal_id": "proposal-c872dad59eea404d95cbd729ef78d99a",
+    "proposal_hash": "bbc3ffc2f8058544f4803ac6c3fceaf44d8bc8cb3e9f76ecc06d5432cce842b5",
+    "approver_id": "local-approver",
+    "authorized_service": "checkout-api",
+    "decision": "approved",
+    "reason": "Reviewed the synthetic local proposal",
+    "decided_at": "2026-10-01T12:05:00.004432Z",
+    "expires_at": "2026-10-01T12:20:00.000052Z"
+  },
+  "approval_consumed": true,
+  "approval_wait_ms": 4,
+  "receipt": {
+    "receipt_id": "receipt-767c4efb038f4471866fde5f3cda172b",
+    "idempotency_key": "action-run-f0ac8c07581e446ab6e95cf852d99ba2",
+    "proposal_id": "proposal-c872dad59eea404d95cbd729ef78d99a",
+    "proposal_hash": "bbc3ffc2f8058544f4803ac6c3fceaf44d8bc8cb3e9f76ecc06d5432cce842b5",
+    "before": {
+      "service_id": "checkout-api",
+      "release": "release-42",
+      "revision": 0
+    },
+    "after": {
+      "service_id": "checkout-api",
+      "release": "release-41",
+      "revision": 1
+    },
+    "status": "applied",
+    "audited_at": "2026-10-01T12:05:00.005659Z"
+  },
+  "verification_evidence_id": "verification-d261000b60054b7d90f8941355489c15",
+  "service": {
+    "service_id": "checkout-api",
+    "release": "release-41",
+    "revision": 1
+  },
+  "audit": [
+    {
+      "at": "2026-10-01T12:05:00.000052Z",
+      "actor": "local-analyst",
+      "event": "intake_accepted",
+      "detail": "Synthetic local intake"
+    },
+    {
+      "at": "2026-10-01T12:05:00.000052Z",
+      "actor": "local-investigator",
+      "event": "investigation_finished",
+      "detail": "Labeled stub returned propose_rollback; zero model calls"
+    },
+    {
+      "at": "2026-10-01T12:05:00.004432Z",
+      "actor": "local-approver",
+      "event": "decision_recorded",
+      "detail": "approved"
+    },
+    {
+      "at": "2026-10-01T12:05:00.005659Z",
+      "actor": "local-executor",
+      "event": "sandbox_action_applied",
+      "detail": "Synthetic state transition only"
+    },
+    {
+      "at": "2026-10-01T12:05:00.007231Z",
+      "actor": "local-observer",
+      "event": "verification_finished",
+      "detail": "Independent synthetic health observation meets recovery criteria"
+    }
+  ]
+}

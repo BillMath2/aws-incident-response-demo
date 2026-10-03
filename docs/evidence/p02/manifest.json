@@ -1,0 +1,77 @@
+{
+  "recorded_on": "2026-10-03",
+  "mode": "local_stub",
+  "decisions": "scripted simulated identities; no real human authentication",
+  "runs": [
+    {
+      "file": "approved-recovered.json",
+      "case": "case-001",
+      "decision": "approve",
+      "verification_profile": "recovered",
+      "state": "resolved",
+      "revision": 1,
+      "tool_calls": 4,
+      "sha256": "6f49fc65b3eb4468aa0093f4d9dd2658250ef7c47ffecfd2d2e28a09ad7a69a6"
+    },
+    {
+      "file": "approved-unresolved.json",
+      "case": "case-001",
+      "decision": "approve",
+      "verification_profile": "unhealthy",
+      "state": "unresolved",
+      "revision": 1,
+      "tool_calls": 4,
+      "sha256": "c5f48c8a1e006c3db6386a16cbd64f5be2921c9053574de8923b027c4b911f58"
+    },
+    {
+      "file": "rejected.json",
+      "case": "case-001",
+      "decision": "reject",
+      "verification_profile": "recovered",
+      "state": "rejected",
+      "revision": 0,
+      "tool_calls": 4,
+      "sha256": "281ff17289611e13a2cb4e6203cbc14b74719933507799984a9ba1a2cf7b5e9d"
+    },
+    {
+      "file": "dependency-outage.json",
+      "case": "case-002",
+      "decision": "pending",
+      "verification_profile": "recovered",
+      "state": "escalated",
+      "revision": 0,
+      "tool_calls": 4,
+      "sha256": "e8c899071d955a25433f3a1a7b552b419f38abdae695208b5fdac635cb753af5"
+    },
+    {
+      "file": "incomplete-evidence.json",
+      "case": "case-003",
+      "decision": "pending",
+      "verification_profile": "recovered",
+      "state": "incomplete",
+      "revision": 0,
+      "tool_calls": 4,
+      "sha256": "b98132c7bb80186b08c32237c1cf8d1d2d7eec5aa9018ce97a1d57c37cc97ef3"
+    },
+    {
+      "file": "injected-source.json",
+      "case": "case-004",
+      "decision": "pending",
+      "verification_profile": "recovered",
+      "state": "escalated",
+      "revision": 0,
+      "tool_calls": 4,
+      "sha256": "17533abc4a7bf5164f8ddf04f8648ece747af4636437afc3d9f7175c1c73cb4c"
+    },
+    {
+      "file": "transient-retry.json",
+      "case": "case-005",
+      "decision": "approve",
+      "verification_profile": "recovered",
+      "state": "resolved",
+      "revision": 1,
+      "tool_calls": 5,
+      "sha256": "b72d503c1e8026708279e80c540d112a6f522e29be97e7bdacfce70da74dccb7"
+    }
+  ]
+}

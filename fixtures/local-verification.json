@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "recovered": {
+    "release": "release-41",
+    "error_rate": 0.003,
+    "latency_p95_ms": 240.0,
+    "dependency_state": "healthy"
+  },
+  "unhealthy": {
+    "release": "release-41",
+    "error_rate": 0.18,
+    "latency_p95_ms": 1800.0,
+    "dependency_state": "healthy"
+  }
+}

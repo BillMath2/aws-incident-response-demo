@@ -1,0 +1,238 @@
+{
+  "schema_version": "1.0.0",
+  "label": "LOCAL STUB: synthetic telemetry, identities and effects; no AWS or model calls",
+  "fixture_hash": "1381c6f899b6378e49175b657e7c411f1d48f921eda6c036ad5a1a4d024ec25c",
+  "knowledge_hash": "2a8e691726b2f6bc7653a3fc8aff42f8a37f5df73acdb96a6b3708a0a0c1d50a",
+  "request": {
+    "schema_version": "1.0.0",
+    "request_id": "request-091519c1b6b749aab296fdef73ea61e0",
+    "principal_id": "local-analyst",
+    "service_id": "checkout-api",
+    "idempotency_key": "intake-8197e44728d24747a90d5ca2895ddb03",
+    "submitted_at": "2026-10-01T12:05:00.000054Z",
+    "summary": "Checkout API errors have increased. Investigate and recommend a next step."
+  },
+  "run": {
+    "run_id": "run-8b9e563a0f084752b32efa68f191ab04",
+    "request_id": "request-091519c1b6b749aab296fdef73ea61e0",
+    "mode": "local_stub",
+    "state": "escalated",
+    "versions": {
+      "model": "none-local-stub",
+      "prompt": "stub-serializer-1.0.0",
+      "tools": "local-fixtures-1.0.0",
+      "fixtures": "1.0.0"
+    },
+    "started_at": "2026-10-01T12:05:00.000054Z",
+    "finished_at": "2026-10-01T12:05:00.000054Z",
+    "active_latency_ms": 2,
+    "usage": {
+      "model_calls": 0,
+      "tool_calls": 4,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    "trace_ids": []
+  },
+  "investigation": {
+    "run_id": "run-8b9e563a0f084752b32efa68f191ab04",
+    "outcome": "escalate",
+    "facts": [
+      {
+        "statement": "Observed error rate 25.0%, release release-42, dependency state degraded.",
+        "evidence_ids": [
+          "obs-002-health"
+        ]
+      },
+      {
+        "statement": "Latest observed deployment is release-42.",
+        "evidence_ids": [
+          "obs-002-changes"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "cause": "Deployment regression",
+        "supporting_evidence": [],
+        "contradicting_evidence": [],
+        "status": "candidate"
+      }
+    ],
+    "missing_information": [
+      "Healthy dependencies have not been established",
+      "The local stub cannot corroborate its known serializer regression pattern",
+      "Current checkout rollback guidance is unavailable"
+    ],
+    "next_check": "Ask an operator to refresh or reconcile the missing evidence",
+    "justification": "LOCAL STUB: Healthy dependencies have not been established; The local stub cannot corroborate its known serializer regression pattern; Current checkout rollback guidance is unavailable"
+  },
+  "evidence": [
+    {
+      "evidence_id": "obs-002-health",
+      "source": "get_service_health",
+      "collected_at": "2026-10-01T12:05:00Z",
+      "source_version": "fixtures-1.0.0",
+      "content_hash": "d050a8e7e3dbda54db778ebde022dfced3d7677dd45bfdfeae8ea98be738f19f",
+      "complete": true,
+      "sanitized": true,
+      "payload": {
+        "kind": "health",
+        "service_id": "checkout-api",
+        "observed_at": "2026-10-01T12:04:00Z",
+        "release": "release-42",
+        "error_rate": 0.25,
+        "latency_p95_ms": 1700.0,
+        "dependency_state": "degraded"
+      }
+    },
+    {
+      "evidence_id": "obs-002-changes",
+      "source": "get_recent_changes",
+      "collected_at": "2026-10-01T12:05:00Z",
+      "source_version": "fixtures-1.0.0",
+      "content_hash": "f93be8ff9e326b8db03eb78a95fcfa16347337387677012652eb6662823ab2a7",
+      "complete": true,
+      "sanitized": true,
+      "payload": {
+        "kind": "changes",
+        "service_id": "checkout-api",
+        "items": [
+          {
+            "change_id": "change-002",
+            "changed_at": "2026-10-01T11:55:00Z",
+            "kind": "deployment",
+            "release": "release-42",
+            "summary": "Checkout release-42 deployed; release-41 baseline error rate was 0.003."
+          }
+        ]
+      }
+    },
+    {
+      "evidence_id": "obs-002-logs",
+      "source": "get_recent_logs",
+      "collected_at": "2026-10-01T12:05:00Z",
+      "source_version": "fixtures-1.0.0",
+      "content_hash": "f6f386bf2ee9774b5a8a69ac6089b060de974333475d8cad8b7c7652a3e8390a",
+      "complete": true,
+      "sanitized": true,
+      "payload": {
+        "kind": "logs",
+        "service_id": "checkout-api",
+        "entries": [
+          {
+            "observed_at": "2026-10-01T12:04:00Z",
+            "message": "payment-provider timeout; upstream probe failing on release-41 and release-42"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    {
+      "evidence_id": "rb-dependency-p1",
+      "source": "retrieve_runbook",
+      "collected_at": "2026-10-01T12:05:00.000054Z",
+      "source_version": "1.0.0",
+      "content_hash": "98a974141c47ee492a9650e2c73028ee16e16048909fe6cab2d435a2ca029ebc",
+      "complete": true,
+      "sanitized": true,
+      "payload": {
+        "kind": "runbook",
+        "service_id": "checkout-api",
+        "passage_id": "rb-dependency-p1",
+        "document_id": "rb-dependency",
+        "version": "1.0.0",
+        "owner": "payments-operations",
+        "valid_from": "2026-08-01T00:00:00Z",
+        "valid_until": "2027-01-01T00:00:00Z",
+        "status": "current",
+        "excerpt": "# Dependency degradation\n\nWhen checkout errors coincide with an unhealthy payment dependency or upstream timeouts, record the dependency evidence and escalate to its owner. A recent checkout deployment does not prove causation. Do not roll back checkout solely to treat an upstream outage. Collect timestamps, timeout excerpts and dependency health; if dependency health is unknown, request it. Never claim that a dependency recovered without new observations.\n"
+      }
+    },
+    {
+      "evidence_id": "rb-evidence-p1",
+      "source": "retrieve_runbook",
+      "collected_at": "2026-10-01T12:05:00.000054Z",
+      "source_version": "1.0.0",
+      "content_hash": "94a972b57c995d78fb4a93afbc1f9145c1dd2d7a3a67f524f5bfa6a0972cbb4c",
+      "complete": true,
+      "sanitized": true,
+      "payload": {
+        "kind": "runbook",
+        "service_id": "checkout-api",
+        "passage_id": "rb-evidence-p1",
+        "document_id": "rb-evidence",
+        "version": "1.0.0",
+        "owner": "incident-operations",
+        "valid_from": "2026-08-01T00:00:00Z",
+        "valid_until": "2027-01-01T00:00:00Z",
+        "status": "current",
+        "excerpt": "# Missing and conflicting evidence\n\nSeparate observed facts from hypotheses. Cite immutable observation IDs or passage IDs for each material claim. Missing logs, incomplete deployment history, truncated error streams and contradictory release attribution require a next check or escalation. An empty result is not proof of absence when the source is incomplete. Cite conflicting observations explicitly and do not choose a cause just to produce an action.\n"
+      }
+    }
+  ],
+  "tool_attempts": [
+    {
+      "name": "get_service_health",
+      "attempt": 1,
+      "status": "ok",
+      "error_code": null,
+      "evidence_ids": [
+        "obs-002-health"
+      ]
+    },
+    {
+      "name": "get_recent_changes",
+      "attempt": 1,
+      "status": "ok",
+      "error_code": null,
+      "evidence_ids": [
+        "obs-002-changes"
+      ]
+    },
+    {
+      "name": "get_recent_logs",
+      "attempt": 1,
+      "status": "ok",
+      "error_code": null,
+      "evidence_ids": [
+        "obs-002-logs"
+      ]
+    },
+    {
+      "name": "retrieve_runbook",
+      "attempt": 1,
+      "status": "ok",
+      "error_code": null,
+      "evidence_ids": [
+        "rb-dependency-p1",
+        "rb-evidence-p1"
+      ]
+    }
+  ],
+  "proposal": null,
+  "approval": null,
+  "approval_consumed": false,
+  "approval_wait_ms": 0,
+  "receipt": null,
+  "verification_evidence_id": null,
+  "service": {
+    "service_id": "checkout-api",
+    "release": "release-42",
+    "revision": 0
+  },
+  "audit": [
+    {
+      "at": "2026-10-01T12:05:00.000054Z",
+      "actor": "local-analyst",
+      "event": "intake_accepted",
+      "detail": "Synthetic local intake"
+    },
+    {
+      "at": "2026-10-01T12:05:00.000054Z",
+      "actor": "local-investigator",
+      "event": "investigation_finished",
+      "detail": "Labeled stub returned escalate; zero model calls"
+    }
+  ]
+}
