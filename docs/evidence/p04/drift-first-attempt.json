@@ -1,0 +1,9 @@
+{
+  "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-foundation/b5e60260-c115-11f1-ad8c-02aabb75b103",
+  "StackDriftDetectionId": "3b2619b0-c116-11f1-a03f-0a31dde67edd",
+  "StackDriftStatus": "UNKNOWN",
+  "DetectionStatus": "DETECTION_FAILED",
+  "DetectionStatusReason": "{\"Summary\":\"Failed to detect drift on resources [AuditLogsB945E340]\",\"Failures\":[{\"Resource\":\"AuditLogsB945E340\",\"FailureReason\":\"Access denied for operation 'logs:DescribeIndexPolicies'.\"}]}",
+  "DriftedStackResourceCount": 0,
+  "Timestamp": "2026-10-05T23:41:05.099000+00:00"
+}

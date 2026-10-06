@@ -1,0 +1,34 @@
+{
+  "version": "p04-v1",
+  "region": "us-east-2",
+  "routing_regions": ["us-east-1", "us-east-2", "us-west-2"],
+  "text": [
+    {
+      "role": "base",
+      "foundation_model": "amazon.nova-lite-v1:0",
+      "inference_profile": "us.amazon.nova-lite-v1:0",
+      "price_usage_prefix": "USE2-NovaLite"
+    },
+    {
+      "role": "comparison",
+      "foundation_model": "amazon.nova-pro-v1:0",
+      "inference_profile": "us.amazon.nova-pro-v1:0",
+      "price_usage_prefix": "USE2-NovaPro"
+    },
+    {
+      "role": "judge",
+      "foundation_model": "meta.llama3-3-70b-instruct-v1:0",
+      "inference_profile": "us.meta.llama3-3-70b-instruct-v1:0",
+      "price_usage_prefix": "USE2-Llama3-3-70B"
+    }
+  ],
+  "retrieval": {
+    "knowledge_base_type": "VECTOR",
+    "vector_store": "S3_VECTORS",
+    "embedding_model": "amazon.titan-embed-text-v2:0",
+    "dimensions": 1024,
+    "distance_metric": "cosine",
+    "search_type": "SEMANTIC",
+    "status": "selected; creation and retrieval verification are P06"
+  }
+}

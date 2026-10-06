@@ -1,0 +1,25 @@
+{"account": "498084841421", "region": "us-east-2"}
+.\.venv\Scripts\python.exe : AI agent detected
+At line:2 char:1
++ .\.venv\Scripts\python.exe manage.py bootstrap *> ../runs/p04-bootstr ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (AI agent detected:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from 
+Settings > Apps > Advanced app settings > App execution aliases.
+python app.py: Subprocess exited with error 9009
+Traceback (most recent call last):
+  File "C:\Github\aws-incident-response-demo\infra\manage.py", line 91, in <module>
+    main()
+  File "C:\Github\aws-incident-response-demo\infra\manage.py", line 87, in main
+    subprocess.run(command, cwd=ROOT, env=env, check=True)
+  File "C:\Github\aws-incident-response-demo\.tools\python\cpython-3.12.12-windows-x86_64-none\Lib\subprocess.py", 
+line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['C:\\Program Files\\nodejs\\node.EXE', 
+'C:\\Github\\aws-incident-response-demo\\infra\\node_modules\\aws-cdk\\bin\\cdk', 'bootstrap', 
+'aws://498084841421/us-east-2', '--qualifier', 'incdemo', '--toolkit-stack-name', 'incident-demo-toolkit', 
+'--cloudformation-execution-policies', 'arn:aws:iam::498084841421:policy/incident-demo-cfn-execution', 
+'--termination-protection', '--tags', 'Project=incident-demo', '--profile', 'incident-demo', '--no-notices']' returned 
+non-zero exit status 1.

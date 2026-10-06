@@ -1,0 +1,31 @@
+{
+  "assumptions": {
+    "concurrency": 1,
+    "model_calls_per_investigation": 6,
+    "input_tokens_per_call": 6000,
+    "output_tokens_per_call": 1500,
+    "tool_calls_per_investigation": 8,
+    "investigation_seconds": 120
+  },
+  "calls": {
+    "base": 648,
+    "comparison": 216,
+    "judge": 12
+  },
+  "model_upper_estimates_usd": {
+    "base": "0.4665600000",
+    "comparison": "2.0736000000",
+    "judge": "0.0648000000"
+  },
+  "model_total_usd": "2.6049600000",
+  "excludes": [
+    "development",
+    "retrieval",
+    "guardrails",
+    "runtime",
+    "storage",
+    "logging",
+    "tax"
+  ],
+  "note": "A planning estimate, not permission to run P08 or a measured bill."
+}

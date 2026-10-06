@@ -1,0 +1,14 @@
+{"account": "498084841421", "region": "us-east-2"}
+.\.venv\Scripts\python.exe : AI agent detected
+At line:2 char:1
++ .\.venv\Scripts\python.exe manage.py bootstrap *> ../runs/p04-bootstr ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (AI agent detected:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ ⏳  Bootstrapping environment aws://498084841421/us-east-2...
+Trusted accounts for deployment: (none)
+Trusted accounts for lookup: (none)
+Execution policies: arn:aws:iam::498084841421:policy/incident-demo-cfn-execution
+incident-demo-toolkit: creating CloudFormation changeset...
+✅  Environment aws://498084841421/us-east-2 bootstrapped.

@@ -1,0 +1,14 @@
+{
+  "checked_on": "2026-10-05",
+  "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AWSEvents/current/us-east-2/index.json",
+  "rates": [
+    {
+      "sku": "PYVWTDMRVZCDCY4Z",
+      "usage": "USE2-Event-64K-Chunks",
+      "unit": "64K-Chunks",
+      "usd": "0.0000010000",
+      "begin": "0",
+      "description": "$1.00 per million EventBridge custom events received in US East (Ohio)"
+    }
+  ]
+}

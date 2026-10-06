@@ -3,13 +3,16 @@
 A synthetic checkout incident-response demonstration being built with Python, LangGraph,
 LangChain and Amazon Bedrock AgentCore. **P01-P03 are implemented and locally verified:**
 contracts, a frozen case corpus, a local approval walkthrough, and executable LangGraph
-investigation variants with an offline evaluation harness. No live AWS behavior or model-quality
-results are claimed yet.
+investigation variants with an offline evaluation harness. **P04 adds an AWS foundation in
+Ohio (`us-east-2`) and bounded model-access smoke tests.** The live investigator, retrieval,
+Guardrails and approval workflow remain later packages; no model-quality results are claimed.
 
 The [master implementation plan](docs/aws-incident-response-demo-master-implementation-plan.md)
 defines scope. See [P01 acceptance](docs/p01-acceptance.md) and
 [P02 acceptance and retained walkthroughs](docs/p02-acceptance.md), and
-[P03 acceptance](docs/p03-acceptance.md).
+[P03 acceptance](docs/p03-acceptance.md). AWS setup, limits and retained results are in
+[P04 readiness](docs/p04-aws-readiness.md), [deployment runbook](docs/p04-deployment-runbook.md),
+and [P04 acceptance](docs/p04-acceptance.md).
 
 ## Setup
 
@@ -168,7 +171,7 @@ gate false. See [rubric and review workflow](evals/README.md) and
 | `.github/workflows/ci.yml` | Lint, format, unit, corpus and schema checks |
 
 LangGraph 1.2.12 now runs the offline strategies; its dependencies are locked. The Bedrock
-LangChain integration and live runtime adapters remain P05 work after P04 readiness decisions.
+LangChain integration and live runtime adapters remain P05 work after the P04 foundation.
 
 ## Contract boundaries
 

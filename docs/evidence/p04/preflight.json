@@ -1,0 +1,127 @@
+{
+  "checked_at": "2026-10-05T23:28:00.434367+00:00",
+  "account": "498084841421",
+  "region": "us-east-2",
+  "checks": {
+    "cloudformation": {
+      "status": "passed",
+      "response": 0
+    },
+    "agentcore": {
+      "status": "passed",
+      "response": 0
+    },
+    "knowledge_bases": {
+      "status": "passed",
+      "response": 0
+    },
+    "guardrails": {
+      "status": "passed",
+      "response": 0
+    },
+    "vector_buckets": {
+      "status": "passed",
+      "response": 0
+    },
+    "availability_base": {
+      "status": "passed",
+      "response": {
+        "modelId": "amazon.nova-lite-v1",
+        "agreementAvailability": {
+          "status": "AVAILABLE"
+        },
+        "authorizationStatus": "AUTHORIZED",
+        "entitlementAvailability": "AVAILABLE",
+        "regionAvailability": "AVAILABLE"
+      }
+    },
+    "profile_base": {
+      "status": "passed",
+      "response": {
+        "status": "ACTIVE",
+        "models": [
+          {
+            "modelArn": "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-lite-v1:0"
+          },
+          {
+            "modelArn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.nova-lite-v1:0"
+          },
+          {
+            "modelArn": "arn:aws:bedrock:us-east-2::foundation-model/amazon.nova-lite-v1:0"
+          }
+        ]
+      }
+    },
+    "availability_comparison": {
+      "status": "passed",
+      "response": {
+        "modelId": "amazon.nova-pro-v1",
+        "agreementAvailability": {
+          "status": "AVAILABLE"
+        },
+        "authorizationStatus": "AUTHORIZED",
+        "entitlementAvailability": "AVAILABLE",
+        "regionAvailability": "AVAILABLE"
+      }
+    },
+    "profile_comparison": {
+      "status": "passed",
+      "response": {
+        "status": "ACTIVE",
+        "models": [
+          {
+            "modelArn": "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-pro-v1:0"
+          },
+          {
+            "modelArn": "arn:aws:bedrock:us-west-2::foundation-model/amazon.nova-pro-v1:0"
+          },
+          {
+            "modelArn": "arn:aws:bedrock:us-east-2::foundation-model/amazon.nova-pro-v1:0"
+          }
+        ]
+      }
+    },
+    "availability_judge": {
+      "status": "passed",
+      "response": {
+        "modelId": "meta.llama3-3-70b-instruct-v1",
+        "agreementAvailability": {
+          "status": "AVAILABLE"
+        },
+        "authorizationStatus": "AUTHORIZED",
+        "entitlementAvailability": "AVAILABLE",
+        "regionAvailability": "AVAILABLE"
+      }
+    },
+    "profile_judge": {
+      "status": "passed",
+      "response": {
+        "status": "ACTIVE",
+        "models": [
+          {
+            "modelArn": "arn:aws:bedrock:us-east-2::foundation-model/meta.llama3-3-70b-instruct-v1:0"
+          },
+          {
+            "modelArn": "arn:aws:bedrock:us-east-1::foundation-model/meta.llama3-3-70b-instruct-v1:0"
+          },
+          {
+            "modelArn": "arn:aws:bedrock:us-west-2::foundation-model/meta.llama3-3-70b-instruct-v1:0"
+          }
+        ]
+      }
+    },
+    "availability_embedding": {
+      "status": "passed",
+      "response": {
+        "modelId": "amazon.titan-embed-text-v2",
+        "agreementAvailability": {
+          "status": "AVAILABLE"
+        },
+        "authorizationStatus": "AUTHORIZED",
+        "entitlementAvailability": "AVAILABLE",
+        "regionAvailability": "AVAILABLE"
+      }
+    }
+  },
+  "inference_tested": false
+}

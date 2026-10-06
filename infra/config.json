@@ -1,0 +1,23 @@
+{
+  "project": "incident-demo",
+  "account": "498084841421",
+  "region": "us-east-2",
+  "profile": "incident-demo",
+  "stack_name": "incident-demo-foundation",
+  "bootstrap_qualifier": "incdemo",
+  "budget": {
+    "currency": "USD",
+    "total": 50,
+    "per_batch": 10,
+    "infrastructure_reserve": 10,
+    "approved_on": "2026-10-05"
+  },
+  "limits": {
+    "concurrency": 1,
+    "model_calls_per_investigation": 6,
+    "input_tokens_per_call": 6000,
+    "output_tokens_per_call": 1500,
+    "tool_calls_per_investigation": 8,
+    "investigation_seconds": 120
+  }
+}

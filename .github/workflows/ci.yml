@@ -20,3 +20,28 @@ jobs:
       - run: uv run --locked pytest
       - run: uv run --locked incident-demo validate-corpus
       - run: uv run --locked incident-demo schemas --check
+  infrastructure:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: infra
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.17.0"
+          cache: npm
+          cache-dependency-path: infra/package-lock.json
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.9.5"
+          enable-cache: true
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: uv sync --locked
+      - run: uv run --locked ruff check .
+      - run: uv run --locked ruff format --check .
+      - run: uv run --locked pytest
+      - run: uv run --locked python manage.py synth

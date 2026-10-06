@@ -1,0 +1,86 @@
+{
+  "checked_on": "2026-10-05",
+  "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/us-east-2/index.json",
+  "rates": [
+    {
+      "sku": "7S89YD5N5K9379JK",
+      "usage": "USE2-Guardrail-SensitiveInformationPolicyFreeUnitsConsumed",
+      "unit": "TextUnit",
+      "usd": "0.0000000000",
+      "begin": "0",
+      "description": "$00 per 1K text units for SensitiveInformationPolicyFreeUnitsConsumed in US East (Ohio)"
+    },
+    {
+      "sku": "6X662P44MMSPE9G4",
+      "usage": "USE2-Guardrail-TopicPolicyUnitsConsumed",
+      "unit": "TextUnit",
+      "usd": "0.0001500000",
+      "begin": "0",
+      "description": "$0.15 per 1K text units for TopicPolicyUnitsConsumed in US East (Ohio)"
+    },
+    {
+      "sku": "KJ28YKHNWPCM46TC",
+      "usage": "USE2-GuardrailChecks-PromptAttackCheckUnitsConsumed",
+      "unit": "TextUnit",
+      "usd": "0.0000800000",
+      "begin": "0",
+      "description": "$0.00008 per TextUnit for GuardrailChecks-PromptAttackCheckUnitsConsumed in US East (Ohio)"
+    },
+    {
+      "sku": "D3FCQ88D4CWJEB58",
+      "usage": "USE2-Guardrail-ContentPolicyUnitsConsumed",
+      "unit": "TextUnit",
+      "usd": "0.0001500000",
+      "begin": "0",
+      "description": "$0.15 per 1K text units for ContentPolicyUnitsConsumed in US East (Ohio)"
+    },
+    {
+      "sku": "3HRGDGAW66BB5GU4",
+      "usage": "USE2-GuardrailChecks-SensitiveInformationCheckUnitsConsumed",
+      "unit": "TextUnit",
+      "usd": "0.0001000000",
+      "begin": "0",
+      "description": "$0.0001 per TextUnit for GuardrailChecks-SensitiveInformationCheckUnitsConsumed in US East (Ohio)"
+    },
+    {
+      "sku": "6W63G3P2DTCZBUVB",
+      "usage": "USE2-Guardrail-ContextualGroundingPolicyUnitsConsumed",
+      "unit": "TextUnit",
+      "usd": "0.0001000000",
+      "begin": "0",
+      "description": "$0.10 per 1K text units for ContextualGroundingPolicyUnitsConsumed in US East (Ohio)"
+    },
+    {
+      "sku": "62U2PRY6H47YPX3Q",
+      "usage": "USE2-Guardrail-WordPolicyUnitsConsumed",
+      "unit": "TextUnit",
+      "usd": "0.0000000000",
+      "begin": "0",
+      "description": "$00 per 1K text units for WordPolicyUnitsConsumed in US East (Ohio)"
+    },
+    {
+      "sku": "WYRHDWYPRRUH6W8M",
+      "usage": "USE2-Guardrail-SensitiveInformationPolicyPaidUnitsConsumed",
+      "unit": "TextUnit",
+      "usd": "0.0001000000",
+      "begin": "0",
+      "description": "$0.10 per 1K text units for SensitiveInformationPolicyPaidUnitsConsumed in US East (Ohio)"
+    },
+    {
+      "sku": "X7266U2B8W4F7GWN",
+      "usage": "USE2-Guardrail-AutomatedReasoningPolicyUnitsConsumed",
+      "unit": "TextUnit",
+      "usd": "0.0001700000",
+      "begin": "0",
+      "description": "$0.17 per 1K text units for AutomatedReasoningPolicyUnitsConsumed in US East (Ohio)"
+    },
+    {
+      "sku": "D65XFGUDKTGUR7Z6",
+      "usage": "USE2-GuardrailChecks-ContentFilterCheckUnitsConsumed",
+      "unit": "TextUnit",
+      "usd": "0.0000700000",
+      "begin": "0",
+      "description": "$0.00007 per TextUnit for GuardrailChecks-ContentFilterCheckUnitsConsumed in US East (Ohio)"
+    }
+  ]
+}

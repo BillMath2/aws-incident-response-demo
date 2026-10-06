@@ -1,0 +1,38 @@
+{
+  "checked_on": "2026-10-05",
+  "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrockAgentCore/current/us-east-2/index.json",
+  "rates": [
+    {
+      "sku": "W6C9UR7CJBD9SFMB",
+      "usage": "USE2-Runtime:Consumption-based:Memory-v2",
+      "unit": "GB-Hours",
+      "usd": "0.0169000000",
+      "begin": "0",
+      "description": "$0.0169 per GB-Hour for Runtime:Consumption-based:Memory-v2 in US East (Ohio)"
+    },
+    {
+      "sku": "HN6G5379TSK3EPHD",
+      "usage": "USE2-Runtime:Consumption-based:vCPU-v2",
+      "unit": "vCPU-Hours",
+      "usd": "0.1276000000",
+      "begin": "0",
+      "description": "$0.1276 per vCPU-Hour for Runtime:Consumption-based:vCPU-v2 in US East (Ohio)"
+    },
+    {
+      "sku": "RZD6V5G3A9X23F8D",
+      "usage": "USE2-Runtime:Consumption-based:vCPU",
+      "unit": "vCPU-Hours",
+      "usd": "0.0895000000",
+      "begin": "0",
+      "description": "$0.0895 per vCPU-Hour for Runtime:Consumption-based:vCPU in US East (Ohio)"
+    },
+    {
+      "sku": "8HUTJJ3EJA2ZWVRX",
+      "usage": "USE2-Runtime:Consumption-based:Memory",
+      "unit": "GB-Hours",
+      "usd": "0.0094500000",
+      "begin": "0",
+      "description": "$0.00945 per GB-Hour for Runtime:Consumption-based:Memory in US East (Ohio)"
+    }
+  ]
+}

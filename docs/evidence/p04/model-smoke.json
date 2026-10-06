@@ -1,0 +1,49 @@
+{
+  "batch_id": "p04-smoke-20261005T233051883428Z",
+  "account": "498084841421",
+  "region": "us-east-2",
+  "reserved_usd": "0.10",
+  "calls": [
+    {
+      "role": "base",
+      "model_id": "us.amazon.nova-lite-v1:0",
+      "status": "passed",
+      "usage": {
+        "inputTokens": 6,
+        "outputTokens": 3,
+        "totalTokens": 9
+      },
+      "stop_reason": "end_turn",
+      "estimated_inference_usd": "0.0000010800",
+      "response_text": "READY"
+    },
+    {
+      "role": "comparison",
+      "model_id": "us.amazon.nova-pro-v1:0",
+      "status": "passed",
+      "usage": {
+        "inputTokens": 6,
+        "outputTokens": 4,
+        "totalTokens": 10
+      },
+      "stop_reason": "end_turn",
+      "estimated_inference_usd": "0.0000176000",
+      "response_text": "READY."
+    },
+    {
+      "role": "judge",
+      "model_id": "us.meta.llama3-3-70b-instruct-v1:0",
+      "status": "passed",
+      "usage": {
+        "inputTokens": 40,
+        "outputTokens": 2,
+        "totalTokens": 42
+      },
+      "stop_reason": "end_turn",
+      "estimated_inference_usd": "0.0000302400",
+      "response_text": "READY"
+    }
+  ],
+  "quality_evaluation": false,
+  "guardrails_tested": false
+}

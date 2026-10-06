@@ -1,0 +1,22 @@
+[
+  {
+    "id": "AccessLogs8B620ECA",
+    "type": "AWS::S3::Bucket",
+    "status": "IN_SYNC"
+  },
+  {
+    "id": "Artifacts82DD59A1",
+    "type": "AWS::S3::Bucket",
+    "status": "IN_SYNC"
+  },
+  {
+    "id": "AuditLogsB945E340",
+    "type": "AWS::Logs::LogGroup",
+    "status": "IN_SYNC"
+  },
+  {
+    "id": "State1C20CC9A",
+    "type": "AWS::DynamoDB::Table",
+    "status": "IN_SYNC"
+  }
+]

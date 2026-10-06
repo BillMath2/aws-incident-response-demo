@@ -1,0 +1,235 @@
+{
+  "checked_at": "2026-10-05T23:46:44.086612+00:00",
+  "stacks": [
+    {
+      "name": "incident-demo-toolkit",
+      "status": "CREATE_COMPLETE",
+      "termination_protection": true,
+      "outputs": [
+        {
+          "OutputKey": "ImageRepositoryName",
+          "OutputValue": "cdk-incdemo-container-assets-498084841421-us-east-2",
+          "Description": "The name of the ECR repository which hosts docker image assets"
+        },
+        {
+          "OutputKey": "BucketName",
+          "OutputValue": "cdk-incdemo-assets-498084841421-us-east-2",
+          "Description": "The name of the S3 bucket owned by the CDK toolkit stack"
+        },
+        {
+          "OutputKey": "BootstrapVersion",
+          "OutputValue": "32",
+          "Description": "The version of the bootstrap resources that are currently mastered in this stack"
+        },
+        {
+          "OutputKey": "BucketDomainName",
+          "OutputValue": "cdk-incdemo-assets-498084841421-us-east-2.s3.us-east-2.amazonaws.com",
+          "Description": "The domain name of the S3 bucket owned by the CDK toolkit stack"
+        },
+        {
+          "OutputKey": "FileAssetKeyArn",
+          "OutputValue": "AWS_MANAGED_KEY",
+          "Description": "The ARN of the KMS key used to encrypt the asset bucket (deprecated)",
+          "ExportName": "CdkBootstrap-incdemo-FileAssetKeyArn"
+        }
+      ],
+      "resources": [
+        {
+          "LogicalResourceId": "CdkBootstrapVersion",
+          "PhysicalResourceId": "/cdk-bootstrap/incdemo/version",
+          "ResourceType": "AWS::SSM::Parameter",
+          "LastUpdatedTimestamp": "2026-10-05T23:34:50.645000+00:00",
+          "ResourceStatus": "CREATE_COMPLETE",
+          "DriftInformation": {
+            "StackResourceDriftStatus": "NOT_CHECKED"
+          }
+        },
+        {
+          "LogicalResourceId": "CloudFormationExecutionRole",
+          "PhysicalResourceId": "cdk-incdemo-cfn-exec-role-498084841421-us-east-2",
+          "ResourceType": "AWS::IAM::Role",
+          "LastUpdatedTimestamp": "2026-10-05T23:35:11.683000+00:00",
+          "ResourceStatus": "CREATE_COMPLETE",
+          "DriftInformation": {
+            "StackResourceDriftStatus": "NOT_CHECKED"
+          }
+        },
+        {
+          "LogicalResourceId": "ContainerAssetsRepository",
+          "PhysicalResourceId": "cdk-incdemo-container-assets-498084841421-us-east-2",
+          "ResourceType": "AWS::ECR::Repository",
+          "LastUpdatedTimestamp": "2026-10-05T23:34:50.910000+00:00",
+          "ResourceStatus": "CREATE_COMPLETE",
+          "DriftInformation": {
+            "StackResourceDriftStatus": "NOT_CHECKED"
+          }
+        },
+        {
+          "LogicalResourceId": "DeploymentActionRole",
+          "PhysicalResourceId": "cdk-incdemo-deploy-role-498084841421-us-east-2",
+          "ResourceType": "AWS::IAM::Role",
+          "LastUpdatedTimestamp": "2026-10-05T23:35:35.008000+00:00",
+          "ResourceStatus": "CREATE_COMPLETE",
+          "DriftInformation": {
+            "StackResourceDriftStatus": "NOT_CHECKED"
+          }
+        },
+        {
+          "LogicalResourceId": "FilePublishingRole",
+          "PhysicalResourceId": "cdk-incdemo-file-publishing-role-498084841421-us-east-2",
+          "ResourceType": "AWS::IAM::Role",
+          "LastUpdatedTimestamp": "2026-10-05T23:35:11.590000+00:00",
+          "ResourceStatus": "CREATE_COMPLETE",
+          "DriftInformation": {
+            "StackResourceDriftStatus": "NOT_CHECKED"
+          }
+        },
+        {
+          "LogicalResourceId": "FilePublishingRoleDefaultPolicy",
+          "PhysicalResourceId": "incid-FileP-NhFHvo0Mg0vL",
+          "ResourceType": "AWS::IAM::Policy",
+          "LastUpdatedTimestamp": "2026-10-05T23:35:30.375000+00:00",
+          "ResourceStatus": "CREATE_COMPLETE",
+          "DriftInformation": {
+            "StackResourceDriftStatus": "NOT_CHECKED"
+          }
+        },
+        {
+          "LogicalResourceId": "ImagePublishingRole",
+          "PhysicalResourceId": "cdk-incdemo-image-publishing-role-498084841421-us-east-2",
+          "ResourceType": "AWS::IAM::Role",
+          "LastUpdatedTimestamp": "2026-10-05T23:35:09.396000+00:00",
+          "ResourceStatus": "CREATE_COMPLETE",
+          "DriftInformation": {
+            "StackResourceDriftStatus": "NOT_CHECKED"
+          }
+        },
+        {
+          "LogicalResourceId": "ImagePublishingRoleDefaultPolicy",
+          "PhysicalResourceId": "incid-Image-sDec5OiOCoLj",
+          "ResourceType": "AWS::IAM::Policy",
+          "LastUpdatedTimestamp": "2026-10-05T23:35:28.261000+00:00",
+          "ResourceStatus": "CREATE_COMPLETE",
+          "DriftInformation": {
+            "StackResourceDriftStatus": "NOT_CHECKED"
+          }
+        },
+        {
+          "LogicalResourceId": "LookupRole",
+          "PhysicalResourceId": "cdk-incdemo-lookup-role-498084841421-us-east-2",
+          "ResourceType": "AWS::IAM::Role",
+          "LastUpdatedTimestamp": "2026-10-05T23:35:10.864000+00:00",
+          "ResourceStatus": "CREATE_COMPLETE",
+          "DriftInformation": {
+            "StackResourceDriftStatus": "NOT_CHECKED"
+          }
+        },
+        {
+          "LogicalResourceId": "StagingBucket",
+          "PhysicalResourceId": "cdk-incdemo-assets-498084841421-us-east-2",
+          "ResourceType": "AWS::S3::Bucket",
+          "LastUpdatedTimestamp": "2026-10-05T23:35:07.914000+00:00",
+          "ResourceStatus": "CREATE_COMPLETE",
+          "DriftInformation": {
+            "StackResourceDriftStatus": "NOT_CHECKED"
+          }
+        },
+        {
+          "LogicalResourceId": "StagingBucketPolicy",
+          "PhysicalResourceId": "cdk-incdemo-assets-498084841421-us-east-2",
+          "ResourceType": "AWS::S3::BucketPolicy",
+          "LastUpdatedTimestamp": "2026-10-05T23:35:10.008000+00:00",
+          "ResourceStatus": "CREATE_COMPLETE",
+          "DriftInformation": {
+            "StackResourceDriftStatus": "NOT_CHECKED"
+          }
+        }
+      ]
+    },
+    {
+      "name": "incident-demo-foundation",
+      "status": "CREATE_COMPLETE",
+      "termination_protection": true,
+      "outputs": [
+        {
+          "OutputKey": "ArtifactBucket",
+          "OutputValue": "incident-demo-artifacts-498084841421-us-east-2"
+        },
+        {
+          "OutputKey": "StateTable",
+          "OutputValue": "incident-demo-state"
+        },
+        {
+          "OutputKey": "AccessLogBucket",
+          "OutputValue": "incident-demo-access-logs-498084841421-us-east-2"
+        },
+        {
+          "OutputKey": "AuditLogGroup",
+          "OutputValue": "/incident-demo/foundation"
+        }
+      ],
+      "resources": [
+        {
+          "LogicalResourceId": "AccessLogs8B620ECA",
+          "PhysicalResourceId": "incident-demo-access-logs-498084841421-us-east-2",
+          "ResourceType": "AWS::S3::Bucket",
+          "LastUpdatedTimestamp": "2026-10-05T23:39:14.702000+00:00",
+          "ResourceStatus": "CREATE_COMPLETE",
+          "DriftInformation": {
+            "StackResourceDriftStatus": "IN_SYNC"
+          }
+        },
+        {
+          "LogicalResourceId": "AccessLogsPolicyABDC4D2D",
+          "PhysicalResourceId": "incident-demo-access-logs-498084841421-us-east-2",
+          "ResourceType": "AWS::S3::BucketPolicy",
+          "LastUpdatedTimestamp": "2026-10-05T23:39:33.682000+00:00",
+          "ResourceStatus": "CREATE_COMPLETE",
+          "DriftInformation": {
+            "StackResourceDriftStatus": "NOT_CHECKED"
+          }
+        },
+        {
+          "LogicalResourceId": "Artifacts82DD59A1",
+          "PhysicalResourceId": "incident-demo-artifacts-498084841421-us-east-2",
+          "ResourceType": "AWS::S3::Bucket",
+          "LastUpdatedTimestamp": "2026-10-05T23:39:31.545000+00:00",
+          "ResourceStatus": "CREATE_COMPLETE",
+          "DriftInformation": {
+            "StackResourceDriftStatus": "IN_SYNC"
+          }
+        },
+        {
+          "LogicalResourceId": "ArtifactsPolicy6E9058CC",
+          "PhysicalResourceId": "incident-demo-artifacts-498084841421-us-east-2",
+          "ResourceType": "AWS::S3::BucketPolicy",
+          "LastUpdatedTimestamp": "2026-10-05T23:39:34.826000+00:00",
+          "ResourceStatus": "CREATE_COMPLETE",
+          "DriftInformation": {
+            "StackResourceDriftStatus": "NOT_CHECKED"
+          }
+        },
+        {
+          "LogicalResourceId": "AuditLogsB945E340",
+          "PhysicalResourceId": "/incident-demo/foundation",
+          "ResourceType": "AWS::Logs::LogGroup",
+          "LastUpdatedTimestamp": "2026-10-05T23:39:09.591000+00:00",
+          "ResourceStatus": "CREATE_COMPLETE",
+          "DriftInformation": {
+            "StackResourceDriftStatus": "IN_SYNC"
+          }
+        },
+        {
+          "LogicalResourceId": "State1C20CC9A",
+          "PhysicalResourceId": "incident-demo-state",
+          "ResourceType": "AWS::DynamoDB::Table",
+          "LastUpdatedTimestamp": "2026-10-05T23:39:14.514000+00:00",
+          "ResourceStatus": "CREATE_COMPLETE",
+          "DriftInformation": {
+            "StackResourceDriftStatus": "IN_SYNC"
+          }
+        }
+      ]
+    }
+  ]
+}

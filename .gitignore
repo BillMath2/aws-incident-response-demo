@@ -21,6 +21,9 @@ dist/
 runs/
 .vscode/
 .idea/
+node_modules/
+cdk.out/
+.npm-cache/
 
 # Private planning/career documents are not application deliverables.
 portfolio-project-assessment.md

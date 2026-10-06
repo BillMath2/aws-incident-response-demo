@@ -1,0 +1,23 @@
+[project]
+name = "incident-demo-infra"
+version = "0.1.0"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "aws-cdk-lib==2.272.0",
+    "constructs==10.8.1",
+    "cdk-nag==3.0.2",
+]
+
+[dependency-groups]
+dev = ["pytest==8.4.2", "ruff==0.14.2"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

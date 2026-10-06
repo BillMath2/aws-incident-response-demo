@@ -1,0 +1,15 @@
+{
+  "checked_at": "2026-10-05T23:46:57.268296+00:00",
+  "policy_arn": "arn:aws:iam::498084841421:policy/incident-demo-cfn-execution",
+  "default_version": "v3",
+  "matches_generator": true,
+  "execution_role": "cdk-incdemo-cfn-exec-role-498084841421-us-east-2",
+  "attached_policies": [
+    {
+      "PolicyName": "incident-demo-cfn-execution",
+      "PolicyArn": "arn:aws:iam::498084841421:policy/incident-demo-cfn-execution"
+    }
+  ],
+  "inline_policy_names": [],
+  "access_analyzer_findings": []
+}

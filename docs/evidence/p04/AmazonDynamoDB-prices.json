@@ -1,0 +1,46 @@
+{
+  "checked_on": "2026-10-05",
+  "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonDynamoDB/current/us-east-2/index.json",
+  "rates": [
+    {
+      "sku": "SU36MES57K2M6EHQ",
+      "usage": "USE2-TimedPITRStorage-ByteHrs",
+      "unit": "GB-Mo",
+      "usd": "0.2000000000",
+      "begin": "0",
+      "description": "$0.20 per GB-Month of storage used for DynamoDB PITR backup"
+    },
+    {
+      "sku": "GAHPNMT39TQ47AGG",
+      "usage": "USE2-TimedStorage-ByteHrs",
+      "unit": "GB-Mo",
+      "usd": "0.0000000000",
+      "begin": "0",
+      "description": "$0.00 per GB-Month of storage for first 25 free GB-Months"
+    },
+    {
+      "sku": "GAHPNMT39TQ47AGG",
+      "usage": "USE2-TimedStorage-ByteHrs",
+      "unit": "GB-Mo",
+      "usd": "0.2500000000",
+      "begin": "25",
+      "description": "$0.25 per GB-Month of storage used beyond first 25 free GB-Months"
+    },
+    {
+      "sku": "SGMZJPDKSWXTY4VE",
+      "usage": "USE2-ReadRequestUnits",
+      "unit": "ReadRequestUnits",
+      "usd": "0.0000001250",
+      "begin": "0",
+      "description": "$0.125 per million read request units (Ohio)"
+    },
+    {
+      "sku": "GGQSXTNTRBHRVS56",
+      "usage": "USE2-WriteRequestUnits",
+      "unit": "WriteRequestUnits",
+      "usd": "0.0000006250",
+      "begin": "0",
+      "description": "$0.625 per million write request units (Ohio)"
+    }
+  ]
+}

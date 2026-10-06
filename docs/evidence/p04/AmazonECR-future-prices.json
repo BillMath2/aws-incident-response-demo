@@ -1,0 +1,30 @@
+{
+  "checked_on": "2026-10-05",
+  "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonECR/current/us-east-2/index.json",
+  "rates": [
+    {
+      "sku": "NA4VZMZUEQGMXP2Y",
+      "usage": "USE2-TimedStorage-ByteHrs",
+      "unit": "GB-Mo",
+      "usd": "0.1000000000",
+      "begin": "0",
+      "description": "$0.10 per GB-month of data storage"
+    },
+    {
+      "sku": "DZ4BJ626RDN9C336",
+      "usage": "USE2-TimedStorage-Archive-ByteHrs",
+      "unit": "GB-Mo",
+      "usd": "0.1000000000",
+      "begin": "0",
+      "description": "$0.10 per GB-Mo from 0 to 153,600 for TimedStorage-Archive-ByteHrs in US East (Ohio)"
+    },
+    {
+      "sku": "DZ4BJ626RDN9C336",
+      "usage": "USE2-TimedStorage-Archive-ByteHrs",
+      "unit": "GB-Mo",
+      "usd": "0.0700000000",
+      "begin": "153600",
+      "description": "$0.07 per GB-Mo from 153,600 for TimedStorage-Archive-ByteHrs in US East (Ohio)"
+    }
+  ]
+}

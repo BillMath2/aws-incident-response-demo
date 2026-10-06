@@ -1,0 +1,14 @@
+{"account": "498084841421", "region": "us-east-2"}
+.\.venv\Scripts\python.exe : AI agent detected
+At line:2 char:1
++ .\.venv\Scripts\python.exe manage.py diff *> ../runs/p04-repeat-diff. ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (AI agent detected:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Stack incident-demo-foundation (aws://498084841421/us-east-2)
+There were no differences
+
+
+✨  Number of stacks with differences: 0
+

@@ -1,0 +1,78 @@
+{
+  "checked_on": "2026-10-05",
+  "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonS3/current/us-east-2/index.json",
+  "rates": [
+    {
+      "sku": "4558H4264VCE5SZJ",
+      "usage": "USE2-Vectors-Request-Tier1",
+      "unit": "Requests",
+      "usd": "0.0000550000",
+      "begin": "0",
+      "description": "$0.055 per 1,000 Tier1 Vectors API Requests"
+    },
+    {
+      "sku": "MDS2AY42EMRU72QN",
+      "usage": "USE2-Vectors-Query-Returned-Bytes",
+      "unit": "GB",
+      "usd": "0.0100000000",
+      "begin": "0",
+      "description": "$0.01 per GB fee for bytes returned by S3 Vectors Query"
+    },
+    {
+      "sku": "HB2UFVPCA7ZEPUBV",
+      "usage": "USE2-Vectors-Query-ProcessedBytes-Tier2",
+      "unit": "GB",
+      "usd": "0.0000019530",
+      "begin": "0",
+      "description": "$0.000001953 per GB fee for bytes processed by S3 Vectors Query Tier 2"
+    },
+    {
+      "sku": "QUAQMNUMK6J55Y4H",
+      "usage": "USE2-Vectors-Put-Bytes",
+      "unit": "GB",
+      "usd": "0.2000000000",
+      "begin": "0",
+      "description": "$0.20 per GB fee for bytes put to S3 Vectors"
+    },
+    {
+      "sku": "EHQCKQFCGZYFW8SD",
+      "usage": "USE2-Vectors-Query-ProcessedBytes-Tier1",
+      "unit": "GB",
+      "usd": "0.0000039060",
+      "begin": "0",
+      "description": "$0.000003906 per GB fee for bytes processed by S3 Vectors Query"
+    },
+    {
+      "sku": "UX4H9YPUSP929HF4",
+      "usage": "USE2-Vectors-Request-Tier3",
+      "unit": "Requests",
+      "usd": "0.0000025000",
+      "begin": "0",
+      "description": "$0.0000025 per Request Query Vectors API Requests"
+    },
+    {
+      "sku": "74SWUVCCMK9ATAJQ",
+      "usage": "USE2-Vectors-Request-Tier2",
+      "unit": "Requests",
+      "usd": "0.0000550000",
+      "begin": "0",
+      "description": "$0.055 per 1,000 Tier2 Vectors API Requests"
+    },
+    {
+      "sku": "NAPB2QFBVZFKZDCR",
+      "usage": "USE2-Vectors-Query-ProcessedBytes-Tier3",
+      "unit": "GB",
+      "usd": "0.0000003910",
+      "begin": "0",
+      "description": "$0.000000391 per GB fee for bytes processed by S3 Vectors Query Tier 3"
+    },
+    {
+      "sku": "DGQAYZ94M98HQY77",
+      "usage": "USE2-Vectors-TimedStorage-ByteHrs",
+      "unit": "GB-Mo",
+      "usd": "0.0600000000",
+      "begin": "0",
+      "description": "$0.06 per GB-Mo of Storage in Vectors "
+    }
+  ]
+}

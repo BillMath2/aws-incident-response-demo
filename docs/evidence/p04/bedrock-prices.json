@@ -1,0 +1,63 @@
+{
+  "checked_on": "2026-10-05",
+  "publication_date": "2026-10-05T21:04:10Z",
+  "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/us-east-2/index.json",
+  "rates": [
+    {
+      "sku": "2CGGUDQFBC9PBRS7",
+      "model": "Llama 3.3 70B",
+      "usage": "USE2-Llama3-3-70B-input-tokens",
+      "unit": "1K tokens",
+      "usd": "0.0007200000",
+      "effective": "2026-10-01T00:00:00Z"
+    },
+    {
+      "sku": "T4U7KW6SXXKERZG3",
+      "model": "Nova Lite",
+      "usage": "USE2-NovaLite-output-tokens",
+      "unit": "1K tokens",
+      "usd": "0.0002400000",
+      "effective": "2026-10-01T00:00:00Z"
+    },
+    {
+      "sku": "96HA8FC75PCP3ZSR",
+      "model": "Nova Pro",
+      "usage": "USE2-NovaPro-input-tokens",
+      "unit": "1K tokens",
+      "usd": "0.0008000000",
+      "effective": "2026-10-01T00:00:00Z"
+    },
+    {
+      "sku": "73TWNPGDKBFY3XAT",
+      "model": null,
+      "usage": "USE2-TitanEmbeddingV2-Text-input-tokens",
+      "unit": "1K tokens",
+      "usd": "0.0000200000",
+      "effective": "2026-10-01T00:00:00Z"
+    },
+    {
+      "sku": "8HUJXDFQPU3SBCDU",
+      "model": "Nova Pro",
+      "usage": "USE2-NovaPro-output-tokens",
+      "unit": "1K tokens",
+      "usd": "0.0032000000",
+      "effective": "2026-10-01T00:00:00Z"
+    },
+    {
+      "sku": "68N2Y76KQKQ4CEB8",
+      "model": "Nova Lite",
+      "usage": "USE2-NovaLite-input-tokens",
+      "unit": "1K tokens",
+      "usd": "0.0000600000",
+      "effective": "2026-10-01T00:00:00Z"
+    },
+    {
+      "sku": "ZH2VZ8KWAFW9J9SS",
+      "model": "Llama 3.3 70B",
+      "usage": "USE2-Llama3-3-70B-output-tokens",
+      "unit": "1K tokens",
+      "usd": "0.0007200000",
+      "effective": "2026-10-01T00:00:00Z"
+    }
+  ]
+}

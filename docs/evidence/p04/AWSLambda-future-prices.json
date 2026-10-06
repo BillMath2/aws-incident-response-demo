@@ -1,0 +1,22 @@
+{
+  "checked_on": "2026-10-05",
+  "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AWSLambda/current/us-east-2/index.json",
+  "rates": [
+    {
+      "sku": "CHGDQQ3YSPF93CBA",
+      "usage": "USE2-Lambda-GB-Second-ARM",
+      "unit": "Lambda-GB-Second",
+      "usd": "0.0000133334",
+      "begin": "0",
+      "description": "AWS Lambda - Total Compute for ARM - US East (Ohio)-Tier-1"
+    },
+    {
+      "sku": "DMJPKNDPVRPMG2E7",
+      "usage": "USE2-Request-ARM",
+      "unit": "Requests",
+      "usd": "0.0000002000",
+      "begin": "0",
+      "description": "AWS Lambda - Total Requests for ARM - US East (Ohio)"
+    }
+  ]
+}

@@ -1,0 +1,423 @@
+{
+  "Description": "P04 incident-demo storage foundation; no investigator or executor",
+  "Resources": {
+    "AccessLogs8B620ECA": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketEncryption": {
+          "ServerSideEncryptionConfiguration": [
+            {
+              "ServerSideEncryptionByDefault": {
+                "SSEAlgorithm": "AES256"
+              }
+            }
+          ]
+        },
+        "BucketName": "incident-demo-access-logs-498084841421-us-east-2",
+        "LifecycleConfiguration": {
+          "Rules": [
+            {
+              "AbortIncompleteMultipartUpload": {
+                "DaysAfterInitiation": 1
+              },
+              "ExpirationInDays": 7,
+              "Id": "ExpireAccessLogs",
+              "Status": "Enabled"
+            }
+          ]
+        },
+        "OwnershipControls": {
+          "Rules": [
+            {
+              "ObjectOwnership": "BucketOwnerEnforced"
+            }
+          ]
+        },
+        "PublicAccessBlockConfiguration": {
+          "BlockPublicAcls": true,
+          "BlockPublicPolicy": true,
+          "IgnorePublicAcls": true,
+          "RestrictPublicBuckets": true
+        },
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "demo"
+          },
+          {
+            "Key": "Phase",
+            "Value": "P04"
+          },
+          {
+            "Key": "Project",
+            "Value": "incident-demo"
+          }
+        ]
+      },
+      "UpdateReplacePolicy": "Retain",
+      "DeletionPolicy": "Retain",
+      "Metadata": {
+        "aws:cdk:path": "incident-demo-foundation/AccessLogs/Resource"
+      }
+    },
+    "AccessLogsPolicyABDC4D2D": {
+      "Type": "AWS::S3::BucketPolicy",
+      "Properties": {
+        "Bucket": {
+          "Ref": "AccessLogs8B620ECA"
+        },
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "s3:*",
+              "Condition": {
+                "Bool": {
+                  "aws:SecureTransport": "false"
+                }
+              },
+              "Effect": "Deny",
+              "Principal": {
+                "AWS": "*"
+              },
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "AccessLogs8B620ECA",
+                    "Arn"
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "AccessLogs8B620ECA",
+                          "Arn"
+                        ]
+                      },
+                      "/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Action": "s3:PutObject",
+              "Condition": {
+                "ArnLike": {
+                  "aws:SourceArn": {
+                    "Fn::GetAtt": [
+                      "Artifacts82DD59A1",
+                      "Arn"
+                    ]
+                  }
+                },
+                "StringEquals": {
+                  "aws:SourceAccount": "498084841421"
+                }
+              },
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "logging.s3.amazonaws.com"
+              },
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    {
+                      "Fn::GetAtt": [
+                        "AccessLogs8B620ECA",
+                        "Arn"
+                      ]
+                    },
+                    "/artifacts/*"
+                  ]
+                ]
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "incident-demo-foundation/AccessLogs/Policy/Resource"
+      }
+    },
+    "Artifacts82DD59A1": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketEncryption": {
+          "ServerSideEncryptionConfiguration": [
+            {
+              "ServerSideEncryptionByDefault": {
+                "SSEAlgorithm": "AES256"
+              }
+            }
+          ]
+        },
+        "BucketName": "incident-demo-artifacts-498084841421-us-east-2",
+        "LifecycleConfiguration": {
+          "Rules": [
+            {
+              "AbortIncompleteMultipartUpload": {
+                "DaysAfterInitiation": 1
+              },
+              "ExpirationInDays": 30,
+              "Id": "ExpireRunEvidence",
+              "NoncurrentVersionExpiration": {
+                "NoncurrentDays": 7
+              },
+              "Prefix": "runs/",
+              "Status": "Enabled"
+            },
+            {
+              "ExpirationInDays": 1,
+              "Id": "ExpireSmokeEvidence",
+              "NoncurrentVersionExpiration": {
+                "NoncurrentDays": 1
+              },
+              "Prefix": "smoke/",
+              "Status": "Enabled"
+            }
+          ]
+        },
+        "LoggingConfiguration": {
+          "DestinationBucketName": {
+            "Ref": "AccessLogs8B620ECA"
+          },
+          "LogFilePrefix": "artifacts/"
+        },
+        "OwnershipControls": {
+          "Rules": [
+            {
+              "ObjectOwnership": "BucketOwnerEnforced"
+            }
+          ]
+        },
+        "PublicAccessBlockConfiguration": {
+          "BlockPublicAcls": true,
+          "BlockPublicPolicy": true,
+          "IgnorePublicAcls": true,
+          "RestrictPublicBuckets": true
+        },
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "demo"
+          },
+          {
+            "Key": "Phase",
+            "Value": "P04"
+          },
+          {
+            "Key": "Project",
+            "Value": "incident-demo"
+          }
+        ],
+        "VersioningConfiguration": {
+          "Status": "Enabled"
+        }
+      },
+      "UpdateReplacePolicy": "Retain",
+      "DeletionPolicy": "Retain",
+      "Metadata": {
+        "aws:cdk:path": "incident-demo-foundation/Artifacts/Resource"
+      }
+    },
+    "ArtifactsPolicy6E9058CC": {
+      "Type": "AWS::S3::BucketPolicy",
+      "Properties": {
+        "Bucket": {
+          "Ref": "Artifacts82DD59A1"
+        },
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "s3:*",
+              "Condition": {
+                "Bool": {
+                  "aws:SecureTransport": "false"
+                }
+              },
+              "Effect": "Deny",
+              "Principal": {
+                "AWS": "*"
+              },
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "Artifacts82DD59A1",
+                    "Arn"
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "Artifacts82DD59A1",
+                          "Arn"
+                        ]
+                      },
+                      "/*"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ],
+          "Version": "2012-10-17"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "incident-demo-foundation/Artifacts/Policy/Resource"
+      }
+    },
+    "State1C20CC9A": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "pk",
+            "AttributeType": "S"
+          },
+          {
+            "AttributeName": "sk",
+            "AttributeType": "S"
+          }
+        ],
+        "BillingMode": "PAY_PER_REQUEST",
+        "DeletionProtectionEnabled": true,
+        "KeySchema": [
+          {
+            "AttributeName": "pk",
+            "KeyType": "HASH"
+          },
+          {
+            "AttributeName": "sk",
+            "KeyType": "RANGE"
+          }
+        ],
+        "OnDemandThroughput": {
+          "MaxReadRequestUnits": 10,
+          "MaxWriteRequestUnits": 10
+        },
+        "PointInTimeRecoverySpecification": {
+          "PointInTimeRecoveryEnabled": true,
+          "RecoveryPeriodInDays": 7
+        },
+        "SSESpecification": {
+          "SSEEnabled": false
+        },
+        "TableName": "incident-demo-state",
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "demo"
+          },
+          {
+            "Key": "Phase",
+            "Value": "P04"
+          },
+          {
+            "Key": "Project",
+            "Value": "incident-demo"
+          }
+        ],
+        "TimeToLiveSpecification": {
+          "AttributeName": "expires_at",
+          "Enabled": true
+        }
+      },
+      "UpdateReplacePolicy": "Retain",
+      "DeletionPolicy": "Retain",
+      "Metadata": {
+        "aws:cdk:path": "incident-demo-foundation/State/Resource"
+      }
+    },
+    "AuditLogsB945E340": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/incident-demo/foundation",
+        "RetentionInDays": 7,
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "demo"
+          },
+          {
+            "Key": "Phase",
+            "Value": "P04"
+          },
+          {
+            "Key": "Project",
+            "Value": "incident-demo"
+          }
+        ]
+      },
+      "UpdateReplacePolicy": "Retain",
+      "DeletionPolicy": "Retain",
+      "Metadata": {
+        "aws:cdk:path": "incident-demo-foundation/AuditLogs/Resource"
+      }
+    }
+  },
+  "Outputs": {
+    "ArtifactBucket": {
+      "Value": {
+        "Ref": "Artifacts82DD59A1"
+      }
+    },
+    "AccessLogBucket": {
+      "Value": {
+        "Ref": "AccessLogs8B620ECA"
+      }
+    },
+    "StateTable": {
+      "Value": {
+        "Ref": "State1C20CC9A"
+      }
+    },
+    "AuditLogGroup": {
+      "Value": {
+        "Ref": "AuditLogsB945E340"
+      }
+    }
+  },
+  "Parameters": {
+    "BootstrapVersion": {
+      "Type": "AWS::SSM::Parameter::Value<String>",
+      "Default": "/cdk-bootstrap/incdemo/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+    }
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                  ],
+                  {
+                    "Ref": "BootstrapVersion"
+                  }
+                ]
+              }
+            ]
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+        }
+      ]
+    }
+  }
+}

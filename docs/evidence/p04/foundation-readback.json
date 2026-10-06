@@ -1,0 +1,290 @@
+{
+  "checked_at": "2026-10-05T23:40:40.304361+00:00",
+  "account": "498084841421",
+  "region": "us-east-2",
+  "checks": {
+    "stack_complete": true,
+    "termination_protection": true,
+    "buckets_private": true,
+    "buckets_tls_only": true,
+    "artifact_versioned": true,
+    "access_logging": true,
+    "table_active": true,
+    "on_demand": true,
+    "capacity_capped": true,
+    "table_deletion_protection": true,
+    "ttl_enabled": true,
+    "pitr_enabled": true,
+    "log_retention": true
+  },
+  "outputs": {
+    "ArtifactBucket": "incident-demo-artifacts-498084841421-us-east-2",
+    "StateTable": "incident-demo-state",
+    "AccessLogBucket": "incident-demo-access-logs-498084841421-us-east-2",
+    "AuditLogGroup": "/incident-demo/foundation"
+  },
+  "buckets": {
+    "ArtifactBucket": {
+      "name": "incident-demo-artifacts-498084841421-us-east-2",
+      "public_access": {
+        "PublicAccessBlockConfiguration": {
+          "BlockPublicAcls": true,
+          "IgnorePublicAcls": true,
+          "BlockPublicPolicy": true,
+          "RestrictPublicBuckets": true
+        }
+      },
+      "encryption": {
+        "ServerSideEncryptionConfiguration": {
+          "Rules": [
+            {
+              "ApplyServerSideEncryptionByDefault": {
+                "SSEAlgorithm": "AES256"
+              },
+              "BucketKeyEnabled": false,
+              "BlockedEncryptionTypes": {
+                "EncryptionType": [
+                  "SSE-C"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "ownership": {
+        "OwnershipControls": {
+          "Rules": [
+            {
+              "ObjectOwnership": "BucketOwnerEnforced"
+            }
+          ]
+        }
+      },
+      "lifecycle": {
+        "TransitionDefaultMinimumObjectSize": "all_storage_classes_128K",
+        "Rules": [
+          {
+            "Expiration": {
+              "Days": 30
+            },
+            "ID": "ExpireRunEvidence",
+            "Filter": {
+              "Prefix": "runs/"
+            },
+            "Status": "Enabled",
+            "NoncurrentVersionExpiration": {
+              "NoncurrentDays": 7
+            },
+            "AbortIncompleteMultipartUpload": {
+              "DaysAfterInitiation": 1
+            }
+          },
+          {
+            "Expiration": {
+              "Days": 1
+            },
+            "ID": "ExpireSmokeEvidence",
+            "Filter": {
+              "Prefix": "smoke/"
+            },
+            "Status": "Enabled",
+            "NoncurrentVersionExpiration": {
+              "NoncurrentDays": 1
+            }
+          }
+        ]
+      },
+      "policy": {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Deny",
+            "Principal": {
+              "AWS": "*"
+            },
+            "Action": "s3:*",
+            "Resource": [
+              "arn:aws:s3:::incident-demo-artifacts-498084841421-us-east-2",
+              "arn:aws:s3:::incident-demo-artifacts-498084841421-us-east-2/*"
+            ],
+            "Condition": {
+              "Bool": {
+                "aws:SecureTransport": "false"
+              }
+            }
+          }
+        ]
+      },
+      "logging": {
+        "LoggingEnabled": {
+          "TargetBucket": "incident-demo-access-logs-498084841421-us-east-2",
+          "TargetPrefix": "artifacts/"
+        }
+      },
+      "versioning": {
+        "Status": "Enabled"
+      }
+    },
+    "AccessLogBucket": {
+      "name": "incident-demo-access-logs-498084841421-us-east-2",
+      "public_access": {
+        "PublicAccessBlockConfiguration": {
+          "BlockPublicAcls": true,
+          "IgnorePublicAcls": true,
+          "BlockPublicPolicy": true,
+          "RestrictPublicBuckets": true
+        }
+      },
+      "encryption": {
+        "ServerSideEncryptionConfiguration": {
+          "Rules": [
+            {
+              "ApplyServerSideEncryptionByDefault": {
+                "SSEAlgorithm": "AES256"
+              },
+              "BucketKeyEnabled": false,
+              "BlockedEncryptionTypes": {
+                "EncryptionType": [
+                  "SSE-C"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "ownership": {
+        "OwnershipControls": {
+          "Rules": [
+            {
+              "ObjectOwnership": "BucketOwnerEnforced"
+            }
+          ]
+        }
+      },
+      "lifecycle": {
+        "TransitionDefaultMinimumObjectSize": "all_storage_classes_128K",
+        "Rules": [
+          {
+            "Expiration": {
+              "Days": 7
+            },
+            "ID": "ExpireAccessLogs",
+            "Filter": {
+              "Prefix": ""
+            },
+            "Status": "Enabled",
+            "AbortIncompleteMultipartUpload": {
+              "DaysAfterInitiation": 1
+            }
+          }
+        ]
+      },
+      "policy": {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Deny",
+            "Principal": {
+              "AWS": "*"
+            },
+            "Action": "s3:*",
+            "Resource": [
+              "arn:aws:s3:::incident-demo-access-logs-498084841421-us-east-2",
+              "arn:aws:s3:::incident-demo-access-logs-498084841421-us-east-2/*"
+            ],
+            "Condition": {
+              "Bool": {
+                "aws:SecureTransport": "false"
+              }
+            }
+          },
+          {
+            "Effect": "Allow",
+            "Principal": {
+              "Service": "logging.s3.amazonaws.com"
+            },
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::incident-demo-access-logs-498084841421-us-east-2/artifacts/*",
+            "Condition": {
+              "StringEquals": {
+                "aws:SourceAccount": "498084841421"
+              },
+              "ArnLike": {
+                "aws:SourceArn": "arn:aws:s3:::incident-demo-artifacts-498084841421-us-east-2"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "table": {
+    "status": "ACTIVE",
+    "billing": {
+      "BillingMode": "PAY_PER_REQUEST",
+      "LastUpdateToPayPerRequestDateTime": "2026-10-05T19:39:02.079000-04:00"
+    },
+    "caps": {
+      "MaxReadRequestUnits": 10,
+      "MaxWriteRequestUnits": 10
+    },
+    "deletion_protection": true
+  },
+  "ttl": {
+    "TimeToLiveDescription": {
+      "TimeToLiveStatus": "ENABLED",
+      "AttributeName": "expires_at"
+    }
+  },
+  "pitr": {
+    "ContinuousBackupsDescription": {
+      "ContinuousBackupsStatus": "ENABLED",
+      "PointInTimeRecoveryDescription": {
+        "PointInTimeRecoveryStatus": "ENABLED",
+        "RecoveryPeriodInDays": 7,
+        "EarliestRestorableDateTime": "2026-10-05T19:39:13-04:00",
+        "LatestRestorableDateTime": "2026-10-05T19:39:13-04:00"
+      }
+    }
+  },
+  "log_groups": [
+    {
+      "name": "/incident-demo/foundation",
+      "days": 7
+    }
+  ],
+  "resources": [
+    {
+      "type": "AWS::S3::Bucket",
+      "id": "incident-demo-access-logs-498084841421-us-east-2",
+      "status": "CREATE_COMPLETE"
+    },
+    {
+      "type": "AWS::S3::BucketPolicy",
+      "id": "incident-demo-access-logs-498084841421-us-east-2",
+      "status": "CREATE_COMPLETE"
+    },
+    {
+      "type": "AWS::S3::Bucket",
+      "id": "incident-demo-artifacts-498084841421-us-east-2",
+      "status": "CREATE_COMPLETE"
+    },
+    {
+      "type": "AWS::S3::BucketPolicy",
+      "id": "incident-demo-artifacts-498084841421-us-east-2",
+      "status": "CREATE_COMPLETE"
+    },
+    {
+      "type": "AWS::Logs::LogGroup",
+      "id": "/incident-demo/foundation",
+      "status": "CREATE_COMPLETE"
+    },
+    {
+      "type": "AWS::DynamoDB::Table",
+      "id": "incident-demo-state",
+      "status": "CREATE_COMPLETE"
+    }
+  ],
+  "template_sha256": "e56aa6244d1f6fc4d1450436201de7721e63f8564eefdeddb7cb243386100288",
+  "runtime_authorization_tested": false
+}

@@ -1,0 +1,22 @@
+{
+  "checked_on": "2026-10-05",
+  "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonStates/current/us-east-2/index.json",
+  "rates": [
+    {
+      "sku": "PEWNRD5EMPQPHCAQ",
+      "usage": "USE2-StateTransition",
+      "unit": "StateTransitions",
+      "usd": "0.0000250000",
+      "begin": "0",
+      "description": "$0.000025 per state transition"
+    },
+    {
+      "sku": "DCMZZXP5RBUG8FGP",
+      "usage": "Global-StateTransition",
+      "unit": "StateTransitions",
+      "usd": "0.0000000000",
+      "begin": "0",
+      "description": "$0 for first 4,000 state transitions"
+    }
+  ]
+}

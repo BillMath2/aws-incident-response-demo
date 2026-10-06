@@ -1,0 +1,20 @@
+{
+  "checked_on": "2026-10-05",
+  "source": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonCloudWatch/current/us-east-2/index.json",
+  "rates": [
+    {
+      "sku": "5T6Z6V26DSR7SZ49",
+      "usage": "USE2-DataProcessing-Bytes",
+      "unit": "GB",
+      "usd": "0.5000000000",
+      "description": "$0.50 per GB custom log data ingested in Standard log class - US East (Ohio)"
+    },
+    {
+      "sku": "X7X4WD4A95NDR9U5",
+      "usage": "USE2-TimedStorage-ByteHrs",
+      "unit": "GB-Mo",
+      "usd": "0.0300000000",
+      "description": "$0.03 per GB-mo of log storage - US East (Ohio)"
+    }
+  ]
+}

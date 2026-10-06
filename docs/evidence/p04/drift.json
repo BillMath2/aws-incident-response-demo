@@ -1,0 +1,8 @@
+{
+  "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-foundation/b5e60260-c115-11f1-ad8c-02aabb75b103",
+  "StackDriftDetectionId": "7637b680-c116-11f1-b648-0a88c8908e85",
+  "StackDriftStatus": "IN_SYNC",
+  "DetectionStatus": "DETECTION_COMPLETE",
+  "DriftedStackResourceCount": 0,
+  "Timestamp": "2026-10-05T23:42:44.200000+00:00"
+}
