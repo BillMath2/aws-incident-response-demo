@@ -8,10 +8,11 @@ from pathlib import Path
 
 from incident_demo.contracts.base import canonical_json
 from incident_demo.investigator.engine import Engine
-from incident_demo.investigator.providers import OfflineBoundaryPolicy
 from incident_demo.live.adapters import BedrockProvider, LambdaTools
 from incident_demo.live.clients import sdk_config, session
 from incident_demo.live.contracts import LiveRequest
+from incident_demo.live.guardrails import GuardrailPolicy
+from incident_demo.live.retrieval import KnowledgeTools
 
 
 def permission_probe(sdk):
@@ -59,6 +60,18 @@ def main():
     else:
         provider = BedrockProvider(sdk, request.settings.model, audit)
         tools = LambdaTools(sdk, json.loads(os.environ["DIAGNOSTIC_FUNCTIONS"]), request, audit)
+        tools = KnowledgeTools(
+            sdk,
+            tools,
+            request,
+            audit,
+            os.environ["KNOWLEDGE_BASE_ID"],
+            os.environ["ARTIFACT_BUCKET"],
+            json.loads(Path("knowledge-manifest.json").read_text()),
+        )
+        policy = GuardrailPolicy(
+            sdk, os.environ["GUARDRAIL_ID"], os.environ["GUARDRAIL_VERSION"], audit
+        )
         engine = Engine(
             Path(os.environ.get("APP_ROOT", ".")),
             request.variant,
@@ -66,9 +79,8 @@ def main():
             provider,
             tools,
             settings=request.settings,
-            policy=OfflineBoundaryPolicy(),
+            policy=policy,
         )
-        # Explicit synthetic-canary boundary only; never labelled Bedrock Guardrails.
         engine.run_id = request.run_id
         result = engine.run().model_dump(mode="json")
     result_path.write_text(canonical_json(result), encoding="utf-8")

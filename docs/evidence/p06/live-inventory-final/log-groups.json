@@ -1,0 +1,67 @@
+[
+  {
+    "logGroupName": "/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-DEFAULT",
+    "creationTime": 1791249736780,
+    "retentionInDays": 7,
+    "metricFilterCount": 2,
+    "arn": "arn:aws:logs:us-east-2:498084841421:log-group:/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-DEFAULT:*",
+    "storedBytes": 0,
+    "kmsKeyId": "arn:aws:kms:us-east-2:498084841421:key/afbebae5-f530-4513-b859-d0d2d3622a49",
+    "logGroupClass": "STANDARD",
+    "logGroupArn": "arn:aws:logs:us-east-2:498084841421:log-group:/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-DEFAULT",
+    "deletionProtectionEnabled": false,
+    "bearerTokenAuthenticationEnabled": false
+  },
+  {
+    "logGroupName": "/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-smoke",
+    "creationTime": 1791249735961,
+    "retentionInDays": 7,
+    "metricFilterCount": 2,
+    "arn": "arn:aws:logs:us-east-2:498084841421:log-group:/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-smoke:*",
+    "storedBytes": 0,
+    "kmsKeyId": "arn:aws:kms:us-east-2:498084841421:key/afbebae5-f530-4513-b859-d0d2d3622a49",
+    "logGroupClass": "STANDARD",
+    "logGroupArn": "arn:aws:logs:us-east-2:498084841421:log-group:/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-smoke",
+    "deletionProtectionEnabled": false,
+    "bearerTokenAuthenticationEnabled": false
+  },
+  {
+    "logGroupName": "/aws/lambda/incident-demo-diag-recent-changes",
+    "creationTime": 1791247538721,
+    "retentionInDays": 7,
+    "metricFilterCount": 0,
+    "arn": "arn:aws:logs:us-east-2:498084841421:log-group:/aws/lambda/incident-demo-diag-recent-changes:*",
+    "storedBytes": 0,
+    "kmsKeyId": "arn:aws:kms:us-east-2:498084841421:key/afbebae5-f530-4513-b859-d0d2d3622a49",
+    "logGroupClass": "STANDARD",
+    "logGroupArn": "arn:aws:logs:us-east-2:498084841421:log-group:/aws/lambda/incident-demo-diag-recent-changes",
+    "deletionProtectionEnabled": false,
+    "bearerTokenAuthenticationEnabled": false
+  },
+  {
+    "logGroupName": "/aws/lambda/incident-demo-diag-recent-logs",
+    "creationTime": 1791247537615,
+    "retentionInDays": 7,
+    "metricFilterCount": 0,
+    "arn": "arn:aws:logs:us-east-2:498084841421:log-group:/aws/lambda/incident-demo-diag-recent-logs:*",
+    "storedBytes": 0,
+    "kmsKeyId": "arn:aws:kms:us-east-2:498084841421:key/afbebae5-f530-4513-b859-d0d2d3622a49",
+    "logGroupClass": "STANDARD",
+    "logGroupArn": "arn:aws:logs:us-east-2:498084841421:log-group:/aws/lambda/incident-demo-diag-recent-logs",
+    "deletionProtectionEnabled": false,
+    "bearerTokenAuthenticationEnabled": false
+  },
+  {
+    "logGroupName": "/aws/lambda/incident-demo-diag-service-health",
+    "creationTime": 1791247538573,
+    "retentionInDays": 7,
+    "metricFilterCount": 0,
+    "arn": "arn:aws:logs:us-east-2:498084841421:log-group:/aws/lambda/incident-demo-diag-service-health:*",
+    "storedBytes": 0,
+    "kmsKeyId": "arn:aws:kms:us-east-2:498084841421:key/afbebae5-f530-4513-b859-d0d2d3622a49",
+    "logGroupClass": "STANDARD",
+    "logGroupArn": "arn:aws:logs:us-east-2:498084841421:log-group:/aws/lambda/incident-demo-diag-service-health",
+    "deletionProtectionEnabled": false,
+    "bearerTokenAuthenticationEnabled": false
+  }
+]

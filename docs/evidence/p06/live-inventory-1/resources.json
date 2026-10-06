@@ -1,0 +1,264 @@
+{
+  "StackResourceSummaries": [
+    {
+      "LogicalResourceId": "Budget69569A1A",
+      "PhysicalResourceId": "incident-demo-live-budget",
+      "ResourceType": "AWS::DynamoDB::Table",
+      "LastUpdatedTimestamp": "2026-10-06 00:45:34.328000+00:00",
+      "ResourceStatus": "CREATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    },
+    {
+      "LogicalResourceId": "DefaultErrors1F79E265",
+      "PhysicalResourceId": "DefaultErrors1F79E265-sbEVHTG2eqsO",
+      "ResourceType": "AWS::Logs::MetricFilter",
+      "LastUpdatedTimestamp": "2026-10-06 01:52:56.753000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    },
+    {
+      "LogicalResourceId": "DefaultLatency579CD744",
+      "PhysicalResourceId": "DefaultLatency579CD744-kBfGMjljZ5fG",
+      "ResourceType": "AWS::Logs::MetricFilter",
+      "LastUpdatedTimestamp": "2026-10-06 01:52:56.673000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    },
+    {
+      "LogicalResourceId": "Endpoint",
+      "PhysicalResourceId": "arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator-yxOMou90km/runtime-endpoint/smoke",
+      "ResourceType": "AWS::BedrockAgentCore::RuntimeEndpoint",
+      "LastUpdatedTimestamp": "2026-10-06 03:08:40.047000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    },
+    {
+      "LogicalResourceId": "InvestigatorRole413527E4",
+      "PhysicalResourceId": "incident-demo-investigator",
+      "ResourceType": "AWS::IAM::Role",
+      "LastUpdatedTimestamp": "2026-10-06 01:20:30.492000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    },
+    {
+      "LogicalResourceId": "InvestigatorRoleDefaultPolicyF8C0F70D",
+      "PhysicalResourceId": "incid-Inves-hrK5mBGxUTUE",
+      "ResourceType": "AWS::IAM::Policy",
+      "LastUpdatedTimestamp": "2026-10-06 03:08:17.199000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "NOT_CHECKED"
+      }
+    },
+    {
+      "LogicalResourceId": "LogsKeyA6AB43B2",
+      "PhysicalResourceId": "afbebae5-f530-4513-b859-d0d2d3622a49",
+      "ResourceType": "AWS::KMS::Key",
+      "LastUpdatedTimestamp": "2026-10-06 01:21:14.357000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    },
+    {
+      "LogicalResourceId": "Runtime",
+      "PhysicalResourceId": "incident_demo_investigator-yxOMou90km",
+      "ResourceType": "AWS::BedrockAgentCore::Runtime",
+      "LastUpdatedTimestamp": "2026-10-06 03:08:31.598000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    },
+    {
+      "LogicalResourceId": "RuntimeLogs92941AA6",
+      "PhysicalResourceId": "/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-DEFAULT",
+      "ResourceType": "AWS::Logs::LogGroup",
+      "LastUpdatedTimestamp": "2026-10-06 01:52:54.785000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    },
+    {
+      "LogicalResourceId": "SmokeErrorsF5CC30A1",
+      "PhysicalResourceId": "SmokeErrorsF5CC30A1-yXRPDmdGbiZm",
+      "ResourceType": "AWS::Logs::MetricFilter",
+      "LastUpdatedTimestamp": "2026-10-06 01:52:56.604000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    },
+    {
+      "LogicalResourceId": "SmokeLatency512C8776",
+      "PhysicalResourceId": "SmokeLatency512C8776-zljjLrMovNvx",
+      "ResourceType": "AWS::Logs::MetricFilter",
+      "LastUpdatedTimestamp": "2026-10-06 01:52:56.413000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    },
+    {
+      "LogicalResourceId": "SmokeLogs4DACAC0F",
+      "PhysicalResourceId": "/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-smoke",
+      "ResourceType": "AWS::Logs::LogGroup",
+      "LastUpdatedTimestamp": "2026-10-06 01:52:54.553000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    },
+    {
+      "LogicalResourceId": "Trail022F0CF2",
+      "PhysicalResourceId": "incident-demo-p05",
+      "ResourceType": "AWS::CloudTrail::Trail",
+      "LastUpdatedTimestamp": "2026-10-06 03:07:51.388000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    },
+    {
+      "LogicalResourceId": "TrailBucketA831CE63",
+      "PhysicalResourceId": "incident-demo-trail-498084841421-us-east-2",
+      "ResourceType": "AWS::S3::Bucket",
+      "LastUpdatedTimestamp": "2026-10-06 01:20:38.336000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    },
+    {
+      "LogicalResourceId": "TrailBucketPolicyFEBC3C5C",
+      "PhysicalResourceId": "incident-demo-trail-498084841421-us-east-2",
+      "ResourceType": "AWS::S3::BucketPolicy",
+      "LastUpdatedTimestamp": "2026-10-06 00:45:38.555000+00:00",
+      "ResourceStatus": "CREATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "NOT_CHECKED"
+      }
+    },
+    {
+      "LogicalResourceId": "failuresAlarm69E88357",
+      "PhysicalResourceId": "incident-demo-p05-failures",
+      "ResourceType": "AWS::CloudWatch::Alarm",
+      "LastUpdatedTimestamp": "2026-10-06 01:20:13.283000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    },
+    {
+      "LogicalResourceId": "getrecentchanges57131F89",
+      "PhysicalResourceId": "incident-demo-diag-recent-changes",
+      "ResourceType": "AWS::Lambda::Function",
+      "LastUpdatedTimestamp": "2026-10-06 03:07:59.514000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    },
+    {
+      "LogicalResourceId": "getrecentchangesLogs0B3452B9",
+      "PhysicalResourceId": "/aws/lambda/incident-demo-diag-recent-changes",
+      "ResourceType": "AWS::Logs::LogGroup",
+      "LastUpdatedTimestamp": "2026-10-06 01:21:16.677000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    },
+    {
+      "LogicalResourceId": "getrecentchangesRole81F77D5D",
+      "PhysicalResourceId": "incident-demo-diag-recent-changes",
+      "ResourceType": "AWS::IAM::Role",
+      "LastUpdatedTimestamp": "2026-10-06 01:21:36.508000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    },
+    {
+      "LogicalResourceId": "getrecentlogs216E16E1",
+      "PhysicalResourceId": "incident-demo-diag-recent-logs",
+      "ResourceType": "AWS::Lambda::Function",
+      "LastUpdatedTimestamp": "2026-10-06 03:07:59.595000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    },
+    {
+      "LogicalResourceId": "getrecentlogsLogs74EAFA7A",
+      "PhysicalResourceId": "/aws/lambda/incident-demo-diag-recent-logs",
+      "ResourceType": "AWS::Logs::LogGroup",
+      "LastUpdatedTimestamp": "2026-10-06 01:21:16.692000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    },
+    {
+      "LogicalResourceId": "getrecentlogsRoleCB933803",
+      "PhysicalResourceId": "incident-demo-diag-recent-logs",
+      "ResourceType": "AWS::IAM::Role",
+      "LastUpdatedTimestamp": "2026-10-06 01:21:36.504000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    },
+    {
+      "LogicalResourceId": "getservicehealthEF276A61",
+      "PhysicalResourceId": "incident-demo-diag-service-health",
+      "ResourceType": "AWS::Lambda::Function",
+      "LastUpdatedTimestamp": "2026-10-06 03:07:59.868000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    },
+    {
+      "LogicalResourceId": "getservicehealthLogsF827EE15",
+      "PhysicalResourceId": "/aws/lambda/incident-demo-diag-service-health",
+      "ResourceType": "AWS::Logs::LogGroup",
+      "LastUpdatedTimestamp": "2026-10-06 01:21:16.680000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    },
+    {
+      "LogicalResourceId": "getservicehealthRole34E731B8",
+      "PhysicalResourceId": "incident-demo-diag-service-health",
+      "ResourceType": "AWS::IAM::Role",
+      "LastUpdatedTimestamp": "2026-10-06 01:21:36.474000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    },
+    {
+      "LogicalResourceId": "latencyAlarm4EABAD5E",
+      "PhysicalResourceId": "incident-demo-p05-latency",
+      "ResourceType": "AWS::CloudWatch::Alarm",
+      "LastUpdatedTimestamp": "2026-10-06 01:20:13.399000+00:00",
+      "ResourceStatus": "UPDATE_COMPLETE",
+      "DriftInformation": {
+        "StackResourceDriftStatus": "IN_SYNC"
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "Item": {
+    "pk": {
+      "S": "batch#p06-dev-01"
+    },
+    "reserved_cents": {
+      "N": "750"
+    }
+  }
+}

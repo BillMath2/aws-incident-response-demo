@@ -1,0 +1,62 @@
+{"account": "498084841421", "region": "us-east-2"}
+infra/.venv/Scripts/python.exe : AI agent detected
+At line:2 char:1
++ infra/.venv/Scripts/python.exe infra/manage.py diff --retrieval *> do ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (AI agent detected:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Stack incident-demo-retrieval (aws://498084841421/us-east-2)
+IAM Statement Changes
+┌───┬──────────────────────┬────────┬────────────────┬───────────────────────────────┬─────────────────────────────────
+──────────────────────────────────────────────────────┐
+│   │ Resource             │ Effect │ Action         │ Principal                     │ Condition                       
+                                                      │
+├───┼──────────────────────┼────────┼────────────────┼───────────────────────────────┼─────────────────────────────────
+──────────────────────────────────────────────────────┤
+│ + │ ${KnowledgeRole.Arn} │ Allow  │ sts:AssumeRole │ Service:bedrock.amazonaws.com │ "StringEquals": {               
+                                                      │
+│   │                      │        │                │                               │   "aws:SourceAccount": 
+"498084841421"                                                 │
+│   │                      │        │                │                               │ },                              
+                                                      │
+│   │                      │        │                │                               │ "ArnLike": {                    
+                                                      │
+│   │                      │        │                │                               │   "aws:SourceArn": 
+"arn:aws:bedrock:us-east-2:498084841421:knowledge-base/XKVH8PLCHO" │
+│   │                      │        │                │                               │ }                               
+                                                      │
+│ - │ ${KnowledgeRole.Arn} │ Allow  │ sts:AssumeRole │ Service:bedrock.amazonaws.com │ "StringEquals": {               
+                                                      │
+│   │                      │        │                │                               │   "aws:SourceAccount": 
+"498084841421"                                                 │
+│   │                      │        │                │                               │ },                              
+                                                      │
+│   │                      │        │                │                               │ "ArnLike": {                    
+                                                      │
+│   │                      │        │                │                               │   "aws:SourceArn": 
+"arn:aws:bedrock:us-east-2:498084841421:knowledge-base/*"          │
+│   │                      │        │                │                               │ }                               
+                                                      │
+└───┴──────────────────────┴────────┴────────────────┴───────────────────────────────┴─────────────────────────────────
+──────────────────────────────────────────────────────┘
+(NOTE: There may be security-related changes not in this list. See https://github.com/aws/aws-cdk/issues/1299)
+
+Resources
+[~] AWS::IAM::Role KnowledgeRole KnowledgeRoleDA807A58
+ └─ [~] AssumeRolePolicyDocument
+     └─ [~] .Statement:
+         └─ @@ -6,7 +6,7 @@
+            [ ]     "aws:SourceAccount": "498084841421"
+            [ ]   },
+            [ ]   "ArnLike": {
+            [-]     "aws:SourceArn": "arn:aws:bedrock:us-east-2:498084841421:knowledge-base/*"
+            [+]     "aws:SourceArn": "arn:aws:bedrock:us-east-2:498084841421:knowledge-base/XKVH8PLCHO"
+            [ ]   }
+            [ ] },
+            [ ] "Effect": "Allow",
+
+
+
+✨  Number of stacks with differences: 1
+

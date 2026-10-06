@@ -2,7 +2,7 @@
 
 Date: October 3, 2026  
 Prepared for: Bill Mathers  
-Status: P01-P03 locally verified; P04 foundation and P05 live integration verified in Ohio; P06-P10 remain planned
+Status: P01-P03 locally verified; P04-P06 AWS integration and boundary gates verified in Ohio; P07-P10 remain planned; V2 model quality remains unverified
 
 Project destination: C:\Github\aws-incident-response-demo  
 Target role: [Duke job description](DukeJob.txt)
@@ -38,6 +38,13 @@ Guardrail coverage and durable cloud approval/action isolation remain later gate
 P05's conservative reservations require a budget reconciliation/replan before the P08 matrix;
 the approved $50 total / $10 batch allowance has not increased.
 The design and estimates below are retained as the planning baseline.
+
+P06 update (October 5, 2026): eight frozen runbooks are indexed in the Ohio S3 Vectors
+Knowledge Base. Live retrieval verifies passage metadata and hashes. Numbered Bedrock
+Guardrails cover input, source and output; benign/attack and unavailable-service checks
+pass. V0/V1 complete through the real AWS path. V2 stays bounded but its unsupported
+proposal is rejected; this is retained as a P08 quality limitation, not a successful run.
+See [P06 acceptance](p06-acceptance.md) and [operating runbook](p06-live-runbook.md).
 
 Build one focused incident-response demonstration using LangGraph and LangChain on Amazon Bedrock AgentCore Runtime. Begin with a small local prototype, then prove live Bedrock inference, Knowledge Base retrieval, Guardrails, and an event-driven approval workflow on AWS. Compare three prompt strategies and two models using a controlled evaluation.
 
@@ -319,7 +326,7 @@ The implemented AWS demo is complete only when:
 - Project-owned resources are inventoried before cleanup; retained evidence is exported; deletion and any remaining billable resources are verified.
 - Unresolved limitations are stated, including the synthetic workload, small evaluation set, and absence of production customer operations.
 
-The next implementation package is P06: the Knowledge Base and Guardrails, using the approved
-S3 Vectors store in Ohio. P05 verifies the live investigator's integration and bounded controls;
-it does not satisfy retrieval, filtering, workflow or model-quality gates. P01-P03 did not deploy
-AWS resources. The original plans and comparison documents remain unchanged.
+The next implementation package is P07: event workflow and durable approval/action isolation.
+P06 verifies retrieval and explicit filtering in Ohio; it does not satisfy the workflow or
+model-quality gates. V2's rejected unsupported proposal remains visible in the P06 evidence.
+P01-P03 did not deploy AWS resources. The original comparison plans remain unchanged.

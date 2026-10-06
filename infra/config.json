@@ -5,6 +5,7 @@
   "profile": "incident-demo",
   "stack_name": "incident-demo-foundation",
   "bootstrap_qualifier": "incdemo",
+  "knowledge_base_id": "XKVH8PLCHO",
   "budget": {
     "currency": "USD",
     "total": 50,

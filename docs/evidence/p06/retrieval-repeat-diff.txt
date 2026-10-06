@@ -1,0 +1,14 @@
+{"account": "498084841421", "region": "us-east-2"}
+infra/.venv/Scripts/python.exe : AI agent detected
+At line:3 char:1
++ infra/.venv/Scripts/python.exe infra/manage.py diff --retrieval *> do ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (AI agent detected:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Stack incident-demo-retrieval (aws://498084841421/us-east-2)
+There were no differences
+
+
+✨  Number of stacks with differences: 0
+

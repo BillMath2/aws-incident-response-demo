@@ -1,0 +1,13 @@
+{
+  "LogsKeyArnOutput": "arn:aws:kms:us-east-2:498084841421:key/afbebae5-f530-4513-b859-d0d2d3622a49",
+  "RuntimeLogGroupOutput": "/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-DEFAULT",
+  "getservicehealthOutput": "arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-service-health",
+  "TrailBucketOutput": "incident-demo-trail-498084841421-us-east-2",
+  "getrecentlogsOutput": "arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-recent-logs",
+  "BudgetTableOutput": "incident-demo-live-budget",
+  "RuntimeArnOutput": "arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator-yxOMou90km",
+  "RuntimeIdOutput": "incident_demo_investigator-yxOMou90km",
+  "InvestigatorRoleOutput": "arn:aws:iam::498084841421:role/incident-demo-investigator",
+  "getrecentchangesOutput": "arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-recent-changes",
+  "EndpointArnOutput": "arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator-yxOMou90km/runtime-endpoint/smoke"
+}

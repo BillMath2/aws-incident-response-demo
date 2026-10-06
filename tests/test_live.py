@@ -82,10 +82,13 @@ def test_live_schema_exposes_only_the_current_graph_phase():
         "get_recent_changes",
         "get_recent_logs",
         "finish_investigation",
+        "retrieve_runbook",
     }
     assert names_for("final") == {"finish_investigation"}
     assert names_for("seed", "V2") == {"submit_search"}
-    names = ("get_service_health", "get_recent_changes", "get_recent_logs")
+    bounded = response_tools(SimpleNamespace(phase="update", variant="V2", evidence=(), round=2))
+    assert bounded[0]["function"]["parameters"]["properties"]["next_check"] == {"type": "null"}
+    names = ("get_service_health", "get_recent_changes", "get_recent_logs", "retrieve_runbook")
     evidence = tuple(SimpleNamespace(source=name) for name in names)
     assert response_phase(SimpleNamespace(phase="decide", evidence=evidence[:2])) == "decide"
     assert response_phase(SimpleNamespace(phase="decide", evidence=evidence)) == "final"

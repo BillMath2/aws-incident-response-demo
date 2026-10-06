@@ -45,6 +45,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("action", choices=["synth", "diff", "deploy", "bootstrap", "identity"])
     parser.add_argument("--live", action="store_true", help="target the P05 stack with a built ZIP")
+    parser.add_argument("--retrieval", action="store_true", help="target the P06 retrieval stack")
     args = parser.parse_args()
     config = load_config()
     if args.live:
@@ -63,6 +64,13 @@ def main():
     env["AWS_MAX_ATTEMPTS"] = "1"
     if args.live:
         env["P05_PACKAGE"] = env_package
+        env["P06_CONFIG"] = json.dumps(
+            json.loads((ROOT / "cdk.out/retrieval-outputs.json").read_text())[
+                "incident-demo-retrieval"
+            ]
+        )
+    if args.retrieval:
+        env["P06_RETRIEVAL"] = "1"
     node = shutil.which("node")
     cdk = ROOT / "node_modules/aws-cdk/bin/cdk"
     if not node or not cdk.exists():
@@ -83,14 +91,22 @@ def main():
             "Project=incident-demo",
         ]
     else:
-        command += ["incident-demo-live" if args.live else config["stack_name"]]
+        command += [
+            "incident-demo-retrieval"
+            if args.retrieval
+            else "incident-demo-live"
+            if args.live
+            else config["stack_name"]
+        ]
         command += ["--no-lookups", "--strict"]
         if args.action == "diff":
             command += ["--no-change-set"]
         if args.action == "deploy":
             outputs = "cdk.out/live-outputs.json" if args.live else "cdk.out/outputs.json"
+            if args.retrieval:
+                outputs = "cdk.out/retrieval-outputs.json"
             command += ["--require-approval", "never", "--outputs-file", outputs]
-            if args.live:
+            if args.live or args.retrieval:
                 command += ["--no-rollback"]
     command += ["--profile", config["profile"], "--no-notices"]
     subprocess.run(command, cwd=ROOT, env=env, check=True)

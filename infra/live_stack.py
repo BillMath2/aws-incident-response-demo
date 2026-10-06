@@ -20,7 +20,9 @@ TOOLS = ("get_service_health", "get_recent_changes", "get_recent_logs")
 
 
 class LiveStack(cdk.Stack):
-    def __init__(self, scope: Construct, config: dict, package: Path):
+    def __init__(
+        self, scope: Construct, config: dict, package: Path, retrieval: dict | None = None
+    ):
         super().__init__(
             scope,
             "incident-demo-live",
@@ -140,6 +142,17 @@ class LiveStack(cdk.Stack):
                 },
             ),
         )
+        if retrieval:
+            role.add_to_policy(
+                iam.PolicyStatement(
+                    actions=["bedrock:Retrieve"], resources=[retrieval["KnowledgeBaseArnOutput"]]
+                )
+            )
+            role.add_to_policy(
+                iam.PolicyStatement(
+                    actions=["bedrock:ApplyGuardrail"], resources=[retrieval["GuardrailArnOutput"]]
+                )
+            )
         models = [
             f"arn:aws:bedrock:{r}::foundation-model/amazon.nova-{size}-v1:0"
             for r in ("us-east-1", "us-east-2", "us-west-2")
@@ -160,7 +173,7 @@ class LiveStack(cdk.Stack):
                 actions=["dynamodb:UpdateItem", "dynamodb:PutItem"], resources=[budget.table_arn]
             ),
             iam.PolicyStatement(
-                actions=["s3:PutObject"], resources=[f"arn:aws:s3:::{artifact_bucket}/runs/p05/*"]
+                actions=["s3:PutObject"], resources=[f"arn:aws:s3:::{artifact_bucket}/runs/p06/*"]
             ),
             iam.PolicyStatement(
                 actions=["s3:GetObject", "s3:GetObjectVersion"],
@@ -175,7 +188,7 @@ class LiveStack(cdk.Stack):
         ]:
             role.add_to_policy(statement)
         for resource in (
-            f"arn:aws:s3:::{artifact_bucket}/runs/p05/*",
+            f"arn:aws:s3:::{artifact_bucket}/runs/p06/*",
             f"arn:aws:logs:{region}:{account}:log-group:/aws/bedrock-agentcore/"
             "runtimes/incident_demo_investigator*:*",
         ):
@@ -214,6 +227,15 @@ class LiveStack(cdk.Stack):
                 "ARTIFACT_BUCKET": artifact_bucket,
                 "LANGSMITH_TRACING": "false",
                 "AWS_MAX_ATTEMPTS": "1",
+                **(
+                    {
+                        "KNOWLEDGE_BASE_ID": retrieval["KnowledgeBaseIdOutput"],
+                        "GUARDRAIL_ID": retrieval["GuardrailIdOutput"],
+                        "GUARDRAIL_VERSION": retrieval["GuardrailVersionOutput"],
+                    }
+                    if retrieval
+                    else {}
+                ),
             },
             tags={"Project": "incident-demo", "Phase": "P05"},
         )
@@ -304,47 +326,57 @@ class LiveStack(cdk.Stack):
             enable_file_validation=True,
             management_events=cloudtrail.ReadWriteType.ALL,
         )
-        trail.node.default_child.add_property_override(
-            "AdvancedEventSelectors",
-            [
-                {
-                    "Name": "Management",
-                    "FieldSelectors": [{"Field": "eventCategory", "Equals": ["Management"]}],
-                },
-                {
-                    "Name": "ProjectAgentCore",
-                    "FieldSelectors": [
-                        {"Field": "eventCategory", "Equals": ["Data"]},
-                        {"Field": "resources.type", "Equals": ["AWS::BedrockAgentCore::Runtime"]},
-                        {"Field": "resources.ARN", "StartsWith": [runtime_prefix.rstrip("*")]},
-                    ],
-                },
-                {
-                    "Name": "ProjectAgentCoreEndpoint",
-                    "FieldSelectors": [
-                        {"Field": "eventCategory", "Equals": ["Data"]},
-                        {
-                            "Field": "resources.type",
-                            "Equals": ["AWS::BedrockAgentCore::RuntimeEndpoint"],
-                        },
-                        {"Field": "resources.ARN", "StartsWith": [runtime_prefix.rstrip("*")]},
-                    ],
-                },
-                {
-                    "Name": "ProjectLambda",
-                    "FieldSelectors": [
-                        {"Field": "eventCategory", "Equals": ["Data"]},
-                        {"Field": "resources.type", "Equals": ["AWS::Lambda::Function"]},
-                        {
-                            "Field": "resources.ARN",
-                            "StartsWith": [
-                                f"arn:aws:lambda:{region}:{account}:function:incident-demo-diag-"
-                            ],
-                        },
-                    ],
-                },
-            ],
-        )
+        selectors = [
+            {
+                "Name": "Management",
+                "FieldSelectors": [{"Field": "eventCategory", "Equals": ["Management"]}],
+            },
+            {
+                "Name": "ProjectAgentCore",
+                "FieldSelectors": [
+                    {"Field": "eventCategory", "Equals": ["Data"]},
+                    {"Field": "resources.type", "Equals": ["AWS::BedrockAgentCore::Runtime"]},
+                    {"Field": "resources.ARN", "StartsWith": [runtime_prefix.rstrip("*")]},
+                ],
+            },
+            {
+                "Name": "ProjectAgentCoreEndpoint",
+                "FieldSelectors": [
+                    {"Field": "eventCategory", "Equals": ["Data"]},
+                    {
+                        "Field": "resources.type",
+                        "Equals": ["AWS::BedrockAgentCore::RuntimeEndpoint"],
+                    },
+                    {"Field": "resources.ARN", "StartsWith": [runtime_prefix.rstrip("*")]},
+                ],
+            },
+            {
+                "Name": "ProjectLambda",
+                "FieldSelectors": [
+                    {"Field": "eventCategory", "Equals": ["Data"]},
+                    {"Field": "resources.type", "Equals": ["AWS::Lambda::Function"]},
+                    {
+                        "Field": "resources.ARN",
+                        "StartsWith": [
+                            f"arn:aws:lambda:{region}:{account}:function:incident-demo-diag-"
+                        ],
+                    },
+                ],
+            },
+        ]
+        if retrieval:
+            for name in ("KnowledgeBase", "Guardrail"):
+                selectors.append(
+                    {
+                        "Name": "P06" + name,
+                        "FieldSelectors": [
+                            {"Field": "eventCategory", "Equals": ["Data"]},
+                            {"Field": "resources.type", "Equals": ["AWS::Bedrock::" + name]},
+                            {"Field": "resources.ARN", "Equals": [retrieval[name + "ArnOutput"]]},
+                        ],
+                    }
+                )
+        trail.node.default_child.add_property_override("AdvancedEventSelectors", selectors)
         trail.node.default_child.add_property_deletion_override("EventSelectors")
         for construct, rule, reason in [
             (

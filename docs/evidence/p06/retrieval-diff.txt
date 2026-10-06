@@ -1,0 +1,125 @@
+{"account": "498084841421", "region": "us-east-2"}
+infra/.venv/Scripts/python.exe : AI agent detected
+At line:3 char:1
++ infra/.venv/Scripts/python.exe infra/manage.py diff --retrieval *> do ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (AI agent detected:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Stack incident-demo-retrieval (aws://498084841421/us-east-2)
+IAM Statement Changes
+┌───┬────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬─
+───────┬─────────────────────────┬───────────────────────────────┬─────────────────────────────────────────────────────
+─────────────────────────┐
+│   │ Resource                                                                                                       │ 
+Effect │ Action                  │ Principal                     │ Condition                                           
+                         │
+├───┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼─
+───────┼─────────────────────────┼───────────────────────────────┼─────────────────────────────────────────────────────
+─────────────────────────┤
+│ + │ ${KnowledgeRole.Arn}                                                                                           │ 
+Allow  │ sts:AssumeRole          │ Service:bedrock.amazonaws.com │ "StringEquals": {                                   
+                         │
+│   │                                                                                                                │ 
+       │                         │                               │   "aws:SourceAccount": "498084841421"               
+                         │
+│   │                                                                                                                │ 
+       │                         │                               │ },                                                  
+                         │
+│   │                                                                                                                │ 
+       │                         │                               │ "ArnLike": {                                        
+                         │
+│   │                                                                                                                │ 
+       │                         │                               │   "aws:SourceArn": 
+"arn:aws:bedrock:us-east-2:498084841421:knowledge-base/*" │
+│   │                                                                                                                │ 
+       │                         │                               │ }                                                   
+                         │
+├───┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼─
+───────┼─────────────────────────┼───────────────────────────────┼─────────────────────────────────────────────────────
+─────────────────────────┤
+│ + │ arn:aws:bedrock:us-east-2::foundation-model/amazon.titan-embed-text-v2:0                                       │ 
+Allow  │ bedrock:InvokeModel     │ AWS:${KnowledgeRole}          │                                                     
+                         │
+├───┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼─
+───────┼─────────────────────────┼───────────────────────────────┼─────────────────────────────────────────────────────
+─────────────────────────┤
+│ + │ arn:aws:s3:::incident-demo-artifacts-498084841421-us-east-2                                                    │ 
+Allow  │ s3:ListBucket           │ AWS:${KnowledgeRole}          │ "StringLike": {                                     
+                         │
+│   │                                                                                                                │ 
+       │                         │                               │   "s3:prefix": [                                    
+                         │
+│   │                                                                                                                │ 
+       │                         │                               │     "knowledge/p06-v1/*"                            
+                         │
+│   │                                                                                                                │ 
+       │                         │                               │   ]                                                 
+                         │
+│   │                                                                                                                │ 
+       │                         │                               │ }                                                   
+                         │
+├───┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼─
+───────┼─────────────────────────┼───────────────────────────────┼─────────────────────────────────────────────────────
+─────────────────────────┤
+│ + │ arn:aws:s3:::incident-demo-artifacts-498084841421-us-east-2/knowledge/p06-v1/*                                 │ 
+Allow  │ s3:GetObject            │ AWS:${KnowledgeRole}          │                                                     
+                         │
+├───┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼─
+───────┼─────────────────────────┼───────────────────────────────┼─────────────────────────────────────────────────────
+─────────────────────────┤
+│ + │ arn:aws:s3vectors:us-east-2:498084841421:bucket/incident-demo-vectors-498084841421-us-east-2/index/runbooks-v1 │ 
+Allow  │ s3vectors:DeleteVectors │ AWS:${KnowledgeRole}          │                                                     
+                         │
+│   │                                                                                                                │ 
+       │ s3vectors:GetIndex      │                               │                                                     
+                         │
+│   │                                                                                                                │ 
+       │ s3vectors:GetVectors    │                               │                                                     
+                         │
+│   │                                                                                                                │ 
+       │ s3vectors:PutVectors    │                               │                                                     
+                         │
+│   │                                                                                                                │ 
+       │ s3vectors:QueryVectors  │                               │                                                     
+                         │
+└───┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴─
+───────┴─────────────────────────┴───────────────────────────────┴─────────────────────────────────────────────────────
+─────────────────────────┘
+(NOTE: There may be security-related changes not in this list. See https://github.com/aws/aws-cdk/issues/1299)
+
+Parameters
+[+] Parameter BootstrapVersion BootstrapVersion: 
+{"Type":"AWS::SSM::Parameter::Value<String>","Default":"/cdk-bootstrap/incdemo/version","Description":"Version of the 
+CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"}
+
+Resources
+[+] AWS::S3Vectors::VectorBucket Vectors Vectors
+[+] AWS::S3Vectors::Index Index Index
+[+] AWS::IAM::Role KnowledgeRole KnowledgeRoleDA807A58
+[+] AWS::Bedrock::KnowledgeBase KnowledgeBase KnowledgeBase
+[+] AWS::Bedrock::DataSource DataSource DataSource
+[+] AWS::Bedrock::Guardrail Guardrail Guardrail
+[+] AWS::Bedrock::GuardrailVersion GuardrailVersionV1 GuardrailVersionV1
+
+Outputs
+[+] Output KnowledgeBaseIdOutput KnowledgeBaseIdOutput: {"Value":{"Fn::GetAtt":["KnowledgeBase","KnowledgeBaseId"]}}
+[+] Output KnowledgeBaseArnOutput KnowledgeBaseArnOutput: {"Value":{"Fn::GetAtt":["KnowledgeBase","KnowledgeBaseArn"]}}
+[+] Output DataSourceIdOutput DataSourceIdOutput: {"Value":{"Fn::GetAtt":["DataSource","DataSourceId"]}}
+[+] Output GuardrailIdOutput GuardrailIdOutput: {"Value":{"Fn::GetAtt":["Guardrail","GuardrailId"]}}
+[+] Output GuardrailArnOutput GuardrailArnOutput: {"Value":{"Fn::GetAtt":["Guardrail","GuardrailArn"]}}
+[+] Output GuardrailVersionOutput GuardrailVersionOutput: {"Value":{"Fn::GetAtt":["GuardrailVersionV1","Version"]}}
+[+] Output VectorBucketNameOutput VectorBucketNameOutput: {"Value":"incident-demo-vectors-498084841421-us-east-2"}
+[+] Output IndexArnOutput IndexArnOutput: {"Value":"arn:aws:s3vectors:us-east-2:498084841421:bucket/incident-demo-vecto
+rs-498084841421-us-east-2/index/runbooks-v1"}
+[+] Output SourceBucketOutput SourceBucketOutput: {"Value":"incident-demo-artifacts-498084841421-us-east-2"}
+
+Other Changes
+[+] Unknown Rules: {"CheckBootstrapVersion":{"Assertions":[{"Assert":{"Fn::Not":[{"Fn::Contains":[["1","2","3","4","5"]
+,{"Ref":"BootstrapVersion"}]}]},"AssertDescription":"CDK bootstrap stack version 6 required. Please run 'cdk 
+bootstrap' with a recent version of the CDK CLI."}]}}
+
+
+
+✨  Number of stacks with differences: 1
+

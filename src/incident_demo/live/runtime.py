@@ -78,20 +78,31 @@ def execute(request, sdk):
                 }
             )
             envelope = {
-                "schema_version": "p05-v1",
+                "schema_version": "p06-v1",
                 "run_id": request.run_id,
                 "mode": "aws_live",
                 "synthetic_telemetry": True,
-                "guardrail_policy": "synthetic-canary-only-not-bedrock-guardrails",
-                "retrieval": "unavailable-pending-p06",
+                "guardrail_policy": {
+                    "id": os.environ["GUARDRAIL_ID"],
+                    "version": os.environ["GUARDRAIL_VERSION"],
+                },
+                "retrieval": {
+                    "knowledge_base_id": os.environ["KNOWLEDGE_BASE_ID"],
+                    "corpus_version": "1.0.0",
+                    "search_type": "SEMANTIC",
+                },
                 "reserved_usd": f"{reservation_cents(request) / 100:.2f}",
                 "settings": request.settings.model_dump(mode="json"),
                 "result": result,
                 "audit": audit,
                 "usage_complete": (
-                    not timed_out
-                    and sum(e["event"] == "model_started" for e in audit)
-                    == sum(e["event"] == "model_finished" for e in audit)
+                    ok
+                    and not timed_out
+                    and all(
+                        sum(e["event"] == name + "_started" for e in audit)
+                        == sum(e["event"] == name + "_finished" for e in audit)
+                        for name in ("model", "retrieval", "guardrail")
+                    )
                     and not any(e["event"] == "audit_record_interrupted" for e in audit)
                 ),
                 "worker_latency_ms": int((time.monotonic() - started) * 1000),
@@ -99,7 +110,7 @@ def execute(request, sdk):
             encoded = canonical_json(envelope).encode()
             if len(encoded) > MAX_RESPONSE_BYTES:
                 raise ValueError("response exceeds bound")
-            key = f"runs/p05/{request.run_id}.json"
+            key = f"runs/p06/{request.run_id}.json"
             sdk.client("s3", config=sdk_config(10)).put_object(
                 Bucket=os.environ["ARTIFACT_BUCKET"],
                 Key=key,

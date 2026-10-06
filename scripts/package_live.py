@@ -12,6 +12,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
+    from incident_demo.live.retrieval import corpus_manifest
+
     build = ROOT / ".tools/p05-build"
     build.mkdir(parents=True, exist_ok=True)
     uv = str(ROOT / ".tools/uv.exe") if os.name == "nt" else "uv"
@@ -69,6 +71,7 @@ def main():
     for path in (ROOT / "prompts").glob("*.txt"):
         payload[path.relative_to(ROOT).as_posix()] = path.read_bytes()
     payload["main.py"] = b"from incident_demo.live.runtime import main\nmain()\n"
+    payload["knowledge-manifest.json"] = json.dumps(corpus_manifest(ROOT), sort_keys=True).encode()
     telemetry, mapping = {}, {}
     manifest = json.loads((ROOT / "evals/case-manifest.json").read_text())
     for case in manifest["cases"]:

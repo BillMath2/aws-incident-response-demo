@@ -1,0 +1,45 @@
+{
+  "Role": {
+    "Path": "/",
+    "RoleName": "incident-demo-investigator",
+    "RoleId": "AROAXH6BLQ7GXZC2NPL56",
+    "Arn": "arn:aws:iam::498084841421:role/incident-demo-investigator",
+    "CreateDate": "2026-10-06 00:45:21+00:00",
+    "AssumeRolePolicyDocument": {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Principal": {
+            "Service": "bedrock-agentcore.amazonaws.com"
+          },
+          "Action": "sts:AssumeRole",
+          "Condition": {
+            "StringEquals": {
+              "aws:SourceAccount": "498084841421"
+            },
+            "ArnLike": {
+              "aws:SourceArn": "arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator*"
+            }
+          }
+        }
+      ]
+    },
+    "Description": "",
+    "MaxSessionDuration": 3600,
+    "Tags": [
+      {
+        "Key": "Project",
+        "Value": "incident-demo"
+      },
+      {
+        "Key": "Phase",
+        "Value": "P05"
+      }
+    ],
+    "RoleLastUsed": {
+      "LastUsedDate": "2026-10-06 03:19:59+00:00",
+      "Region": "us-east-2"
+    }
+  }
+}

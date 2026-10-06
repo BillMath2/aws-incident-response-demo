@@ -1,0 +1,349 @@
+{
+  "group": "/aws/lambda/incident-demo-diag-service-health",
+  "events": [
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]7c0adc74040a4ecf8a3309610d1e3e8a",
+      "timestamp": 1791250536417,
+      "message": "INIT_START Runtime Version: python:3.12.mainlinev2.v43\tRuntime Version ARN: arn:aws:lambda:us-east-2::runtime:0fec05b8b43b0ecfbabe4fd585b35e423f655861556712f8a10b0e8739c36c07\n",
+      "ingestionTime": 1791250545472,
+      "eventId": "39946221799366815864642618102866786437935156371555483648"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]7c0adc74040a4ecf8a3309610d1e3e8a",
+      "timestamp": 1791250536906,
+      "message": "START RequestId: 9fe2cd2a-7752-4430-8cf6-945ad1a7f5b4 Version: $LATEST\n",
+      "ingestionTime": 1791250545472,
+      "eventId": "39946221810271880266724092819077752673260205147979907073"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]7c0adc74040a4ecf8a3309610d1e3e8a",
+      "timestamp": 1791250536923,
+      "message": "{\"event\": \"diagnostic\", \"run_id\": \"p05-c549e47a73004cacb2386b6006ddfd88\", \"tool\": \"get_service_health\", \"attempt\": 1, \"status\": \"ok\", \"aws_request_id\": \"9fe2cd2a-7752-4430-8cf6-945ad1a7f5b4\"}\n",
+      "ingestionTime": 1791250545472,
+      "eventId": "39946221810650992935099113412483859883895227293581574146"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]7c0adc74040a4ecf8a3309610d1e3e8a",
+      "timestamp": 1791250536925,
+      "message": "END RequestId: 9fe2cd2a-7752-4430-8cf6-945ad1a7f5b4\n",
+      "ingestionTime": 1791250545472,
+      "eventId": "39946221810695594425496174658766931320440524016593534979"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]7c0adc74040a4ecf8a3309610d1e3e8a",
+      "timestamp": 1791250536925,
+      "message": "REPORT RequestId: 9fe2cd2a-7752-4430-8cf6-945ad1a7f5b4\tDuration: 18.52 ms\tBilled Duration: 506 ms\tMemory Size: 256 MB\tMax Memory Used: 71 MB\tInit Duration: 486.70 ms\t\n",
+      "ingestionTime": 1791250545472,
+      "eventId": "39946221810695594425496174658766931320440524016593534980"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]a2a9e130558e497fa683d17126a746ab",
+      "timestamp": 1791251017092,
+      "message": "INIT_START Runtime Version: python:3.12.mainlinev2.v43\tRuntime Version ARN: arn:aws:lambda:us-east-2::runtime:0fec05b8b43b0ecfbabe4fd585b35e423f655861556712f8a10b0e8739c36c07\n",
+      "ingestionTime": 1791251025206,
+      "eventId": "39946232518777514168349897240510928648455209292723912704"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]a2a9e130558e497fa683d17126a746ab",
+      "timestamp": 1791251017733,
+      "message": "START RequestId: 62f711e2-f482-4938-a7a3-d6c398614458 Version: $LATEST\n",
+      "ingestionTime": 1791251025206,
+      "eventId": "39946232533072291840608026674235324061222809018057359361"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]a2a9e130558e497fa683d17126a746ab",
+      "timestamp": 1791251017744,
+      "message": "{\"event\": \"diagnostic\", \"run_id\": \"p05-1a9b6b32da2b442ba80ca5b79135300e\", \"tool\": \"get_service_health\", \"attempt\": 1, \"status\": \"ok\", \"aws_request_id\": \"62f711e2-f482-4938-a7a3-d6c398614458\"}\n",
+      "ingestionTime": 1791251025206,
+      "eventId": "39946232533317600037791863528792216962221940994623143938"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]a2a9e130558e497fa683d17126a746ab",
+      "timestamp": 1791251017746,
+      "message": "END RequestId: 62f711e2-f482-4938-a7a3-d6c398614458\n",
+      "ingestionTime": 1791251025206,
+      "eventId": "39946232533362201528188924775075288398767237717635104771"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]a2a9e130558e497fa683d17126a746ab",
+      "timestamp": 1791251017746,
+      "message": "REPORT RequestId: 62f711e2-f482-4938-a7a3-d6c398614458\tDuration: 12.90 ms\tBilled Duration: 650 ms\tMemory Size: 256 MB\tMax Memory Used: 71 MB\tInit Duration: 636.35 ms\t\n",
+      "ingestionTime": 1791251025206,
+      "eventId": "39946232533362201528188924775075288398767237717635104772"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]a2a9e130558e497fa683d17126a746ab",
+      "timestamp": 1791251239678,
+      "message": "START RequestId: 3b124d78-912f-4a5c-a92a-f7e716f4ab63 Version: $LATEST\n",
+      "ingestionTime": 1791251248697,
+      "eventId": "39946237482611184928487180092564805797048729567124979712"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]a2a9e130558e497fa683d17126a746ab",
+      "timestamp": 1791251239680,
+      "message": "{\"event\": \"diagnostic\", \"run_id\": \"p05-native-8e0c8184f9654589bfe153ee9bff0da7\", \"tool\": \"get_service_health\", \"attempt\": 1, \"status\": \"ok\", \"aws_request_id\": \"3b124d78-912f-4a5c-a92a-f7e716f4ab63\"}\n",
+      "ingestionTime": 1791251248697,
+      "eventId": "39946237482655786418884241338847877233594026290136940545"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]a2a9e130558e497fa683d17126a746ab",
+      "timestamp": 1791251239686,
+      "message": "END RequestId: 3b124d78-912f-4a5c-a92a-f7e716f4ab63\n",
+      "ingestionTime": 1791251248697,
+      "eventId": "39946237482789590890075425077697091543229916459172823042"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]a2a9e130558e497fa683d17126a746ab",
+      "timestamp": 1791251239686,
+      "message": "REPORT RequestId: 3b124d78-912f-4a5c-a92a-f7e716f4ab63\tDuration: 7.02 ms\tBilled Duration: 8 ms\tMemory Size: 256 MB\tMax Memory Used: 71 MB\t\n",
+      "ingestionTime": 1791251248697,
+      "eventId": "39946237482789590890075425077697091543229916459172823043"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]a2a9e130558e497fa683d17126a746ab",
+      "timestamp": 1791251344215,
+      "message": "START RequestId: 01fecce7-ed7d-4cfb-8ad8-86f349318d41 Version: $LATEST\n",
+      "ingestionTime": 1791251353233,
+      "eventId": "39946239813864185747282931565660073783255683262388568064"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]a2a9e130558e497fa683d17126a746ab",
+      "timestamp": 1791251344226,
+      "message": "{\"event\": \"diagnostic\", \"run_id\": \"p05-native-b22ebab565074286a022e21a83c5e606\", \"tool\": \"get_service_health\", \"attempt\": 1, \"status\": \"ok\", \"aws_request_id\": \"01fecce7-ed7d-4cfb-8ad8-86f349318d41\"}\n",
+      "ingestionTime": 1791251353233,
+      "eventId": "39946239814109493944466768420216966684254815238954352641"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]a2a9e130558e497fa683d17126a746ab",
+      "timestamp": 1791251344228,
+      "message": "END RequestId: 01fecce7-ed7d-4cfb-8ad8-86f349318d41\n",
+      "ingestionTime": 1791251353233,
+      "eventId": "39946239814154095434863829666500038120800111961966313474"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]a2a9e130558e497fa683d17126a746ab",
+      "timestamp": 1791251344245,
+      "message": "REPORT RequestId: 01fecce7-ed7d-4cfb-8ad8-86f349318d41\tDuration: 12.76 ms\tBilled Duration: 13 ms\tMemory Size: 256 MB\tMax Memory Used: 71 MB\t\n",
+      "ingestionTime": 1791251353233,
+      "eventId": "39946239814533208103238850259906145331435134107567980547"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]7fd67cc72aea4cb9ae1b536bc889f8ac",
+      "timestamp": 1791251608363,
+      "message": "INIT_START Runtime Version: python:3.12.mainlinev2.v43\tRuntime Version ARN: arn:aws:lambda:us-east-2::runtime:0fec05b8b43b0ecfbabe4fd585b35e423f655861556712f8a10b0e8739c36c07\n",
+      "ingestionTime": 1791251612102,
+      "eventId": "39946245704561428448749973468990773814392653741462913024"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]7fd67cc72aea4cb9ae1b536bc889f8ac",
+      "timestamp": 1791251608888,
+      "message": "START RequestId: 80a4be84-617f-44bb-b807-128fca44c720 Version: $LATEST\n",
+      "ingestionTime": 1791251612102,
+      "eventId": "39946245716269319677978550618297025907533043532102631425"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]7fd67cc72aea4cb9ae1b536bc889f8ac",
+      "timestamp": 1791251608898,
+      "message": "{\"event\": \"diagnostic\", \"run_id\": \"p05-0e26be69da234924bd33d8f56671d0ca\", \"tool\": \"get_service_health\", \"attempt\": 1, \"status\": \"ok\", \"aws_request_id\": \"80a4be84-617f-44bb-b807-128fca44c720\"}\n",
+      "ingestionTime": 1791251612102,
+      "eventId": "39946245716492327129963856849712383090259527147162435586"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]7fd67cc72aea4cb9ae1b536bc889f8ac",
+      "timestamp": 1791251608917,
+      "message": "END RequestId: 80a4be84-617f-44bb-b807-128fca44c720\n",
+      "ingestionTime": 1791251612102,
+      "eventId": "39946245716916041288735938689401561737439846015776063491"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]7fd67cc72aea4cb9ae1b536bc889f8ac",
+      "timestamp": 1791251608917,
+      "message": "REPORT RequestId: 80a4be84-617f-44bb-b807-128fca44c720\tDuration: 29.01 ms\tBilled Duration: 551 ms\tMemory Size: 256 MB\tMax Memory Used: 71 MB\tInit Duration: 521.28 ms\t\n",
+      "ingestionTime": 1791251612102,
+      "eventId": "39946245716916041288735938689401561737439846015776063492"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]7fd67cc72aea4cb9ae1b536bc889f8ac",
+      "timestamp": 1791251638697,
+      "message": "START RequestId: 3c0c0c20-0377-421f-bc25-f2cc3684d13a Version: $LATEST\n",
+      "ingestionTime": 1791251647711,
+      "eventId": "39946246381032233300977895887383705535084452095572705280"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]7fd67cc72aea4cb9ae1b536bc889f8ac",
+      "timestamp": 1791251638698,
+      "message": "{\"event\": \"diagnostic\", \"run_id\": \"p05-022abff810054e5bb752d0a2f8bf04e1\", \"tool\": \"get_service_health\", \"attempt\": 1, \"status\": \"ok\", \"aws_request_id\": \"3c0c0c20-0377-421f-bc25-f2cc3684d13a\"}\n",
+      "ingestionTime": 1791251647711,
+      "eventId": "39946246381054534046176426510525241253357100457078685697"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]7fd67cc72aea4cb9ae1b536bc889f8ac",
+      "timestamp": 1791251638700,
+      "message": "END RequestId: 3c0c0c20-0377-421f-bc25-f2cc3684d13a\n",
+      "ingestionTime": 1791251647711,
+      "eventId": "39946246381099135536573487756808312689902397180090646530"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]7fd67cc72aea4cb9ae1b536bc889f8ac",
+      "timestamp": 1791251638700,
+      "message": "REPORT RequestId: 3c0c0c20-0377-421f-bc25-f2cc3684d13a\tDuration: 2.75 ms\tBilled Duration: 3 ms\tMemory Size: 256 MB\tMax Memory Used: 71 MB\t\n",
+      "ingestionTime": 1791251647711,
+      "eventId": "39946246381099135536573487756808312689902397180090646531"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]7fd67cc72aea4cb9ae1b536bc889f8ac",
+      "timestamp": 1791251676676,
+      "message": "START RequestId: ddda94fe-e9f9-42bb-8260-8b0a3674190b Version: $LATEST\n",
+      "ingestionTime": 1791251685693,
+      "eventId": "39946247227992235195972432225686030564029655840173129728"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]7fd67cc72aea4cb9ae1b536bc889f8ac",
+      "timestamp": 1791251676678,
+      "message": "{\"event\": \"diagnostic\", \"run_id\": \"p05-86abf398c6374526ba916b14e01cd5e7\", \"tool\": \"get_service_health\", \"attempt\": 1, \"status\": \"ok\", \"aws_request_id\": \"ddda94fe-e9f9-42bb-8260-8b0a3674190b\"}\n",
+      "ingestionTime": 1791251685693,
+      "eventId": "39946247228036836686369493471969102000574952563185090561"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]7fd67cc72aea4cb9ae1b536bc889f8ac",
+      "timestamp": 1791251676696,
+      "message": "END RequestId: ddda94fe-e9f9-42bb-8260-8b0a3674190b\n",
+      "ingestionTime": 1791251685693,
+      "eventId": "39946247228438250099943044688516744929482623070292738050"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]7fd67cc72aea4cb9ae1b536bc889f8ac",
+      "timestamp": 1791251676696,
+      "message": "REPORT RequestId: ddda94fe-e9f9-42bb-8260-8b0a3674190b\tDuration: 19.75 ms\tBilled Duration: 20 ms\tMemory Size: 256 MB\tMax Memory Used: 71 MB\t\n",
+      "ingestionTime": 1791251685693,
+      "eventId": "39946247228438250099943044688516744929482623070292738051"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]e545447eea514e5684352f51980dec10",
+      "timestamp": 1791256156969,
+      "message": "INIT_START Runtime Version: python:3.12.mainlinev2.v43\tRuntime Version ARN: arn:aws:lambda:us-east-2::runtime:0fec05b8b43b0ecfbabe4fd585b35e423f655861556712f8a10b0e8739c36c07\n",
+      "ingestionTime": 1791256164760,
+      "eventId": "39946347141864842956333584301033668002069049491190251520"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]e545447eea514e5684352f51980dec10",
+      "timestamp": 1791256157359,
+      "message": "START RequestId: e3b25c7d-dcc9-45ab-b048-92efb5991a0f Version: $LATEST\n",
+      "ingestionTime": 1791256164760,
+      "eventId": "39946347150562133583760527326232598128401910478522613761"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]e545447eea514e5684352f51980dec10",
+      "timestamp": 1791256157376,
+      "message": "{\"event\": \"diagnostic\", \"run_id\": \"p06-f0a69971163041d6aa89dbf4edebeaae\", \"tool\": \"get_service_health\", \"attempt\": 1, \"status\": \"ok\", \"aws_request_id\": \"e3b25c7d-dcc9-45ab-b048-92efb5991a0f\"}\n",
+      "ingestionTime": 1791256164760,
+      "eventId": "39946347150941246252135547919638705339036932624124280834"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]e545447eea514e5684352f51980dec10",
+      "timestamp": 1791256157378,
+      "message": "END RequestId: e3b25c7d-dcc9-45ab-b048-92efb5991a0f\n",
+      "ingestionTime": 1791256164760,
+      "eventId": "39946347150985847742532609165921776775582229347136241667"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]e545447eea514e5684352f51980dec10",
+      "timestamp": 1791256157378,
+      "message": "REPORT RequestId: e3b25c7d-dcc9-45ab-b048-92efb5991a0f\tDuration: 18.52 ms\tBilled Duration: 406 ms\tMemory Size: 256 MB\tMax Memory Used: 70 MB\tInit Duration: 387.47 ms\t\n",
+      "ingestionTime": 1791256164760,
+      "eventId": "39946347150985847742532609165921776775582229347136241668"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]e545447eea514e5684352f51980dec10",
+      "timestamp": 1791256204024,
+      "message": "START RequestId: 9359d837-956a-4cef-9d39-11fc2be5cdf7 Version: $LATEST\n",
+      "ingestionTime": 1791256213042,
+      "eventId": "39946348191226408273192056284366393019160593940639121408"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]e545447eea514e5684352f51980dec10",
+      "timestamp": 1791256204026,
+      "message": "{\"event\": \"diagnostic\", \"run_id\": \"p06-c965fe95a5634a5480b894a666bb22af\", \"tool\": \"get_service_health\", \"attempt\": 1, \"status\": \"ok\", \"aws_request_id\": \"9359d837-956a-4cef-9d39-11fc2be5cdf7\"}\n",
+      "ingestionTime": 1791256213042,
+      "eventId": "39946348191271009763589117530649464455705890663651082241"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]e545447eea514e5684352f51980dec10",
+      "timestamp": 1791256204027,
+      "message": "END RequestId: 9359d837-956a-4cef-9d39-11fc2be5cdf7\n",
+      "ingestionTime": 1791256213042,
+      "eventId": "39946348191293310508787648153791000173978539025157062658"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]e545447eea514e5684352f51980dec10",
+      "timestamp": 1791256204027,
+      "message": "REPORT RequestId: 9359d837-956a-4cef-9d39-11fc2be5cdf7\tDuration: 2.33 ms\tBilled Duration: 3 ms\tMemory Size: 256 MB\tMax Memory Used: 70 MB\t\n",
+      "ingestionTime": 1791256213042,
+      "eventId": "39946348191293310508787648153791000173978539025157062659"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]e545447eea514e5684352f51980dec10",
+      "timestamp": 1791256307602,
+      "message": "START RequestId: 8bbc3c9e-cb56-47e2-a198-ec6a593cbbbe Version: $LATEST\n",
+      "ingestionTime": 1791256316621,
+      "eventId": "39946350501092994446596940163572517950525894082910224384"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]e545447eea514e5684352f51980dec10",
+      "timestamp": 1791256307603,
+      "message": "{\"event\": \"diagnostic\", \"run_id\": \"p06-ad45e28888b04f059735aeb436c6d517\", \"tool\": \"get_service_health\", \"attempt\": 1, \"status\": \"ok\", \"aws_request_id\": \"8bbc3c9e-cb56-47e2-a198-ec6a593cbbbe\"}\n",
+      "ingestionTime": 1791256316621,
+      "eventId": "39946350501115295191795470786714053668798542444416204801"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]e545447eea514e5684352f51980dec10",
+      "timestamp": 1791256307613,
+      "message": "END RequestId: 8bbc3c9e-cb56-47e2-a198-ec6a593cbbbe\n",
+      "ingestionTime": 1791256316621,
+      "eventId": "39946350501338302643780777018129410851525026059476008962"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]e545447eea514e5684352f51980dec10",
+      "timestamp": 1791256307613,
+      "message": "REPORT RequestId: 8bbc3c9e-cb56-47e2-a198-ec6a593cbbbe\tDuration: 10.93 ms\tBilled Duration: 11 ms\tMemory Size: 256 MB\tMax Memory Used: 71 MB\t\n",
+      "ingestionTime": 1791256316621,
+      "eventId": "39946350501338302643780777018129410851525026059476008963"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]12a6b54d0da646fc8273c70a84d09bab",
+      "timestamp": 1791256790329,
+      "message": "INIT_START Runtime Version: python:3.12.mainlinev2.v43\tRuntime Version ARN: arn:aws:lambda:us-east-2::runtime:0fec05b8b43b0ecfbabe4fd585b35e423f655861556712f8a10b0e8739c36c07\n",
+      "ingestionTime": 1791256790839,
+      "eventId": "39946361266264821897689057980979423342998069776918118400"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]12a6b54d0da646fc8273c70a84d09bab",
+      "timestamp": 1791256790859,
+      "message": "START RequestId: 76f72a82-61fe-43e7-9fa7-8377fa1b9deb Version: $LATEST\n",
+      "ingestionTime": 1791256799870,
+      "eventId": "39946361278084216852910288256911193033511592465808949248"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]12a6b54d0da646fc8273c70a84d09bab",
+      "timestamp": 1791256790875,
+      "message": "{\"event\": \"diagnostic\", \"run_id\": \"p06-0a5da590eb9647e4b285638c3b6175b3\", \"tool\": \"get_service_health\", \"attempt\": 1, \"status\": \"ok\", \"aws_request_id\": \"76f72a82-61fe-43e7-9fa7-8377fa1b9deb\"}\n",
+      "ingestionTime": 1791256799870,
+      "eventId": "39946361278441028776086778227175764525873966249904635905"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]12a6b54d0da646fc8273c70a84d09bab",
+      "timestamp": 1791256790877,
+      "message": "END RequestId: 76f72a82-61fe-43e7-9fa7-8377fa1b9deb\n",
+      "ingestionTime": 1791256799870,
+      "eventId": "39946361278485630266483839473458835962419262972916596738"
+    },
+    {
+      "logStreamName": "2026/10/06/incident-demo-diag-service-health[$LATEST]12a6b54d0da646fc8273c70a84d09bab",
+      "timestamp": 1791256790878,
+      "message": "REPORT RequestId: 76f72a82-61fe-43e7-9fa7-8377fa1b9deb\tDuration: 18.40 ms\tBilled Duration: 545 ms\tMemory Size: 256 MB\tMax Memory Used: 71 MB\tInit Duration: 526.46 ms\t\n",
+      "ingestionTime": 1791256799870,
+      "eventId": "39946361278507931011682370096600371680691911334422577155"
+    }
+  ],
+  "limit": 1000
+}

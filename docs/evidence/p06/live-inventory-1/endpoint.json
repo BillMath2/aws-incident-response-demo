@@ -1,0 +1,10 @@
+{
+  "liveVersion": "6",
+  "agentRuntimeEndpointArn": "arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator-yxOMou90km/runtime-endpoint/smoke",
+  "agentRuntimeArn": "arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator-yxOMou90km",
+  "status": "READY",
+  "createdAt": "2026-10-06 01:22:14.105451+00:00",
+  "lastUpdatedAt": "2026-10-06 03:08:34.941035+00:00",
+  "name": "smoke",
+  "id": "smoke"
+}

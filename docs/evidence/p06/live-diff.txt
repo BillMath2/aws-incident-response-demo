@@ -1,0 +1,32 @@
+{"account": "498084841421", "region": "us-east-2"}
+infra/.venv/Scripts/python.exe : AI agent detected
+At line:2 char:1
++ infra/.venv/Scripts/python.exe infra/manage.py diff --live *> docs/ev ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (AI agent detected:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[Warning] Template validation found issues in your templates (reported as warnings).
+Set feature flag "@aws-cdk/core:validateAgainstDefaultRules" to true to turn these into errors.
+no user code in 10 frames, use --stack-trace-limit to capture more:
+WARNING AdvancedEventSelectors: {'4': {'Name': 'P06BedrockBoundaries', 'FieldSelectors': [{'Field': 'eventCategory', 
+'Equals': ['Data']}, {'Field': 'resources.type', 'Equals': ['AWS::Bedrock::KnowledgeBase', 
+'AWS::Bedrock::Guardrail']}, {'Field': 'resources.ARN', 'Equals': 
+['arn:aws:bedrock:us-east-2:498084841421:knowledge-base/XKVH8PLCHO', 
+'arn:aws:bedrock:us-east-2:498084841421:guardrail/a4aiug3xzh6e']}]}} is not of type 'array' (CloudFormation Validate)
+   incident-demo-live/Trail/Resource (Trail022F0CF2) aws-cdk-lib.aws_cloudtrail.CfnTrail
+   Acknowledge with 'CloudFormation-Validate::F3012'
+Synthesis finished with warnings (--strict mode)
+Traceback (most recent call last):
+  File "C:\Github\aws-incident-response-demo\infra\manage.py", line 116, in <module>
+    main()
+  File "C:\Github\aws-incident-response-demo\infra\manage.py", line 112, in main
+    subprocess.run(command, cwd=ROOT, env=env, check=True)
+  File "C:\Github\aws-incident-response-demo\.tools\python\cpython-3.12.12-windows-x86_64-none\Lib\subprocess.py", 
+line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['C:\\Program Files\\nodejs\\node.EXE', 
+'C:\\Github\\aws-incident-response-demo\\infra\\node_modules\\aws-cdk\\bin\\cdk', 'diff', '--app', 
+'"C:\\Github\\aws-incident-response-demo\\infra\\.venv\\Scripts\\python.exe" app.py', 'incident-demo-live', 
+'--no-lookups', '--strict', '--no-change-set', '--profile', 'incident-demo', '--no-notices']' returned non-zero exit 
+status 1.

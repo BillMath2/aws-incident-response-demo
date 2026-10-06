@@ -1,0 +1,226 @@
+{
+  "knowledge_base": {
+    "ResponseMetadata": {
+      "RequestId": "98df479b-3bef-4f6d-b472-3af7998d8079",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Tue, 06 Oct 2026 03:17:52 GMT",
+        "content-type": "application/json",
+        "content-length": "837",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "98df479b-3bef-4f6d-b472-3af7998d8079",
+        "x-amz-apigw-id": "EzU_HFvjCYcEA_Q=",
+        "x-amzn-trace-id": "Root=1-6ac46860-2bbeed7157abd128674061a1"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "knowledgeBase": {
+      "knowledgeBaseId": "XKVH8PLCHO",
+      "name": "incident-demo-runbooks",
+      "knowledgeBaseArn": "arn:aws:bedrock:us-east-2:498084841421:knowledge-base/XKVH8PLCHO",
+      "roleArn": "arn:aws:iam::498084841421:role/incident-demo-knowledge",
+      "knowledgeBaseConfiguration": {
+        "type": "VECTOR",
+        "vectorKnowledgeBaseConfiguration": {
+          "embeddingModelArn": "arn:aws:bedrock:us-east-2::foundation-model/amazon.titan-embed-text-v2:0",
+          "embeddingModelConfiguration": {
+            "bedrockEmbeddingModelConfiguration": {
+              "dimensions": 1024,
+              "embeddingDataType": "FLOAT32"
+            }
+          }
+        }
+      },
+      "storageConfiguration": {
+        "type": "S3_VECTORS",
+        "s3VectorsConfiguration": {
+          "indexArn": "arn:aws:s3vectors:us-east-2:498084841421:bucket/incident-demo-vectors-498084841421-us-east-2/index/runbooks-v1"
+        }
+      },
+      "status": "ACTIVE",
+      "createdAt": "2026-10-06 03:03:12.600516+00:00",
+      "updatedAt": "2026-10-06 03:03:12.600516+00:00"
+    }
+  },
+  "data_source": {
+    "ResponseMetadata": {
+      "RequestId": "7e2f22be-0b41-4b0c-a0ce-c247c0a5859c",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Tue, 06 Oct 2026 03:17:52 GMT",
+        "content-type": "application/json",
+        "content-length": "505",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "7e2f22be-0b41-4b0c-a0ce-c247c0a5859c",
+        "x-amz-apigw-id": "EzU_IHKqCYcEOtQ=",
+        "x-amzn-trace-id": "Root=1-6ac46860-52fd5a07719b615960ad4534"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "dataSource": {
+      "knowledgeBaseId": "XKVH8PLCHO",
+      "dataSourceId": "CVMNH90331",
+      "name": "frozen-runbooks-v1",
+      "status": "AVAILABLE",
+      "dataSourceConfiguration": {
+        "type": "S3",
+        "s3Configuration": {
+          "bucketArn": "arn:aws:s3:::incident-demo-artifacts-498084841421-us-east-2",
+          "inclusionPrefixes": [
+            "knowledge/p06-v1/"
+          ]
+        }
+      },
+      "vectorIngestionConfiguration": {
+        "chunkingConfiguration": {
+          "chunkingStrategy": "NONE"
+        }
+      },
+      "dataDeletionPolicy": "RETAIN",
+      "createdAt": "2026-10-06 03:03:28.085938+00:00",
+      "updatedAt": "2026-10-06 03:03:28.085938+00:00"
+    }
+  },
+  "guardrail": {
+    "ResponseMetadata": {
+      "RequestId": "22d7bbf2-8a34-492f-8a13-92a5ff12eaab",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Tue, 06 Oct 2026 03:17:52 GMT",
+        "content-type": "application/json",
+        "content-length": "2218",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "22d7bbf2-8a34-492f-8a13-92a5ff12eaab"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "name": "incident-demo-boundaries",
+    "description": "Frozen P06 v1 content/prompt-attack and synthetic-secret policy",
+    "guardrailId": "a4aiug3xzh6e",
+    "guardrailArn": "arn:aws:bedrock:us-east-2:498084841421:guardrail/a4aiug3xzh6e",
+    "version": "1",
+    "status": "READY",
+    "contentPolicy": {
+      "filters": [
+        {
+          "type": "VIOLENCE",
+          "inputStrength": "MEDIUM",
+          "outputStrength": "MEDIUM"
+        },
+        {
+          "type": "PROMPT_ATTACK",
+          "inputStrength": "HIGH",
+          "outputStrength": "NONE"
+        },
+        {
+          "type": "MISCONDUCT",
+          "inputStrength": "MEDIUM",
+          "outputStrength": "MEDIUM"
+        },
+        {
+          "type": "HATE",
+          "inputStrength": "MEDIUM",
+          "outputStrength": "MEDIUM"
+        },
+        {
+          "type": "SEXUAL",
+          "inputStrength": "MEDIUM",
+          "outputStrength": "MEDIUM"
+        },
+        {
+          "type": "INSULTS",
+          "inputStrength": "MEDIUM",
+          "outputStrength": "MEDIUM"
+        }
+      ],
+      "tier": {
+        "tierName": "CLASSIC"
+      }
+    },
+    "sensitiveInformationPolicy": {
+      "piiEntities": [],
+      "regexes": [
+        {
+          "name": "SyntheticSecret",
+          "description": "Synthetic demo secret values only",
+          "pattern": "DEMO_CANARY_[A-Za-z0-9]+",
+          "action": "BLOCK"
+        }
+      ]
+    },
+    "createdAt": "2026-10-06 03:02:54+00:00",
+    "updatedAt": "2026-10-06 03:02:54.282982+00:00",
+    "statusReasons": [],
+    "failureRecommendations": [],
+    "blockedInputMessaging": "Content blocked by incident demo policy.",
+    "blockedOutputsMessaging": "Content blocked by incident demo policy."
+  },
+  "index": {
+    "ResponseMetadata": {
+      "RequestId": "1d7b1f67-158c-8e83-87fa-d59893773abd",
+      "HostId": "",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Tue, 06 Oct 2026 03:17:53 GMT",
+        "content-type": "application/json",
+        "content-length": "491",
+        "connection": "keep-alive",
+        "x-amz-request-id": "1d7b1f67-158c-8e83-87fa-d59893773abd",
+        "access-control-allow-origin": "*",
+        "vary": "origin, access-control-request-method, access-control-request-headers",
+        "access-control-expose-headers": "*"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    },
+    "index": {
+      "vectorBucketName": "incident-demo-vectors-498084841421-us-east-2",
+      "indexName": "runbooks-v1",
+      "indexArn": "arn:aws:s3vectors:us-east-2:498084841421:bucket/incident-demo-vectors-498084841421-us-east-2/index/runbooks-v1",
+      "creationTime": "2026-10-05 23:02:52-04:00",
+      "dataType": "float32",
+      "dimension": 1024,
+      "distanceMetric": "cosine",
+      "metadataConfiguration": {
+        "nonFilterableMetadataKeys": [
+          "AMAZON_BEDROCK_TEXT",
+          "AMAZON_BEDROCK_METADATA"
+        ]
+      },
+      "encryptionConfiguration": {
+        "sseType": "AES256"
+      },
+      "indexMode": "ENHANCED"
+    }
+  },
+  "model_logging": {
+    "ResponseMetadata": {
+      "RequestId": "d4fb9532-b39b-4852-9007-301d5c207588",
+      "HTTPStatusCode": 200,
+      "HTTPHeaders": {
+        "date": "Tue, 06 Oct 2026 03:17:53 GMT",
+        "content-type": "application/json",
+        "content-length": "22",
+        "connection": "keep-alive",
+        "x-amzn-requestid": "d4fb9532-b39b-4852-9007-301d5c207588"
+      },
+      "MaxAttemptsReached": true,
+      "RetryAttempts": 0
+    }
+  },
+  "budget": {
+    "global": {
+      "reserved_cents": "985",
+      "pk": "global",
+      "lease_until": "0",
+      "lease_owner": "p06-ad45e28888b04f059735aeb436c6d517"
+    },
+    "batch#p06-dev-01": {
+      "reserved_cents": "525",
+      "pk": "batch#p06-dev-01"
+    }
+  }
+}

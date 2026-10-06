@@ -7,12 +7,20 @@ from cdk_nag import AwsSolutionsChecks
 
 from foundation import Foundation
 from live_stack import LiveStack
+from retrieval_stack import RetrievalStack
 from settings import load_config
 
 app = cdk.App(analytics_reporting=False)
 Foundation(app, load_config())
 if os.environ.get("P05_PACKAGE"):
-    LiveStack(app, load_config(), Path(os.environ["P05_PACKAGE"]))
+    LiveStack(
+        app,
+        load_config(),
+        Path(os.environ["P05_PACKAGE"]),
+        json.loads(os.environ["P06_CONFIG"]) if os.environ.get("P06_CONFIG") else None,
+    )
+if os.environ.get("P06_RETRIEVAL"):
+    RetrievalStack(app, load_config())
 checks = AwsSolutionsChecks(app, verbose=True)
 cdk.Validations.of(app).add_plugins(checks)
 assembly = app.synth()

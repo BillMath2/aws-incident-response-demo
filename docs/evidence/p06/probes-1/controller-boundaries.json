@@ -1,0 +1,62 @@
+[
+  {
+    "mode": "real_guardrails_offline_model_and_tools",
+    "target": "input",
+    "unavailable": false,
+    "stop_reason": "filter_blocked",
+    "status": "blocked",
+    "provider_calls": 0,
+    "tool_calls": 0,
+    "canary_retained": false
+  },
+  {
+    "mode": "real_guardrails_offline_model_and_tools",
+    "target": "input",
+    "unavailable": true,
+    "stop_reason": "filter_unavailable",
+    "status": "failed",
+    "provider_calls": 0,
+    "tool_calls": 0,
+    "canary_retained": false
+  },
+  {
+    "mode": "real_guardrails_offline_model_and_tools",
+    "target": "source",
+    "unavailable": false,
+    "stop_reason": "filter_blocked",
+    "status": "blocked",
+    "provider_calls": 0,
+    "tool_calls": 2,
+    "canary_retained": false
+  },
+  {
+    "mode": "real_guardrails_offline_model_and_tools",
+    "target": "source",
+    "unavailable": true,
+    "stop_reason": "filter_unavailable",
+    "status": "failed",
+    "provider_calls": 0,
+    "tool_calls": 1,
+    "canary_retained": false
+  },
+  {
+    "mode": "real_guardrails_offline_model_and_tools",
+    "target": "output",
+    "unavailable": false,
+    "stop_reason": "filter_blocked",
+    "status": "blocked",
+    "provider_calls": 1,
+    "tool_calls": 4,
+    "canary_retained": false
+  },
+  {
+    "mode": "real_guardrails_offline_model_and_tools",
+    "target": "output",
+    "unavailable": true,
+    "stop_reason": "filter_unavailable",
+    "status": "failed",
+    "provider_calls": 1,
+    "tool_calls": 4,
+    "canary_retained": false
+  }
+]

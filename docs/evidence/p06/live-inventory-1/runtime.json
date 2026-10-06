@@ -1,0 +1,51 @@
+{
+  "agentRuntimeArn": "arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator-yxOMou90km",
+  "agentRuntimeName": "incident_demo_investigator",
+  "agentRuntimeId": "incident_demo_investigator-yxOMou90km",
+  "agentRuntimeVersion": "6",
+  "createdAt": "2026-10-06 01:21:52.630523+00:00",
+  "lastUpdatedAt": "2026-10-06 03:08:28.753415+00:00",
+  "roleArn": "arn:aws:iam::498084841421:role/incident-demo-investigator",
+  "networkConfiguration": {
+    "networkMode": "PUBLIC"
+  },
+  "status": "READY",
+  "lifecycleConfiguration": {
+    "idleRuntimeSessionTimeout": 60,
+    "maxLifetime": 180
+  },
+  "workloadIdentityDetails": {
+    "workloadIdentityArn": "arn:aws:bedrock-agentcore:us-east-2:498084841421:workload-identity-directory/default/workload-identity/incident_demo_investigator-yxOMou90km"
+  },
+  "agentRuntimeArtifact": {
+    "codeConfiguration": {
+      "code": {
+        "s3": {
+          "bucket": "cdk-incdemo-assets-498084841421-us-east-2",
+          "prefix": "dc21bc59bfae70281eebba1c09fa2d6a1009406b179c3ad3eaf9dff395752915.zip"
+        }
+      },
+      "runtime": "PYTHON_3_12",
+      "entryPoint": [
+        "main.py"
+      ]
+    }
+  },
+  "protocolConfiguration": {
+    "serverProtocol": "HTTP"
+  },
+  "environmentVariables": {
+    "ARTIFACT_BUCKET": "incident-demo-artifacts-498084841421-us-east-2",
+    "AWS_MAX_ATTEMPTS": "1",
+    "BUDGET_TABLE": "incident-demo-live-budget",
+    "DIAGNOSTIC_FUNCTIONS": "{\"get_service_health\": \"arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-service-health\", \"get_recent_changes\": \"arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-recent-changes\", \"get_recent_logs\": \"arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-recent-logs\"}",
+    "GUARDRAIL_ID": "a4aiug3xzh6e",
+    "GUARDRAIL_VERSION": "1",
+    "KNOWLEDGE_BASE_ID": "XKVH8PLCHO",
+    "LANGSMITH_TRACING": "false"
+  },
+  "metadataConfiguration": {
+    "requireMMDSV2": true
+  },
+  "platformVersion": "V1"
+}

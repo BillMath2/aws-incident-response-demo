@@ -1,0 +1,38 @@
+{"account": "498084841421", "region": "us-east-2"}
+infra/.venv/Scripts/python.exe : AI agent detected
+At line:2 char:1
++ infra/.venv/Scripts/python.exe infra/manage.py deploy --retrieval *>  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (AI agent detected:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+✨  Synthesis time: 22.31s
+
+incident-demo-retrieval: start: Building incident-demo-retrieval Template
+incident-demo-retrieval: success: Built incident-demo-retrieval Template
+incident-demo-retrieval: start: Publishing incident-demo-retrieval Template (498084841421-us-east-2-5374f67f)
+incident-demo-retrieval: success: Published incident-demo-retrieval Template (498084841421-us-east-2-5374f67f)
+incident-demo-retrieval: creating CloudFormation changeset...
+incident-demo-retrieval: deploying... [1/1]
+
+✅  incident-demo-retrieval
+
+✨  Deployment time: 47.94s
+
+Outputs:
+incident-demo-retrieval.DataSourceIdOutput = CVMNH90331
+incident-demo-retrieval.GuardrailArnOutput = arn:aws:bedrock:us-east-2:498084841421:guardrail/a4aiug3xzh6e
+incident-demo-retrieval.GuardrailIdOutput = a4aiug3xzh6e
+incident-demo-retrieval.GuardrailVersionOutput = 1
+incident-demo-retrieval.IndexArnOutput = 
+arn:aws:s3vectors:us-east-2:498084841421:bucket/incident-demo-vectors-498084841421-us-east-2/index/runbooks-v1
+incident-demo-retrieval.KnowledgeBaseArnOutput = arn:aws:bedrock:us-east-2:498084841421:knowledge-base/XKVH8PLCHO
+incident-demo-retrieval.KnowledgeBaseIdOutput = XKVH8PLCHO
+incident-demo-retrieval.SourceBucketOutput = incident-demo-artifacts-498084841421-us-east-2
+incident-demo-retrieval.VectorBucketNameOutput = incident-demo-vectors-498084841421-us-east-2
+Stack ARN:
+arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-retrieval/6564b3a0-c132-11f1-a2b9-06fffb6c40b3
+
+✨  Total time: 79.19s
+

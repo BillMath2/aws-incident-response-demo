@@ -1,0 +1,33 @@
+{
+  "Label": "Failures",
+  "Datapoints": [
+    {
+      "Timestamp": "2026-10-05 21:43:00-04:00",
+      "SampleCount": 1.0,
+      "Sum": 1.0,
+      "Maximum": 1.0,
+      "Unit": "None"
+    },
+    {
+      "Timestamp": "2026-10-05 23:20:00-04:00",
+      "SampleCount": 1.0,
+      "Sum": 1.0,
+      "Maximum": 1.0,
+      "Unit": "None"
+    },
+    {
+      "Timestamp": "2026-10-05 23:11:00-04:00",
+      "SampleCount": 1.0,
+      "Sum": 1.0,
+      "Maximum": 1.0,
+      "Unit": "None"
+    },
+    {
+      "Timestamp": "2026-10-05 21:29:00-04:00",
+      "SampleCount": 1.0,
+      "Sum": 1.0,
+      "Maximum": 1.0,
+      "Unit": "None"
+    }
+  ]
+}

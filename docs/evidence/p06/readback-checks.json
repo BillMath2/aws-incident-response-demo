@@ -1,0 +1,159 @@
+{
+  "checks": {
+    "live-iam-probe_artifact": true,
+    "live-iam-probe_encryption": true,
+    "live-iam-probe_limits": true,
+    "live-iam-probe_denials": true,
+    "live-input-attack-1_artifact": true,
+    "live-input-attack-1_encryption": true,
+    "live-input-attack-1_limits": true,
+    "live-input-attack-1_coverage": true,
+    "live-v0-1_artifact": true,
+    "live-v0-1_encryption": true,
+    "live-v0-1_limits": true,
+    "live-v0-1_coverage": true,
+    "live-v1-1_artifact": true,
+    "live-v1-1_encryption": true,
+    "live-v1-1_limits": true,
+    "live-v1-1_coverage": true,
+    "live-v2-1_artifact": true,
+    "live-v2-1_encryption": true,
+    "live-v2-1_limits": true,
+    "live-v2-1_coverage": true,
+    "live-v2-2_artifact": true,
+    "live-v2-2_encryption": true,
+    "live-v2-2_limits": true,
+    "live-v2-2_coverage": true,
+    "budget_reconciled": true,
+    "batch_reconciled": true,
+    "infrastructure_reserve_protected": true,
+    "lease_released": true,
+    "runtime_ready": true,
+    "endpoint_current": true,
+    "pinned_runtime_config": true,
+    "exact_kb_trust": true,
+    "corpus_read_scope": true,
+    "raw_model_logging_disabled": true,
+    "service-health_package": true,
+    "recent-changes_package": true,
+    "recent-logs_package": true
+  },
+  "passed": true,
+  "runs": [
+    {
+      "run": "live-iam-probe",
+      "status": null,
+      "reason": null,
+      "guardrail_checks": 0,
+      "model_usage": null,
+      "worker_ms": 2919,
+      "artifact_key": "runs/p06/p06-49f174bc8f6d49e1a0a149127ea20c5e.json"
+    },
+    {
+      "run": "live-input-attack-1",
+      "status": "blocked",
+      "reason": "filter_blocked",
+      "guardrail_checks": 1,
+      "model_usage": {
+        "input_tokens": 0,
+        "model_calls": 0,
+        "output_tokens": 0,
+        "tool_calls": 0
+      },
+      "worker_ms": 2317,
+      "artifact_key": "runs/p06/p06-01807ecf39194bdaa99d640c66008319.json"
+    },
+    {
+      "run": "live-v0-1",
+      "status": "complete",
+      "reason": "finished",
+      "guardrail_checks": 10,
+      "model_usage": {
+        "input_tokens": 3755,
+        "model_calls": 1,
+        "output_tokens": 347,
+        "tool_calls": 4
+      },
+      "worker_ms": 11334,
+      "artifact_key": "runs/p06/p06-f0a69971163041d6aa89dbf4edebeaae.json"
+    },
+    {
+      "run": "live-v1-1",
+      "status": "complete",
+      "reason": "finished",
+      "guardrail_checks": 12,
+      "model_usage": {
+        "input_tokens": 11592,
+        "model_calls": 5,
+        "output_tokens": 430,
+        "tool_calls": 4
+      },
+      "worker_ms": 10080,
+      "artifact_key": "runs/p06/p06-c965fe95a5634a5480b894a666bb22af.json"
+    },
+    {
+      "run": "live-v2-1",
+      "status": "failed",
+      "reason": "search_round_limit",
+      "guardrail_checks": 8,
+      "model_usage": {
+        "input_tokens": 7207,
+        "model_calls": 3,
+        "output_tokens": 417,
+        "tool_calls": 4
+      },
+      "worker_ms": 8330,
+      "artifact_key": "runs/p06/p06-ad45e28888b04f059735aeb436c6d517.json"
+    },
+    {
+      "run": "live-v2-2",
+      "status": "failed",
+      "reason": "missing_proposal_evidence",
+      "guardrail_checks": 9,
+      "model_usage": {
+        "input_tokens": 9117,
+        "model_calls": 4,
+        "output_tokens": 912,
+        "tool_calls": 4
+      },
+      "worker_ms": 15640,
+      "artifact_key": "runs/p06/p06-0a5da590eb9647e4b285638c3b6175b3.json"
+    }
+  ],
+  "runtime_version": "8",
+  "package_sha256": "20b89c876e4f68ac170b91085f4e44a4315e6ac8aa3b8981aadf57e0ed73c004",
+  "budget": {
+    "local_total_reserved_usd": "11.45",
+    "p06_reserved_usd": "6.75",
+    "cloud_global": {
+      "lease_owner": "p06-49f174bc8f6d49e1a0a149127ea20c5e",
+      "pk": "global",
+      "lease_until": "0",
+      "reserved_cents": "1135"
+    },
+    "cloud_batch": {
+      "reserved_cents": "675",
+      "pk": "batch#p06-dev-01"
+    }
+  },
+  "knowledge_trust": {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Principal": {
+          "Service": "bedrock.amazonaws.com"
+        },
+        "Action": "sts:AssumeRole",
+        "Condition": {
+          "StringEquals": {
+            "aws:SourceAccount": "498084841421"
+          },
+          "ArnLike": {
+            "aws:SourceArn": "arn:aws:bedrock:us-east-2:498084841421:knowledge-base/XKVH8PLCHO"
+          }
+        }
+      }
+    ]
+  }
+}

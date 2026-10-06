@@ -1,0 +1,130 @@
+{
+  "rb-rollback-p1": {
+    "metadata": {
+      "service_id": "checkout-api",
+      "passage_id": "rb-rollback-p1",
+      "document_id": "rb-rollback",
+      "version": "2.0.0",
+      "owner": "checkout-operations",
+      "valid_from": "2026-08-01T00:00:00Z",
+      "valid_until": "2027-01-01T00:00:00Z",
+      "status": "current",
+      "sha256": "7efb7b4b0a29cf6eca2556c19ab2bfb620b2e6a5122dbb4b2a1cb0167eb0bd4d",
+      "corpus_version": "1.0.0"
+    },
+    "key": "knowledge/p06-v1/rollback.md",
+    "text_sha256": "884dd0365aa61a0e330187737a3c446bb32b6a2b60a7d6c79f60679b139f7502"
+  },
+  "rb-dependency-p1": {
+    "metadata": {
+      "service_id": "checkout-api",
+      "passage_id": "rb-dependency-p1",
+      "document_id": "rb-dependency",
+      "version": "1.0.0",
+      "owner": "payments-operations",
+      "valid_from": "2026-08-01T00:00:00Z",
+      "valid_until": "2027-01-01T00:00:00Z",
+      "status": "current",
+      "sha256": "2b52c9e5d40aaadbf876cd33c918b3eea2761c07d7f7f828e8198fe935d5a74c",
+      "corpus_version": "1.0.0"
+    },
+    "key": "knowledge/p06-v1/dependency.md",
+    "text_sha256": "167a68fd32daa64d69e0d66341240e59dd33a6b006169cab0b3e1f4c0e55b644"
+  },
+  "rb-evidence-p1": {
+    "metadata": {
+      "service_id": "checkout-api",
+      "passage_id": "rb-evidence-p1",
+      "document_id": "rb-evidence",
+      "version": "1.0.0",
+      "owner": "incident-operations",
+      "valid_from": "2026-08-01T00:00:00Z",
+      "valid_until": "2027-01-01T00:00:00Z",
+      "status": "current",
+      "sha256": "92e191d90aff55ad4a33f0ec4e38f44e571ca7ff65270d28c58ac86e9a0d6fac",
+      "corpus_version": "1.0.0"
+    },
+    "key": "knowledge/p06-v1/evidence.md",
+    "text_sha256": "651988b5ab9c980ddd17578c623fbedf4d7abc0a5171eb23c941e44c33341272"
+  },
+  "rb-source-handling-p1": {
+    "metadata": {
+      "service_id": "checkout-api",
+      "passage_id": "rb-source-handling-p1",
+      "document_id": "rb-source-handling",
+      "version": "1.0.0",
+      "owner": "security-operations",
+      "valid_from": "2026-08-01T00:00:00Z",
+      "valid_until": "2027-01-01T00:00:00Z",
+      "status": "current",
+      "sha256": "6490c9c00d08d605f3fa7abd7311140562df3b75f6034009bc1d4a25d30e1cd5",
+      "corpus_version": "1.0.0"
+    },
+    "key": "knowledge/p06-v1/source-handling.md",
+    "text_sha256": "fc752d0a42bae06f713b61282cb31496fcce8d76742608fac99a91b6c2ffc6f3"
+  },
+  "rb-tool-failures-p1": {
+    "metadata": {
+      "service_id": "checkout-api",
+      "passage_id": "rb-tool-failures-p1",
+      "document_id": "rb-tool-failures",
+      "version": "1.0.0",
+      "owner": "platform-operations",
+      "valid_from": "2026-08-01T00:00:00Z",
+      "valid_until": "2027-01-01T00:00:00Z",
+      "status": "current",
+      "sha256": "386e1b026e44d20473c798400daba023c20afd58a8bbb9bbeb0709a8fcbdbe27",
+      "corpus_version": "1.0.0"
+    },
+    "key": "knowledge/p06-v1/tool-failures.md",
+    "text_sha256": "f47242af90d6dd0088b8f322307b4d3719053184514c1e2202dfa07a7c0a1f8d"
+  },
+  "rb-verification-p1": {
+    "metadata": {
+      "service_id": "checkout-api",
+      "passage_id": "rb-verification-p1",
+      "document_id": "rb-verification",
+      "version": "1.0.0",
+      "owner": "checkout-operations",
+      "valid_from": "2026-08-01T00:00:00Z",
+      "valid_until": "2027-01-01T00:00:00Z",
+      "status": "current",
+      "sha256": "03b3609f2a7038beb3661a03a582f44149e3a067da6589cc282f63505e76979a",
+      "corpus_version": "1.0.0"
+    },
+    "key": "knowledge/p06-v1/verification.md",
+    "text_sha256": "bd9109afb1ccecba53ea0812c7a91b45bc0d456fb155b70cbd19dff218dd5f8f"
+  },
+  "rb-rollback-legacy-p1": {
+    "metadata": {
+      "service_id": "checkout-api",
+      "passage_id": "rb-rollback-legacy-p1",
+      "document_id": "rb-rollback-legacy",
+      "version": "0.8.0",
+      "owner": "archived-operations",
+      "valid_from": "2026-08-01T00:00:00Z",
+      "valid_until": "2026-09-01T00:00:00Z",
+      "status": "stale",
+      "sha256": "c224fc3262ede194a1ef6b22a3fefbf0eb1e2133b2b7d89dfaf7c2f74653bbe1",
+      "corpus_version": "1.0.0"
+    },
+    "key": "knowledge/p06-v1/rollback-legacy.md",
+    "text_sha256": "74f165ce5c59d1d8603d480933e2de0966aa8cf3d93efcf498e6af2b16432d56"
+  },
+  "rb-rollback-disputed-p1": {
+    "metadata": {
+      "service_id": "checkout-api",
+      "passage_id": "rb-rollback-disputed-p1",
+      "document_id": "rb-rollback-disputed",
+      "version": "0.9.0",
+      "owner": "migration-working-group",
+      "valid_from": "2026-08-01T00:00:00Z",
+      "valid_until": "2027-01-01T00:00:00Z",
+      "status": "conflicting",
+      "sha256": "0ca42dec26474744939732293dfa470b1968d4f8854041a47f5bcb604b56867b",
+      "corpus_version": "1.0.0"
+    },
+    "key": "knowledge/p06-v1/rollback-disputed.md",
+    "text_sha256": "b266427c7c571f3489c4ead9713ce1e1713e0abeaf818b0978ec3b05def59877"
+  }
+}

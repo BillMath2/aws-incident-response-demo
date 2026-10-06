@@ -1,0 +1,66 @@
+[
+  {
+    "passage_id": "rb-rollback-p1",
+    "status": "current",
+    "score": 0.7528377771377563,
+    "allowed": true,
+    "request_id": "31c98647-27a6-4c1f-ace2-3f26a1d56899",
+    "hash": "f0b2db64fdaa8adcc61fde844eaa460f968f00c88f08d60f30f809a01a6bcb4b"
+  },
+  {
+    "passage_id": "rb-dependency-p1",
+    "status": "current",
+    "score": 0.7294975221157074,
+    "allowed": true,
+    "request_id": "3ac08e4d-16a8-4e19-aa44-4fb1bb2d7846",
+    "hash": "485a82e6e24ec3d80d3de8306277e8f72dfcea236b3b68e4aa93765ec3ec622f"
+  },
+  {
+    "passage_id": "rb-evidence-p1",
+    "status": "current",
+    "score": 0.5628071427345276,
+    "allowed": true,
+    "request_id": "9464c85c-8686-4be1-8bc7-d61662ff7d99",
+    "hash": "f6dc9805c40f7f9cbc16dd12683e1409e7f7cbd8e91930460b380e46e757a924"
+  },
+  {
+    "passage_id": "rb-source-handling-p1",
+    "status": "current",
+    "score": 0.557835578918457,
+    "allowed": true,
+    "request_id": "7ffad075-c80b-42be-b6f6-3f0a72854ae5",
+    "hash": "707f32152749950f4c08ad5217edd119e607ce05103f62241b4574f12ae44e11"
+  },
+  {
+    "passage_id": "rb-tool-failures-p1",
+    "status": "current",
+    "score": 0.5541732311248779,
+    "allowed": true,
+    "request_id": "884e89fb-4fc2-4270-a75c-c2701c210c3f",
+    "hash": "f3c163bb445a91d65d039e155ce2f5fc25caefa2cfc0a66e0f126f4785f49cd7"
+  },
+  {
+    "passage_id": "rb-verification-p1",
+    "status": "current",
+    "score": 0.5688753724098206,
+    "allowed": true,
+    "request_id": "be944225-38df-4382-864f-f4296f70a277",
+    "hash": "eed7dc67aa0ceb8c85dbedc0e0a73585bf51816bdc8b968c99b7ba56d1b98af2"
+  },
+  {
+    "passage_id": "rb-rollback-legacy-p1",
+    "status": "stale",
+    "score": 0.6685983240604401,
+    "allowed": true,
+    "request_id": "b6f06026-1ecf-4c25-b9e6-d6bbb5b12c24",
+    "hash": "7d806e00b5c2680fa8461cddbec3e6287439892a26172e52f176bbe70d75aa2f"
+  },
+  {
+    "passage_id": "rb-rollback-disputed-p1",
+    "status": "conflicting",
+    "score": 0.6864577233791351,
+    "allowed": true,
+    "request_id": "68f06bc5-cf01-4ad8-aba5-c06d41ba7a4d",
+    "hash": "9b3bc7d0837e8ee317d8f21dd97118daf477a3bacc69c5438213a10ef5df5055"
+  }
+]

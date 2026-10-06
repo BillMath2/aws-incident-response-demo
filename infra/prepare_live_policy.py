@@ -9,8 +9,8 @@ from manage import aws, verify_identity
 from settings import load_config
 
 
-def install(config, document, name, filename):
-    folder = Path(__file__).resolve().parents[1] / "docs/evidence/p05"
+def install(config, document, name, filename, phase="p05"):
+    folder = Path(__file__).resolve().parents[1] / f"docs/evidence/{phase}"
     folder.mkdir(exist_ok=True)
     validation = aws(
         config,
@@ -112,7 +112,7 @@ def install(config, document, name, filename):
     )
     (folder / f"{filename}.json").write_text(json.dumps(document, indent=2) + "\n")
     (folder / f"{filename}-validation.json").write_text(json.dumps(validation, indent=2) + "\n")
-    print("Validated P05 execution policy attached to the project bootstrap execution role.")
+    print(f"Validated {phase} execution policy attached to the project bootstrap execution role.")
 
 
 def main():

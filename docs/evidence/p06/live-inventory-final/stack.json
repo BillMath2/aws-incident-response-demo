@@ -1,0 +1,99 @@
+{
+  "Stacks": [
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "StackName": "incident-demo-live",
+      "ChangeSetId": "arn:aws:cloudformation:us-east-2:498084841421:changeSet/cdk-deploy-change-set/59ba58c4-f407-4296-9233-629a13f9ad64",
+      "Parameters": [
+        {
+          "ParameterKey": "BootstrapVersion",
+          "ParameterValue": "/cdk-bootstrap/incdemo/version",
+          "ResolvedValue": "32"
+        }
+      ],
+      "CreationTime": "2026-10-06 00:45:08.691000+00:00",
+      "LastUpdatedTime": "2026-10-06 03:18:22.274000+00:00",
+      "RollbackConfiguration": {},
+      "StackStatus": "UPDATE_COMPLETE",
+      "DisableRollback": true,
+      "DeploymentConfig": {
+        "Mode": "STANDARD",
+        "DisableRollback": true
+      },
+      "NotificationARNs": [],
+      "Capabilities": [
+        "CAPABILITY_IAM",
+        "CAPABILITY_NAMED_IAM",
+        "CAPABILITY_AUTO_EXPAND"
+      ],
+      "Outputs": [
+        {
+          "OutputKey": "LogsKeyArnOutput",
+          "OutputValue": "arn:aws:kms:us-east-2:498084841421:key/afbebae5-f530-4513-b859-d0d2d3622a49"
+        },
+        {
+          "OutputKey": "RuntimeLogGroupOutput",
+          "OutputValue": "/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-DEFAULT"
+        },
+        {
+          "OutputKey": "getservicehealthOutput",
+          "OutputValue": "arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-service-health"
+        },
+        {
+          "OutputKey": "TrailBucketOutput",
+          "OutputValue": "incident-demo-trail-498084841421-us-east-2"
+        },
+        {
+          "OutputKey": "getrecentlogsOutput",
+          "OutputValue": "arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-recent-logs"
+        },
+        {
+          "OutputKey": "BudgetTableOutput",
+          "OutputValue": "incident-demo-live-budget"
+        },
+        {
+          "OutputKey": "RuntimeArnOutput",
+          "OutputValue": "arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator-yxOMou90km"
+        },
+        {
+          "OutputKey": "RuntimeIdOutput",
+          "OutputValue": "incident_demo_investigator-yxOMou90km"
+        },
+        {
+          "OutputKey": "InvestigatorRoleOutput",
+          "OutputValue": "arn:aws:iam::498084841421:role/incident-demo-investigator"
+        },
+        {
+          "OutputKey": "getrecentchangesOutput",
+          "OutputValue": "arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-recent-changes"
+        },
+        {
+          "OutputKey": "EndpointArnOutput",
+          "OutputValue": "arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator-yxOMou90km/runtime-endpoint/smoke"
+        }
+      ],
+      "RoleARN": "arn:aws:iam::498084841421:role/cdk-incdemo-cfn-exec-role-498084841421-us-east-2",
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "incident-demo"
+        },
+        {
+          "Key": "Phase",
+          "Value": "P05"
+        }
+      ],
+      "EnableTerminationProtection": true,
+      "DriftInformation": {
+        "StackDriftStatus": "IN_SYNC",
+        "LastCheckTimestamp": "2026-10-06 03:20:07.162000+00:00"
+      },
+      "LastOperations": [
+        {
+          "OperationType": "UPDATE_STACK",
+          "OperationId": "b76d76bf-d2f8-4e90-80ab-bbb2e45967f0"
+        }
+      ]
+    }
+  ]
+}

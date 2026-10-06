@@ -1,0 +1,391 @@
+{
+ "Resources": {
+  "Vectors": {
+   "Type": "AWS::S3Vectors::VectorBucket",
+   "Properties": {
+    "VectorBucketName": "incident-demo-vectors-498084841421-us-east-2",
+    "EncryptionConfiguration": {
+     "SseType": "AES256"
+    },
+    "Tags": [
+     {
+      "Key": "Project",
+      "Value": "incident-demo"
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "incident-demo-retrieval/Vectors"
+   }
+  },
+  "Index": {
+   "Type": "AWS::S3Vectors::Index",
+   "Properties": {
+    "VectorBucketArn": {
+     "Fn::GetAtt": [
+      "Vectors",
+      "VectorBucketArn"
+     ]
+    },
+    "IndexName": "runbooks-v1",
+    "DataType": "float32",
+    "Dimension": 1024,
+    "DistanceMetric": "cosine",
+    "MetadataConfiguration": {
+     "NonFilterableMetadataKeys": [
+      "AMAZON_BEDROCK_TEXT",
+      "AMAZON_BEDROCK_METADATA"
+     ]
+    },
+    "Tags": [
+     {
+      "Key": "Project",
+      "Value": "incident-demo"
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "incident-demo-retrieval/Index"
+   }
+  },
+  "KnowledgeRoleDA807A58": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Condition": {
+        "StringEquals": {
+         "aws:SourceAccount": "498084841421"
+        },
+        "ArnLike": {
+         "aws:SourceArn": "arn:aws:bedrock:us-east-2:498084841421:knowledge-base/XKVH8PLCHO"
+        }
+       },
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "bedrock.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "Policies": [
+     {
+      "PolicyDocument": {
+       "Statement": [
+        {
+         "Action": "bedrock:InvokeModel",
+         "Effect": "Allow",
+         "Resource": "arn:aws:bedrock:us-east-2::foundation-model/amazon.titan-embed-text-v2:0"
+        },
+        {
+         "Action": "s3:ListBucket",
+         "Condition": {
+          "StringLike": {
+           "s3:prefix": [
+            "knowledge/p06-v1/*"
+           ]
+          }
+         },
+         "Effect": "Allow",
+         "Resource": "arn:aws:s3:::incident-demo-artifacts-498084841421-us-east-2"
+        },
+        {
+         "Action": "s3:GetObject",
+         "Effect": "Allow",
+         "Resource": "arn:aws:s3:::incident-demo-artifacts-498084841421-us-east-2/knowledge/p06-v1/*"
+        },
+        {
+         "Action": [
+          "s3vectors:PutVectors",
+          "s3vectors:GetVectors",
+          "s3vectors:DeleteVectors",
+          "s3vectors:QueryVectors",
+          "s3vectors:GetIndex"
+         ],
+         "Effect": "Allow",
+         "Resource": "arn:aws:s3vectors:us-east-2:498084841421:bucket/incident-demo-vectors-498084841421-us-east-2/index/runbooks-v1"
+        }
+       ],
+       "Version": "2012-10-17"
+      },
+      "PolicyName": "CorpusAndVectors"
+     }
+    ],
+    "RoleName": "incident-demo-knowledge",
+    "Tags": [
+     {
+      "Key": "Phase",
+      "Value": "P06"
+     },
+     {
+      "Key": "Project",
+      "Value": "incident-demo"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "incident-demo-retrieval/KnowledgeRole/Resource"
+   }
+  },
+  "KnowledgeBase": {
+   "Type": "AWS::Bedrock::KnowledgeBase",
+   "Properties": {
+    "Name": "incident-demo-runbooks",
+    "RoleArn": {
+     "Fn::GetAtt": [
+      "KnowledgeRoleDA807A58",
+      "Arn"
+     ]
+    },
+    "KnowledgeBaseConfiguration": {
+     "Type": "VECTOR",
+     "VectorKnowledgeBaseConfiguration": {
+      "EmbeddingModelArn": "arn:aws:bedrock:us-east-2::foundation-model/amazon.titan-embed-text-v2:0",
+      "EmbeddingModelConfiguration": {
+       "BedrockEmbeddingModelConfiguration": {
+        "Dimensions": 1024,
+        "EmbeddingDataType": "FLOAT32"
+       }
+      }
+     }
+    },
+    "StorageConfiguration": {
+     "Type": "S3_VECTORS",
+     "S3VectorsConfiguration": {
+      "IndexArn": {
+       "Fn::GetAtt": [
+        "Index",
+        "IndexArn"
+       ]
+      }
+     }
+    },
+    "Tags": {
+     "Project": "incident-demo",
+     "Phase": "P06"
+    }
+   },
+   "DependsOn": [
+    "KnowledgeRoleDA807A58"
+   ],
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "incident-demo-retrieval/KnowledgeBase"
+   }
+  },
+  "DataSource": {
+   "Type": "AWS::Bedrock::DataSource",
+   "Properties": {
+    "KnowledgeBaseId": {
+     "Fn::GetAtt": [
+      "KnowledgeBase",
+      "KnowledgeBaseId"
+     ]
+    },
+    "Name": "frozen-runbooks-v1",
+    "DataDeletionPolicy": "RETAIN",
+    "DataSourceConfiguration": {
+     "Type": "S3",
+     "S3Configuration": {
+      "BucketArn": "arn:aws:s3:::incident-demo-artifacts-498084841421-us-east-2",
+      "InclusionPrefixes": [
+       "knowledge/p06-v1/"
+      ]
+     }
+    },
+    "VectorIngestionConfiguration": {
+     "ChunkingConfiguration": {
+      "ChunkingStrategy": "NONE"
+     }
+    }
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "incident-demo-retrieval/DataSource"
+   }
+  },
+  "Guardrail": {
+   "Type": "AWS::Bedrock::Guardrail",
+   "Properties": {
+    "Name": "incident-demo-boundaries",
+    "Description": "P06 explicit input/source/output policy",
+    "BlockedInputMessaging": "Content blocked by incident demo policy.",
+    "BlockedOutputsMessaging": "Content blocked by incident demo policy.",
+    "ContentPolicyConfig": {
+     "FiltersConfig": [
+      {
+       "Type": "HATE",
+       "InputStrength": "MEDIUM",
+       "OutputStrength": "MEDIUM"
+      },
+      {
+       "Type": "INSULTS",
+       "InputStrength": "MEDIUM",
+       "OutputStrength": "MEDIUM"
+      },
+      {
+       "Type": "SEXUAL",
+       "InputStrength": "MEDIUM",
+       "OutputStrength": "MEDIUM"
+      },
+      {
+       "Type": "VIOLENCE",
+       "InputStrength": "MEDIUM",
+       "OutputStrength": "MEDIUM"
+      },
+      {
+       "Type": "MISCONDUCT",
+       "InputStrength": "MEDIUM",
+       "OutputStrength": "MEDIUM"
+      },
+      {
+       "Type": "PROMPT_ATTACK",
+       "InputStrength": "HIGH",
+       "OutputStrength": "NONE"
+      }
+     ]
+    },
+    "SensitiveInformationPolicyConfig": {
+     "RegexesConfig": [
+      {
+       "Name": "SyntheticSecret",
+       "Description": "Synthetic demo secret values only",
+       "Pattern": "DEMO_CANARY_[A-Za-z0-9]+",
+       "Action": "BLOCK"
+      }
+     ]
+    },
+    "Tags": [
+     {
+      "Key": "Project",
+      "Value": "incident-demo"
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "incident-demo-retrieval/Guardrail"
+   }
+  },
+  "GuardrailVersionV1": {
+   "Type": "AWS::Bedrock::GuardrailVersion",
+   "Properties": {
+    "GuardrailIdentifier": {
+     "Fn::GetAtt": [
+      "Guardrail",
+      "GuardrailId"
+     ]
+    },
+    "Description": "Frozen P06 v1 content/prompt-attack and synthetic-secret policy"
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "incident-demo-retrieval/GuardrailVersionV1"
+   }
+  }
+ },
+ "Outputs": {
+  "KnowledgeBaseIdOutput": {
+   "Value": {
+    "Fn::GetAtt": [
+     "KnowledgeBase",
+     "KnowledgeBaseId"
+    ]
+   }
+  },
+  "KnowledgeBaseArnOutput": {
+   "Value": {
+    "Fn::GetAtt": [
+     "KnowledgeBase",
+     "KnowledgeBaseArn"
+    ]
+   }
+  },
+  "DataSourceIdOutput": {
+   "Value": {
+    "Fn::GetAtt": [
+     "DataSource",
+     "DataSourceId"
+    ]
+   }
+  },
+  "GuardrailIdOutput": {
+   "Value": {
+    "Fn::GetAtt": [
+     "Guardrail",
+     "GuardrailId"
+    ]
+   }
+  },
+  "GuardrailArnOutput": {
+   "Value": {
+    "Fn::GetAtt": [
+     "Guardrail",
+     "GuardrailArn"
+    ]
+   }
+  },
+  "GuardrailVersionOutput": {
+   "Value": {
+    "Fn::GetAtt": [
+     "GuardrailVersionV1",
+     "Version"
+    ]
+   }
+  },
+  "VectorBucketNameOutput": {
+   "Value": "incident-demo-vectors-498084841421-us-east-2"
+  },
+  "IndexArnOutput": {
+   "Value": "arn:aws:s3vectors:us-east-2:498084841421:bucket/incident-demo-vectors-498084841421-us-east-2/index/runbooks-v1"
+  },
+  "SourceBucketOutput": {
+   "Value": "incident-demo-artifacts-498084841421-us-east-2"
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/incdemo/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

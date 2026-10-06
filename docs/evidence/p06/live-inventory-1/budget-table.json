@@ -1,0 +1,47 @@
+{
+  "Table": {
+    "AttributeDefinitions": [
+      {
+        "AttributeName": "pk",
+        "AttributeType": "S"
+      }
+    ],
+    "TableName": "incident-demo-live-budget",
+    "KeySchema": [
+      {
+        "AttributeName": "pk",
+        "KeyType": "HASH"
+      }
+    ],
+    "TableStatus": "ACTIVE",
+    "CreationDateTime": "2026-10-05 20:45:20.800000-04:00",
+    "ProvisionedThroughput": {
+      "NumberOfDecreasesToday": 0,
+      "ReadCapacityUnits": 0,
+      "WriteCapacityUnits": 0
+    },
+    "TableSizeBytes": 0,
+    "ItemCount": 0,
+    "TableArn": "arn:aws:dynamodb:us-east-2:498084841421:table/incident-demo-live-budget",
+    "TableId": "b9587f82-a1d5-4b86-bd20-99d080d051f5",
+    "BillingModeSummary": {
+      "BillingMode": "PAY_PER_REQUEST",
+      "LastUpdateToPayPerRequestDateTime": "2026-10-05 20:45:20.800000-04:00"
+    },
+    "SSEDescription": {
+      "Status": "ENABLED",
+      "SSEType": "KMS",
+      "KMSMasterKeyArn": "arn:aws:kms:us-east-2:498084841421:key/64732685-dfdd-4ddd-a89d-606cb13d0663"
+    },
+    "DeletionProtectionEnabled": true,
+    "OnDemandThroughput": {
+      "MaxReadRequestUnits": 10,
+      "MaxWriteRequestUnits": 10
+    },
+    "WarmThroughput": {
+      "ReadUnitsPerSecond": 12000,
+      "WriteUnitsPerSecond": 4000,
+      "Status": "ACTIVE"
+    }
+  }
+}

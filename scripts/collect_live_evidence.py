@@ -1,4 +1,4 @@
-"""Read-only P05 inventory and audit snapshot; requires an unused destination."""
+"""Read-only live inventory and audit snapshot; requires an unused destination."""
 
 import argparse
 import gzip
@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--batch", default="p05-dev-01")
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=False)
     sdk = boto3.Session(profile_name="incident-demo", region_name="us-east-2")
@@ -60,7 +61,7 @@ def main():
         "budget-batch",
         client("dynamodb").get_item(
             TableName=outputs["BudgetTableOutput"],
-            Key={"pk": {"S": "batch#p05-dev-01"}},
+            Key={"pk": {"S": "batch#" + args.batch}},
             ConsistentRead=True,
         ),
     )
@@ -73,9 +74,23 @@ def main():
     save("trail-selectors", client("cloudtrail").get_event_selectors(TrailName="incident-demo-p05"))
     s3 = client("s3")
     prefix = "AWSLogs/498084841421/CloudTrail/us-east-2/" + datetime.now(UTC).strftime("%Y/%m/%d/")
-    objects = s3.list_objects_v2(Bucket=outputs["TrailBucketOutput"], Prefix=prefix, MaxKeys=50)
+    objects = (
+        s3.get_paginator("list_objects_v2")
+        .paginate(
+            Bucket=outputs["TrailBucketOutput"],
+            Prefix=prefix,
+            PaginationConfig={"MaxItems": 500, "PageSize": 100},
+        )
+        .build_full_result()
+    )
+    selected = sorted(objects.get("Contents", []), key=lambda obj: obj["LastModified"])[-50:]
+    retrieval_path = ROOT / "infra/cdk.out/retrieval-outputs.json"
+    resource_names = ["incident_demo_investigator", "incident-demo-diag-"]
+    if retrieval_path.exists():
+        retrieval = json.loads(retrieval_path.read_text())["incident-demo-retrieval"]
+        resource_names += [retrieval["KnowledgeBaseArnOutput"], retrieval["GuardrailArnOutput"]]
     events = []
-    for obj in objects.get("Contents", []):
+    for obj in selected:
         if not obj["Key"].endswith(".json.gz") or obj["Size"] > 1048576:
             continue
         response = s3.get_object(Bucket=outputs["TrailBucketOutput"], Key=obj["Key"])
@@ -84,7 +99,7 @@ def main():
         for event in records:
             resources = json.dumps(event.get("resources", []))
             if event.get("eventCategory") != "Data" or not any(
-                name in resources for name in ("incident_demo_investigator", "incident-demo-diag-")
+                name in resources for name in resource_names
             ):
                 continue
             events.append(
@@ -111,8 +126,9 @@ def main():
         "trail-data-events",
         {
             "events": events,
-            "objects_examined": len(objects.get("Contents", [])),
-            "listing_truncated": objects.get("IsTruncated", False),
+            "objects_examined": len(selected),
+            "objects_listed": len(objects.get("Contents", [])),
+            "listing_truncated": bool(objects.get("NextToken")),
         },
     )
     save("alarms", client("cloudwatch").describe_alarms(AlarmNamePrefix="incident-demo-p05-"))
@@ -154,7 +170,7 @@ def main():
             events.extend(page["events"])
         save(f"logs-{index}", {"group": group["logGroupName"], "events": events, "limit": 1000})
     save("snapshot", {"at": datetime.now(UTC).isoformat(), "read_only": True})
-    print(f"Saved P05 inventory and bounded log snapshots to {args.output}")
+    print(f"Saved live inventory and bounded log snapshots to {args.output}")
 
 
 if __name__ == "__main__":

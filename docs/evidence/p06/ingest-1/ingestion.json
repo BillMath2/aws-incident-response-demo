@@ -1,0 +1,18 @@
+{
+  "knowledgeBaseId": "XKVH8PLCHO",
+  "dataSourceId": "CVMNH90331",
+  "ingestionJobId": "4IS7AVSEKR",
+  "status": "COMPLETE",
+  "statistics": {
+    "numberOfDocumentsScanned": 8,
+    "numberOfMetadataDocumentsScanned": 8,
+    "numberOfNewDocumentsIndexed": 8,
+    "numberOfModifiedDocumentsIndexed": 0,
+    "numberOfMetadataDocumentsModified": 0,
+    "numberOfDocumentsDeleted": 0,
+    "numberOfDocumentsFailed": 0,
+    "numberOfDocumentsSkipped": 0
+  },
+  "startedAt": "2026-10-06 03:04:19.747846+00:00",
+  "updatedAt": "2026-10-06 03:04:28.648938+00:00"
+}

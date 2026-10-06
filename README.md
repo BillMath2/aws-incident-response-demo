@@ -6,8 +6,10 @@ contracts, a frozen case corpus, a local approval walkthrough, and executable La
 investigation variants with an offline evaluation harness. **P04 adds an AWS foundation in
 Ohio (`us-east-2`) and bounded model-access smoke tests.** **P05 adds a verified live AgentCore
 investigator using Nova and three scoped diagnostic Lambdas**, with timeout, retry, budget,
-IAM-denial and audit evidence. Retrieval, Guardrails and cloud approval remain later packages;
-no model-quality gate is claimed.
+IAM-denial and audit evidence. **P06 adds live S3 Vectors retrieval and explicit input/source/
+output Guardrails checks.** V0/V1 live integration passes; V2's unsupported proposal is
+safely rejected and remains a quality limitation. Cloud approval and model-quality gates
+remain later packages.
 
 The [master implementation plan](docs/aws-incident-response-demo-master-implementation-plan.md)
 defines scope. See [P01 acceptance](docs/p01-acceptance.md) and
@@ -16,6 +18,8 @@ defines scope. See [P01 acceptance](docs/p01-acceptance.md) and
 [P04 readiness](docs/p04-aws-readiness.md), [deployment runbook](docs/p04-deployment-runbook.md),
 and [P04 acceptance](docs/p04-acceptance.md). Live investigator results and operation are in
 [P05 acceptance](docs/p05-acceptance.md) and the [P05 runbook](docs/p05-live-runbook.md).
+Current retrieval and filtering evidence is in [P06 acceptance](docs/p06-acceptance.md)
+and the [P06 runbook](docs/p06-live-runbook.md).
 
 ## Setup
 

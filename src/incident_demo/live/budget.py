@@ -4,11 +4,11 @@ import time
 
 from incident_demo.live.clients import sdk_config
 
-RESERVATION_CENTS = 25
+RESERVATION_CENTS = 75
 
 
 def reservation_cents(request):
-    return 200 if request.settings.model == "us.amazon.nova-pro-v1:0" else RESERVATION_CENTS
+    return 250 if request.settings.model == "us.amazon.nova-pro-v1:0" else RESERVATION_CENTS
 
 
 class CloudBudget:

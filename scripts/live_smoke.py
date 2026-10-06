@@ -12,6 +12,7 @@ import boto3
 from boto3.dynamodb.conditions import Attr
 from botocore.config import Config
 
+from incident_demo.live.budget import reservation_cents
 from incident_demo.live.contracts import LiveRequest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -28,6 +29,8 @@ def main():
     parser.add_argument("--model-calls", type=int, default=6)
     parser.add_argument("--probe", action="store_true")
     parser.add_argument("--initialize-budget", action="store_true")
+    parser.add_argument("--variant", choices=["V0", "V1", "V2"], default="V1")
+    parser.add_argument("--summary", help="Explicit synthetic input-boundary test")
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=False)
     sdk = boto3.Session(profile_name="incident-demo", region_name="us-east-2")
@@ -55,10 +58,14 @@ def main():
     request = LiveRequest.model_validate_json(
         json.dumps(
             {
-                "run_id": "p05-" + uuid4().hex,
+                "run_id": "p06-" + uuid4().hex,
                 "batch_id": args.batch,
                 "telemetry_id": mapping[args.case],
-                "incident": fixture["incident"],
+                "incident": {
+                    **fixture["incident"],
+                    **({"summary": args.summary} if args.summary else {}),
+                },
+                "variant": args.variant,
                 "operation": "permission_probe" if args.probe else "investigate",
                 "settings": {
                     "model": "us.amazon.nova-lite-v1:0",
@@ -68,7 +75,8 @@ def main():
         )
     )
     (args.output / "request.json").write_text(request.model_dump_json(indent=2), encoding="utf-8")
-    reserve(request.run_id, Decimal("0.25"))
+    amount = Decimal(reservation_cents(request)) / 100
+    reserve(request.run_id, amount)
     client = sdk.client("bedrock-agentcore", config=config)
     session_id = str(uuid4())
     started = monotonic()
@@ -92,7 +100,7 @@ def main():
                     "session_id": session_id,
                     "aws_request_id": response["ResponseMetadata"]["RequestId"],
                     "status": response.get("statusCode"),
-                    "reservation_usd": "0.25",
+                    "reservation_usd": str(amount),
                 },
                 indent=2,
             )

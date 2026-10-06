@@ -1,0 +1,50 @@
+[
+  {
+    "boundary": "input",
+    "sample": "benign",
+    "allowed": true,
+    "expected_allowed": true
+  },
+  {
+    "boundary": "input",
+    "sample": "secret",
+    "allowed": false,
+    "expected_allowed": false
+  },
+  {
+    "boundary": "input",
+    "sample": "attack",
+    "allowed": false,
+    "expected_allowed": false
+  },
+  {
+    "boundary": "source",
+    "sample": "benign",
+    "allowed": true,
+    "expected_allowed": true
+  },
+  {
+    "boundary": "source",
+    "sample": "secret",
+    "allowed": false,
+    "expected_allowed": false
+  },
+  {
+    "boundary": "source",
+    "sample": "attack",
+    "allowed": false,
+    "expected_allowed": false
+  },
+  {
+    "boundary": "output",
+    "sample": "benign",
+    "allowed": true,
+    "expected_allowed": true
+  },
+  {
+    "boundary": "output",
+    "sample": "secret",
+    "allowed": false,
+    "expected_allowed": false
+  }
+]

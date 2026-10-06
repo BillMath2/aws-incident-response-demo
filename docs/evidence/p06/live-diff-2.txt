@@ -1,0 +1,184 @@
+{"account": "498084841421", "region": "us-east-2"}
+infra/.venv/Scripts/python.exe : AI agent detected
+At line:27 char:1
++ infra/.venv/Scripts/python.exe infra/manage.py diff --live *> docs/ev ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (AI agent detected:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Stack incident-demo-live (aws://498084841421/us-east-2)
+IAM Statement Changes
+┌───┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┬────────┬────────────────────────┬─────────────────────────┬───────────┐
+│   │ Resource                                                                                                         
+           │ Effect │ Action                 │ Principal               │ Condition │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼────────────────────────┼─────────────────────────┼───────────┤
+│ + │ arn:aws:bedrock:us-east-2:498084841421:guardrail/a4aiug3xzh6e                                                    
+           │ Allow  │ bedrock:ApplyGuardrail │ AWS:${InvestigatorRole} │           │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼────────────────────────┼─────────────────────────┼───────────┤
+│ + │ arn:aws:bedrock:us-east-2:498084841421:knowledge-base/XKVH8PLCHO                                                 
+           │ Allow  │ bedrock:Retrieve       │ AWS:${InvestigatorRole} │           │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼────────────────────────┼─────────────────────────┼───────────┤
+│ - │ arn:aws:s3:::cdk-incdemo-assets-498084841421-us-east-2/074e185bbbe5e596114b4f3a6a78df5d5bef3296045b730918d128fcdd
+2dc42c.zip │ Allow  │ s3:GetObject           │ AWS:${InvestigatorRole} │           │
+│   │                                                                                                                  
+           │        │ s3:GetObjectVersion    │                         │           │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼────────────────────────┼─────────────────────────┼───────────┤
+│ + │ arn:aws:s3:::cdk-incdemo-assets-498084841421-us-east-2/dc21bc59bfae70281eebba1c09fa2d6a1009406b179c3ad3eaf9dff395
+752915.zip │ Allow  │ s3:GetObject           │ AWS:${InvestigatorRole} │           │
+│   │                                                                                                                  
+           │        │ s3:GetObjectVersion    │                         │           │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼────────────────────────┼─────────────────────────┼───────────┤
+│ - │ arn:aws:s3:::incident-demo-artifacts-498084841421-us-east-2/runs/p05/*                                           
+           │ Allow  │ s3:PutObject           │ AWS:${InvestigatorRole} │           │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼────────────────────────┼─────────────────────────┼───────────┤
+│ + │ arn:aws:s3:::incident-demo-artifacts-498084841421-us-east-2/runs/p06/*                                           
+           │ Allow  │ s3:PutObject           │ AWS:${InvestigatorRole} │           │
+└───┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┴────────┴────────────────────────┴─────────────────────────┴───────────┘
+(NOTE: There may be security-related changes not in this list. See https://github.com/aws/aws-cdk/issues/1299)
+
+Resources
+[~] AWS::Lambda::Function get_service_health getservicehealthEF276A61
+ ├─ [~] Code
+ │   └─ [~] .S3Key:
+ │       ├─ [-] 074e185bbbe5e596114b4f3a6a78df5d5bef3296045b730918d128fcdd2dc42c.zip
+ │       └─ [+] dc21bc59bfae70281eebba1c09fa2d6a1009406b179c3ad3eaf9dff395752915.zip
+ └─ [~] Metadata
+     └─ [~] .aws:asset:path:
+         ├─ [-] asset.074e185bbbe5e596114b4f3a6a78df5d5bef3296045b730918d128fcdd2dc42c.zip
+         └─ [+] asset.dc21bc59bfae70281eebba1c09fa2d6a1009406b179c3ad3eaf9dff395752915.zip
+[~] AWS::Lambda::Function get_recent_changes getrecentchanges57131F89
+ ├─ [~] Code
+ │   └─ [~] .S3Key:
+ │       ├─ [-] 074e185bbbe5e596114b4f3a6a78df5d5bef3296045b730918d128fcdd2dc42c.zip
+ │       └─ [+] dc21bc59bfae70281eebba1c09fa2d6a1009406b179c3ad3eaf9dff395752915.zip
+ └─ [~] Metadata
+     └─ [~] .aws:asset:path:
+         ├─ [-] asset.074e185bbbe5e596114b4f3a6a78df5d5bef3296045b730918d128fcdd2dc42c.zip
+         └─ [+] asset.dc21bc59bfae70281eebba1c09fa2d6a1009406b179c3ad3eaf9dff395752915.zip
+[~] AWS::Lambda::Function get_recent_logs getrecentlogs216E16E1
+ ├─ [~] Code
+ │   └─ [~] .S3Key:
+ │       ├─ [-] 074e185bbbe5e596114b4f3a6a78df5d5bef3296045b730918d128fcdd2dc42c.zip
+ │       └─ [+] dc21bc59bfae70281eebba1c09fa2d6a1009406b179c3ad3eaf9dff395752915.zip
+ └─ [~] Metadata
+     └─ [~] .aws:asset:path:
+         ├─ [-] asset.074e185bbbe5e596114b4f3a6a78df5d5bef3296045b730918d128fcdd2dc42c.zip
+         └─ [+] asset.dc21bc59bfae70281eebba1c09fa2d6a1009406b179c3ad3eaf9dff395752915.zip
+[~] AWS::IAM::Policy InvestigatorRole/DefaultPolicy InvestigatorRoleDefaultPolicyF8C0F70D
+ └─ [~] PolicyDocument
+     └─ [~] .Statement:
+         └─ @@ -1,5 +1,15 @@
+            [ ] [
+            [ ]   {
+            [+]     "Action": "bedrock:Retrieve",
+            [+]     "Effect": "Allow",
+            [+]     "Resource": "arn:aws:bedrock:us-east-2:498084841421:knowledge-base/XKVH8PLCHO"
+            [+]   },
+            [+]   {
+            [+]     "Action": "bedrock:ApplyGuardrail",
+            [+]     "Effect": "Allow",
+            [+]     "Resource": "arn:aws:bedrock:us-east-2:498084841421:guardrail/a4aiug3xzh6e"
+            [+]   },
+            [+]   {
+            [ ]     "Action": [
+            [ ]       "bedrock:InvokeModel",
+            [ ]       "bedrock:CountTokens"
+            @@ -56,7 +66,7 @@
+            [ ] {
+            [ ]   "Action": "s3:PutObject",
+            [ ]   "Effect": "Allow",
+            [-]   "Resource": "arn:aws:s3:::incident-demo-artifacts-498084841421-us-east-2/runs/p05/*"
+            [+]   "Resource": "arn:aws:s3:::incident-demo-artifacts-498084841421-us-east-2/runs/p06/*"
+            [ ] },
+            [ ] {
+            [ ]   "Action": [
+            @@ -64,7 +74,7 @@
+            [ ]     "s3:GetObjectVersion"
+            [ ]   ],
+            [ ]   "Effect": "Allow",
+            [-]   "Resource": "arn:aws:s3:::cdk-incdemo-assets-498084841421-us-east-2/074e185bbbe5e596114b4f3a6a78df5d5
+bef3296045b730918d128fcdd2dc42c.zip"
+            [+]   "Resource": "arn:aws:s3:::cdk-incdemo-assets-498084841421-us-east-2/dc21bc59bfae70281eebba1c09fa2d6a1
+009406b179c3ad3eaf9dff395752915.zip"
+            [ ] },
+            [ ] {
+            [ ]   "Action": [
+[~] AWS::BedrockAgentCore::Runtime Runtime Runtime
+ ├─ [~] AgentRuntimeArtifact
+ │   └─ [~] .CodeConfiguration:
+ │       └─ [~] .Code:
+ │           └─ [~] .S3:
+ │               └─ [~] .Prefix:
+ │                   ├─ [-] 074e185bbbe5e596114b4f3a6a78df5d5bef3296045b730918d128fcdd2dc42c.zip
+ │                   └─ [+] dc21bc59bfae70281eebba1c09fa2d6a1009406b179c3ad3eaf9dff395752915.zip
+ └─ [~] EnvironmentVariables
+     ├─ [+] Added: .GUARDRAIL_ID
+     ├─ [+] Added: .GUARDRAIL_VERSION
+     └─ [+] Added: .KNOWLEDGE_BASE_ID
+[~] AWS::CloudTrail::Trail Trail Trail022F0CF2
+ └─ [~] AdvancedEventSelectors
+     └─ @@ -78,5 +78,51 @@
+        [ ]         ]
+        [ ]       }
+        [ ]     ]
+        [+]   },
+        [+]   {
+        [+]     "Name": "P06KnowledgeBase",
+        [+]     "FieldSelectors": [
+        [+]       {
+        [+]         "Field": "eventCategory",
+        [+]         "Equals": [
+        [+]           "Data"
+        [+]         ]
+        [+]       },
+        [+]       {
+        [+]         "Field": "resources.type",
+        [+]         "Equals": [
+        [+]           "AWS::Bedrock::KnowledgeBase"
+        [+]         ]
+        [+]       },
+        [+]       {
+        [+]         "Field": "resources.ARN",
+        [+]         "Equals": [
+        [+]           "arn:aws:bedrock:us-east-2:498084841421:knowledge-base/XKVH8PLCHO"
+        [+]         ]
+        [+]       }
+        [+]     ]
+        [+]   },
+        [+]   {
+        [+]     "Name": "P06Guardrail",
+        [+]     "FieldSelectors": [
+        [+]       {
+        [+]         "Field": "eventCategory",
+        [+]         "Equals": [
+        [+]           "Data"
+        [+]         ]
+        [+]       },
+        [+]       {
+        [+]         "Field": "resources.type",
+        [+]         "Equals": [
+        [+]           "AWS::Bedrock::Guardrail"
+        [+]         ]
+        [+]       },
+        [+]       {
+        [+]         "Field": "resources.ARN",
+        [+]         "Equals": [
+        [+]           "arn:aws:bedrock:us-east-2:498084841421:guardrail/a4aiug3xzh6e"
+        [+]         ]
+        [+]       }
+        [+]     ]
+        [ ]   }
+        [ ] ]
+
+
+
+✨  Number of stacks with differences: 1
+

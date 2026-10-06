@@ -1,0 +1,482 @@
+[
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 1
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 1,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 1481,
+      "total": 1481
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 2,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 2,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "request_id": "06942e54-b215-429c-b33e-66e8f0e61c5b"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 2
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 2,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 987,
+      "total": 987
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "request_id": "18a7be0e-ef0f-4f2a-89c1-b0f3732b9199"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 3
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 3,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 976,
+      "total": 976
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "request_id": "72cf0657-8cb6-4a66-a89d-07e4e719e5c1"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 4
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 4,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 1093,
+      "total": 1093
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 2,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 2,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "request_id": "aee1a2f0-21a3-4b9b-85d9-6d45afb4a084"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 5
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 5,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 986,
+      "total": 986
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "request_id": "eefa0965-62f3-4102-b121-b61ff06a6564"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 6
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 6,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 983,
+      "total": 983
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "request_id": "7d9bb68a-4696-404c-8f4b-aae7a2834ee5"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 7
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 7,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 885,
+      "total": 885
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "request_id": "802ba900-b0ee-4bee-b1e0-13b5fd7ee26d"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 8
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 8,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 1008,
+      "total": 1008
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 2,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 2,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "request_id": "831aed1b-d9ef-483f-bf2e-c503ed2a82ec"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "input",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 9
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "input",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 9,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 97,
+      "total": 97
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "request_id": "51410b24-5bdb-45fb-9c85-d59ac25d9f9d"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "input",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 10
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "input",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 10,
+    "action": "GUARDRAIL_INTERVENED",
+    "coverage": {
+      "guarded": 45,
+      "total": 45
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "request_id": "cd1336b7-b4c9-424a-840a-89f196078d1b"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "input",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 11
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "input",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 11,
+    "action": "GUARDRAIL_INTERVENED",
+    "coverage": {
+      "guarded": 172,
+      "total": 172
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "request_id": "d3fcb107-ed8c-4593-b60a-554581554217"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 12
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 12,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 97,
+      "total": 97
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "request_id": "2e74a5a6-883e-4054-b502-0b580e99c51f"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 13
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 13,
+    "action": "GUARDRAIL_INTERVENED",
+    "coverage": {
+      "guarded": 45,
+      "total": 45
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "request_id": "411facf1-2b97-465a-9e71-5cb05fd783ec"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 14
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 14,
+    "action": "GUARDRAIL_INTERVENED",
+    "coverage": {
+      "guarded": 172,
+      "total": 172
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "request_id": "0b007d1f-34a2-4687-94f6-f553b8e8dadb"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "output",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 15
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "output",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 15,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 97,
+      "total": 97
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "request_id": "cffbf65d-f417-4de4-a391-60ec4287774f"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "output",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 16
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "output",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1",
+    "call": 16,
+    "action": "GUARDRAIL_INTERVENED",
+    "coverage": {
+      "guarded": 45,
+      "total": 45
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "request_id": "8a4f6d50-7a9e-4586-b02f-33eea47b23ec"
+  }
+]

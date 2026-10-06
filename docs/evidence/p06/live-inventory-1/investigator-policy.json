@@ -1,0 +1,75 @@
+{
+  "RoleName": "incident-demo-investigator",
+  "PolicyName": "InvestigatorRoleDefaultPolicyF8C0F70D",
+  "PolicyDocument": {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Action": "bedrock:Retrieve",
+        "Resource": "arn:aws:bedrock:us-east-2:498084841421:knowledge-base/XKVH8PLCHO",
+        "Effect": "Allow"
+      },
+      {
+        "Action": "bedrock:ApplyGuardrail",
+        "Resource": "arn:aws:bedrock:us-east-2:498084841421:guardrail/a4aiug3xzh6e",
+        "Effect": "Allow"
+      },
+      {
+        "Action": [
+          "bedrock:InvokeModel",
+          "bedrock:CountTokens"
+        ],
+        "Resource": [
+          "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-lite-v1:0",
+          "arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-pro-v1:0",
+          "arn:aws:bedrock:us-east-2::foundation-model/amazon.nova-lite-v1:0",
+          "arn:aws:bedrock:us-east-2::foundation-model/amazon.nova-pro-v1:0",
+          "arn:aws:bedrock:us-west-2::foundation-model/amazon.nova-lite-v1:0",
+          "arn:aws:bedrock:us-west-2::foundation-model/amazon.nova-pro-v1:0",
+          "arn:aws:bedrock:us-east-2:498084841421:inference-profile/us.amazon.nova-lite-v1:0",
+          "arn:aws:bedrock:us-east-2:498084841421:inference-profile/us.amazon.nova-pro-v1:0"
+        ],
+        "Effect": "Allow"
+      },
+      {
+        "Action": "lambda:InvokeFunction",
+        "Resource": [
+          "arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-service-health",
+          "arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-recent-changes",
+          "arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-recent-logs"
+        ],
+        "Effect": "Allow"
+      },
+      {
+        "Action": [
+          "dynamodb:UpdateItem",
+          "dynamodb:PutItem"
+        ],
+        "Resource": "arn:aws:dynamodb:us-east-2:498084841421:table/incident-demo-live-budget",
+        "Effect": "Allow"
+      },
+      {
+        "Action": "s3:PutObject",
+        "Resource": "arn:aws:s3:::incident-demo-artifacts-498084841421-us-east-2/runs/p06/*",
+        "Effect": "Allow"
+      },
+      {
+        "Action": [
+          "s3:GetObject",
+          "s3:GetObjectVersion"
+        ],
+        "Resource": "arn:aws:s3:::cdk-incdemo-assets-498084841421-us-east-2/dc21bc59bfae70281eebba1c09fa2d6a1009406b179c3ad3eaf9dff395752915.zip",
+        "Effect": "Allow"
+      },
+      {
+        "Action": [
+          "logs:CreateLogStream",
+          "logs:PutLogEvents",
+          "logs:DescribeLogStreams"
+        ],
+        "Resource": "arn:aws:logs:us-east-2:498084841421:log-group:/aws/bedrock-agentcore/runtimes/incident_demo_investigator*:*",
+        "Effect": "Allow"
+      }
+    ]
+  }
+}

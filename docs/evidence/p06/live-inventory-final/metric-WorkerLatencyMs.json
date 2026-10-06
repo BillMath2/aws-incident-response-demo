@@ -1,0 +1,75 @@
+{
+  "Label": "WorkerLatencyMs",
+  "Datapoints": [
+    {
+      "Timestamp": "2026-10-05 21:23:00-04:00",
+      "SampleCount": 2.0,
+      "Sum": 6937.0,
+      "Maximum": 4019.0,
+      "Unit": "None"
+    },
+    {
+      "Timestamp": "2026-10-05 21:54:00-04:00",
+      "SampleCount": 3.0,
+      "Sum": 11295.0,
+      "Maximum": 7725.0,
+      "Unit": "None"
+    },
+    {
+      "Timestamp": "2026-10-05 23:09:00-04:00",
+      "SampleCount": 1.0,
+      "Sum": 11334.0,
+      "Maximum": 11334.0,
+      "Unit": "None"
+    },
+    {
+      "Timestamp": "2026-10-05 21:53:00-04:00",
+      "SampleCount": 1.0,
+      "Sum": 9877.0,
+      "Maximum": 9877.0,
+      "Unit": "None"
+    },
+    {
+      "Timestamp": "2026-10-05 21:35:00-04:00",
+      "SampleCount": 1.0,
+      "Sum": 12184.0,
+      "Maximum": 12184.0,
+      "Unit": "None"
+    },
+    {
+      "Timestamp": "2026-10-05 21:43:00-04:00",
+      "SampleCount": 1.0,
+      "Sum": 5923.0,
+      "Maximum": 5923.0,
+      "Unit": "None"
+    },
+    {
+      "Timestamp": "2026-10-05 23:20:00-04:00",
+      "SampleCount": 2.0,
+      "Sum": 18559.0,
+      "Maximum": 15640.0,
+      "Unit": "None"
+    },
+    {
+      "Timestamp": "2026-10-05 23:11:00-04:00",
+      "SampleCount": 2.0,
+      "Sum": 10647.0,
+      "Maximum": 8330.0,
+      "Unit": "None"
+    },
+    {
+      "Timestamp": "2026-10-05 21:29:00-04:00",
+      "SampleCount": 1.0,
+      "Sum": 4321.0,
+      "Maximum": 4321.0,
+      "Unit": "None"
+    },
+    {
+      "Timestamp": "2026-10-05 23:10:00-04:00",
+      "SampleCount": 1.0,
+      "Sum": 10080.0,
+      "Maximum": 10080.0,
+      "Unit": "None"
+    }
+  ]
+}
