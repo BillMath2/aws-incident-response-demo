@@ -1,0 +1,1227 @@
+{
+  "audit": [
+    {
+      "at": "2026-10-06T12:17:31.545845+00:00",
+      "boundary": "input",
+      "call": 1,
+      "event": "guardrail_started",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "action": "NONE",
+      "at": "2026-10-06T12:17:31.754196+00:00",
+      "boundary": "input",
+      "call": 1,
+      "coverage": {
+        "guarded": 154,
+        "total": 154
+      },
+      "event": "guardrail_finished",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "request_id": "3653949c-8bc3-41a6-9b92-c8fa3a36cdbe",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "usage": {
+        "automatedReasoningPolicies": 0,
+        "automatedReasoningPolicyUnits": 0,
+        "contentPolicyUnits": 1,
+        "contextualGroundingPolicyUnits": 0,
+        "sensitiveInformationPolicyFreeUnits": 1,
+        "sensitiveInformationPolicyUnits": 0,
+        "topicPolicyUnits": 0,
+        "wordPolicyUnits": 0
+      }
+    },
+    {
+      "adapter_prompt_version": "p06-v2-native",
+      "at": "2026-10-06T12:17:31.766085+00:00",
+      "event": "prompt_built",
+      "response_phase": "decide",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "system_sha256": "8aea40fd7502ff57d53451e487b89299e5e6bd20a1ab43fc6b7a26d0f4d33763",
+      "tool_schema_sha256": "9188a61e1ad0d7a920d8ec89307f6ee687efbaf317c6bfa0e139ef47e1df3740"
+    },
+    {
+      "at": "2026-10-06T12:17:31.871067+00:00",
+      "event": "token_count_unsupported",
+      "input_bytes": 5395,
+      "reserved_input_tokens": 300000,
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "at": "2026-10-06T12:17:31.871177+00:00",
+      "event": "model_started",
+      "input_tokens": null,
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "at": "2026-10-06T12:17:32.549809+00:00",
+      "event": "model_finished",
+      "input_tokens": 1804,
+      "output_tokens": 22,
+      "request_id": "c460a611-9586-4c04-a1e7-341ca813e09d",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "at": "2026-10-06T12:17:32.550357+00:00",
+      "event": "native_response",
+      "proposed_decisions": 1,
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "stop_reason": "tool_use",
+      "unused_decisions": 0
+    },
+    {
+      "at": "2026-10-06T12:17:32.550583+00:00",
+      "boundary": "output",
+      "call": 2,
+      "event": "guardrail_started",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "action": "NONE",
+      "at": "2026-10-06T12:17:32.752293+00:00",
+      "boundary": "output",
+      "call": 2,
+      "coverage": {
+        "guarded": 151,
+        "total": 151
+      },
+      "event": "guardrail_finished",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "request_id": "3b7eef8c-b850-4cc6-b7b3-add17591d52d",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "usage": {
+        "automatedReasoningPolicies": 0,
+        "automatedReasoningPolicyUnits": 0,
+        "contentPolicyUnits": 1,
+        "contextualGroundingPolicyUnits": 0,
+        "sensitiveInformationPolicyFreeUnits": 1,
+        "sensitiveInformationPolicyUnits": 0,
+        "topicPolicyUnits": 0,
+        "wordPolicyUnits": 0
+      }
+    },
+    {
+      "at": "2026-10-06T12:17:32.753408+00:00",
+      "attempt": 1,
+      "event": "lambda_started",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "tool": "get_service_health"
+    },
+    {
+      "at": "2026-10-06T12:17:34.019408+00:00",
+      "attempt": 1,
+      "event": "lambda_finished",
+      "latency_ms": 1265,
+      "request_id": "f07739a7-2c79-44e9-a3cd-4c5773a0c05c",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "tool": "get_service_health"
+    },
+    {
+      "at": "2026-10-06T12:17:34.019871+00:00",
+      "boundary": "source",
+      "call": 3,
+      "event": "guardrail_started",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "action": "NONE",
+      "at": "2026-10-06T12:17:34.188939+00:00",
+      "boundary": "source",
+      "call": 3,
+      "coverage": {
+        "guarded": 436,
+        "total": 436
+      },
+      "event": "guardrail_finished",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "request_id": "2b3aec7a-2871-4b22-8bfa-51be5a39a514",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "usage": {
+        "automatedReasoningPolicies": 0,
+        "automatedReasoningPolicyUnits": 0,
+        "contentPolicyUnits": 1,
+        "contextualGroundingPolicyUnits": 0,
+        "sensitiveInformationPolicyFreeUnits": 1,
+        "sensitiveInformationPolicyUnits": 0,
+        "topicPolicyUnits": 0,
+        "wordPolicyUnits": 0
+      }
+    },
+    {
+      "adapter_prompt_version": "p06-v2-native",
+      "at": "2026-10-06T12:17:34.203543+00:00",
+      "event": "prompt_built",
+      "response_phase": "decide",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "system_sha256": "8aea40fd7502ff57d53451e487b89299e5e6bd20a1ab43fc6b7a26d0f4d33763",
+      "tool_schema_sha256": "9188a61e1ad0d7a920d8ec89307f6ee687efbaf317c6bfa0e139ef47e1df3740"
+    },
+    {
+      "at": "2026-10-06T12:17:34.247958+00:00",
+      "event": "token_count_unsupported",
+      "input_bytes": 5881,
+      "reserved_input_tokens": 300000,
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "at": "2026-10-06T12:17:34.248091+00:00",
+      "event": "model_started",
+      "input_tokens": null,
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "at": "2026-10-06T12:17:35.006357+00:00",
+      "event": "model_finished",
+      "input_tokens": 2009,
+      "output_tokens": 30,
+      "request_id": "8905e0ee-dbd2-460b-b2a9-89600d74832b",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "at": "2026-10-06T12:17:35.006746+00:00",
+      "event": "native_response",
+      "proposed_decisions": 1,
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "stop_reason": "tool_use",
+      "unused_decisions": 0
+    },
+    {
+      "at": "2026-10-06T12:17:35.007025+00:00",
+      "boundary": "output",
+      "call": 4,
+      "event": "guardrail_started",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "action": "NONE",
+      "at": "2026-10-06T12:17:35.194430+00:00",
+      "boundary": "output",
+      "call": 4,
+      "coverage": {
+        "guarded": 171,
+        "total": 171
+      },
+      "event": "guardrail_finished",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "request_id": "53338c05-1a3d-4652-b794-9e3703ef0571",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "usage": {
+        "automatedReasoningPolicies": 0,
+        "automatedReasoningPolicyUnits": 0,
+        "contentPolicyUnits": 1,
+        "contextualGroundingPolicyUnits": 0,
+        "sensitiveInformationPolicyFreeUnits": 1,
+        "sensitiveInformationPolicyUnits": 0,
+        "topicPolicyUnits": 0,
+        "wordPolicyUnits": 0
+      }
+    },
+    {
+      "at": "2026-10-06T12:17:35.195650+00:00",
+      "attempt": 1,
+      "event": "lambda_started",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "tool": "get_recent_changes"
+    },
+    {
+      "at": "2026-10-06T12:17:36.359735+00:00",
+      "attempt": 1,
+      "event": "lambda_finished",
+      "latency_ms": 1163,
+      "request_id": "1c113dc5-1661-44e4-8fc2-73739e52d0d6",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "tool": "get_recent_changes"
+    },
+    {
+      "at": "2026-10-06T12:17:36.360190+00:00",
+      "boundary": "source",
+      "call": 5,
+      "event": "guardrail_started",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "action": "NONE",
+      "at": "2026-10-06T12:17:36.539777+00:00",
+      "boundary": "source",
+      "call": 5,
+      "coverage": {
+        "guarded": 507,
+        "total": 507
+      },
+      "event": "guardrail_finished",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "request_id": "ebbcb2fa-19fc-47b1-a29a-efedd6e19293",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "usage": {
+        "automatedReasoningPolicies": 0,
+        "automatedReasoningPolicyUnits": 0,
+        "contentPolicyUnits": 1,
+        "contextualGroundingPolicyUnits": 0,
+        "sensitiveInformationPolicyFreeUnits": 1,
+        "sensitiveInformationPolicyUnits": 0,
+        "topicPolicyUnits": 0,
+        "wordPolicyUnits": 0
+      }
+    },
+    {
+      "adapter_prompt_version": "p06-v2-native",
+      "at": "2026-10-06T12:17:36.549820+00:00",
+      "event": "prompt_built",
+      "response_phase": "decide",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "system_sha256": "8aea40fd7502ff57d53451e487b89299e5e6bd20a1ab43fc6b7a26d0f4d33763",
+      "tool_schema_sha256": "9188a61e1ad0d7a920d8ec89307f6ee687efbaf317c6bfa0e139ef47e1df3740"
+    },
+    {
+      "at": "2026-10-06T12:17:36.592301+00:00",
+      "event": "token_count_unsupported",
+      "input_bytes": 6445,
+      "reserved_input_tokens": 300000,
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "at": "2026-10-06T12:17:36.592433+00:00",
+      "event": "model_started",
+      "input_tokens": null,
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "at": "2026-10-06T12:17:37.133038+00:00",
+      "event": "model_finished",
+      "input_tokens": 2224,
+      "output_tokens": 32,
+      "request_id": "4b8378b9-1c39-424d-bf6d-75199d368ff3",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "at": "2026-10-06T12:17:37.133437+00:00",
+      "event": "native_response",
+      "proposed_decisions": 1,
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "stop_reason": "tool_use",
+      "unused_decisions": 0
+    },
+    {
+      "at": "2026-10-06T12:17:37.133696+00:00",
+      "boundary": "output",
+      "call": 6,
+      "event": "guardrail_started",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "action": "NONE",
+      "at": "2026-10-06T12:17:37.307189+00:00",
+      "boundary": "output",
+      "call": 6,
+      "coverage": {
+        "guarded": 174,
+        "total": 174
+      },
+      "event": "guardrail_finished",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "request_id": "84b514a6-d9e9-44ad-bf81-7932e782d928",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "usage": {
+        "automatedReasoningPolicies": 0,
+        "automatedReasoningPolicyUnits": 0,
+        "contentPolicyUnits": 1,
+        "contextualGroundingPolicyUnits": 0,
+        "sensitiveInformationPolicyFreeUnits": 1,
+        "sensitiveInformationPolicyUnits": 0,
+        "topicPolicyUnits": 0,
+        "wordPolicyUnits": 0
+      }
+    },
+    {
+      "at": "2026-10-06T12:17:37.308074+00:00",
+      "attempt": 1,
+      "event": "lambda_started",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "tool": "get_recent_logs"
+    },
+    {
+      "at": "2026-10-06T12:17:38.648072+00:00",
+      "attempt": 1,
+      "event": "lambda_finished",
+      "latency_ms": 1339,
+      "request_id": "be3734e8-481d-4877-b6f1-a967aa88546f",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "tool": "get_recent_logs"
+    },
+    {
+      "at": "2026-10-06T12:17:38.648476+00:00",
+      "boundary": "source",
+      "call": 7,
+      "event": "guardrail_started",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "action": "NONE",
+      "at": "2026-10-06T12:17:38.837394+00:00",
+      "boundary": "source",
+      "call": 7,
+      "coverage": {
+        "guarded": 467,
+        "total": 467
+      },
+      "event": "guardrail_finished",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "request_id": "6eea6daf-406a-48c9-8a41-25058d5b7888",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "usage": {
+        "automatedReasoningPolicies": 0,
+        "automatedReasoningPolicyUnits": 0,
+        "contentPolicyUnits": 1,
+        "contextualGroundingPolicyUnits": 0,
+        "sensitiveInformationPolicyFreeUnits": 1,
+        "sensitiveInformationPolicyUnits": 0,
+        "topicPolicyUnits": 0,
+        "wordPolicyUnits": 0
+      }
+    },
+    {
+      "adapter_prompt_version": "p06-v2-native",
+      "at": "2026-10-06T12:17:38.847328+00:00",
+      "event": "prompt_built",
+      "response_phase": "decide",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "system_sha256": "8aea40fd7502ff57d53451e487b89299e5e6bd20a1ab43fc6b7a26d0f4d33763",
+      "tool_schema_sha256": "9188a61e1ad0d7a920d8ec89307f6ee687efbaf317c6bfa0e139ef47e1df3740"
+    },
+    {
+      "at": "2026-10-06T12:17:38.895579+00:00",
+      "event": "token_count_unsupported",
+      "input_bytes": 6959,
+      "reserved_input_tokens": 300000,
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "at": "2026-10-06T12:17:38.895690+00:00",
+      "event": "model_started",
+      "input_tokens": null,
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "at": "2026-10-06T12:17:39.648033+00:00",
+      "event": "model_finished",
+      "input_tokens": 2419,
+      "output_tokens": 29,
+      "request_id": "06e2ffd8-b568-49c4-b22f-56f79d58ea0a",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "at": "2026-10-06T12:17:39.648463+00:00",
+      "event": "native_response",
+      "proposed_decisions": 1,
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "stop_reason": "tool_use",
+      "unused_decisions": 0
+    },
+    {
+      "at": "2026-10-06T12:17:39.648717+00:00",
+      "boundary": "output",
+      "call": 8,
+      "event": "guardrail_started",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "action": "NONE",
+      "at": "2026-10-06T12:17:39.822816+00:00",
+      "boundary": "output",
+      "call": 8,
+      "coverage": {
+        "guarded": 194,
+        "total": 194
+      },
+      "event": "guardrail_finished",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "request_id": "778cd271-5463-46e5-8c00-9e4aab518e71",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "usage": {
+        "automatedReasoningPolicies": 0,
+        "automatedReasoningPolicyUnits": 0,
+        "contentPolicyUnits": 1,
+        "contextualGroundingPolicyUnits": 0,
+        "sensitiveInformationPolicyFreeUnits": 1,
+        "sensitiveInformationPolicyUnits": 0,
+        "topicPolicyUnits": 0,
+        "wordPolicyUnits": 0
+      }
+    },
+    {
+      "at": "2026-10-06T12:17:39.823736+00:00",
+      "event": "retrieval_started",
+      "knowledge_base_id": "XKVH8PLCHO",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "at": "2026-10-06T12:17:40.118643+00:00",
+      "event": "retrieval_finished",
+      "knowledge_base_id": "XKVH8PLCHO",
+      "passages": [
+        {
+          "id": "rb-dependency-p1",
+          "score": 0.6432947516441345,
+          "sha256": "485a82e6e24ec3d80d3de8306277e8f72dfcea236b3b68e4aa93765ec3ec622f",
+          "status": "current"
+        },
+        {
+          "id": "rb-rollback-p1",
+          "score": 0.6351923048496246,
+          "sha256": "f0b2db64fdaa8adcc61fde844eaa460f968f00c88f08d60f30f809a01a6bcb4b",
+          "status": "current"
+        },
+        {
+          "id": "rb-rollback-disputed-p1",
+          "score": 0.5926022529602051,
+          "sha256": "9b3bc7d0837e8ee317d8f21dd97118daf477a3bacc69c5438213a10ef5df5055",
+          "status": "conflicting"
+        }
+      ],
+      "request_id": "3cec9de9-adc6-4ea8-9a9e-c8952d25a78a",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "at": "2026-10-06T12:17:40.118957+00:00",
+      "boundary": "source",
+      "call": 9,
+      "event": "guardrail_started",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "action": "NONE",
+      "at": "2026-10-06T12:17:40.306951+00:00",
+      "boundary": "source",
+      "call": 9,
+      "coverage": {
+        "guarded": 987,
+        "total": 987
+      },
+      "event": "guardrail_finished",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "request_id": "9c876d8d-7c32-4b9b-935b-27ca2c52ed15",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "usage": {
+        "automatedReasoningPolicies": 0,
+        "automatedReasoningPolicyUnits": 0,
+        "contentPolicyUnits": 1,
+        "contextualGroundingPolicyUnits": 0,
+        "sensitiveInformationPolicyFreeUnits": 1,
+        "sensitiveInformationPolicyUnits": 0,
+        "topicPolicyUnits": 0,
+        "wordPolicyUnits": 0
+      }
+    },
+    {
+      "at": "2026-10-06T12:17:40.307343+00:00",
+      "boundary": "source",
+      "call": 10,
+      "event": "guardrail_started",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "action": "NONE",
+      "at": "2026-10-06T12:17:40.531551+00:00",
+      "boundary": "source",
+      "call": 10,
+      "coverage": {
+        "guarded": 1481,
+        "total": 1481
+      },
+      "event": "guardrail_finished",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "request_id": "04481cad-aa09-4a46-b6b8-7ccbca32c70a",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "usage": {
+        "automatedReasoningPolicies": 0,
+        "automatedReasoningPolicyUnits": 0,
+        "contentPolicyUnits": 2,
+        "contextualGroundingPolicyUnits": 0,
+        "sensitiveInformationPolicyFreeUnits": 2,
+        "sensitiveInformationPolicyUnits": 0,
+        "topicPolicyUnits": 0,
+        "wordPolicyUnits": 0
+      }
+    },
+    {
+      "at": "2026-10-06T12:17:40.531897+00:00",
+      "boundary": "source",
+      "call": 11,
+      "event": "guardrail_started",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "action": "NONE",
+      "at": "2026-10-06T12:17:40.759048+00:00",
+      "boundary": "source",
+      "call": 11,
+      "coverage": {
+        "guarded": 1008,
+        "total": 1008
+      },
+      "event": "guardrail_finished",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "request_id": "7c680707-9e02-4586-8e87-3e037c9c35ec",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "usage": {
+        "automatedReasoningPolicies": 0,
+        "automatedReasoningPolicyUnits": 0,
+        "contentPolicyUnits": 2,
+        "contextualGroundingPolicyUnits": 0,
+        "sensitiveInformationPolicyFreeUnits": 2,
+        "sensitiveInformationPolicyUnits": 0,
+        "topicPolicyUnits": 0,
+        "wordPolicyUnits": 0
+      }
+    },
+    {
+      "adapter_prompt_version": "p06-v2-native",
+      "at": "2026-10-06T12:17:40.768699+00:00",
+      "event": "prompt_built",
+      "response_phase": "final",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "system_sha256": "e54bbaa23dff24ce4ac02c0e0049b599b6fd1e3ce2368f65fa7202db7883042e",
+      "tool_schema_sha256": "b67b6f0455d122badcda3d4868a344eadc69a0c2e2549ead003b999c263ccaf4"
+    },
+    {
+      "at": "2026-10-06T12:17:40.808881+00:00",
+      "event": "token_count_unsupported",
+      "input_bytes": 9526,
+      "reserved_input_tokens": 300000,
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "at": "2026-10-06T12:17:40.808968+00:00",
+      "event": "model_started",
+      "input_tokens": null,
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "at": "2026-10-06T12:17:43.355988+00:00",
+      "event": "model_finished",
+      "input_tokens": 3166,
+      "output_tokens": 345,
+      "request_id": "ae3b9389-ab74-41ec-812b-31469914717c",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "at": "2026-10-06T12:17:43.356377+00:00",
+      "event": "native_response",
+      "proposed_decisions": 1,
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "stop_reason": "tool_use",
+      "unused_decisions": 0
+    },
+    {
+      "at": "2026-10-06T12:17:43.356756+00:00",
+      "boundary": "output",
+      "call": 12,
+      "event": "guardrail_started",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    {
+      "action": "NONE",
+      "at": "2026-10-06T12:17:43.584907+00:00",
+      "boundary": "output",
+      "call": 12,
+      "coverage": {
+        "guarded": 1208,
+        "total": 1208
+      },
+      "event": "guardrail_finished",
+      "guardrail_id": "a4aiug3xzh6e",
+      "guardrail_version": "1",
+      "request_id": "69693f90-dad9-489e-a481-2ab6baf9b53d",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "usage": {
+        "automatedReasoningPolicies": 0,
+        "automatedReasoningPolicyUnits": 0,
+        "contentPolicyUnits": 2,
+        "contextualGroundingPolicyUnits": 0,
+        "sensitiveInformationPolicyFreeUnits": 2,
+        "sensitiveInformationPolicyUnits": 0,
+        "topicPolicyUnits": 0,
+        "wordPolicyUnits": 0
+      }
+    }
+  ],
+  "guardrail_policy": {
+    "id": "a4aiug3xzh6e",
+    "version": "1"
+  },
+  "mode": "aws_live",
+  "reserved_usd": "0.75",
+  "result": {
+    "active_latency_ms": 12045,
+    "evidence": [
+      {
+        "collected_at": "2026-10-01T12:05:00Z",
+        "complete": true,
+        "content_hash": "19fdce4867c76f03895ca46f5e70641437478de0327ffceaf0ef5b8ec98e1992",
+        "evidence_id": "obs-001-health",
+        "payload": {
+          "dependency_state": "healthy",
+          "error_rate": 0.25,
+          "kind": "health",
+          "latency_p95_ms": 1700.0,
+          "observed_at": "2026-10-01T12:04:00Z",
+          "release": "release-42",
+          "service_id": "checkout-api"
+        },
+        "sanitized": true,
+        "source": "get_service_health",
+        "source_version": "fixtures-1.0.0"
+      },
+      {
+        "collected_at": "2026-10-01T12:05:00Z",
+        "complete": true,
+        "content_hash": "9d04ff37b2e1ddedc283b089a8a5e452e7e922984edaf97eb99c84ffeab7221f",
+        "evidence_id": "obs-001-changes",
+        "payload": {
+          "items": [
+            {
+              "change_id": "change-001",
+              "changed_at": "2026-10-01T11:55:00Z",
+              "kind": "deployment",
+              "release": "release-42",
+              "summary": "Checkout release-42 deployed; release-41 baseline error rate was 0.003."
+            }
+          ],
+          "kind": "changes",
+          "service_id": "checkout-api"
+        },
+        "sanitized": true,
+        "source": "get_recent_changes",
+        "source_version": "fixtures-1.0.0"
+      },
+      {
+        "collected_at": "2026-10-01T12:05:00Z",
+        "complete": true,
+        "content_hash": "ede9bfd04b44cfdd3ca8e1b4e8258a8aa7044e18d057ff9d0ac80a101d5bc6ae",
+        "evidence_id": "obs-001-logs",
+        "payload": {
+          "entries": [
+            {
+              "message": "release-42 checkout serializer raises TypeError; same requests succeeded on release-41.",
+              "observed_at": "2026-10-01T12:03:00Z"
+            }
+          ],
+          "kind": "logs",
+          "service_id": "checkout-api",
+          "truncated": false
+        },
+        "sanitized": true,
+        "source": "get_recent_logs",
+        "source_version": "fixtures-1.0.0"
+      },
+      {
+        "collected_at": "2026-10-01T12:05:00Z",
+        "complete": true,
+        "content_hash": "485a82e6e24ec3d80d3de8306277e8f72dfcea236b3b68e4aa93765ec3ec622f",
+        "evidence_id": "kb-rb-dependency-p1",
+        "payload": {
+          "document_id": "rb-dependency",
+          "excerpt": "# Dependency degradation\n\nWhen checkout errors coincide with an unhealthy payment dependency or upstream timeouts, record the dependency evidence and escalate to its owner. A recent checkout deployment does not prove causation. Do not roll back checkout solely to treat an upstream outage. Collect timestamps, timeout excerpts and dependency health; if dependency health is unknown, request it. Never claim that a dependency recovered without new observations.",
+          "kind": "runbook",
+          "owner": "payments-operations",
+          "passage_id": "rb-dependency-p1",
+          "service_id": "checkout-api",
+          "status": "current",
+          "valid_from": "2026-08-01T00:00:00Z",
+          "valid_until": "2027-01-01T00:00:00Z",
+          "version": "1.0.0"
+        },
+        "sanitized": true,
+        "source": "retrieve_runbook",
+        "source_version": "kb-corpus-1.0.0"
+      },
+      {
+        "collected_at": "2026-10-01T12:05:00Z",
+        "complete": true,
+        "content_hash": "f0b2db64fdaa8adcc61fde844eaa460f968f00c88f08d60f30f809a01a6bcb4b",
+        "evidence_id": "kb-rb-rollback-p1",
+        "payload": {
+          "document_id": "rb-rollback",
+          "excerpt": "# Checkout release rollback\n\nScope: checkout-api sandbox only. A rollback proposal may target release-41 only when the current release is release-42, recent complete observations show elevated errors, dependencies are healthy, and logs corroborate a defect introduced by that deployment. Temporal correlation alone is insufficient. Read health, recent changes and logs. Health and relevant error observations must be no older than five minutes at investigation time. Changes can be collected over a bounded 120-minute window. If evidence is absent, contradictory, stale or dependencies are degraded, escalate for more evidence.\n\nThe investigator proposes; an independently authorized human approves the exact proposal hash before its expiry. Only the executor can conditionally update sandbox state. No shell command or real deployment is permitted. A receipt means a synthetic state transition, not recovery; obtain a separate subsequent health observation.",
+          "kind": "runbook",
+          "owner": "checkout-operations",
+          "passage_id": "rb-rollback-p1",
+          "service_id": "checkout-api",
+          "status": "current",
+          "valid_from": "2026-08-01T00:00:00Z",
+          "valid_until": "2027-01-01T00:00:00Z",
+          "version": "2.0.0"
+        },
+        "sanitized": true,
+        "source": "retrieve_runbook",
+        "source_version": "kb-corpus-1.0.0"
+      },
+      {
+        "collected_at": "2026-10-01T12:05:00Z",
+        "complete": true,
+        "content_hash": "9b3bc7d0837e8ee317d8f21dd97118daf477a3bacc69c5438213a10ef5df5055",
+        "evidence_id": "kb-rb-rollback-disputed-p1",
+        "payload": {
+          "document_id": "rb-rollback-disputed",
+          "excerpt": "# Unresolved migration rollback note\n\nUNRESOLVED CONFLICT: this migration note says checkout rollback is prohibited because a schema migration might be irreversible. It conflicts with the current sandbox release runbook. No schema-migration verification is attached. When this passage applies to the incident and remains unresolved, seek clarification from checkout-operations and escalate instead of silently selecting the more convenient instruction.",
+          "kind": "runbook",
+          "owner": "migration-working-group",
+          "passage_id": "rb-rollback-disputed-p1",
+          "service_id": "checkout-api",
+          "status": "conflicting",
+          "valid_from": "2026-08-01T00:00:00Z",
+          "valid_until": "2027-01-01T00:00:00Z",
+          "version": "0.9.0"
+        },
+        "sanitized": true,
+        "source": "retrieve_runbook",
+        "source_version": "kb-corpus-1.0.0"
+      }
+    ],
+    "investigation": {
+      "facts": [
+        {
+          "evidence_ids": [
+            "obs-001-health"
+          ],
+          "statement": "Checkout API errors have increased."
+        },
+        {
+          "evidence_ids": [
+            "obs-001-changes"
+          ],
+          "statement": "Checkout API release-42 deployed."
+        },
+        {
+          "evidence_ids": [
+            "obs-001-logs"
+          ],
+          "statement": "Checkout API logs indicate a TypeError in release-42."
+        },
+        {
+          "evidence_ids": [
+            "kb-rb-rollback-disputed-p1"
+          ],
+          "statement": "Runbook guidance on rollback is conflicting."
+        }
+      ],
+      "hypotheses": [
+        {
+          "cause": "Deployment of release-42 introduced a defect.",
+          "contradicting_evidence": [
+            "kb-rb-rollback-disputed-p1"
+          ],
+          "status": "candidate",
+          "supporting_evidence": [
+            "obs-001-changes",
+            "obs-001-logs"
+          ]
+        },
+        {
+          "cause": "Unhealthy dependency causing checkout errors.",
+          "contradicting_evidence": [
+            "obs-001-health"
+          ],
+          "status": "pruned",
+          "supporting_evidence": []
+        }
+      ],
+      "justification": "The conflicting rollback guidance and lack of dependency health verification prevent a definitive rollback proposal.",
+      "missing_information": [
+        "dependency health verification",
+        "confirmation of rollback guidance"
+      ],
+      "next_check": "Verify dependency health and seek clarification on conflicting rollback guidance.",
+      "outcome": "escalate",
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa"
+    },
+    "mode": "aws_live",
+    "provider_calls": 5,
+    "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+    "status": "complete",
+    "stop_reason": "finished",
+    "trace": [
+      {
+        "branches": [],
+        "call": null,
+        "detail": "input: pass",
+        "event": "boundary_checked",
+        "phase": "gather",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": null,
+        "detail": "Live model attempt 1",
+        "event": "provider_attempt",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": null,
+        "detail": "output: pass",
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": {
+          "arguments": {
+            "service_id": "checkout-api"
+          },
+          "name": "get_service_health"
+        },
+        "detail": "Collect observations with get_service_health",
+        "event": "tool_selected",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": {
+          "arguments": {
+            "service_id": "checkout-api"
+          },
+          "name": "get_service_health"
+        },
+        "detail": "attempt 1",
+        "event": "tool_attempt",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": null,
+        "detail": "source: pass",
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": {
+          "arguments": {
+            "service_id": "checkout-api"
+          },
+          "name": "get_service_health"
+        },
+        "detail": "Validated observations collected",
+        "event": "tool_observed",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": null,
+        "detail": "Live model attempt 1",
+        "event": "provider_attempt",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": null,
+        "detail": "output: pass",
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": {
+          "arguments": {
+            "service_id": "checkout-api",
+            "window_minutes": 60
+          },
+          "name": "get_recent_changes"
+        },
+        "detail": "Collect observations with get_recent_changes",
+        "event": "tool_selected",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": {
+          "arguments": {
+            "service_id": "checkout-api",
+            "window_minutes": 60
+          },
+          "name": "get_recent_changes"
+        },
+        "detail": "attempt 1",
+        "event": "tool_attempt",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": null,
+        "detail": "source: pass",
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": {
+          "arguments": {
+            "service_id": "checkout-api",
+            "window_minutes": 60
+          },
+          "name": "get_recent_changes"
+        },
+        "detail": "Validated observations collected",
+        "event": "tool_observed",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": null,
+        "detail": "Live model attempt 1",
+        "event": "provider_attempt",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": null,
+        "detail": "output: pass",
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": {
+          "arguments": {
+            "filter": "errors",
+            "limit": 20,
+            "service_id": "checkout-api"
+          },
+          "name": "get_recent_logs"
+        },
+        "detail": "Collect observations with get_recent_logs",
+        "event": "tool_selected",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": {
+          "arguments": {
+            "filter": "errors",
+            "limit": 20,
+            "service_id": "checkout-api"
+          },
+          "name": "get_recent_logs"
+        },
+        "detail": "attempt 1",
+        "event": "tool_attempt",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": null,
+        "detail": "source: pass",
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": {
+          "arguments": {
+            "filter": "errors",
+            "limit": 20,
+            "service_id": "checkout-api"
+          },
+          "name": "get_recent_logs"
+        },
+        "detail": "Validated observations collected",
+        "event": "tool_observed",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": null,
+        "detail": "Live model attempt 1",
+        "event": "provider_attempt",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": null,
+        "detail": "output: pass",
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": {
+          "arguments": {
+            "limit": 3,
+            "query": "checkout serializer raises TypeError",
+            "service_id": "checkout-api"
+          },
+          "name": "retrieve_runbook"
+        },
+        "detail": "Collect observations with retrieve_runbook",
+        "event": "tool_selected",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": {
+          "arguments": {
+            "limit": 3,
+            "query": "checkout serializer raises TypeError",
+            "service_id": "checkout-api"
+          },
+          "name": "retrieve_runbook"
+        },
+        "detail": "attempt 1",
+        "event": "tool_attempt",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": null,
+        "detail": "source: pass",
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": null,
+        "detail": "source: pass",
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": null,
+        "detail": "source: pass",
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": {
+          "arguments": {
+            "limit": 3,
+            "query": "checkout serializer raises TypeError",
+            "service_id": "checkout-api"
+          },
+          "name": "retrieve_runbook"
+        },
+        "detail": "Validated observations collected",
+        "event": "tool_observed",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": null,
+        "detail": "Live model attempt 1",
+        "event": "provider_attempt",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": null,
+        "detail": "output: pass",
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0
+      },
+      {
+        "branches": [],
+        "call": null,
+        "detail": "Accepted structured escalate; semantic support still needs review",
+        "event": "finished",
+        "phase": "decide",
+        "round": 0
+      }
+    ],
+    "usage": {
+      "input_tokens": 11622,
+      "model_calls": 5,
+      "output_tokens": 458,
+      "tool_calls": 4
+    },
+    "variant": "V1"
+  },
+  "retrieval": {
+    "corpus_version": "1.0.0",
+    "knowledge_base_id": "XKVH8PLCHO",
+    "search_type": "SEMANTIC"
+  },
+  "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+  "schema_version": "p06-v1",
+  "settings": {
+    "limits": {
+      "candidates": 2,
+      "deadline_seconds": 120.0,
+      "expansion_rounds": 2,
+      "model_calls": 6,
+      "retries": 1,
+      "tool_calls": 8
+    },
+    "max_output_tokens": 1500,
+    "mode": "aws_live",
+    "model": "us.amazon.nova-lite-v1:0",
+    "temperature": 0.0
+  },
+  "synthetic_telemetry": true,
+  "usage_complete": true,
+  "worker_latency_ms": 14183
+}

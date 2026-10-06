@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-06T12:23:34.381790+00:00",
+  "application_tests_passed": 168,
+  "infrastructure_tests_passed": 19,
+  "ruff": "passed",
+  "live_acceptance": "passed with documented Gateway access-log limitation",
+  "workflow_control_checks_passed": 45,
+  "readback_checks_passed": 33,
+  "real_investigation_outcome": "escalated; no sandbox mutation",
+  "p07_reservations_usd": "2.25",
+  "total_local_reservations_usd": "14.45",
+  "infrastructure_reserve_usd": "10.00",
+  "final_cdk_diff": "no differences",
+  "cloudformation_drift": "IN_SYNC",
+  "p08_started": false
+}

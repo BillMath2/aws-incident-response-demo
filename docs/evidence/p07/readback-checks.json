@@ -1,0 +1,134 @@
+[
+  {
+    "check": "stack complete",
+    "passed": true
+  },
+  {
+    "check": "termination protection",
+    "passed": true
+  },
+  {
+    "check": "all four routes use IAM",
+    "passed": true
+  },
+  {
+    "check": "API throttled with detailed metrics",
+    "passed": true
+  },
+  {
+    "check": "Standard workflow",
+    "passed": true
+  },
+  {
+    "check": "no execution data in logs",
+    "passed": true
+  },
+  {
+    "check": "bounded workflow",
+    "passed": true
+  },
+  {
+    "check": "bus active",
+    "passed": true
+  },
+  {
+    "check": "subscriber active with bounded retry and DLQ",
+    "passed": true
+  },
+  {
+    "check": "runs encrypted/deletion protected",
+    "passed": true
+  },
+  {
+    "check": "runs PITR enabled",
+    "passed": true
+  },
+  {
+    "check": "approvals encrypted/deletion protected",
+    "passed": true
+  },
+  {
+    "check": "approvals PITR enabled",
+    "passed": true
+  },
+  {
+    "check": "sandbox encrypted/deletion protected",
+    "passed": true
+  },
+  {
+    "check": "sandbox PITR enabled",
+    "passed": true
+  },
+  {
+    "check": "analyst denied executor invoke",
+    "passed": true
+  },
+  {
+    "check": "analyst denied callback",
+    "passed": true
+  },
+  {
+    "check": "analyst denied approval read",
+    "passed": true
+  },
+  {
+    "check": "analyst denied workflow history",
+    "passed": true
+  },
+  {
+    "check": "approver denied executor invoke",
+    "passed": true
+  },
+  {
+    "check": "approver denied callback",
+    "passed": true
+  },
+  {
+    "check": "approver denied approval read",
+    "passed": true
+  },
+  {
+    "check": "approver denied workflow history",
+    "passed": true
+  },
+  {
+    "check": "tester denied executor invoke",
+    "passed": true
+  },
+  {
+    "check": "tester denied callback",
+    "passed": true
+  },
+  {
+    "check": "tester denied approval read",
+    "passed": true
+  },
+  {
+    "check": "tester denied workflow history",
+    "passed": true
+  },
+  {
+    "check": "callback probe closed through signed rejection",
+    "passed": true
+  },
+  {
+    "check": "callback probe performed no action",
+    "passed": true
+  },
+  {
+    "check": "eleven separate Lambda roles",
+    "passed": true
+  },
+  {
+    "check": "one tested package",
+    "passed": true
+  },
+  {
+    "check": "deployed package matches local build",
+    "passed": true
+  },
+  {
+    "check": "bounded Lambda timeouts",
+    "passed": true
+  }
+]

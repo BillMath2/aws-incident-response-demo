@@ -1,0 +1,104 @@
+{
+  "run": {
+    "artifact": {
+      "key": "runs/p07/p07-b0b557f6f18bbcc84ef86015427806267464aefa/investigation.json",
+      "sha256": "8c011935ac998f6d4531178f3722d232f176c8a7a0f53f6828b160823cd700c9"
+    },
+    "history": [
+      {
+        "at": "2026-10-06T12:16:56.850291+00:00",
+        "status": "pending"
+      },
+      {
+        "at": "2026-10-06T12:17:26.454849+00:00",
+        "status": "investigating"
+      },
+      {
+        "at": "2026-10-06T12:17:44.159344+00:00",
+        "status": "escalated"
+      }
+    ],
+    "principal": "arn:aws:iam::498084841421:role/incident-demo-p07-analyst",
+    "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+    "scenario": "investigate",
+    "session_arn": "arn:aws:sts::498084841421:assumed-role/incident-demo-p07-analyst/p07-signed-cli",
+    "status": "escalated",
+    "_v": 3
+  },
+  "approval": null,
+  "service": {
+    "release": "release-42",
+    "revision": 0,
+    "service_id": "checkout-api",
+    "_v": 1
+  },
+  "receipt": null,
+  "execution_events": [
+    {
+      "id": 1,
+      "type": "ExecutionStarted",
+      "timestamp": "2026-10-06T08:17:26.344000-04:00",
+      "state": null
+    },
+    {
+      "id": 2,
+      "type": "TaskStateEntered",
+      "timestamp": "2026-10-06T08:17:26.362000-04:00",
+      "state": "Investigate"
+    },
+    {
+      "id": 3,
+      "type": "LambdaFunctionScheduled",
+      "timestamp": "2026-10-06T08:17:26.362000-04:00",
+      "state": null
+    },
+    {
+      "id": 4,
+      "type": "LambdaFunctionStarted",
+      "timestamp": "2026-10-06T08:17:26.421000-04:00",
+      "state": null
+    },
+    {
+      "id": 5,
+      "type": "LambdaFunctionSucceeded",
+      "timestamp": "2026-10-06T08:17:44.200000-04:00",
+      "state": null
+    },
+    {
+      "id": 6,
+      "type": "TaskStateExited",
+      "timestamp": "2026-10-06T08:17:44.214000-04:00",
+      "state": null
+    },
+    {
+      "id": 7,
+      "type": "ChoiceStateEntered",
+      "timestamp": "2026-10-06T08:17:44.214000-04:00",
+      "state": "Proposal?"
+    },
+    {
+      "id": 8,
+      "type": "ChoiceStateExited",
+      "timestamp": "2026-10-06T08:17:44.214000-04:00",
+      "state": null
+    },
+    {
+      "id": 9,
+      "type": "SucceedStateEntered",
+      "timestamp": "2026-10-06T08:17:44.214000-04:00",
+      "state": "Done"
+    },
+    {
+      "id": 10,
+      "type": "SucceedStateExited",
+      "timestamp": "2026-10-06T08:17:44.214000-04:00",
+      "state": null
+    },
+    {
+      "id": 11,
+      "type": "ExecutionSucceeded",
+      "timestamp": "2026-10-06T08:17:44.241000-04:00",
+      "state": null
+    }
+  ]
+}

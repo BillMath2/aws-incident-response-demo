@@ -46,6 +46,7 @@ def main():
     parser.add_argument("action", choices=["synth", "diff", "deploy", "bootstrap", "identity"])
     parser.add_argument("--live", action="store_true", help="target the P05 stack with a built ZIP")
     parser.add_argument("--retrieval", action="store_true", help="target the P06 retrieval stack")
+    parser.add_argument("--workflow", action="store_true", help="target the P07 workflow stack")
     args = parser.parse_args()
     config = load_config()
     if args.live:
@@ -71,6 +72,13 @@ def main():
         )
     if args.retrieval:
         env["P06_RETRIEVAL"] = "1"
+    if args.workflow:
+        manifest = json.loads((ROOT.parent / ".tools/p07-build/package.json").read_text())
+        env["P07_PACKAGE"] = manifest["zip"]
+        env["P07_REQUEST"] = json.dumps(manifest["live_request"])
+        env["P07_LIVE"] = json.dumps(
+            json.loads((ROOT / "cdk.out/live-outputs.json").read_text())["incident-demo-live"]
+        )
     node = shutil.which("node")
     cdk = ROOT / "node_modules/aws-cdk/bin/cdk"
     if not node or not cdk.exists():
@@ -92,7 +100,9 @@ def main():
         ]
     else:
         command += [
-            "incident-demo-retrieval"
+            "incident-demo-workflow"
+            if args.workflow
+            else "incident-demo-retrieval"
             if args.retrieval
             else "incident-demo-live"
             if args.live
@@ -105,8 +115,10 @@ def main():
             outputs = "cdk.out/live-outputs.json" if args.live else "cdk.out/outputs.json"
             if args.retrieval:
                 outputs = "cdk.out/retrieval-outputs.json"
+            if args.workflow:
+                outputs = "cdk.out/workflow-outputs.json"
             command += ["--require-approval", "never", "--outputs-file", outputs]
-            if args.live or args.retrieval:
+            if args.live or args.retrieval or args.workflow:
                 command += ["--no-rollback"]
     command += ["--profile", config["profile"], "--no-notices"]
     subprocess.run(command, cwd=ROOT, env=env, check=True)

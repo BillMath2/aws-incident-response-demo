@@ -1,0 +1,204 @@
+{
+  "run": {
+    "artifact": {
+      "key": "runs/p07/p07-29fc92017c9a8cf5b1bf74008eb32e9ea9dff2a5/investigation.json",
+      "sha256": "0015ad8e7fcc42a6048f0b53e8ed1795246f2ddc9fbc164572bc1d1b130fca17"
+    },
+    "history": [
+      {
+        "at": "2026-10-06T12:13:44.957688+00:00",
+        "status": "pending"
+      },
+      {
+        "at": "2026-10-06T12:14:26.514971+00:00",
+        "status": "investigating"
+      },
+      {
+        "at": "2026-10-06T12:14:26.646858+00:00",
+        "status": "proposal_ready"
+      },
+      {
+        "at": "2026-10-06T12:14:26.838725+00:00",
+        "status": "awaiting_approval"
+      },
+      {
+        "at": "2026-10-06T12:14:56.899625+00:00",
+        "status": "expired"
+      }
+    ],
+    "principal": "arn:aws:iam::498084841421:role/incident-demo-p07-tester",
+    "proposal": {
+      "action": "rollback_demo_release",
+      "arguments": {
+        "service_id": "checkout-api",
+        "target_release": "release-41"
+      },
+      "created_at": "2026-10-06T12:14:26.646858Z",
+      "evidence_ids": [
+        "control-policy-fixture"
+      ],
+      "expected_current_release": "release-42",
+      "expires_at": "2026-10-06T12:14:56.646858Z",
+      "proposal_hash": "6f68ff5a17dedc078f6f8b0c4c4034340892bbe378bebead48eaa5de95913b70",
+      "proposal_id": "proposal-p07-29fc92017c9a8cf5b1bf74008eb32e9ea9dff2a5",
+      "run_id": "p07-29fc92017c9a8cf5b1bf74008eb32e9ea9dff2a5"
+    },
+    "run_id": "p07-29fc92017c9a8cf5b1bf74008eb32e9ea9dff2a5",
+    "scenario": "control-expiry",
+    "session_arn": "arn:aws:sts::498084841421:assumed-role/incident-demo-p07-tester/p07-signed-cli",
+    "status": "expired",
+    "_v": 5
+  },
+  "approval": {
+    "approval_id": "approval-p07-29fc92017c9a8cf5b1bf74008eb32e9ea9dff2a5",
+    "authorized_service": "checkout-api",
+    "callback": "closed",
+    "expires": 1791288896,
+    "proposal_hash": "6f68ff5a17dedc078f6f8b0c4c4034340892bbe378bebead48eaa5de95913b70",
+    "proposal_id": "proposal-p07-29fc92017c9a8cf5b1bf74008eb32e9ea9dff2a5",
+    "run_id": "p07-29fc92017c9a8cf5b1bf74008eb32e9ea9dff2a5",
+    "status": "closed",
+    "_v": 2
+  },
+  "service": {
+    "release": "release-42",
+    "revision": 0,
+    "service_id": "checkout-api",
+    "_v": 1
+  },
+  "receipt": null,
+  "execution_events": [
+    {
+      "id": 1,
+      "type": "ExecutionStarted",
+      "timestamp": "2026-10-06T08:14:26.397000-04:00",
+      "state": null
+    },
+    {
+      "id": 2,
+      "type": "TaskStateEntered",
+      "timestamp": "2026-10-06T08:14:26.417000-04:00",
+      "state": "Investigate"
+    },
+    {
+      "id": 3,
+      "type": "LambdaFunctionScheduled",
+      "timestamp": "2026-10-06T08:14:26.417000-04:00",
+      "state": null
+    },
+    {
+      "id": 4,
+      "type": "LambdaFunctionStarted",
+      "timestamp": "2026-10-06T08:14:26.481000-04:00",
+      "state": null
+    },
+    {
+      "id": 5,
+      "type": "LambdaFunctionSucceeded",
+      "timestamp": "2026-10-06T08:14:26.676000-04:00",
+      "state": null
+    },
+    {
+      "id": 6,
+      "type": "TaskStateExited",
+      "timestamp": "2026-10-06T08:14:26.689000-04:00",
+      "state": null
+    },
+    {
+      "id": 7,
+      "type": "ChoiceStateEntered",
+      "timestamp": "2026-10-06T08:14:26.689000-04:00",
+      "state": "Proposal?"
+    },
+    {
+      "id": 8,
+      "type": "ChoiceStateExited",
+      "timestamp": "2026-10-06T08:14:26.689000-04:00",
+      "state": null
+    },
+    {
+      "id": 9,
+      "type": "TaskStateEntered",
+      "timestamp": "2026-10-06T08:14:26.689000-04:00",
+      "state": "Approval"
+    },
+    {
+      "id": 10,
+      "type": "TaskScheduled",
+      "timestamp": "2026-10-06T08:14:26.689000-04:00",
+      "state": null
+    },
+    {
+      "id": 11,
+      "type": "TaskStarted",
+      "timestamp": "2026-10-06T08:14:26.759000-04:00",
+      "state": null
+    },
+    {
+      "id": 12,
+      "type": "TaskSubmitted",
+      "timestamp": "2026-10-06T08:14:26.864000-04:00",
+      "state": null
+    },
+    {
+      "id": 13,
+      "type": "TaskTimedOut",
+      "timestamp": "2026-10-06T08:14:56.759000-04:00",
+      "state": null
+    },
+    {
+      "id": 14,
+      "type": "TaskStateExited",
+      "timestamp": "2026-10-06T08:14:56.770000-04:00",
+      "state": null
+    },
+    {
+      "id": 15,
+      "type": "TaskStateEntered",
+      "timestamp": "2026-10-06T08:14:56.770000-04:00",
+      "state": "Expired"
+    },
+    {
+      "id": 16,
+      "type": "LambdaFunctionScheduled",
+      "timestamp": "2026-10-06T08:14:56.770000-04:00",
+      "state": null
+    },
+    {
+      "id": 17,
+      "type": "LambdaFunctionStarted",
+      "timestamp": "2026-10-06T08:14:56.830000-04:00",
+      "state": null
+    },
+    {
+      "id": 18,
+      "type": "LambdaFunctionSucceeded",
+      "timestamp": "2026-10-06T08:14:56.948000-04:00",
+      "state": null
+    },
+    {
+      "id": 19,
+      "type": "TaskStateExited",
+      "timestamp": "2026-10-06T08:14:56.968000-04:00",
+      "state": null
+    },
+    {
+      "id": 20,
+      "type": "SucceedStateEntered",
+      "timestamp": "2026-10-06T08:14:56.968000-04:00",
+      "state": "Done"
+    },
+    {
+      "id": 21,
+      "type": "SucceedStateExited",
+      "timestamp": "2026-10-06T08:14:56.968000-04:00",
+      "state": null
+    },
+    {
+      "id": 22,
+      "type": "ExecutionSucceeded",
+      "timestamp": "2026-10-06T08:14:57.007000-04:00",
+      "state": null
+    }
+  ]
+}

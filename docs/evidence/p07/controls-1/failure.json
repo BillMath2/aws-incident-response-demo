@@ -1,0 +1,36 @@
+{
+  "cause": "Wrong SDK client name before correction; bounded dispatch exhausted without action.",
+  "run": {
+    "failure": "dispatch_exhausted",
+    "history": [
+      {
+        "at": "2026-10-06T12:06:53.661556+00:00",
+        "status": "pending"
+      },
+      {
+        "at": "2026-10-06T12:10:26.790728+00:00",
+        "status": "failed"
+      }
+    ],
+    "principal": "arn:aws:iam::498084841421:role/incident-demo-p07-tester",
+    "run_id": "p07-f97a887312143763d0114ed07ccbc38e9e68bb1c",
+    "scenario": "control-recovery",
+    "session_arn": "arn:aws:sts::498084841421:assumed-role/incident-demo-p07-tester/p07-signed-cli",
+    "status": "failed",
+    "_v": 2
+  },
+  "dispatch": {
+    "attempts": 3,
+    "next_at": 1791288626,
+    "run_id": "p07-f97a887312143763d0114ed07ccbc38e9e68bb1c",
+    "status": "dead_letter",
+    "_v": 5
+  },
+  "service": {
+    "release": "release-42",
+    "revision": 0,
+    "service_id": "checkout-api",
+    "_v": 1
+  },
+  "receipt": null
+}

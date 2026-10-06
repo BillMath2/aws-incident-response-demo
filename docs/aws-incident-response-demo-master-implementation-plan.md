@@ -2,7 +2,7 @@
 
 Date: October 3, 2026  
 Prepared for: Bill Mathers  
-Status: P01-P03 locally verified; P04-P06 AWS integration and boundary gates verified in Ohio; P07-P10 remain planned; V2 model quality remains unverified
+Status: P01-P03 locally verified; P04-P07 AWS integration, boundary and durable workflow gates verified in Ohio; P08-P10 remain planned; model quality remains unverified
 
 Project destination: C:\Github\aws-incident-response-demo  
 Target role: [Duke job description](DukeJob.txt)
@@ -326,7 +326,13 @@ The implemented AWS demo is complete only when:
 - Project-owned resources are inventoried before cleanup; retained evidence is exported; deletion and any remaining billable resources are verified.
 - Unresolved limitations are stated, including the synthetic workload, small evaluation set, and absence of production customer operations.
 
-The next implementation package is P07: event workflow and durable approval/action isolation.
+The current implementation package is P07: event workflow and durable approval/action isolation.
+The durable control plane, signed CLI and infrastructure passed 45 live control checks and
+33 readback/permission checks. The real AgentCore investigation escalated without action;
+the final deployment diff is clean. See [P07 acceptance](p07-acceptance.md) and the
+[P07 runbook](p07-live-runbook.md). P08 has not started.
+Gateway access logs are explicitly deferred after automatic approval review rejected account-level
+log-delivery permissions; private Lambda request audits and API metrics are the narrower alternative.
 P06 verifies retrieval and explicit filtering in Ohio; it does not satisfy the workflow or
 model-quality gates. V2's rejected unsupported proposal remains visible in the P06 evidence.
 P01-P03 did not deploy AWS resources. The original comparison plans remain unchanged.

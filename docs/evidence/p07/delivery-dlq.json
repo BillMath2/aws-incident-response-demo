@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "marker": "p07-delivery-test-1daae6e5c59141aeb9a9f289064397b4",
+  "event_id": "1ad90b0b-4b00-4797-8863-71f470c4038a",
+  "message_id": "3d020472-69f1-4b77-a07c-b83c5c71b021",
+  "body": {
+    "id": "0ebd3663-8968-4695-8e0a-43fac82a084b",
+    "version": "1.0",
+    "busArn": "arn:aws:events:us-east-2:498084841421:event-busv2/incident-demo-p07/apclyoy2y11jty8053bvcx5sw",
+    "subscriberArn": "arn:aws:events:us-east-2:498084841421:subscriber/incident-demo-p07-start/5y98c6tkkrjcl4h3q56ry2fqg",
+    "targetArn": "arn:aws:lambda:us-east-2:498084841421:function:incident-demo-p07-starter",
+    "errorCode": "COMPUTE_EXECUTION_ERROR",
+    "errorMessage": "The delivery failed. Use this record's error code and request id when investigating, and contact AWS Support if the failure persists.",
+    "exhaustedRetryCondition": "MaximumRetryAttempts",
+    "retryAttempts": 1,
+    "failedMessages": [
+      {
+        "eventId": "1ad90b0b-4b00-4797-8863-71f470c4038a",
+        "eventGroupId": "aa174311-d88b-46ff-9141-c61c477da67c",
+        "deduplicationId": "aa174311-d88b-46ff-9141-c61c477da67c",
+        "timestamp": "2026-10-06T12:17:38.543Z"
+      }
+    ]
+  },
+  "publish_request_id": "5d4c6fb5-a956-4a26-89e3-d8d9d9225348"
+}

@@ -1,0 +1,11 @@
+{
+  "dependency_state": "healthy",
+  "error_rate": 0.001,
+  "evidence_id": "verification-p07-16476b92278b620f7f1dfb4c4a639091290a1391",
+  "latency_p95_ms": 120,
+  "observed_at": "2026-10-06T12:12:43.142834+00:00",
+  "release": "release-41",
+  "run_id": "p07-16476b92278b620f7f1dfb4c4a639091290a1391",
+  "source": "independent-health-probe-v1",
+  "synthetic": true
+}

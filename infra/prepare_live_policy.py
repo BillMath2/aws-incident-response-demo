@@ -9,7 +9,7 @@ from manage import aws, verify_identity
 from settings import load_config
 
 
-def install(config, document, name, filename, phase="p05"):
+def install(config, document, name, filename, phase="p05", *, validation_exceptions=()):
     folder = Path(__file__).resolve().parents[1] / f"docs/evidence/{phase}"
     folder.mkdir(exist_ok=True)
     validation = aws(
@@ -21,8 +21,15 @@ def install(config, document, name, filename, phase="p05"):
         "--policy-document",
         json.dumps(document),
     )
-    if validation["findings"]:
+    unaccepted = [
+        f
+        for f in validation["findings"]
+        if (f["issueCode"], f["findingDetails"]) not in validation_exceptions
+    ]
+    if unaccepted:
         raise RuntimeError(json.dumps(validation["findings"]))
+    if validation["findings"]:
+        validation["accepted_exceptions"] = list(validation_exceptions)
     arn = f"arn:aws:iam::{config['account']}:policy/{name}"
     try:
         existing = aws(config, "iam", "get-policy", "--policy-arn", arn)["Policy"]
@@ -112,7 +119,10 @@ def install(config, document, name, filename, phase="p05"):
     )
     (folder / f"{filename}.json").write_text(json.dumps(document, indent=2) + "\n")
     (folder / f"{filename}-validation.json").write_text(json.dumps(validation, indent=2) + "\n")
-    print(f"Validated {phase} execution policy attached to the project bootstrap execution role.")
+    print(
+        f"{phase} policy attached; validation findings: {len(validation['findings'])}; "
+        "all findings and explicit exceptions retained in evidence."
+    )
 
 
 def main():

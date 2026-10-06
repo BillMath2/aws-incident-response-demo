@@ -1,0 +1,182 @@
+[
+  {
+    "check": "unsigned intake denied",
+    "passed": true
+  },
+  {
+    "check": "analyst cannot create controlled proposal",
+    "passed": true
+  },
+  {
+    "check": "resolved: intake",
+    "passed": true
+  },
+  {
+    "check": "resolved: intake replay stable",
+    "passed": true
+  },
+  {
+    "check": "resolved: approval wait",
+    "passed": true
+  },
+  {
+    "check": "resolved: analyst decision denied",
+    "passed": true
+  },
+  {
+    "check": "resolved: immutable investigation review",
+    "passed": true
+  },
+  {
+    "check": "resolved: edited hash denied",
+    "passed": true
+  },
+  {
+    "check": "resolved: signed decision",
+    "passed": true
+  },
+  {
+    "check": "resolved: final status",
+    "passed": true
+  },
+  {
+    "check": "resolved: token absent from exported evidence",
+    "passed": true
+  },
+  {
+    "check": "resolved: retry preserves receipt and revision",
+    "passed": true
+  },
+  {
+    "check": "resolved: duplicate decision acknowledged",
+    "passed": true
+  },
+  {
+    "check": "resolved: conflicting decision denied",
+    "passed": true
+  },
+  {
+    "check": "resolved: duplicate event cannot restart",
+    "passed": true
+  },
+  {
+    "check": "unresolved: intake",
+    "passed": true
+  },
+  {
+    "check": "unresolved: intake replay stable",
+    "passed": true
+  },
+  {
+    "check": "unresolved: approval wait",
+    "passed": true
+  },
+  {
+    "check": "unresolved: analyst decision denied",
+    "passed": true
+  },
+  {
+    "check": "unresolved: immutable investigation review",
+    "passed": true
+  },
+  {
+    "check": "unresolved: edited hash denied",
+    "passed": true
+  },
+  {
+    "check": "unresolved: signed decision",
+    "passed": true
+  },
+  {
+    "check": "unresolved: final status",
+    "passed": true
+  },
+  {
+    "check": "unresolved: token absent from exported evidence",
+    "passed": true
+  },
+  {
+    "check": "unresolved: retry preserves receipt and revision",
+    "passed": true
+  },
+  {
+    "check": "unresolved: duplicate decision acknowledged",
+    "passed": true
+  },
+  {
+    "check": "unresolved: conflicting decision denied",
+    "passed": true
+  },
+  {
+    "check": "unresolved: duplicate event cannot restart",
+    "passed": true
+  },
+  {
+    "check": "rejected: intake",
+    "passed": true
+  },
+  {
+    "check": "rejected: intake replay stable",
+    "passed": true
+  },
+  {
+    "check": "rejected: approval wait",
+    "passed": true
+  },
+  {
+    "check": "rejected: analyst decision denied",
+    "passed": true
+  },
+  {
+    "check": "rejected: immutable investigation review",
+    "passed": true
+  },
+  {
+    "check": "rejected: edited hash denied",
+    "passed": true
+  },
+  {
+    "check": "rejected: signed decision",
+    "passed": true
+  },
+  {
+    "check": "rejected: final status",
+    "passed": true
+  },
+  {
+    "check": "rejected: token absent from exported evidence",
+    "passed": true
+  },
+  {
+    "check": "rejected: no mutation",
+    "passed": true
+  },
+  {
+    "check": "expired: intake",
+    "passed": true
+  },
+  {
+    "check": "expired: intake replay stable",
+    "passed": true
+  },
+  {
+    "check": "expired: approval wait",
+    "passed": true
+  },
+  {
+    "check": "expired: final status",
+    "passed": true
+  },
+  {
+    "check": "expired: token absent from exported evidence",
+    "passed": true
+  },
+  {
+    "check": "expired: no mutation",
+    "passed": true
+  },
+  {
+    "check": "expired: late decision denied",
+    "passed": true
+  }
+]

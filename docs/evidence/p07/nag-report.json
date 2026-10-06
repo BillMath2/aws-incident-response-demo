@@ -1,0 +1,12 @@
+{
+  "plugin": "AwsSolutionsChecks",
+  "success": true,
+  "verified_by": "19 passing infrastructure tests",
+  "exceptions": [
+    "Python 3.12 locked dependencies",
+    "scoped generated-resource IAM wildcards",
+    "Step Functions metadata logs without X-Ray",
+    "live Ohio registry confirms EventsV2",
+    "gateway access logs disabled; private Lambda request audit and API metrics"
+  ]
+}

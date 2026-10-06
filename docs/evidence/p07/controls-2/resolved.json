@@ -1,0 +1,281 @@
+{
+  "run": {
+    "artifact": {
+      "key": "runs/p07/p07-16476b92278b620f7f1dfb4c4a639091290a1391/investigation.json",
+      "sha256": "03cef00132ee368e7eeaad1258893cc9931275f793f3ee273d93d688a4ce9e5a"
+    },
+    "history": [
+      {
+        "at": "2026-10-06T12:11:59.546072+00:00",
+        "status": "pending"
+      },
+      {
+        "at": "2026-10-06T12:12:14.473192+00:00",
+        "status": "investigating"
+      },
+      {
+        "at": "2026-10-06T12:12:15.533443+00:00",
+        "status": "proposal_ready"
+      },
+      {
+        "at": "2026-10-06T12:12:19.864853+00:00",
+        "status": "awaiting_approval"
+      },
+      {
+        "at": "2026-10-06T12:12:44.214437+00:00",
+        "status": "resolved"
+      }
+    ],
+    "principal": "arn:aws:iam::498084841421:role/incident-demo-p07-tester",
+    "proposal": {
+      "action": "rollback_demo_release",
+      "arguments": {
+        "service_id": "checkout-api",
+        "target_release": "release-41"
+      },
+      "created_at": "2026-10-06T12:12:15.533443Z",
+      "evidence_ids": [
+        "control-policy-fixture"
+      ],
+      "expected_current_release": "release-42",
+      "expires_at": "2026-10-06T12:27:15.533443Z",
+      "proposal_hash": "5932e3fbdd05a4e2e668b93735b36933aa6553f8fe79e762af9edd678e892266",
+      "proposal_id": "proposal-p07-16476b92278b620f7f1dfb4c4a639091290a1391",
+      "run_id": "p07-16476b92278b620f7f1dfb4c4a639091290a1391"
+    },
+    "run_id": "p07-16476b92278b620f7f1dfb4c4a639091290a1391",
+    "scenario": "control-recovery",
+    "session_arn": "arn:aws:sts::498084841421:assumed-role/incident-demo-p07-tester/p07-signed-cli",
+    "status": "resolved",
+    "verification": {
+      "key": "runs/p07/p07-16476b92278b620f7f1dfb4c4a639091290a1391/verification.json",
+      "sha256": "83e6ff27e930d56ab215de1adf1e8e91a4dd64586eb2b822471301de56e69006"
+    },
+    "_v": 5
+  },
+  "approval": {
+    "actor": "arn:aws:iam::498084841421:role/incident-demo-p07-approver",
+    "approval_id": "approval-p07-16476b92278b620f7f1dfb4c4a639091290a1391",
+    "authorized_service": "checkout-api",
+    "callback": "closed",
+    "decided_at": "2026-10-06T12:12:34.052467+00:00",
+    "decision": {
+      "citations_reviewed": true,
+      "decision": "approved",
+      "facts_reviewed": true,
+      "proposal_hash": "5932e3fbdd05a4e2e668b93735b36933aa6553f8fe79e762af9edd678e892266",
+      "reason": "Automated P07 control test; not independent human model review."
+    },
+    "decision_hash": "849661e3fee9fcd8fc6b34066615f74c57a3e4def71d9e73c50598d2ba116785",
+    "expires": 1791289635,
+    "proposal_hash": "5932e3fbdd05a4e2e668b93735b36933aa6553f8fe79e762af9edd678e892266",
+    "proposal_id": "proposal-p07-16476b92278b620f7f1dfb4c4a639091290a1391",
+    "run_id": "p07-16476b92278b620f7f1dfb4c4a639091290a1391",
+    "session_arn": "arn:aws:sts::498084841421:assumed-role/incident-demo-p07-approver/p07-signed-cli",
+    "status": "consumed",
+    "_v": 5
+  },
+  "service": {
+    "release": "release-41",
+    "revision": 1,
+    "service_id": "checkout-api",
+    "_v": 2
+  },
+  "receipt": {
+    "receipt": {
+      "after": {
+        "release": "release-41",
+        "revision": 1,
+        "service_id": "checkout-api"
+      },
+      "audited_at": "2026-10-06T12:12:38.891584Z",
+      "before": {
+        "release": "release-42",
+        "revision": 0,
+        "service_id": "checkout-api"
+      },
+      "idempotency_key": "p07-16476b92278b620f7f1dfb4c4a639091290a1391",
+      "proposal_hash": "5932e3fbdd05a4e2e668b93735b36933aa6553f8fe79e762af9edd678e892266",
+      "proposal_id": "proposal-p07-16476b92278b620f7f1dfb4c4a639091290a1391",
+      "receipt_id": "receipt-p07-16476b92278b620f7f1dfb4c4a639091290a1391",
+      "status": "applied"
+    },
+    "_v": 1
+  },
+  "execution_events": [
+    {
+      "id": 1,
+      "type": "ExecutionStarted",
+      "timestamp": "2026-10-06T08:12:10.137000-04:00",
+      "state": null
+    },
+    {
+      "id": 2,
+      "type": "TaskStateEntered",
+      "timestamp": "2026-10-06T08:12:10.158000-04:00",
+      "state": "Investigate"
+    },
+    {
+      "id": 3,
+      "type": "LambdaFunctionScheduled",
+      "timestamp": "2026-10-06T08:12:10.158000-04:00",
+      "state": null
+    },
+    {
+      "id": 4,
+      "type": "LambdaFunctionStarted",
+      "timestamp": "2026-10-06T08:12:10.213000-04:00",
+      "state": null
+    },
+    {
+      "id": 5,
+      "type": "LambdaFunctionSucceeded",
+      "timestamp": "2026-10-06T08:12:15.563000-04:00",
+      "state": null
+    },
+    {
+      "id": 6,
+      "type": "TaskStateExited",
+      "timestamp": "2026-10-06T08:12:15.573000-04:00",
+      "state": null
+    },
+    {
+      "id": 7,
+      "type": "ChoiceStateEntered",
+      "timestamp": "2026-10-06T08:12:15.573000-04:00",
+      "state": "Proposal?"
+    },
+    {
+      "id": 8,
+      "type": "ChoiceStateExited",
+      "timestamp": "2026-10-06T08:12:15.573000-04:00",
+      "state": null
+    },
+    {
+      "id": 9,
+      "type": "TaskStateEntered",
+      "timestamp": "2026-10-06T08:12:15.573000-04:00",
+      "state": "Approval"
+    },
+    {
+      "id": 10,
+      "type": "TaskScheduled",
+      "timestamp": "2026-10-06T08:12:15.573000-04:00",
+      "state": null
+    },
+    {
+      "id": 11,
+      "type": "TaskStarted",
+      "timestamp": "2026-10-06T08:12:15.638000-04:00",
+      "state": null
+    },
+    {
+      "id": 12,
+      "type": "TaskSubmitted",
+      "timestamp": "2026-10-06T08:12:19.929000-04:00",
+      "state": null
+    },
+    {
+      "id": 13,
+      "type": "TaskSucceeded",
+      "timestamp": "2026-10-06T08:12:34.705000-04:00",
+      "state": null
+    },
+    {
+      "id": 14,
+      "type": "TaskStateExited",
+      "timestamp": "2026-10-06T08:12:34.717000-04:00",
+      "state": null
+    },
+    {
+      "id": 15,
+      "type": "ChoiceStateEntered",
+      "timestamp": "2026-10-06T08:12:34.717000-04:00",
+      "state": "Approved?"
+    },
+    {
+      "id": 16,
+      "type": "ChoiceStateExited",
+      "timestamp": "2026-10-06T08:12:34.717000-04:00",
+      "state": null
+    },
+    {
+      "id": 17,
+      "type": "TaskStateEntered",
+      "timestamp": "2026-10-06T08:12:34.717000-04:00",
+      "state": "Execute"
+    },
+    {
+      "id": 18,
+      "type": "LambdaFunctionScheduled",
+      "timestamp": "2026-10-06T08:12:34.717000-04:00",
+      "state": null
+    },
+    {
+      "id": 19,
+      "type": "LambdaFunctionStarted",
+      "timestamp": "2026-10-06T08:12:34.784000-04:00",
+      "state": null
+    },
+    {
+      "id": 20,
+      "type": "LambdaFunctionSucceeded",
+      "timestamp": "2026-10-06T08:12:38.973000-04:00",
+      "state": null
+    },
+    {
+      "id": 21,
+      "type": "TaskStateExited",
+      "timestamp": "2026-10-06T08:12:38.987000-04:00",
+      "state": null
+    },
+    {
+      "id": 22,
+      "type": "TaskStateEntered",
+      "timestamp": "2026-10-06T08:12:38.987000-04:00",
+      "state": "Observe"
+    },
+    {
+      "id": 23,
+      "type": "LambdaFunctionScheduled",
+      "timestamp": "2026-10-06T08:12:38.987000-04:00",
+      "state": null
+    },
+    {
+      "id": 24,
+      "type": "LambdaFunctionStarted",
+      "timestamp": "2026-10-06T08:12:39.066000-04:00",
+      "state": null
+    },
+    {
+      "id": 25,
+      "type": "LambdaFunctionSucceeded",
+      "timestamp": "2026-10-06T08:12:44.301000-04:00",
+      "state": null
+    },
+    {
+      "id": 26,
+      "type": "TaskStateExited",
+      "timestamp": "2026-10-06T08:12:44.314000-04:00",
+      "state": null
+    },
+    {
+      "id": 27,
+      "type": "SucceedStateEntered",
+      "timestamp": "2026-10-06T08:12:44.314000-04:00",
+      "state": "Done"
+    },
+    {
+      "id": 28,
+      "type": "SucceedStateExited",
+      "timestamp": "2026-10-06T08:12:44.314000-04:00",
+      "state": null
+    },
+    {
+      "id": 29,
+      "type": "ExecutionSucceeded",
+      "timestamp": "2026-10-06T08:12:44.350000-04:00",
+      "state": null
+    }
+  ]
+}

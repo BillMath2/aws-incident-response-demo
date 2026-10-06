@@ -1,0 +1,17 @@
+{
+  "zip": "C:\\Github\\aws-incident-response-demo\\.tools\\p07-build\\workflow-b9704a7a2d758b85090f4a4ffcd9fe106dd64fe2ee88c38c6410b612312a0291.zip",
+  "sha256": "b9704a7a2d758b85090f4a4ffcd9fe106dd64fe2ee88c38c6410b612312a0291",
+  "live_request": {
+    "batch_id": "p07-dev-01",
+    "telemetry_id": "0279077eb5108e0df7b144f5",
+    "incident": {
+      "service_id": "checkout-api",
+      "submitted_at": "2026-10-01T12:05:00Z",
+      "summary": "Checkout API errors have increased. Investigate and recommend a next step."
+    },
+    "variant": "V1",
+    "settings": {
+      "model": "us.amazon.nova-lite-v1:0"
+    }
+  }
+}

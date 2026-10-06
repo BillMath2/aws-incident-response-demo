@@ -1,0 +1,18 @@
+[
+  {
+    "check": "unsigned intake denied",
+    "passed": true
+  },
+  {
+    "check": "analyst cannot create controlled proposal",
+    "passed": true
+  },
+  {
+    "check": "resolved: intake",
+    "passed": true
+  },
+  {
+    "check": "resolved: intake replay stable",
+    "passed": true
+  }
+]

@@ -9,6 +9,7 @@ from foundation import Foundation
 from live_stack import LiveStack
 from retrieval_stack import RetrievalStack
 from settings import load_config
+from workflow_stack import WorkflowStack
 
 app = cdk.App(analytics_reporting=False)
 Foundation(app, load_config())
@@ -21,6 +22,14 @@ if os.environ.get("P05_PACKAGE"):
     )
 if os.environ.get("P06_RETRIEVAL"):
     RetrievalStack(app, load_config())
+if os.environ.get("P07_PACKAGE"):
+    WorkflowStack(
+        app,
+        load_config(),
+        Path(os.environ["P07_PACKAGE"]),
+        json.loads(os.environ["P07_LIVE"]),
+        json.loads(os.environ["P07_REQUEST"]),
+    )
 checks = AwsSolutionsChecks(app, verbose=True)
 cdk.Validations.of(app).add_plugins(checks)
 assembly = app.synth()

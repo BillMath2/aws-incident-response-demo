@@ -1,0 +1,11 @@
+{
+  "history": [
+    {
+      "at": "2026-10-06T12:13:20.946919+00:00",
+      "status": "pending"
+    }
+  ],
+  "run_id": "p07-7ef80d3030d0be5f3a4eb299a49ff554685d351a",
+  "scenario": "control-recovery",
+  "status": "pending"
+}

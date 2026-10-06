@@ -8,8 +8,10 @@ Ohio (`us-east-2`) and bounded model-access smoke tests.** **P05 adds a verified
 investigator using Nova and three scoped diagnostic Lambdas**, with timeout, retry, budget,
 IAM-denial and audit evidence. **P06 adds live S3 Vectors retrieval and explicit input/source/
 output Guardrails checks.** V0/V1 live integration passes; V2's unsupported proposal is
-safely rejected and remains a quality limitation. Cloud approval and model-quality gates
-remain later packages.
+safely rejected and remains a quality limitation. **P07's durable cloud workflow passed live
+acceptance in Ohio: 45 control checks and 33 deployment/permission checks.** The real
+investigation escalated without action; model-quality evaluation remains P08 work.
+The model-quality gate remains P08 work.
 
 The [master implementation plan](docs/aws-incident-response-demo-master-implementation-plan.md)
 defines scope. See [P01 acceptance](docs/p01-acceptance.md) and
@@ -20,6 +22,8 @@ and [P04 acceptance](docs/p04-acceptance.md). Live investigator results and oper
 [P05 acceptance](docs/p05-acceptance.md) and the [P05 runbook](docs/p05-live-runbook.md).
 Current retrieval and filtering evidence is in [P06 acceptance](docs/p06-acceptance.md)
 and the [P06 runbook](docs/p06-live-runbook.md).
+P07 evidence and the gateway logging limitation are recorded in
+[P07 acceptance](docs/p07-acceptance.md) and the [P07 runbook](docs/p07-live-runbook.md).
 
 ## Setup
 
@@ -196,7 +200,7 @@ path: Pydantic `model_construct` and unvalidated `model_copy(update=...)` are no
 
 The record schema does not establish identity, authorize a person, consume an approval, check
 wall-clock freshness or perform a transaction. P02 implements local control checks; cloud
-authentication, durable atomicity and effective IAM enforcement remain P07 work.
+authentication, durable atomicity and effective IAM enforcement are verified separately in P07.
 An evidence `sanitized` flag records producer responsibility; it is not a filtering engine.
 Citation validation checks existence, including retrieved passage IDs, and does not prove
 semantic support. An action receipt records a synthetic mutation and cannot claim recovery.

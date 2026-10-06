@@ -1,0 +1,616 @@
+{
+  "gateway_access_logs": "disabled; API integration Lambdas emit private request audit",
+  "definition": {
+    "StartAt": "Investigate",
+    "States": {
+      "Approval": {
+        "Catch": [
+          {
+            "ErrorEquals": [
+              "States.Timeout"
+            ],
+            "Next": "Expired",
+            "ResultPath": "$.failure"
+          },
+          {
+            "ErrorEquals": [
+              "States.ALL"
+            ],
+            "Next": "Failed",
+            "ResultPath": "$.failure"
+          }
+        ],
+        "Next": "Approved?",
+        "Parameters": {
+          "FunctionName": "arn:aws:lambda:us-east-2:498084841421:function:incident-demo-p07-register",
+          "Payload": {
+            "run_id.$": "$.run_id",
+            "token.$": "$$.Task.Token"
+          }
+        },
+        "Resource": "arn:aws:states:::lambda:invoke.waitForTaskToken",
+        "TimeoutSecondsPath": "$.wait_seconds",
+        "Type": "Task"
+      },
+      "Approved?": {
+        "Choices": [
+          {
+            "Next": "Execute",
+            "StringEquals": "approved",
+            "Variable": "$.decision"
+          }
+        ],
+        "Default": "Rejected",
+        "Type": "Choice"
+      },
+      "Done": {
+        "Type": "Succeed"
+      },
+      "Execute": {
+        "Catch": [
+          {
+            "ErrorEquals": [
+              "States.ALL"
+            ],
+            "Next": "Failed",
+            "ResultPath": "$.failure"
+          }
+        ],
+        "Next": "Observe",
+        "Parameters": {
+          "run_id.$": "$.run_id"
+        },
+        "Resource": "arn:aws:lambda:us-east-2:498084841421:function:incident-demo-executor",
+        "Retry": [
+          {
+            "BackoffRate": 1,
+            "ErrorEquals": [
+              "Lambda.ServiceException",
+              "Lambda.AWSLambdaException",
+              "Lambda.SdkClientException",
+              "Lambda.TooManyRequestsException"
+            ],
+            "IntervalSeconds": 5,
+            "MaxAttempts": 1
+          }
+        ],
+        "TimeoutSeconds": 35,
+        "Type": "Task"
+      },
+      "Expired": {
+        "Next": "Done",
+        "Parameters": {
+          "run_id.$": "$.run_id",
+          "status": "expired"
+        },
+        "Resource": "arn:aws:lambda:us-east-2:498084841421:function:incident-demo-p07-finish",
+        "Retry": [
+          {
+            "BackoffRate": 1,
+            "ErrorEquals": [
+              "Lambda.ServiceException",
+              "Lambda.AWSLambdaException",
+              "Lambda.SdkClientException",
+              "Lambda.TooManyRequestsException"
+            ],
+            "IntervalSeconds": 5,
+            "MaxAttempts": 1
+          }
+        ],
+        "TimeoutSeconds": 35,
+        "Type": "Task"
+      },
+      "Failed": {
+        "Next": "Done",
+        "Parameters": {
+          "run_id.$": "$.run_id",
+          "status": "failed"
+        },
+        "Resource": "arn:aws:lambda:us-east-2:498084841421:function:incident-demo-p07-finish",
+        "Retry": [
+          {
+            "BackoffRate": 1,
+            "ErrorEquals": [
+              "Lambda.ServiceException",
+              "Lambda.AWSLambdaException",
+              "Lambda.SdkClientException",
+              "Lambda.TooManyRequestsException"
+            ],
+            "IntervalSeconds": 5,
+            "MaxAttempts": 1
+          }
+        ],
+        "TimeoutSeconds": 35,
+        "Type": "Task"
+      },
+      "Investigate": {
+        "Catch": [
+          {
+            "ErrorEquals": [
+              "States.ALL"
+            ],
+            "Next": "Failed",
+            "ResultPath": "$.failure"
+          }
+        ],
+        "Next": "Proposal?",
+        "Parameters": {
+          "run_id.$": "$.run_id"
+        },
+        "Resource": "arn:aws:lambda:us-east-2:498084841421:function:incident-demo-p07-bridge",
+        "Retry": [
+          {
+            "BackoffRate": 1,
+            "ErrorEquals": [
+              "Lambda.ServiceException",
+              "Lambda.AWSLambdaException",
+              "Lambda.SdkClientException",
+              "Lambda.TooManyRequestsException"
+            ],
+            "IntervalSeconds": 5,
+            "MaxAttempts": 1
+          }
+        ],
+        "TimeoutSeconds": 160,
+        "Type": "Task"
+      },
+      "Observe": {
+        "Catch": [
+          {
+            "ErrorEquals": [
+              "States.ALL"
+            ],
+            "Next": "Failed",
+            "ResultPath": "$.failure"
+          }
+        ],
+        "Next": "Done",
+        "Parameters": {
+          "run_id.$": "$.run_id"
+        },
+        "Resource": "arn:aws:lambda:us-east-2:498084841421:function:incident-demo-p07-observe",
+        "Retry": [
+          {
+            "BackoffRate": 1,
+            "ErrorEquals": [
+              "Lambda.ServiceException",
+              "Lambda.AWSLambdaException",
+              "Lambda.SdkClientException",
+              "Lambda.TooManyRequestsException"
+            ],
+            "IntervalSeconds": 5,
+            "MaxAttempts": 1
+          }
+        ],
+        "TimeoutSeconds": 35,
+        "Type": "Task"
+      },
+      "Proposal?": {
+        "Choices": [
+          {
+            "BooleanEquals": true,
+            "Next": "Approval",
+            "Variable": "$.proposal_ready"
+          }
+        ],
+        "Default": "Done",
+        "Type": "Choice"
+      },
+      "Rejected": {
+        "Next": "Done",
+        "Parameters": {
+          "run_id.$": "$.run_id",
+          "status": "rejected"
+        },
+        "Resource": "arn:aws:lambda:us-east-2:498084841421:function:incident-demo-p07-finish",
+        "Retry": [
+          {
+            "BackoffRate": 1,
+            "ErrorEquals": [
+              "Lambda.ServiceException",
+              "Lambda.AWSLambdaException",
+              "Lambda.SdkClientException",
+              "Lambda.TooManyRequestsException"
+            ],
+            "IntervalSeconds": 5,
+            "MaxAttempts": 1
+          }
+        ],
+        "TimeoutSeconds": 35,
+        "Type": "Task"
+      }
+    },
+    "TimeoutSeconds": 1200
+  },
+  "bus": {
+    "EventBusArn": "arn:aws:events:us-east-2:498084841421:event-busv2/incident-demo-p07/apclyoy2y11jty8053bvcx5sw",
+    "Name": "incident-demo-p07",
+    "Description": "",
+    "StorageConfiguration": {
+      "RetentionPeriodInDays": 1,
+      "RetentionWindowStartTime": "2026-10-06 05:50:49.207000-04:00"
+    },
+    "CreationTime": "2026-10-06 05:50:49.234000-04:00",
+    "LastModifiedTime": "2026-10-06 05:50:52.128000-04:00",
+    "State": "ACTIVE"
+  },
+  "subscriber": {
+    "SubscriberArn": "arn:aws:events:us-east-2:498084841421:subscriber/incident-demo-p07-start/5y98c6tkkrjcl4h3q56ry2fqg",
+    "Name": "incident-demo-p07-start",
+    "EventBusArn": "arn:aws:events:us-east-2:498084841421:event-busv2/incident-demo-p07/apclyoy2y11jty8053bvcx5sw",
+    "InvokeConfiguration": {
+      "RoleArn": "arn:aws:iam::498084841421:role/incident-demo-p07-delivery",
+      "LambdaParameters": {
+        "InvocationType": "REQUEST_RESPONSE",
+        "InvocationTimeoutSeconds": "30"
+      },
+      "TargetArn": "arn:aws:lambda:us-east-2:498084841421:function:incident-demo-p07-starter"
+    },
+    "FilterConfiguration": {
+      "Language": "EVENT_BRIDGE_PATTERN",
+      "Filters": [
+        {
+          "Pattern": "{\"source\": [\"incident.demo\"], \"detail-type\": [\"IncidentAccepted\"]}",
+          "Scope": "DATA"
+        }
+      ]
+    },
+    "Type": "UNORDERED",
+    "StartingPosition": "LATEST",
+    "BatchConfiguration": {
+      "MaxBatchSize": 1,
+      "MaxBatchWindowInSeconds": 0
+    },
+    "Transformer": {
+      "Type": "RAW"
+    },
+    "RetryPolicy": {
+      "MaxRetryAttempts": 1,
+      "MaxEventAgeInSeconds": 60,
+      "RetryStrategy": "ALL"
+    },
+    "OnFailureConfiguration": {
+      "Arn": "arn:aws:sqs:us-east-2:498084841421:incident-demo-p07-dlq"
+    },
+    "LogConfiguration": {
+      "Level": "OFF"
+    },
+    "State": "RUNNING",
+    "CreationTime": "2026-10-06 06:00:10.046000-04:00",
+    "LastModifiedTime": "2026-10-06 06:00:10.064000-04:00"
+  },
+  "callback_probe_run_id": "p07-8e62505150176fe27e3fe1d8c9682826153b9dd9",
+  "denial_errors": {
+    "analyst: executor invoke": "AccessDeniedException",
+    "analyst: callback": "AccessDeniedException",
+    "analyst: approval read": "AccessDeniedException",
+    "analyst: workflow history": "AccessDeniedException",
+    "approver: executor invoke": "AccessDeniedException",
+    "approver: callback": "AccessDeniedException",
+    "approver: approval read": "AccessDeniedException",
+    "approver: workflow history": "AccessDeniedException",
+    "tester: executor invoke": "AccessDeniedException",
+    "tester: callback": "AccessDeniedException",
+    "tester: approval read": "AccessDeniedException",
+    "tester: workflow history": "AccessDeniedException"
+  },
+  "callback_probe": {
+    "run": {
+      "artifact": {
+        "key": "runs/p07/p07-8e62505150176fe27e3fe1d8c9682826153b9dd9/investigation.json",
+        "sha256": "f0b05e9be49305b98f84ac96f76553f03de09e313abf2f3296a2678d2b9dd606"
+      },
+      "history": [
+        {
+          "at": "2026-10-06T12:16:38.664410+00:00",
+          "status": "pending"
+        },
+        {
+          "at": "2026-10-06T12:16:39.720365+00:00",
+          "status": "investigating"
+        },
+        {
+          "at": "2026-10-06T12:16:39.861887+00:00",
+          "status": "proposal_ready"
+        },
+        {
+          "at": "2026-10-06T12:16:40.147510+00:00",
+          "status": "awaiting_approval"
+        },
+        {
+          "at": "2026-10-06T12:16:50.221140+00:00",
+          "status": "rejected"
+        }
+      ],
+      "principal": "arn:aws:iam::498084841421:role/incident-demo-p07-tester",
+      "proposal": {
+        "action": "rollback_demo_release",
+        "arguments": {
+          "service_id": "checkout-api",
+          "target_release": "release-41"
+        },
+        "created_at": "2026-10-06T12:16:39.861887Z",
+        "evidence_ids": [
+          "control-policy-fixture"
+        ],
+        "expected_current_release": "release-42",
+        "expires_at": "2026-10-06T12:31:39.861887Z",
+        "proposal_hash": "1835af276c40826d64e7b3f9159044d73d04a7942ff5edeb6a299aad755e4709",
+        "proposal_id": "proposal-p07-8e62505150176fe27e3fe1d8c9682826153b9dd9",
+        "run_id": "p07-8e62505150176fe27e3fe1d8c9682826153b9dd9"
+      },
+      "run_id": "p07-8e62505150176fe27e3fe1d8c9682826153b9dd9",
+      "scenario": "control-recovery",
+      "session_arn": "arn:aws:sts::498084841421:assumed-role/incident-demo-p07-tester/p07-signed-cli",
+      "status": "rejected",
+      "_v": 5
+    },
+    "approval": {
+      "actor": "arn:aws:iam::498084841421:role/incident-demo-p07-approver",
+      "approval_id": "approval-p07-8e62505150176fe27e3fe1d8c9682826153b9dd9",
+      "authorized_service": "checkout-api",
+      "callback": "closed",
+      "decided_at": "2026-10-06T12:16:49.789267+00:00",
+      "decision": {
+        "citations_reviewed": true,
+        "decision": "rejected",
+        "facts_reviewed": true,
+        "proposal_hash": "1835af276c40826d64e7b3f9159044d73d04a7942ff5edeb6a299aad755e4709",
+        "reason": "Automated P07 control test; not independent human model review."
+      },
+      "decision_hash": "eeeb051a6b69b76e41901be5a57590303fb510063c40df86cc07c84b00b1087f",
+      "expires": 1791289899,
+      "proposal_hash": "1835af276c40826d64e7b3f9159044d73d04a7942ff5edeb6a299aad755e4709",
+      "proposal_id": "proposal-p07-8e62505150176fe27e3fe1d8c9682826153b9dd9",
+      "run_id": "p07-8e62505150176fe27e3fe1d8c9682826153b9dd9",
+      "session_arn": "arn:aws:sts::498084841421:assumed-role/incident-demo-p07-approver/p07-signed-cli",
+      "status": "closed",
+      "_v": 4
+    },
+    "service": {
+      "release": "release-42",
+      "revision": 0,
+      "service_id": "checkout-api",
+      "_v": 1
+    },
+    "receipt": null,
+    "execution_events": [
+      {
+        "id": 1,
+        "type": "ExecutionStarted",
+        "timestamp": "2026-10-06T08:16:39.504000-04:00",
+        "state": null
+      },
+      {
+        "id": 2,
+        "type": "TaskStateEntered",
+        "timestamp": "2026-10-06T08:16:39.523000-04:00",
+        "state": "Investigate"
+      },
+      {
+        "id": 3,
+        "type": "LambdaFunctionScheduled",
+        "timestamp": "2026-10-06T08:16:39.523000-04:00",
+        "state": null
+      },
+      {
+        "id": 4,
+        "type": "LambdaFunctionStarted",
+        "timestamp": "2026-10-06T08:16:39.580000-04:00",
+        "state": null
+      },
+      {
+        "id": 5,
+        "type": "LambdaFunctionSucceeded",
+        "timestamp": "2026-10-06T08:16:39.888000-04:00",
+        "state": null
+      },
+      {
+        "id": 6,
+        "type": "TaskStateExited",
+        "timestamp": "2026-10-06T08:16:39.900000-04:00",
+        "state": null
+      },
+      {
+        "id": 7,
+        "type": "ChoiceStateEntered",
+        "timestamp": "2026-10-06T08:16:39.900000-04:00",
+        "state": "Proposal?"
+      },
+      {
+        "id": 8,
+        "type": "ChoiceStateExited",
+        "timestamp": "2026-10-06T08:16:39.900000-04:00",
+        "state": null
+      },
+      {
+        "id": 9,
+        "type": "TaskStateEntered",
+        "timestamp": "2026-10-06T08:16:39.900000-04:00",
+        "state": "Approval"
+      },
+      {
+        "id": 10,
+        "type": "TaskScheduled",
+        "timestamp": "2026-10-06T08:16:39.900000-04:00",
+        "state": null
+      },
+      {
+        "id": 11,
+        "type": "TaskStarted",
+        "timestamp": "2026-10-06T08:16:39.971000-04:00",
+        "state": null
+      },
+      {
+        "id": 12,
+        "type": "TaskSubmitted",
+        "timestamp": "2026-10-06T08:16:40.202000-04:00",
+        "state": null
+      },
+      {
+        "id": 13,
+        "type": "TaskSucceeded",
+        "timestamp": "2026-10-06T08:16:49.960000-04:00",
+        "state": null
+      },
+      {
+        "id": 14,
+        "type": "TaskStateExited",
+        "timestamp": "2026-10-06T08:16:49.974000-04:00",
+        "state": null
+      },
+      {
+        "id": 15,
+        "type": "ChoiceStateEntered",
+        "timestamp": "2026-10-06T08:16:49.974000-04:00",
+        "state": "Approved?"
+      },
+      {
+        "id": 16,
+        "type": "ChoiceStateExited",
+        "timestamp": "2026-10-06T08:16:49.974000-04:00",
+        "state": null
+      },
+      {
+        "id": 17,
+        "type": "TaskStateEntered",
+        "timestamp": "2026-10-06T08:16:49.974000-04:00",
+        "state": "Rejected"
+      },
+      {
+        "id": 18,
+        "type": "LambdaFunctionScheduled",
+        "timestamp": "2026-10-06T08:16:49.974000-04:00",
+        "state": null
+      },
+      {
+        "id": 19,
+        "type": "LambdaFunctionStarted",
+        "timestamp": "2026-10-06T08:16:50.047000-04:00",
+        "state": null
+      },
+      {
+        "id": 20,
+        "type": "LambdaFunctionSucceeded",
+        "timestamp": "2026-10-06T08:16:50.306000-04:00",
+        "state": null
+      },
+      {
+        "id": 21,
+        "type": "TaskStateExited",
+        "timestamp": "2026-10-06T08:16:50.317000-04:00",
+        "state": null
+      },
+      {
+        "id": 22,
+        "type": "SucceedStateEntered",
+        "timestamp": "2026-10-06T08:16:50.317000-04:00",
+        "state": "Done"
+      },
+      {
+        "id": 23,
+        "type": "SucceedStateExited",
+        "timestamp": "2026-10-06T08:16:50.317000-04:00",
+        "state": null
+      },
+      {
+        "id": 24,
+        "type": "ExecutionSucceeded",
+        "timestamp": "2026-10-06T08:16:50.344000-04:00",
+        "state": null
+      }
+    ]
+  },
+  "functions": [
+    {
+      "FunctionName": "incident-demo-p07-intake",
+      "Role": "arn:aws:iam::498084841421:role/incident-demo-p07-intake",
+      "CodeSha256": "uXBKei11i4UJD0pP/Nn+EG3WT+LuiMOMZBC2EjEqApE=",
+      "Timeout": 30,
+      "Runtime": "python3.12"
+    },
+    {
+      "FunctionName": "incident-demo-p07-decision",
+      "Role": "arn:aws:iam::498084841421:role/incident-demo-p07-decision",
+      "CodeSha256": "uXBKei11i4UJD0pP/Nn+EG3WT+LuiMOMZBC2EjEqApE=",
+      "Timeout": 30,
+      "Runtime": "python3.12"
+    },
+    {
+      "FunctionName": "incident-demo-p07-read",
+      "Role": "arn:aws:iam::498084841421:role/incident-demo-p07-read",
+      "CodeSha256": "uXBKei11i4UJD0pP/Nn+EG3WT+LuiMOMZBC2EjEqApE=",
+      "Timeout": 30,
+      "Runtime": "python3.12"
+    },
+    {
+      "FunctionName": "incident-demo-p07-dispatch",
+      "Role": "arn:aws:iam::498084841421:role/incident-demo-p07-dispatch",
+      "CodeSha256": "uXBKei11i4UJD0pP/Nn+EG3WT+LuiMOMZBC2EjEqApE=",
+      "Timeout": 30,
+      "Runtime": "python3.12"
+    },
+    {
+      "FunctionName": "incident-demo-p07-starter",
+      "Role": "arn:aws:iam::498084841421:role/incident-demo-p07-starter",
+      "CodeSha256": "uXBKei11i4UJD0pP/Nn+EG3WT+LuiMOMZBC2EjEqApE=",
+      "Timeout": 30,
+      "Runtime": "python3.12"
+    },
+    {
+      "FunctionName": "incident-demo-p07-bridge",
+      "Role": "arn:aws:iam::498084841421:role/incident-demo-p07-bridge",
+      "CodeSha256": "uXBKei11i4UJD0pP/Nn+EG3WT+LuiMOMZBC2EjEqApE=",
+      "Timeout": 150,
+      "Runtime": "python3.12"
+    },
+    {
+      "FunctionName": "incident-demo-p07-register",
+      "Role": "arn:aws:iam::498084841421:role/incident-demo-p07-register",
+      "CodeSha256": "uXBKei11i4UJD0pP/Nn+EG3WT+LuiMOMZBC2EjEqApE=",
+      "Timeout": 30,
+      "Runtime": "python3.12"
+    },
+    {
+      "FunctionName": "incident-demo-p07-callbacks",
+      "Role": "arn:aws:iam::498084841421:role/incident-demo-p07-callbacks",
+      "CodeSha256": "uXBKei11i4UJD0pP/Nn+EG3WT+LuiMOMZBC2EjEqApE=",
+      "Timeout": 30,
+      "Runtime": "python3.12"
+    },
+    {
+      "FunctionName": "incident-demo-p07-observe",
+      "Role": "arn:aws:iam::498084841421:role/incident-demo-p07-observe",
+      "CodeSha256": "uXBKei11i4UJD0pP/Nn+EG3WT+LuiMOMZBC2EjEqApE=",
+      "Timeout": 30,
+      "Runtime": "python3.12"
+    },
+    {
+      "FunctionName": "incident-demo-p07-finish",
+      "Role": "arn:aws:iam::498084841421:role/incident-demo-p07-finish",
+      "CodeSha256": "uXBKei11i4UJD0pP/Nn+EG3WT+LuiMOMZBC2EjEqApE=",
+      "Timeout": 30,
+      "Runtime": "python3.12"
+    },
+    {
+      "FunctionName": "incident-demo-executor",
+      "Role": "arn:aws:iam::498084841421:role/incident-demo-p07-executor",
+      "CodeSha256": "uXBKei11i4UJD0pP/Nn+EG3WT+LuiMOMZBC2EjEqApE=",
+      "Timeout": 30,
+      "Runtime": "python3.12"
+    }
+  ],
+  "budget": {
+    "global": {
+      "reserved_cents": "1360",
+      "pk": "global",
+      "lease_owner": "p06-180c4d0b09634d51a8d9d2ec251a102f",
+      "lease_until": "0"
+    },
+    "batch#p07-dev-01": {
+      "reserved_cents": "150",
+      "pk": "batch#p07-dev-01"
+    }
+  },
+  "at": "2026-10-06T12:16:56.363158+00:00"
+}

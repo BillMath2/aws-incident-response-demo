@@ -1,0 +1,9 @@
+{
+  "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-workflow/febcdb80-c16a-11f1-b00e-02d72ca12757",
+  "StackDriftDetectionId": "33ecaf00-c180-11f1-a5b9-0ac07efb1263",
+  "StackDriftStatus": "IN_SYNC",
+  "DetectionStatus": "DETECTION_COMPLETE",
+  "DriftedStackResourceCount": 0,
+  "Timestamp": "2026-10-06T12:19:39.632000+00:00",
+  "scope_note": "CloudFormation drift detection covers supported resource properties; a separate CDK diff reported no differences."
+}
