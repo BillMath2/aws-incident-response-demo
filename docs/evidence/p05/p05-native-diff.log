@@ -1,0 +1,85 @@
+{"account": "498084841421", "region": "us-east-2"}
+.\.venv\Scripts\python.exe : AI agent detected
+At line:2 char:1
++ .\.venv\Scripts\python.exe manage.py diff --live *> ../runs/p05-nativ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (AI agent detected:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Stack incident-demo-live (aws://498084841421/us-east-2)
+IAM Statement Changes
+┌───┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┬────────┬─────────────────────┬─────────────────────────┬───────────┐
+│   │ Resource                                                                                                         
+           │ Effect │ Action              │ Principal               │ Condition │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼─────────────────────┼─────────────────────────┼───────────┤
+│ + │ arn:aws:s3:::cdk-incdemo-assets-498084841421-us-east-2/074e185bbbe5e596114b4f3a6a78df5d5bef3296045b730918d128fcdd
+2dc42c.zip │ Allow  │ s3:GetObject        │ AWS:${InvestigatorRole} │           │
+│   │                                                                                                                  
+           │        │ s3:GetObjectVersion │                         │           │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼─────────────────────┼─────────────────────────┼───────────┤
+│ - │ arn:aws:s3:::cdk-incdemo-assets-498084841421-us-east-2/a8c3947444b6521eb74960a81525e96bd727ddabb7e0fb933a3536cf16
+ed396f.zip │ Allow  │ s3:GetObject        │ AWS:${InvestigatorRole} │           │
+│   │                                                                                                                  
+           │        │ s3:GetObjectVersion │                         │           │
+└───┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┴────────┴─────────────────────┴─────────────────────────┴───────────┘
+(NOTE: There may be security-related changes not in this list. See https://github.com/aws/aws-cdk/issues/1299)
+
+Resources
+[~] AWS::Lambda::Function get_service_health getservicehealthEF276A61
+ ├─ [~] Code
+ │   └─ [~] .S3Key:
+ │       ├─ [-] a8c3947444b6521eb74960a81525e96bd727ddabb7e0fb933a3536cf16ed396f.zip
+ │       └─ [+] 074e185bbbe5e596114b4f3a6a78df5d5bef3296045b730918d128fcdd2dc42c.zip
+ └─ [~] Metadata
+     └─ [~] .aws:asset:path:
+         ├─ [-] asset.a8c3947444b6521eb74960a81525e96bd727ddabb7e0fb933a3536cf16ed396f.zip
+         └─ [+] asset.074e185bbbe5e596114b4f3a6a78df5d5bef3296045b730918d128fcdd2dc42c.zip
+[~] AWS::Lambda::Function get_recent_changes getrecentchanges57131F89
+ ├─ [~] Code
+ │   └─ [~] .S3Key:
+ │       ├─ [-] a8c3947444b6521eb74960a81525e96bd727ddabb7e0fb933a3536cf16ed396f.zip
+ │       └─ [+] 074e185bbbe5e596114b4f3a6a78df5d5bef3296045b730918d128fcdd2dc42c.zip
+ └─ [~] Metadata
+     └─ [~] .aws:asset:path:
+         ├─ [-] asset.a8c3947444b6521eb74960a81525e96bd727ddabb7e0fb933a3536cf16ed396f.zip
+         └─ [+] asset.074e185bbbe5e596114b4f3a6a78df5d5bef3296045b730918d128fcdd2dc42c.zip
+[~] AWS::Lambda::Function get_recent_logs getrecentlogs216E16E1
+ ├─ [~] Code
+ │   └─ [~] .S3Key:
+ │       ├─ [-] a8c3947444b6521eb74960a81525e96bd727ddabb7e0fb933a3536cf16ed396f.zip
+ │       └─ [+] 074e185bbbe5e596114b4f3a6a78df5d5bef3296045b730918d128fcdd2dc42c.zip
+ └─ [~] Metadata
+     └─ [~] .aws:asset:path:
+         ├─ [-] asset.a8c3947444b6521eb74960a81525e96bd727ddabb7e0fb933a3536cf16ed396f.zip
+         └─ [+] asset.074e185bbbe5e596114b4f3a6a78df5d5bef3296045b730918d128fcdd2dc42c.zip
+[~] AWS::IAM::Policy InvestigatorRole/DefaultPolicy InvestigatorRoleDefaultPolicyF8C0F70D
+ └─ [~] PolicyDocument
+     └─ [~] .Statement:
+         └─ @@ -64,7 +64,7 @@
+            [ ]     "s3:GetObjectVersion"
+            [ ]   ],
+            [ ]   "Effect": "Allow",
+            [-]   "Resource": "arn:aws:s3:::cdk-incdemo-assets-498084841421-us-east-2/a8c3947444b6521eb74960a81525e96bd
+727ddabb7e0fb933a3536cf16ed396f.zip"
+            [+]   "Resource": "arn:aws:s3:::cdk-incdemo-assets-498084841421-us-east-2/074e185bbbe5e596114b4f3a6a78df5d5
+bef3296045b730918d128fcdd2dc42c.zip"
+            [ ] },
+            [ ] {
+            [ ]   "Action": [
+[~] AWS::BedrockAgentCore::Runtime Runtime Runtime
+ └─ [~] AgentRuntimeArtifact
+     └─ [~] .CodeConfiguration:
+         └─ [~] .Code:
+             └─ [~] .S3:
+                 └─ [~] .Prefix:
+                     ├─ [-] a8c3947444b6521eb74960a81525e96bd727ddabb7e0fb933a3536cf16ed396f.zip
+                     └─ [+] 074e185bbbe5e596114b4f3a6a78df5d5bef3296045b730918d128fcdd2dc42c.zip
+
+
+
+✨  Number of stacks with differences: 1
+

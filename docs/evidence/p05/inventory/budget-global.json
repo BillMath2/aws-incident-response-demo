@@ -1,0 +1,16 @@
+{
+  "Item": {
+    "reserved_cents": {
+      "N": "250"
+    },
+    "pk": {
+      "S": "global"
+    },
+    "lease_until": {
+      "N": "0"
+    },
+    "lease_owner": {
+      "S": "p05-0282bd6fff4d423e86e2e1655d86f6e7"
+    }
+  }
+}

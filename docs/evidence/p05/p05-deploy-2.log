@@ -1,0 +1,39 @@
+{"account": "498084841421", "region": "us-east-2"}
+.\.venv\Scripts\python.exe : AI agent detected
+At line:2 char:101
++ ... EXITCODE }; .\.venv\Scripts\python.exe manage.py deploy --live *> ../ ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (AI agent detected:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+✨  Synthesis time: 24.14s
+
+incident-demo-live: creating CloudFormation changeset...
+incident-demo-live: deploying... [1/1]
+incident-demo-live | CREATE_FAILED | AWS::BedrockAgentCore::Runtime | Runtime Resource handler returned message: 
+"Access denied for operation 'AWS::BedrockAgentCore::Runtime'." (RequestToken: 523b03a6-abec-328f-fbdc-9d9b59c0c944, 
+HandlerErrorCode: AccessDenied)
+❌  incident-demo-live failed to deploy
+‣ DeploymentError: Resource updates failed:
+incident-demo-live/Runtime  (AWS::BedrockAgentCore::Runtime Runtime)
+  Resource handler returned message: "Access denied for operation 'AWS::BedrockAgentCore::Runtime'." (RequestToken:
+  523b03a6-abec-328f-fbdc-9d9b59c0c944, HandlerErrorCode: AccessDenied)
+Source Location: ...jsii runtime, node internals...
+                 (no user code in 10 frames, use --stack-trace-limit to capture more)
+
+   CloudTrail delivery can lag up to 15 minutes behind the failure; re-run `cdk diagnose` in a few minutes to check 
+for additional control-plane errors (e.g. AccessDenied).
+Traceback (most recent call last):
+  File "C:\Github\aws-incident-response-demo\infra\manage.py", line 100, in <module>
+    main()
+  File "C:\Github\aws-incident-response-demo\infra\manage.py", line 96, in main
+    subprocess.run(command, cwd=ROOT, env=env, check=True)
+  File "C:\Github\aws-incident-response-demo\.tools\python\cpython-3.12.12-windows-x86_64-none\Lib\subprocess.py", 
+line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['C:\\Program Files\\nodejs\\node.EXE', 
+'C:\\Github\\aws-incident-response-demo\\infra\\node_modules\\aws-cdk\\bin\\cdk', 'deploy', '--app', 
+'"C:\\Github\\aws-incident-response-demo\\infra\\.venv\\Scripts\\python.exe" app.py', 'incident-demo-live', 
+'--no-lookups', '--strict', '--require-approval', 'never', '--outputs-file', 'cdk.out/live-outputs.json', 
+'--no-rollback', '--profile', 'incident-demo', '--no-notices']' returned non-zero exit status 1.

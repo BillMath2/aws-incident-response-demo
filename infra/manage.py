@@ -44,8 +44,12 @@ def verify_identity(config: dict) -> dict:
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("action", choices=["synth", "diff", "deploy", "bootstrap", "identity"])
+    parser.add_argument("--live", action="store_true", help="target the P05 stack with a built ZIP")
     args = parser.parse_args()
     config = load_config()
+    if args.live:
+        package = ROOT.parent / ".tools/p05-build/package.json"
+        env_package = json.loads(package.read_text())["zip"]
     if args.action != "synth":
         print(json.dumps(verify_identity(config)), flush=True)
     if args.action == "identity":
@@ -57,6 +61,8 @@ def main():
     env["AWS_PROFILE"] = config["profile"]
     env["CDK_DISABLE_VERSION_CHECK"] = "1"
     env["AWS_MAX_ATTEMPTS"] = "1"
+    if args.live:
+        env["P05_PACKAGE"] = env_package
     node = shutil.which("node")
     cdk = ROOT / "node_modules/aws-cdk/bin/cdk"
     if not node or not cdk.exists():
@@ -77,12 +83,15 @@ def main():
             "Project=incident-demo",
         ]
     else:
-        command += [config["stack_name"]]
+        command += ["incident-demo-live" if args.live else config["stack_name"]]
         command += ["--no-lookups", "--strict"]
         if args.action == "diff":
             command += ["--no-change-set"]
         if args.action == "deploy":
-            command += ["--require-approval", "never", "--outputs-file", "cdk.out/outputs.json"]
+            outputs = "cdk.out/live-outputs.json" if args.live else "cdk.out/outputs.json"
+            command += ["--require-approval", "never", "--outputs-file", outputs]
+            if args.live:
+                command += ["--no-rollback"]
     command += ["--profile", config["profile"], "--no-notices"]
     subprocess.run(command, cwd=ROOT, env=env, check=True)
 

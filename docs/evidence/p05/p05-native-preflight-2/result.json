@@ -1,0 +1,501 @@
+{
+  "scope": "local controller with real Bedrock/Lambda; not AgentCore acceptance",
+  "reservation_usd": "0.25",
+  "audit": [
+    {
+      "event": "prompt_built",
+      "adapter_prompt_version": "p05-v7-native",
+      "response_phase": "decide",
+      "system_sha256": "ba6379f0ec1dab96acaccf6957f7bb2e8614aab2eaa6f83f9f1e9e09b8bc2cb3",
+      "tool_schema_sha256": "ae908c3185971d4d8b884abbc2adc6c16c87da931714a4359512b6ee86e3878b"
+    },
+    {
+      "event": "token_count_unsupported",
+      "reserved_input_tokens": 300000,
+      "input_bytes": 4844
+    },
+    {
+      "event": "model_started",
+      "input_tokens": null
+    },
+    {
+      "event": "model_finished",
+      "input_tokens": 1663,
+      "output_tokens": 22,
+      "request_id": "6729dba7-613b-4962-a7ee-47cb2de6eaa2"
+    },
+    {
+      "event": "native_response",
+      "stop_reason": "tool_use",
+      "proposed_decisions": 1,
+      "unused_decisions": 0
+    },
+    {
+      "event": "lambda_started",
+      "tool": "get_service_health",
+      "attempt": 1
+    },
+    {
+      "event": "lambda_finished",
+      "tool": "get_service_health",
+      "attempt": 1,
+      "latency_ms": 312,
+      "request_id": "01fecce7-ed7d-4cfb-8ad8-86f349318d41"
+    },
+    {
+      "event": "prompt_built",
+      "adapter_prompt_version": "p05-v7-native",
+      "response_phase": "decide",
+      "system_sha256": "ba6379f0ec1dab96acaccf6957f7bb2e8614aab2eaa6f83f9f1e9e09b8bc2cb3",
+      "tool_schema_sha256": "ae908c3185971d4d8b884abbc2adc6c16c87da931714a4359512b6ee86e3878b"
+    },
+    {
+      "event": "token_count_unsupported",
+      "reserved_input_tokens": 300000,
+      "input_bytes": 5330
+    },
+    {
+      "event": "model_started",
+      "input_tokens": null
+    },
+    {
+      "event": "model_finished",
+      "input_tokens": 1868,
+      "output_tokens": 54,
+      "request_id": "05c89c7c-0e28-4fd7-81b7-fbeeeb3eafc2"
+    },
+    {
+      "event": "native_response",
+      "stop_reason": "tool_use",
+      "proposed_decisions": 2,
+      "unused_decisions": 1
+    },
+    {
+      "event": "lambda_started",
+      "tool": "get_recent_changes",
+      "attempt": 1
+    },
+    {
+      "event": "lambda_finished",
+      "tool": "get_recent_changes",
+      "attempt": 1,
+      "latency_ms": 1235,
+      "request_id": "ffa1d2f2-bb0d-4cf4-aa13-ca8e2048d015"
+    },
+    {
+      "event": "prompt_built",
+      "adapter_prompt_version": "p05-v7-native",
+      "response_phase": "decide",
+      "system_sha256": "ba6379f0ec1dab96acaccf6957f7bb2e8614aab2eaa6f83f9f1e9e09b8bc2cb3",
+      "tool_schema_sha256": "ae908c3185971d4d8b884abbc2adc6c16c87da931714a4359512b6ee86e3878b"
+    },
+    {
+      "event": "token_count_unsupported",
+      "reserved_input_tokens": 300000,
+      "input_bytes": 5894
+    },
+    {
+      "event": "model_started",
+      "input_tokens": null
+    },
+    {
+      "event": "model_finished",
+      "input_tokens": 2083,
+      "output_tokens": 32,
+      "request_id": "eee64da0-5a34-4c1e-96cd-08e1c3bdce22"
+    },
+    {
+      "event": "native_response",
+      "stop_reason": "tool_use",
+      "proposed_decisions": 1,
+      "unused_decisions": 0
+    },
+    {
+      "event": "lambda_started",
+      "tool": "get_recent_logs",
+      "attempt": 1
+    },
+    {
+      "event": "lambda_finished",
+      "tool": "get_recent_logs",
+      "attempt": 1,
+      "latency_ms": 1202,
+      "request_id": "4536065b-8bf7-4958-9935-9f3c70b770c1"
+    },
+    {
+      "event": "prompt_built",
+      "adapter_prompt_version": "p05-v7-native",
+      "response_phase": "final",
+      "system_sha256": "be2e707afb3beca4019764252b342c5af5be4b907fd6a0d93b2802329359fa70",
+      "tool_schema_sha256": "2d73d600955c31c93338b83f32c13ddad44facf5ae8311006ee1c8b178f67dac"
+    },
+    {
+      "event": "token_count_unsupported",
+      "reserved_input_tokens": 300000,
+      "input_bytes": 5670
+    },
+    {
+      "event": "model_started",
+      "input_tokens": null
+    },
+    {
+      "event": "model_finished",
+      "input_tokens": 2066,
+      "output_tokens": 307,
+      "request_id": "565031a7-0737-48b4-8e33-72e2896bd609"
+    },
+    {
+      "event": "native_response",
+      "stop_reason": "tool_use",
+      "proposed_decisions": 1,
+      "unused_decisions": 0
+    }
+  ],
+  "result": {
+    "run_id": "p05-native-b22ebab565074286a022e21a83c5e606",
+    "variant": "V1",
+    "mode": "aws_live",
+    "status": "complete",
+    "stop_reason": "finished",
+    "investigation": {
+      "run_id": "p05-native-b22ebab565074286a022e21a83c5e606",
+      "outcome": "escalate",
+      "facts": [
+        {
+          "statement": "The checkout-api service is currently healthy, but has a higher error rate than the previous release.",
+          "evidence_ids": [
+            "obs-001-health"
+          ]
+        },
+        {
+          "statement": "A new release, release-42, was deployed to the checkout-api service.",
+          "evidence_ids": [
+            "obs-001-changes"
+          ]
+        },
+        {
+          "statement": "The checkout-api service logs indicate that the new release-42 checkout serializer raises a TypeError, which did not occur with the previous release-41.",
+          "evidence_ids": [
+            "obs-001-logs"
+          ]
+        }
+      ],
+      "hypotheses": [
+        {
+          "cause": "The deployment of release-42 introduced a bug in the checkout serializer.",
+          "supporting_evidence": [],
+          "contradicting_evidence": [],
+          "status": "candidate"
+        }
+      ],
+      "missing_information": [
+        "Additional logs or debugging information to confirm the cause of the TypeError.",
+        "Confirmation that the error rate increase is due to the new release."
+      ],
+      "next_check": "Investigate the TypeError in the checkout serializer of release-42.",
+      "justification": "The evidence suggests that the deployment of release-42 may have introduced a bug, but further investigation is needed to confirm the cause of the error rate increase."
+    },
+    "evidence": [
+      {
+        "evidence_id": "obs-001-health",
+        "source": "get_service_health",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "fixtures-1.0.0",
+        "content_hash": "19fdce4867c76f03895ca46f5e70641437478de0327ffceaf0ef5b8ec98e1992",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "health",
+          "service_id": "checkout-api",
+          "observed_at": "2026-10-01T12:04:00Z",
+          "release": "release-42",
+          "error_rate": 0.25,
+          "latency_p95_ms": 1700.0,
+          "dependency_state": "healthy"
+        }
+      },
+      {
+        "evidence_id": "obs-001-changes",
+        "source": "get_recent_changes",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "fixtures-1.0.0",
+        "content_hash": "9d04ff37b2e1ddedc283b089a8a5e452e7e922984edaf97eb99c84ffeab7221f",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "changes",
+          "service_id": "checkout-api",
+          "items": [
+            {
+              "change_id": "change-001",
+              "changed_at": "2026-10-01T11:55:00Z",
+              "kind": "deployment",
+              "release": "release-42",
+              "summary": "Checkout release-42 deployed; release-41 baseline error rate was 0.003."
+            }
+          ]
+        }
+      },
+      {
+        "evidence_id": "obs-001-logs",
+        "source": "get_recent_logs",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "fixtures-1.0.0",
+        "content_hash": "ede9bfd04b44cfdd3ca8e1b4e8258a8aa7044e18d057ff9d0ac80a101d5bc6ae",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "logs",
+          "service_id": "checkout-api",
+          "entries": [
+            {
+              "observed_at": "2026-10-01T12:03:00Z",
+              "message": "release-42 checkout serializer raises TypeError; same requests succeeded on release-41."
+            }
+          ],
+          "truncated": false
+        }
+      }
+    ],
+    "trace": [
+      {
+        "event": "boundary_checked",
+        "phase": "gather",
+        "round": 0,
+        "call": null,
+        "detail": "input: pass",
+        "branches": []
+      },
+      {
+        "event": "provider_attempt",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "Live model attempt 1",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "output: pass",
+        "branches": []
+      },
+      {
+        "event": "tool_selected",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_service_health",
+          "arguments": {
+            "service_id": "checkout-api"
+          }
+        },
+        "detail": "Collect observations with get_service_health",
+        "branches": []
+      },
+      {
+        "event": "tool_attempt",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_service_health",
+          "arguments": {
+            "service_id": "checkout-api"
+          }
+        },
+        "detail": "attempt 1",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "source: pass",
+        "branches": []
+      },
+      {
+        "event": "tool_observed",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_service_health",
+          "arguments": {
+            "service_id": "checkout-api"
+          }
+        },
+        "detail": "Validated observations collected",
+        "branches": []
+      },
+      {
+        "event": "provider_attempt",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "Live model attempt 1",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "output: pass",
+        "branches": []
+      },
+      {
+        "event": "tool_selected",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_recent_changes",
+          "arguments": {
+            "service_id": "checkout-api",
+            "window_minutes": 60
+          }
+        },
+        "detail": "Collect observations with get_recent_changes",
+        "branches": []
+      },
+      {
+        "event": "tool_attempt",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_recent_changes",
+          "arguments": {
+            "service_id": "checkout-api",
+            "window_minutes": 60
+          }
+        },
+        "detail": "attempt 1",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "source: pass",
+        "branches": []
+      },
+      {
+        "event": "tool_observed",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_recent_changes",
+          "arguments": {
+            "service_id": "checkout-api",
+            "window_minutes": 60
+          }
+        },
+        "detail": "Validated observations collected",
+        "branches": []
+      },
+      {
+        "event": "provider_attempt",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "Live model attempt 1",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "output: pass",
+        "branches": []
+      },
+      {
+        "event": "tool_selected",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_recent_logs",
+          "arguments": {
+            "service_id": "checkout-api",
+            "filter": "errors",
+            "limit": 20
+          }
+        },
+        "detail": "Collect observations with get_recent_logs",
+        "branches": []
+      },
+      {
+        "event": "tool_attempt",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_recent_logs",
+          "arguments": {
+            "service_id": "checkout-api",
+            "filter": "errors",
+            "limit": 20
+          }
+        },
+        "detail": "attempt 1",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "source: pass",
+        "branches": []
+      },
+      {
+        "event": "tool_observed",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_recent_logs",
+          "arguments": {
+            "service_id": "checkout-api",
+            "filter": "errors",
+            "limit": 20
+          }
+        },
+        "detail": "Validated observations collected",
+        "branches": []
+      },
+      {
+        "event": "provider_attempt",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "Live model attempt 1",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "output: pass",
+        "branches": []
+      },
+      {
+        "event": "finished",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "Accepted structured escalate; semantic support still needs review",
+        "branches": []
+      }
+    ],
+    "provider_calls": 4,
+    "usage": {
+      "model_calls": 4,
+      "tool_calls": 3,
+      "input_tokens": 7680,
+      "output_tokens": 415
+    },
+    "active_latency_ms": 16712
+  }
+}

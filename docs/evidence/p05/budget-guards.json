@@ -1,0 +1,32 @@
+{
+  "scope": "actual DynamoDB transactions through the application budget class; no model calls",
+  "run_id": "p05-budget-9d88ee6125304420aa5859c9bd0dee71",
+  "before": {
+    "global": "75",
+    "batch#p05-dev-01": "75"
+  },
+  "after_reservation": {
+    "global": "100",
+    "batch#p05-dev-01": "100"
+  },
+  "concurrent_rejection": {
+    "code": "TransactionCanceledException",
+    "reasons": [
+      "ConditionalCheckFailed",
+      "None",
+      "None"
+    ]
+  },
+  "duplicate_rejection": {
+    "code": "TransactionCanceledException",
+    "reasons": [
+      "None",
+      "None",
+      "ConditionalCheckFailed"
+    ]
+  },
+  "after_rejections": {
+    "global": "100",
+    "batch#p05-dev-01": "100"
+  }
+}

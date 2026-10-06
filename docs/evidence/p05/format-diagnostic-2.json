@@ -1,0 +1,63 @@
+{
+  "scope": "local provider diagnostic, not AgentCore acceptance",
+  "reservation_usd": "0.25",
+  "audit": [
+    {
+      "event": "token_count_unsupported",
+      "reserved_input_tokens": 300000,
+      "input_bytes": 10070
+    },
+    {
+      "event": "model_started",
+      "input_tokens": null
+    },
+    {
+      "event": "model_finished",
+      "input_tokens": 2384,
+      "output_tokens": 119,
+      "request_id": "227f069b-fa48-4986-9830-82ef91004fcc"
+    },
+    {
+      "event": "json_fence_removed"
+    },
+    {
+      "event": "model_output_invalid",
+      "error_types": [
+        "extra_forbidden",
+        "missing"
+      ],
+      "markdown_fenced": true
+    }
+  ],
+  "usage": {
+    "model_calls": 1,
+    "input_tokens": 2384,
+    "output_tokens": 119
+  },
+  "outcome": {
+    "valid": false,
+    "errors": [
+      {
+        "type": "missing",
+        "location": [
+          "tool",
+          "call"
+        ]
+      },
+      {
+        "type": "extra_forbidden",
+        "location": [
+          "tool",
+          "run_id"
+        ]
+      },
+      {
+        "type": "extra_forbidden",
+        "location": [
+          "tool",
+          "next_check"
+        ]
+      }
+    ]
+  }
+}

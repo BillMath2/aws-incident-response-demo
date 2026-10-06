@@ -1,0 +1,6 @@
+{
+  "denied": true,
+  "code": "AccessDeniedException",
+  "http_status": 403,
+  "request_id": "8ca5a6c9-4d1f-4016-ab6c-0a74905947a4"
+}

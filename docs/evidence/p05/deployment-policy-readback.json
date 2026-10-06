@@ -1,0 +1,35 @@
+{
+  "role": "cdk-incdemo-cfn-exec-role-498084841421-us-east-2",
+  "policies": [
+    {
+      "policy": "incident-demo-cfn-execution",
+      "default_version": "v3",
+      "matches_retained_document": true
+    },
+    {
+      "policy": "incident-demo-p05-cfn-execution",
+      "default_version": "v7",
+      "matches_retained_document": true
+    },
+    {
+      "policy": "incident-demo-p05-monitoring-execution",
+      "default_version": "v1",
+      "matches_retained_document": true
+    }
+  ],
+  "attached": [
+    {
+      "PolicyName": "incident-demo-cfn-execution",
+      "PolicyArn": "arn:aws:iam::498084841421:policy/incident-demo-cfn-execution"
+    },
+    {
+      "PolicyName": "incident-demo-p05-cfn-execution",
+      "PolicyArn": "arn:aws:iam::498084841421:policy/incident-demo-p05-cfn-execution"
+    },
+    {
+      "PolicyName": "incident-demo-p05-monitoring-execution",
+      "PolicyArn": "arn:aws:iam::498084841421:policy/incident-demo-p05-monitoring-execution"
+    }
+  ],
+  "original_p04_document_unchanged": true
+}

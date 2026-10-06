@@ -4,15 +4,18 @@ A synthetic checkout incident-response demonstration being built with Python, La
 LangChain and Amazon Bedrock AgentCore. **P01-P03 are implemented and locally verified:**
 contracts, a frozen case corpus, a local approval walkthrough, and executable LangGraph
 investigation variants with an offline evaluation harness. **P04 adds an AWS foundation in
-Ohio (`us-east-2`) and bounded model-access smoke tests.** The live investigator, retrieval,
-Guardrails and approval workflow remain later packages; no model-quality results are claimed.
+Ohio (`us-east-2`) and bounded model-access smoke tests.** **P05 adds a verified live AgentCore
+investigator using Nova and three scoped diagnostic Lambdas**, with timeout, retry, budget,
+IAM-denial and audit evidence. Retrieval, Guardrails and cloud approval remain later packages;
+no model-quality gate is claimed.
 
 The [master implementation plan](docs/aws-incident-response-demo-master-implementation-plan.md)
 defines scope. See [P01 acceptance](docs/p01-acceptance.md) and
 [P02 acceptance and retained walkthroughs](docs/p02-acceptance.md), and
 [P03 acceptance](docs/p03-acceptance.md). AWS setup, limits and retained results are in
 [P04 readiness](docs/p04-aws-readiness.md), [deployment runbook](docs/p04-deployment-runbook.md),
-and [P04 acceptance](docs/p04-acceptance.md).
+and [P04 acceptance](docs/p04-acceptance.md). Live investigator results and operation are in
+[P05 acceptance](docs/p05-acceptance.md) and the [P05 runbook](docs/p05-live-runbook.md).
 
 ## Setup
 
@@ -170,8 +173,9 @@ gate false. See [rubric and review workflow](evals/README.md) and
 | `tests/` | Offline contract and corpus integrity checks |
 | `.github/workflows/ci.yml` | Lint, format, unit, corpus and schema checks |
 
-LangGraph 1.2.12 now runs the offline strategies; its dependencies are locked. The Bedrock
-LangChain integration and live runtime adapters remain P05 work after the P04 foundation.
+LangGraph 1.2.12 runs both offline strategies and the live controller. Install the locked
+`live` extra (`uv sync --locked --extra live`) for LangChain/Bedrock and AWS adapters. Ordinary
+CI tests these adapters offline; paid calls use the separately invoked bounded smoke runner.
 
 ## Contract boundaries
 

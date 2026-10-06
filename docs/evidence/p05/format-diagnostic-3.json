@@ -1,0 +1,38 @@
+{
+  "scope": "local provider diagnostic, not AgentCore acceptance",
+  "reservation_usd": "0.25",
+  "audit": [
+    {
+      "event": "prompt_built",
+      "adapter_prompt_version": "p05-v2",
+      "system_sha256": "bb6cb8c276171d9bc97998d74c0d1d3f4b5c248baea620fd23241cbc7b834bba"
+    },
+    {
+      "event": "token_count_unsupported",
+      "reserved_input_tokens": 300000,
+      "input_bytes": 8590
+    },
+    {
+      "event": "model_started",
+      "input_tokens": null
+    },
+    {
+      "event": "model_finished",
+      "input_tokens": 1959,
+      "output_tokens": 66,
+      "request_id": "27b80714-5c76-4d66-9565-49983e0578d5"
+    },
+    {
+      "event": "json_fence_removed"
+    }
+  ],
+  "usage": {
+    "model_calls": 1,
+    "input_tokens": 1959,
+    "output_tokens": 66
+  },
+  "outcome": {
+    "valid": true,
+    "kind": "tool"
+  }
+}

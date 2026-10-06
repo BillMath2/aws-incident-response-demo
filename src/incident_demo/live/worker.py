@@ -1,0 +1,78 @@
+"""One killable process per investigation; partial audit survives process termination."""
+
+import json
+import os
+import sys
+from datetime import UTC, datetime
+from pathlib import Path
+
+from incident_demo.contracts.base import canonical_json
+from incident_demo.investigator.engine import Engine
+from incident_demo.investigator.providers import OfflineBoundaryPolicy
+from incident_demo.live.adapters import BedrockProvider, LambdaTools
+from incident_demo.live.clients import sdk_config, session
+from incident_demo.live.contracts import LiveRequest
+
+
+def permission_probe(sdk):
+    from botocore.exceptions import ClientError
+
+    checks = {}
+    calls = {
+        "state_read": lambda: sdk.client("dynamodb", config=sdk_config(5)).get_item(
+            TableName="incident-demo-state",
+            Key={"pk": {"S": "p05-denial-probe"}, "sk": {"S": "absent"}},
+        ),
+        "executor_invoke": lambda: sdk.client("lambda", config=sdk_config(5)).invoke(
+            FunctionName="incident-demo-executor", InvocationType="DryRun", Payload=b"{}"
+        ),
+    }
+    for name, call in calls.items():
+        try:
+            call()
+            checks[name] = "unexpectedly_allowed"
+        except ClientError as exc:
+            checks[name] = exc.response["Error"]["Code"]
+    return checks
+
+
+def main():
+    request_path, result_path, audit_path = map(Path, sys.argv[1:])
+    request = LiveRequest.model_validate_json(request_path.read_bytes())
+
+    def audit(event, **fields):
+        record = {
+            "at": datetime.now(UTC).isoformat(),
+            "run_id": request.run_id,
+            "event": event,
+            **fields,
+        }
+        line = canonical_json(record)
+        with audit_path.open("a", encoding="utf-8") as file:
+            file.write(line + "\n")
+            file.flush()
+        print(line, flush=True)
+
+    sdk = session()
+    if request.operation == "permission_probe":
+        result = {"permission_checks": permission_probe(sdk)}
+    else:
+        provider = BedrockProvider(sdk, request.settings.model, audit)
+        tools = LambdaTools(sdk, json.loads(os.environ["DIAGNOSTIC_FUNCTIONS"]), request, audit)
+        engine = Engine(
+            Path(os.environ.get("APP_ROOT", ".")),
+            request.variant,
+            request.incident,
+            provider,
+            tools,
+            settings=request.settings,
+            policy=OfflineBoundaryPolicy(),
+        )
+        # Explicit synthetic-canary boundary only; never labelled Bedrock Guardrails.
+        engine.run_id = request.run_id
+        result = engine.run().model_dump(mode="json")
+    result_path.write_text(canonical_json(result), encoding="utf-8")
+
+
+if __name__ == "__main__":
+    main()

@@ -14,12 +14,12 @@ jobs:
         with:
           version: "0.9.5"
           enable-cache: true
-      - run: uv sync --locked
-      - run: uv run --locked ruff check .
-      - run: uv run --locked ruff format --check .
-      - run: uv run --locked pytest
-      - run: uv run --locked incident-demo validate-corpus
-      - run: uv run --locked incident-demo schemas --check
+      - run: uv sync --locked --extra live
+      - run: uv run --locked --extra live ruff check .
+      - run: uv run --locked --extra live ruff format --check .
+      - run: uv run --locked --extra live pytest
+      - run: uv run --locked --extra live incident-demo validate-corpus
+      - run: uv run --locked --extra live incident-demo schemas --check
   infrastructure:
     strategy:
       matrix:

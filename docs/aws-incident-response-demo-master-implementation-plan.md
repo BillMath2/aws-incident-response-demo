@@ -2,7 +2,7 @@
 
 Date: October 3, 2026  
 Prepared for: Bill Mathers  
-Status: P01-P03 locally verified; P04 foundation deployed in Ohio; P05-P10 remain planned
+Status: P01-P03 locally verified; P04 foundation and P05 live integration verified in Ohio; P06-P10 remain planned
 
 Project destination: C:\Github\aws-incident-response-demo  
 Target role: [Duke job description](DukeJob.txt)
@@ -28,8 +28,15 @@ Nova Pro and Llama 3.3 judge-model inference passed tiny readiness smoke calls. 
 Titan Embeddings V2 with S3 Vectors for the P06 Knowledge Base. See
 [P04 acceptance](p04-acceptance.md), [readiness decisions](p04-aws-readiness.md), and
 [deployment/cleanup runbook](p04-deployment-runbook.md). Organization policies were not changed.
-Model quality, AgentCore execution, retrieval, Guardrail coverage and cloud approval/action
-isolation remain unverified until their respective live packages.
+P05 update (October 5, 2026): AgentCore now runs the LangGraph investigator with actual
+LangChain/Bedrock native tool calls and three scoped diagnostic Lambdas. A normal investigation,
+one transient retry, model-call exhaustion, a forcibly stopped worker, IAM denials, private
+evidence persistence and structured audit traces passed live checks. Repeated deployment made
+no changes and stack drift is IN_SYNC. See [P05 acceptance](p05-acceptance.md) and the
+[live runbook](p05-live-runbook.md). Diagnostics remain synthetic. Model quality, retrieval,
+Guardrail coverage and durable cloud approval/action isolation remain later gates.
+P05's conservative reservations require a budget reconciliation/replan before the P08 matrix;
+the approved $50 total / $10 batch allowance has not increased.
 The design and estimates below are retained as the planning baseline.
 
 Build one focused incident-response demonstration using LangGraph and LangChain on Amazon Bedrock AgentCore Runtime. Begin with a small local prototype, then prove live Bedrock inference, Knowledge Base retrieval, Guardrails, and an event-driven approval workflow on AWS. Compare three prompt strategies and two models using a controlled evaluation.
@@ -312,7 +319,7 @@ The implemented AWS demo is complete only when:
 - Project-owned resources are inventoried before cleanup; retained evidence is exported; deletion and any remaining billable resources are verified.
 - Unresolved limitations are stated, including the synthetic workload, small evaluation set, and absence of production customer operations.
 
-The next implementation package is P05: the live investigator and diagnostic tools. P04 deployed
-the foundation and performed bounded model-access smoke calls; those calls do not satisfy the
-investigator, retrieval, filtering or workflow gates. P01-P03 did not deploy AWS resources.
-The original plans and comparison documents remain unchanged. Full live gates remain P05-P08 work.
+The next implementation package is P06: the Knowledge Base and Guardrails, using the approved
+S3 Vectors store in Ohio. P05 verifies the live investigator's integration and bounded controls;
+it does not satisfy retrieval, filtering, workflow or model-quality gates. P01-P03 did not deploy
+AWS resources. The original plans and comparison documents remain unchanged.

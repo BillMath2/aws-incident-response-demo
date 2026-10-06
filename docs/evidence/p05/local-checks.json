@@ -1,0 +1,16 @@
+{
+  "application_tests": {
+    "passed": 145,
+    "seconds": 30.81,
+    "command": "python -m pytest -q -p no:cacheprovider"
+  },
+  "infrastructure_tests": {
+    "passed": 15,
+    "seconds": 62.11,
+    "command": "python -m pytest -q -p no:cacheprovider"
+  },
+  "targeted_native_adapter_tests": {
+    "passed": 11
+  },
+  "hosted_p05_ci_observed": false
+}

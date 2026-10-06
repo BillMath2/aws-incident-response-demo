@@ -1,0 +1,264 @@
+{"account": "498084841421", "region": "us-east-2"}
+.\.venv\Scripts\python.exe : AI agent detected
+At line:2 char:101
++ ... tion infra; .\.venv\Scripts\python.exe manage.py diff --live *> ../ru ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (AI agent detected:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Stack incident-demo-live (aws://498084841421/us-east-2)
+IAM Statement Changes
+┌───┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┬────────┬─────────────────────────┬──────────────────────────────────────────────────┬─────────────────────
+─────────────────────────────────────────────────────────────────────────────────────────────┐
+│   │ Resource                                                                                                         
+           │ Effect │ Action                  │ Principal                                        │ Condition           
+                                                                                             │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼─────────────────────────┼──────────────────────────────────────────────────┼─────────────────────
+─────────────────────────────────────────────────────────────────────────────────────────────┤
+│ + │ ${Budget.Arn}                                                                                                    
+           │ Allow  │ dynamodb:PutItem        │ AWS:${InvestigatorRole}                          │                     
+                                                                                             │
+│   │                                                                                                                  
+           │        │ dynamodb:UpdateItem     │                                                  │                     
+                                                                                             │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼─────────────────────────┼──────────────────────────────────────────────────┼─────────────────────
+─────────────────────────────────────────────────────────────────────────────────────────────┤
+│ + │ ${InvestigatorRole.Arn}                                                                                          
+           │ Allow  │ sts:AssumeRole          │ Service:bedrock-agentcore.amazonaws.com          │ "StringEquals": {   
+                                                                                             │
+│   │                                                                                                                  
+           │        │                         │                                                  │   
+"aws:SourceAccount": "498084841421"                                                                            │
+│   │                                                                                                                  
+           │        │                         │                                                  │ },                  
+                                                                                             │
+│   │                                                                                                                  
+           │        │                         │                                                  │ "ArnLike": {        
+                                                                                             │
+│   │                                                                                                                  
+           │        │                         │                                                  │   "aws:SourceArn": 
+"arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator*"        │
+│   │                                                                                                                  
+           │        │                         │                                                  │ }                   
+                                                                                             │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼─────────────────────────┼──────────────────────────────────────────────────┼─────────────────────
+─────────────────────────────────────────────────────────────────────────────────────────────┤
+│ + │ ${LogsKey.Arn}                                                                                                   
+           │ Allow  │ kms:*                   │ AWS:arn:${AWS::Partition}:iam::498084841421:root │                     
+                                                                                             │
+│ + │ ${LogsKey.Arn}                                                                                                   
+           │ Allow  │ kms:Decrypt             │ Service:logs.us-east-2.amazonaws.com             │ "ArnLike": {        
+                                                                                             │
+│   │                                                                                                                  
+           │        │ kms:DescribeKey         │                                                  │   
+"kms:EncryptionContext:aws:logs:arn": [                                                                        │
+│   │                                                                                                                  
+           │        │ kms:Encrypt             │                                                  │     
+"arn:aws:logs:us-east-2:498084841421:log-group:/aws/bedrock-agentcore/runtimes/incident_demo_investigator*", │
+│   │                                                                                                                  
+           │        │ kms:GenerateDataKey*    │                                                  │     
+"arn:aws:logs:us-east-2:498084841421:log-group:/aws/lambda/incident-demo-diag-*"                             │
+│   │                                                                                                                  
+           │        │ kms:ReEncrypt*          │                                                  │   ]                 
+                                                                                             │
+│   │                                                                                                                  
+           │        │                         │                                                  │ }                   
+                                                                                             │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼─────────────────────────┼──────────────────────────────────────────────────┼─────────────────────
+─────────────────────────────────────────────────────────────────────────────────────────────┤
+│ + │ ${TrailBucket.Arn}                                                                                               
+           │ Allow  │ s3:GetBucketAcl         │ Service:cloudtrail.amazonaws.com                 │                     
+                                                                                             │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼─────────────────────────┼──────────────────────────────────────────────────┼─────────────────────
+─────────────────────────────────────────────────────────────────────────────────────────────┤
+│ + │ ${TrailBucket.Arn}                                                                                               
+           │ Deny   │ s3:*                    │ AWS:*                                            │ "Bool": {           
+                                                                                             │
+│   │ ${TrailBucket.Arn}/*                                                                                             
+           │        │                         │                                                  │   
+"aws:SecureTransport": "false"                                                                                 │
+│   │                                                                                                                  
+           │        │                         │                                                  │ }                   
+                                                                                             │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼─────────────────────────┼──────────────────────────────────────────────────┼─────────────────────
+─────────────────────────────────────────────────────────────────────────────────────────────┤
+│ + │ ${TrailBucket.Arn}/AWSLogs/498084841421/*                                                                        
+           │ Allow  │ s3:PutObject            │ Service:cloudtrail.amazonaws.com                 │ "StringEquals": {   
+                                                                                             │
+│   │                                                                                                                  
+           │        │                         │                                                  │   "s3:x-amz-acl": 
+"bucket-owner-full-control"                                                                    │
+│   │                                                                                                                  
+           │        │                         │                                                  │ }                   
+                                                                                             │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼─────────────────────────┼──────────────────────────────────────────────────┼─────────────────────
+─────────────────────────────────────────────────────────────────────────────────────────────┤
+│ + │ ${get_recent_changes.Arn}                                                                                        
+           │ Allow  │ lambda:InvokeFunction   │ AWS:${InvestigatorRole}                          │                     
+                                                                                             │
+│   │ ${get_recent_logs.Arn}                                                                                           
+           │        │                         │                                                  │                     
+                                                                                             │
+│   │ ${get_service_health.Arn}                                                                                        
+           │        │                         │                                                  │                     
+                                                                                             │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼─────────────────────────┼──────────────────────────────────────────────────┼─────────────────────
+─────────────────────────────────────────────────────────────────────────────────────────────┤
+│ + │ ${get_recent_changesLogs.Arn}                                                                                    
+           │ Allow  │ logs:CreateLogStream    │ AWS:${get_recent_changesRole}                    │                     
+                                                                                             │
+│   │                                                                                                                  
+           │        │ logs:PutLogEvents       │                                                  │                     
+                                                                                             │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼─────────────────────────┼──────────────────────────────────────────────────┼─────────────────────
+─────────────────────────────────────────────────────────────────────────────────────────────┤
+│ + │ ${get_recent_changesRole.Arn}                                                                                    
+           │ Allow  │ sts:AssumeRole          │ Service:lambda.amazonaws.com                     │                     
+                                                                                             │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼─────────────────────────┼──────────────────────────────────────────────────┼─────────────────────
+─────────────────────────────────────────────────────────────────────────────────────────────┤
+│ + │ ${get_recent_logsLogs.Arn}                                                                                       
+           │ Allow  │ logs:CreateLogStream    │ AWS:${get_recent_logsRole}                       │                     
+                                                                                             │
+│   │                                                                                                                  
+           │        │ logs:PutLogEvents       │                                                  │                     
+                                                                                             │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼─────────────────────────┼──────────────────────────────────────────────────┼─────────────────────
+─────────────────────────────────────────────────────────────────────────────────────────────┤
+│ + │ ${get_recent_logsRole.Arn}                                                                                       
+           │ Allow  │ sts:AssumeRole          │ Service:lambda.amazonaws.com                     │                     
+                                                                                             │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼─────────────────────────┼──────────────────────────────────────────────────┼─────────────────────
+─────────────────────────────────────────────────────────────────────────────────────────────┤
+│ + │ ${get_service_healthLogs.Arn}                                                                                    
+           │ Allow  │ logs:CreateLogStream    │ AWS:${get_service_healthRole}                    │                     
+                                                                                             │
+│   │                                                                                                                  
+           │        │ logs:PutLogEvents       │                                                  │                     
+                                                                                             │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼─────────────────────────┼──────────────────────────────────────────────────┼─────────────────────
+─────────────────────────────────────────────────────────────────────────────────────────────┤
+│ + │ ${get_service_healthRole.Arn}                                                                                    
+           │ Allow  │ sts:AssumeRole          │ Service:lambda.amazonaws.com                     │                     
+                                                                                             │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼─────────────────────────┼──────────────────────────────────────────────────┼─────────────────────
+─────────────────────────────────────────────────────────────────────────────────────────────┤
+│ + │ arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-lite-v1:0                                                
+           │ Allow  │ bedrock:CountTokens     │ AWS:${InvestigatorRole}                          │                     
+                                                                                             │
+│   │ arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-pro-v1:0                                                 
+           │        │ bedrock:InvokeModel     │                                                  │                     
+                                                                                             │
+│   │ arn:aws:bedrock:us-east-2:498084841421:inference-profile/us.amazon.nova-lite-v1:0                                
+           │        │                         │                                                  │                     
+                                                                                             │
+│   │ arn:aws:bedrock:us-east-2:498084841421:inference-profile/us.amazon.nova-pro-v1:0                                 
+           │        │                         │                                                  │                     
+                                                                                             │
+│   │ arn:aws:bedrock:us-east-2::foundation-model/amazon.nova-lite-v1:0                                                
+           │        │                         │                                                  │                     
+                                                                                             │
+│   │ arn:aws:bedrock:us-east-2::foundation-model/amazon.nova-pro-v1:0                                                 
+           │        │                         │                                                  │                     
+                                                                                             │
+│   │ arn:aws:bedrock:us-west-2::foundation-model/amazon.nova-lite-v1:0                                                
+           │        │                         │                                                  │                     
+                                                                                             │
+│   │ arn:aws:bedrock:us-west-2::foundation-model/amazon.nova-pro-v1:0                                                 
+           │        │                         │                                                  │                     
+                                                                                             │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼─────────────────────────┼──────────────────────────────────────────────────┼─────────────────────
+─────────────────────────────────────────────────────────────────────────────────────────────┤
+│ + │ arn:aws:logs:us-east-2:498084841421:log-group:/aws/bedrock-agentcore/runtimes/incident_demo_investigator*:*      
+           │ Allow  │ logs:CreateLogStream    │ AWS:${InvestigatorRole}                          │                     
+                                                                                             │
+│   │                                                                                                                  
+           │        │ logs:DescribeLogStreams │                                                  │                     
+                                                                                             │
+│   │                                                                                                                  
+           │        │ logs:PutLogEvents       │                                                  │                     
+                                                                                             │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼─────────────────────────┼──────────────────────────────────────────────────┼─────────────────────
+─────────────────────────────────────────────────────────────────────────────────────────────┤
+│ + │ arn:aws:s3:::cdk-incdemo-assets-498084841421-us-east-2/98dee92bfc6f22b1f3afab98ab9f26c1a4040f1b9c7195d6c6790c79d4
+3fa83c.zip │ Allow  │ s3:GetObject            │ AWS:${InvestigatorRole}                          │                     
+                                                                                             │
+│   │                                                                                                                  
+           │        │ s3:GetObjectVersion     │                                                  │                     
+                                                                                             │
+├───┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┼────────┼─────────────────────────┼──────────────────────────────────────────────────┼─────────────────────
+─────────────────────────────────────────────────────────────────────────────────────────────┤
+│ + │ arn:aws:s3:::incident-demo-artifacts-498084841421-us-east-2/runs/p05/*                                           
+           │ Allow  │ s3:PutObject            │ AWS:${InvestigatorRole}                          │                     
+                                                                                             │
+└───┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+───────────┴────────┴─────────────────────────┴──────────────────────────────────────────────────┴─────────────────────
+─────────────────────────────────────────────────────────────────────────────────────────────┘
+(NOTE: There may be security-related changes not in this list. See https://github.com/aws/aws-cdk/issues/1299)
+
+Parameters
+[+] Parameter BootstrapVersion BootstrapVersion: 
+{"Type":"AWS::SSM::Parameter::Value<String>","Default":"/cdk-bootstrap/incdemo/version","Description":"Version of the 
+CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"}
+
+Resources
+[+] AWS::KMS::Key LogsKey LogsKeyA6AB43B2
+[+] AWS::DynamoDB::Table Budget Budget69569A1A
+[+] AWS::Logs::LogGroup get_service_healthLogs getservicehealthLogsF827EE15
+[+] AWS::IAM::Role get_service_healthRole getservicehealthRole34E731B8
+[+] AWS::Lambda::Function get_service_health getservicehealthEF276A61
+[+] AWS::Logs::LogGroup get_recent_changesLogs getrecentchangesLogs0B3452B9
+[+] AWS::IAM::Role get_recent_changesRole getrecentchangesRole81F77D5D
+[+] AWS::Lambda::Function get_recent_changes getrecentchanges57131F89
+[+] AWS::Logs::LogGroup get_recent_logsLogs getrecentlogsLogs74EAFA7A
+[+] AWS::IAM::Role get_recent_logsRole getrecentlogsRoleCB933803
+[+] AWS::Lambda::Function get_recent_logs getrecentlogs216E16E1
+[+] AWS::IAM::Role InvestigatorRole InvestigatorRole413527E4
+[+] AWS::IAM::Policy InvestigatorRole/DefaultPolicy InvestigatorRoleDefaultPolicyF8C0F70D
+[+] AWS::BedrockAgentCore::Runtime Runtime Runtime
+[+] AWS::Logs::LogGroup RuntimeLogs RuntimeLogs92941AA6
+[+] AWS::BedrockAgentCore::RuntimeEndpoint Endpoint Endpoint
+[+] AWS::S3::Bucket TrailBucket TrailBucketA831CE63
+[+] AWS::S3::BucketPolicy TrailBucket/Policy TrailBucketPolicyFEBC3C5C
+[+] AWS::CloudTrail::Trail Trail Trail022F0CF2
+
+Outputs
+[+] Output RuntimeArnOutput RuntimeArnOutput: {"Value":{"Fn::GetAtt":["Runtime","AgentRuntimeArn"]}}
+[+] Output RuntimeIdOutput RuntimeIdOutput: {"Value":{"Fn::GetAtt":["Runtime","AgentRuntimeId"]}}
+[+] Output EndpointArnOutput EndpointArnOutput: {"Value":{"Fn::GetAtt":["Endpoint","AgentRuntimeEndpointArn"]}}
+[+] Output RuntimeLogGroupOutput RuntimeLogGroupOutput: {"Value":{"Ref":"RuntimeLogs92941AA6"}}
+[+] Output BudgetTableOutput BudgetTableOutput: {"Value":{"Ref":"Budget69569A1A"}}
+[+] Output InvestigatorRoleOutput InvestigatorRoleOutput: {"Value":{"Fn::GetAtt":["InvestigatorRole413527E4","Arn"]}}
+[+] Output LogsKeyArnOutput LogsKeyArnOutput: {"Value":{"Fn::GetAtt":["LogsKeyA6AB43B2","Arn"]}}
+[+] Output TrailBucketOutput TrailBucketOutput: {"Value":{"Ref":"TrailBucketA831CE63"}}
+[+] Output get_service_healthOutput getservicehealthOutput: {"Value":{"Fn::GetAtt":["getservicehealthEF276A61","Arn"]}}
+[+] Output get_recent_changesOutput getrecentchangesOutput: {"Value":{"Fn::GetAtt":["getrecentchanges57131F89","Arn"]}}
+[+] Output get_recent_logsOutput getrecentlogsOutput: {"Value":{"Fn::GetAtt":["getrecentlogs216E16E1","Arn"]}}
+
+Other Changes
+[+] Unknown Rules: {"CheckBootstrapVersion":{"Assertions":[{"Assert":{"Fn::Not":[{"Fn::Contains":[["1","2","3","4","5"]
+,{"Ref":"BootstrapVersion"}]}]},"AssertDescription":"CDK bootstrap stack version 6 required. Please run 'cdk 
+bootstrap' with a recent version of the CDK CLI."}]}}
+
+
+
+✨  Number of stacks with differences: 1
+

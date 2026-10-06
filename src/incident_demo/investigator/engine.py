@@ -17,6 +17,7 @@ from incident_demo.contracts.experiments import (
     ChooseTool,
     ExperimentResult,
     Finish,
+    LiveSettings,
     SearchReply,
     Settings,
     TraceEvent,
@@ -52,7 +53,7 @@ class Engine:
         incident: IncidentInput,
         provider,
         tools,
-        settings: Settings | None = None,
+        settings: Settings | LiveSettings | None = None,
         policy=None,
         clock=perf_counter,
     ):
@@ -60,6 +61,8 @@ class Engine:
             raise ValueError("unknown variant")
         self.variant, self.incident, self.provider, self.tools = variant, incident, provider, tools
         self.settings = settings if settings is not None else Settings()
+        if self.settings.mode == "aws_live" and policy is None:
+            raise ValueError("live execution requires an explicit boundary policy")
         self.policy, self.clock = policy or OfflineBoundaryPolicy(), clock
         self.prompt = (
             (root / "prompts/shared-v1.txt").read_text(encoding="utf-8")
@@ -164,7 +167,8 @@ class Engine:
                 temperature=self.settings.temperature,
                 max_output_tokens=self.settings.max_output_tokens,
             )
-            self.log("provider_attempt", f"Offline provider attempt {retry + 1}; not a model call")
+            label = "Live model" if self.settings.mode == "aws_live" else "Offline provider"
+            self.log("provider_attempt", f"{label} attempt {retry + 1}")
             try:
                 raw = self.provider.respond(request, timeout_seconds=remaining)
             except TransientFailure:
@@ -339,7 +343,7 @@ class Engine:
             hypotheses=(),
             missing_information=(reason,),
             next_check="Operator review or fresh diagnostic evidence",
-            justification=f"Offline controller: {reason}",
+            justification=f"{self.settings.mode} controller: {reason}",
         )
 
     def run(self) -> ExperimentResult:
@@ -373,12 +377,13 @@ class Engine:
         return ExperimentResult(
             run_id=self.run_id,
             variant=self.variant,
+            mode=self.settings.mode,
             status=status,
             stop_reason=reason,
             investigation=self.result,
             evidence=tuple(self.evidence),
             trace=tuple(self.trace),
             provider_calls=self.provider_calls,
-            usage=Usage(model_calls=0, tool_calls=self.tool_calls),
+            usage=Usage(**getattr(self.provider, "usage", {}), tool_calls=self.tool_calls),
             active_latency_ms=max(0, int((self.clock() - self.started) * 1000)),
         )

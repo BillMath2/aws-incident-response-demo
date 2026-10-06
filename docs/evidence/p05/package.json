@@ -1,0 +1,16 @@
+{
+  "sha256": "f14c7a103b515701b7e27d82f1295efcdb61a7bdb1c4fd88e7ff2b1a562c00f6",
+  "zip": "C:\\Github\\aws-incident-response-demo\\.tools\\p05-build\\live-f14c7a103b515701b7e27d82f1295efcdb61a7bdb1c4fd88e7ff2b1a562c00f6.zip",
+  "zipped_bytes": 47558390,
+  "unzipped_bytes": 131768307,
+  "development_telemetry": {
+    "case-001": "0279077eb5108e0df7b144f5",
+    "case-002": "a768deaf965b4c93a80f6d60",
+    "case-003": "92d98e8e161038047e5ffba2",
+    "case-004": "38104c60d1c7c366acfbb8d6",
+    "case-005": "c44ad7d3f7b72a0991f0793e",
+    "case-006": "6bd71d83d9e1a22283538e39",
+    "case-007": "882b73284dc6b9a7f2d90f26",
+    "case-008": "98dfbbeeafc168701288f7d8"
+  }
+}

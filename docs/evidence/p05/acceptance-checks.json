@@ -1,0 +1,29 @@
+{
+  "checks": {
+    "runtime_and_endpoint_ready": true,
+    "stack_complete_and_protected": true,
+    "all_five_logs_encrypted_and_retained": true,
+    "key_rotation": true,
+    "budget_table_caps_and_protection": true,
+    "trail_logging": true,
+    "trail_runtime_and_lambda_events": true,
+    "failure_alarm_exercised": true,
+    "lease_released": true,
+    "cloud_batch_matches_global": true,
+    "p05-baseline-5": true,
+    "p05-transient-1": true,
+    "model_cap": true,
+    "deadline": true,
+    "unsigned_denied": true,
+    "role_denials": true,
+    "artifacts_match": true,
+    "drift_in_sync": true,
+    "template_matches_source": true,
+    "session_stop_errors_absent": true,
+    "final_runs_in_cloudwatch": true,
+    "all_final_invocations_in_cloudtrail": true,
+    "preflight_reservations_reconciled": true
+  },
+  "passed": 23,
+  "total": 23
+}

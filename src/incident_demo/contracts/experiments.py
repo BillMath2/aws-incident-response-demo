@@ -31,6 +31,14 @@ class Settings(Contract):
     limits: Limits = Limits()
 
 
+class LiveSettings(Contract):
+    mode: Literal["aws_live"] = "aws_live"
+    model: Literal["us.amazon.nova-lite-v1:0", "us.amazon.nova-pro-v1:0"]
+    temperature: Literal[0.0] = 0.0
+    max_output_tokens: Annotated[int, Field(ge=1, le=1500)] = 1500
+    limits: Limits = Limits()
+
+
 class ChooseTool(Contract):
     kind: Literal["tool"]
     call: InvestigatorCall
@@ -90,7 +98,7 @@ class TraceEvent(Contract):
 class ExperimentResult(Contract):
     run_id: Identifier
     variant: Variant
-    mode: Literal["offline_scripted"] = "offline_scripted"
+    mode: Literal["offline_scripted", "aws_live"] = "offline_scripted"
     status: Literal["complete", "incomplete", "failed", "blocked"]
     stop_reason: Identifier
     investigation: Investigation

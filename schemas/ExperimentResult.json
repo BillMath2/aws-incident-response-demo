@@ -865,8 +865,11 @@
       "type": "string"
     },
     "mode": {
-      "const": "offline_scripted",
       "default": "offline_scripted",
+      "enum": [
+        "offline_scripted",
+        "aws_live"
+      ],
       "title": "Mode",
       "type": "string"
     },

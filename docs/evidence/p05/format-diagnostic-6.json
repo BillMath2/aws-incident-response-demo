@@ -1,0 +1,80 @@
+{
+  "scope": "local provider diagnostic, not AgentCore acceptance",
+  "reservation_usd": "0.25",
+  "audit": [
+    {
+      "event": "prompt_built",
+      "adapter_prompt_version": "p05-v5",
+      "response_phase": "final",
+      "system_sha256": "23930faad6d3b1ec12cafdda2915b5fa02af6f180bb3b3d8801163915a1db189"
+    },
+    {
+      "event": "token_count_unsupported",
+      "reserved_input_tokens": 300000,
+      "input_bytes": 6030
+    },
+    {
+      "event": "model_started",
+      "input_tokens": null
+    },
+    {
+      "event": "model_finished",
+      "input_tokens": 1629,
+      "output_tokens": 388,
+      "request_id": "9ee7f50a-cb19-4ceb-a371-3f4ac46bd278"
+    },
+    {
+      "event": "json_fence_removed"
+    }
+  ],
+  "usage": {
+    "model_calls": 1,
+    "input_tokens": 1629,
+    "output_tokens": 388
+  },
+  "outcome": {
+    "valid": true,
+    "kind": "finish",
+    "run_id_matches": true,
+    "investigation": {
+      "run_id": "p05-c549e47a73004cacb2386b6006ddfd88",
+      "outcome": "escalate",
+      "facts": [
+        {
+          "statement": "The checkout-api service is currently experiencing errors.",
+          "evidence_ids": [
+            "obs-001-health"
+          ]
+        },
+        {
+          "statement": "The checkout-api service was deployed to release-42.",
+          "evidence_ids": [
+            "obs-001-changes"
+          ]
+        },
+        {
+          "statement": "The checkout-api service logs indicate a TypeError in the release-42 checkout serializer.",
+          "evidence_ids": [
+            "obs-001-logs"
+          ]
+        }
+      ],
+      "hypotheses": [
+        {
+          "cause": "The TypeError in the release-42 checkout serializer is causing the checkout-api service errors.",
+          "supporting_evidence": [
+            "obs-001-logs"
+          ],
+          "contradicting_evidence": [],
+          "status": "candidate"
+        }
+      ],
+      "missing_information": [
+        "No fresh, complete health/changes/logs after the deployment of release-42.",
+        "No corroboration after the deployment of release-42."
+      ],
+      "next_check": null,
+      "justification": "The collected evidence indicates that the checkout-api service is experiencing errors, and the logs suggest a TypeError in the release-42 checkout serializer. However, without fresh, complete health/changes/logs after the deployment of release-42 and corroboration after that deployment, a rollback cannot be proposed. Therefore, escalation is necessary."
+    }
+  }
+}

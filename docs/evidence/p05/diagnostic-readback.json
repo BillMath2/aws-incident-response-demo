@@ -1,0 +1,41 @@
+[
+  {
+    "name": "incident-demo-diag-service-health",
+    "role": "arn:aws:iam::498084841421:role/incident-demo-diag-service-health",
+    "state": "Active",
+    "last_update": "Successful",
+    "timeout": 5,
+    "memory_mb": 256,
+    "architectures": [
+      "arm64"
+    ],
+    "code_sha256": "f14c7a103b515701b7e27d82f1295efcdb61a7bdb1c4fd88e7ff2b1a562c00f6",
+    "matches_package": true
+  },
+  {
+    "name": "incident-demo-diag-recent-changes",
+    "role": "arn:aws:iam::498084841421:role/incident-demo-diag-recent-changes",
+    "state": "Active",
+    "last_update": "Successful",
+    "timeout": 5,
+    "memory_mb": 256,
+    "architectures": [
+      "arm64"
+    ],
+    "code_sha256": "f14c7a103b515701b7e27d82f1295efcdb61a7bdb1c4fd88e7ff2b1a562c00f6",
+    "matches_package": true
+  },
+  {
+    "name": "incident-demo-diag-recent-logs",
+    "role": "arn:aws:iam::498084841421:role/incident-demo-diag-recent-logs",
+    "state": "Active",
+    "last_update": "Successful",
+    "timeout": 5,
+    "memory_mb": 256,
+    "architectures": [
+      "arm64"
+    ],
+    "code_sha256": "f14c7a103b515701b7e27d82f1295efcdb61a7bdb1c4fd88e7ff2b1a562c00f6",
+    "matches_package": true
+  }
+]

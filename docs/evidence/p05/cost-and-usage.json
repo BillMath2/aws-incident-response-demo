@@ -1,0 +1,206 @@
+{
+  "model": "us.amazon.nova-lite-v1:0",
+  "reported_model_calls": 31,
+  "reported_input_tokens": 62132,
+  "reported_output_tokens": 4792,
+  "estimated_reported_inference_usd": "0.0048780000",
+  "estimate_excludes": [
+    "uncertain unreported usage",
+    "runtime",
+    "Lambda",
+    "storage",
+    "logs",
+    "CloudTrail",
+    "KMS",
+    "metrics and alarms",
+    "tax"
+  ],
+  "local_total_reservations_usd": "4.70",
+  "p05_reservations_usd": "4.60",
+  "prior_p04_reservation_usd": "0.10",
+  "infrastructure_reserve_usd": "10.00",
+  "cloud_reserved_usd": "4.60",
+  "note": "Both cloud counters now include the existing local-only P05 reservations via a monotonic conditional reconciliation. Local project total also includes P04. Reported-token inference estimate excludes other services and uncertain usage; it is not an AWS bill.",
+  "runs": [
+    {
+      "evidence": "p05-baseline-1/response.json",
+      "run_id": "p05-d729d358f2c24ed3a339a5b7dbbb1b6f",
+      "usage": {
+        "input_tokens": 2386,
+        "model_calls": 1,
+        "output_tokens": 160,
+        "tool_calls": 0
+      },
+      "usage_complete": true,
+      "worker_latency_ms": 4019
+    },
+    {
+      "evidence": "p05-baseline-2/response.json",
+      "run_id": "p05-a2e9ecfddc074bbda918b7955d01e98d",
+      "usage": {
+        "input_tokens": 2384,
+        "model_calls": 1,
+        "output_tokens": 175,
+        "tool_calls": 0
+      },
+      "usage_complete": true,
+      "worker_latency_ms": 4321
+    },
+    {
+      "evidence": "p05-baseline-3/response.json",
+      "run_id": "p05-c549e47a73004cacb2386b6006ddfd88",
+      "usage": {
+        "input_tokens": 14230,
+        "model_calls": 6,
+        "output_tokens": 345,
+        "tool_calls": 6
+      },
+      "usage_complete": true,
+      "worker_latency_ms": 12184
+    },
+    {
+      "evidence": "p05-baseline-4/response.json",
+      "run_id": "p05-1a9b6b32da2b442ba80ca5b79135300e",
+      "usage": {
+        "input_tokens": 3059,
+        "model_calls": 2,
+        "output_tokens": 185,
+        "tool_calls": 1
+      },
+      "usage_complete": true,
+      "worker_latency_ms": 5923
+    },
+    {
+      "evidence": "p05-baseline-5/response.json",
+      "run_id": "p05-0e26be69da234924bd33d8f56671d0ca",
+      "usage": {
+        "input_tokens": 7664,
+        "model_calls": 4,
+        "output_tokens": 404,
+        "tool_calls": 3
+      },
+      "usage_complete": true,
+      "worker_latency_ms": 9877
+    },
+    {
+      "evidence": "p05-deadline-1/response.json",
+      "run_id": "p05-0282bd6fff4d423e86e2e1655d86f6e7",
+      "usage": null,
+      "usage_complete": false,
+      "worker_latency_ms": 101
+    },
+    {
+      "evidence": "p05-model-cap-1/response.json",
+      "run_id": "p05-86abf398c6374526ba916b14e01cd5e7",
+      "usage": {
+        "input_tokens": 1660,
+        "model_calls": 1,
+        "output_tokens": 22,
+        "tool_calls": 1
+      },
+      "usage_complete": true,
+      "worker_latency_ms": 3469
+    },
+    {
+      "evidence": "p05-probe-1/response.json",
+      "run_id": "p05-a32f2c902e5446878a466724f6edc388",
+      "usage": null,
+      "usage_complete": true,
+      "worker_latency_ms": 2918
+    },
+    {
+      "evidence": "p05-transient-1/response.json",
+      "run_id": "p05-022abff810054e5bb752d0a2f8bf04e1",
+      "usage": {
+        "input_tokens": 7666,
+        "model_calls": 4,
+        "output_tokens": 439,
+        "tool_calls": 4
+      },
+      "usage_complete": true,
+      "worker_latency_ms": 7725
+    },
+    {
+      "evidence": "format-diagnostic-1.json",
+      "usage": {
+        "model_calls": 1,
+        "input_tokens": 2386,
+        "output_tokens": 162
+      },
+      "usage_complete": true,
+      "scope": "local provider diagnostic"
+    },
+    {
+      "evidence": "format-diagnostic-2.json",
+      "usage": {
+        "model_calls": 1,
+        "input_tokens": 2384,
+        "output_tokens": 119
+      },
+      "usage_complete": true,
+      "scope": "local provider diagnostic"
+    },
+    {
+      "evidence": "format-diagnostic-3.json",
+      "usage": {
+        "model_calls": 1,
+        "input_tokens": 1959,
+        "output_tokens": 66
+      },
+      "usage_complete": true,
+      "scope": "local provider diagnostic"
+    },
+    {
+      "evidence": "format-diagnostic-4.json",
+      "usage": {
+        "model_calls": 1,
+        "input_tokens": 1775,
+        "output_tokens": 456
+      },
+      "usage_complete": true,
+      "scope": "local provider diagnostic"
+    },
+    {
+      "evidence": "format-diagnostic-5.json",
+      "usage": {
+        "model_calls": 1,
+        "input_tokens": 1743,
+        "output_tokens": 1373
+      },
+      "usage_complete": true,
+      "scope": "local provider diagnostic"
+    },
+    {
+      "evidence": "format-diagnostic-6.json",
+      "usage": {
+        "model_calls": 1,
+        "input_tokens": 1629,
+        "output_tokens": 388
+      },
+      "usage_complete": true,
+      "scope": "local provider diagnostic"
+    },
+    {
+      "evidence": "p05-native-preflight/result.json",
+      "usage": {
+        "model_calls": 2,
+        "tool_calls": 1,
+        "input_tokens": 3527,
+        "output_tokens": 83
+      },
+      "usage_complete": true,
+      "scope": "local controller with real Bedrock/Lambda; not AgentCore acceptance"
+    },
+    {
+      "evidence": "p05-native-preflight-2/result.json",
+      "usage": {
+        "model_calls": 4,
+        "tool_calls": 3,
+        "input_tokens": 7680,
+        "output_tokens": 415
+      },
+      "usage_complete": true,
+      "scope": "local controller with real Bedrock/Lambda; not AgentCore acceptance"
+    }
+  ]
+}

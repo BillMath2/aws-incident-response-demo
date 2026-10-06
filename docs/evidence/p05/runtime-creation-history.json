@@ -1,0 +1,66 @@
+[
+  {
+    "time": "2026-10-06T01:21:52Z",
+    "event_id": "3eba6749-f8e5-46e6-a28a-657073818833",
+    "request_id": "e419de40-81b9-48d5-a9be-1f04c38d79a2",
+    "message": null,
+    "runtime_id": "incident_demo_investigator-yxOMou90km",
+    "principal": "arn:aws:sts::498084841421:assumed-role/cdk-incdemo-cfn-exec-role-498084841421-us-east-2/AWSCloudFormation"
+  },
+  {
+    "time": "2026-10-06T01:17:42Z",
+    "event_id": "36662a4d-dca1-4edb-afed-68f931649536",
+    "request_id": "551385da-93b4-44ec-82fe-005d817a7ae7",
+    "message": "User: arn:aws:sts::498084841421:assumed-role/cdk-incdemo-cfn-exec-role-498084841421-us-east-2/AWSCloudFormation is not authorized to perform: bedrock-agentcore:TagResource on resource: arn:aws:bedrock-agentcore:us-east-2:498084841421:workload-identity-directory/default because no identity-based policy allows the bedrock-agentcore:TagResource action (Service: BedrockAgentCoreControl, Status Code: 403, Request ID: 6cc585d6-0e4a-49ff-b19c-314695165a88) (SDK Attempt Count: 1)",
+    "runtime_id": null,
+    "principal": "arn:aws:sts::498084841421:assumed-role/cdk-incdemo-cfn-exec-role-498084841421-us-east-2/AWSCloudFormation"
+  },
+  {
+    "time": "2026-10-06T01:13:51Z",
+    "event_id": "db4ece74-49ac-406b-9873-9d62ff770399",
+    "request_id": "4f88e006-4829-4759-bfc4-b2cf7e759ff4",
+    "message": "User: arn:aws:sts::498084841421:assumed-role/cdk-incdemo-cfn-exec-role-498084841421-us-east-2/AWSCloudFormation is not authorized to perform: bedrock-agentcore:TagResource on resource: arn:aws:bedrock-agentcore:us-east-2:498084841421:workload-identity-directory/default/workload-identity/* because no identity-based policy allows the bedrock-agentcore:TagResource action (Service: BedrockAgentCoreControl, Status Code: 403, Request ID: 88052622-ca6b-4229-84db-3ce555d1128a) (SDK Attempt Count: 1)",
+    "runtime_id": null,
+    "principal": "arn:aws:sts::498084841421:assumed-role/cdk-incdemo-cfn-exec-role-498084841421-us-east-2/AWSCloudFormation"
+  },
+  {
+    "time": "2026-10-06T01:07:28Z",
+    "event_id": "9f75e641-4ad7-4522-b614-7d667dba708a",
+    "request_id": "e5a6b8d3-fd2d-4362-a638-8c92fc967e08",
+    "message": "Failed creating service linked role. Please verify that the calling role has sufficient permissions to create a service linked role.",
+    "runtime_id": null,
+    "principal": "arn:aws:sts::498084841421:assumed-role/cdk-incdemo-cfn-exec-role-498084841421-us-east-2/AWSCloudFormation"
+  },
+  {
+    "time": "2026-10-06T01:02:49Z",
+    "event_id": "75d45510-98f7-4390-8b94-14fbcbeda322",
+    "request_id": "772179db-b1e5-4985-b277-b45ccb914bed",
+    "message": "Invalid entrypoint value. Your entrypoint is either empty, contains spaces, starts with /, ~, ., .., or has multiple dots. Update the entrypoint name and try again.",
+    "runtime_id": null,
+    "principal": "arn:aws:sts::498084841421:assumed-role/cdk-incdemo-cfn-exec-role-498084841421-us-east-2/AWSCloudFormation"
+  },
+  {
+    "time": "2026-10-06T00:56:09Z",
+    "event_id": "fe23c1d8-2ca4-4430-800f-acfd73d137a6",
+    "request_id": "bde575f4-af35-4ba9-99f4-9fe563850465",
+    "message": "User: arn:aws:sts::498084841421:assumed-role/cdk-incdemo-cfn-exec-role-498084841421-us-east-2/AWSCloudFormation is not authorized to perform: bedrock-agentcore:TagResource on resource: arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/* because no identity-based policy allows the bedrock-agentcore:TagResource action",
+    "runtime_id": null,
+    "principal": "arn:aws:sts::498084841421:assumed-role/cdk-incdemo-cfn-exec-role-498084841421-us-east-2/AWSCloudFormation"
+  },
+  {
+    "time": "2026-10-06T00:51:57Z",
+    "event_id": "27c96605-8789-48f3-ac61-e52e8433103a",
+    "request_id": "1114d486-55a3-4f25-9ad9-c76ff5dd60e0",
+    "message": "User: arn:aws:sts::498084841421:assumed-role/cdk-incdemo-cfn-exec-role-498084841421-us-east-2/AWSCloudFormation is not authorized to perform: bedrock-agentcore:CreateAgentRuntimeEndpoint on resource: arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/* because no identity-based policy allows the bedrock-agentcore:CreateAgentRuntimeEndpoint action",
+    "runtime_id": null,
+    "principal": "arn:aws:sts::498084841421:assumed-role/cdk-incdemo-cfn-exec-role-498084841421-us-east-2/AWSCloudFormation"
+  },
+  {
+    "time": "2026-10-06T00:46:46Z",
+    "event_id": "324d621a-d292-404a-8dfa-b27b54af5f2e",
+    "request_id": "07c33ba8-ed5c-49da-a4f2-1f26ba1d8206",
+    "message": "User: arn:aws:sts::498084841421:assumed-role/cdk-incdemo-cfn-exec-role-498084841421-us-east-2/AWSCloudFormation is not authorized to perform: bedrock-agentcore:CreateAgentRuntime on resource: arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/* because no identity-based policy allows the bedrock-agentcore:CreateAgentRuntime action",
+    "runtime_id": null,
+    "principal": "arn:aws:sts::498084841421:assumed-role/cdk-incdemo-cfn-exec-role-498084841421-us-east-2/AWSCloudFormation"
+  }
+]

@@ -1,0 +1,82 @@
+"""Atomic, conservative cloud reservations and a cross-session concurrency lease."""
+
+import time
+
+from incident_demo.live.clients import sdk_config
+
+RESERVATION_CENTS = 25
+
+
+def reservation_cents(request):
+    return 200 if request.settings.model == "us.amazon.nova-pro-v1:0" else RESERVATION_CENTS
+
+
+class CloudBudget:
+    def __init__(self, session, table):
+        self.client = session.resource("dynamodb", config=sdk_config(5)).meta.client
+        self.table = table
+
+    def reserve(self, request):
+        now = int(time.time())
+        cost = reservation_cents(request)
+        # Transaction expressions have no resource condition-builder API.
+        self.client.transact_write_items(
+            TransactItems=[
+                {
+                    "Update": {
+                        "TableName": self.table,
+                        "Key": {"pk": "global"},
+                        "UpdateExpression": (
+                            "SET lease_owner = :run, lease_until = :until ADD reserved_cents :cost"
+                        ),
+                        "ConditionExpression": (
+                            "attribute_exists(pk) AND reserved_cents <= :ceiling "
+                            "AND lease_until < :now"
+                        ),
+                        "ExpressionAttributeValues": {
+                            ":run": request.run_id,
+                            ":until": now + 240,
+                            ":cost": cost,
+                            ":ceiling": 3990 - cost,
+                            ":now": now,
+                        },
+                    }
+                },
+                {
+                    "Update": {
+                        "TableName": self.table,
+                        "Key": {"pk": "batch#" + request.batch_id},
+                        "UpdateExpression": "ADD reserved_cents :cost",
+                        "ConditionExpression": (
+                            "attribute_not_exists(pk) OR reserved_cents <= :ceiling"
+                        ),
+                        "ExpressionAttributeValues": {
+                            ":cost": cost,
+                            ":ceiling": 1000 - cost,
+                        },
+                    }
+                },
+                {
+                    "Put": {
+                        "TableName": self.table,
+                        "Item": {
+                            "pk": "run#" + request.run_id,
+                            "batch_id": request.batch_id,
+                            "reserved_cents": cost,
+                            "reserved_at": now,
+                        },
+                        "ConditionExpression": "attribute_not_exists(pk)",
+                    }
+                },
+            ]
+        )
+
+    def release_lease(self, request):
+        # Never refund a reservation, including timeouts or unknown billed usage.
+        self.client.update_item(
+            TableName=self.table,
+            Key={"pk": "global"},
+            UpdateExpression="SET lease_until = :expired",
+            ConditionExpression="lease_owner = :run",
+            ExpressionAttributeValues={":expired": 0, ":run": request.run_id},
+        )

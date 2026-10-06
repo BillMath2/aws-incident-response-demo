@@ -16,6 +16,13 @@ dependencies = [
 [project.scripts]
 incident-demo = "incident_demo.cli:main"
 
+[project.optional-dependencies]
+live = [
+    "boto3[crt]==1.43.108",
+    "langchain-aws==1.8.0",
+    "numpy==2.2.6",
+]
+
 [dependency-groups]
 dev = ["pytest==8.4.2", "ruff==0.14.2"]
 

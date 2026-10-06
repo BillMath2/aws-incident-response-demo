@@ -1,0 +1,85 @@
+{
+  "TrailARN": "arn:aws:cloudtrail:us-east-2:498084841421:trail/incident-demo-p05",
+  "AdvancedEventSelectors": [
+    {
+      "Name": "ProjectAgentCoreEndpoint",
+      "FieldSelectors": [
+        {
+          "Field": "eventCategory",
+          "Equals": [
+            "Data"
+          ]
+        },
+        {
+          "Field": "resources.ARN",
+          "StartsWith": [
+            "arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator"
+          ]
+        },
+        {
+          "Field": "resources.type",
+          "Equals": [
+            "AWS::BedrockAgentCore::RuntimeEndpoint"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "ProjectAgentCore",
+      "FieldSelectors": [
+        {
+          "Field": "eventCategory",
+          "Equals": [
+            "Data"
+          ]
+        },
+        {
+          "Field": "resources.ARN",
+          "StartsWith": [
+            "arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator"
+          ]
+        },
+        {
+          "Field": "resources.type",
+          "Equals": [
+            "AWS::BedrockAgentCore::Runtime"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "ProjectLambda",
+      "FieldSelectors": [
+        {
+          "Field": "eventCategory",
+          "Equals": [
+            "Data"
+          ]
+        },
+        {
+          "Field": "resources.ARN",
+          "StartsWith": [
+            "arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-"
+          ]
+        },
+        {
+          "Field": "resources.type",
+          "Equals": [
+            "AWS::Lambda::Function"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Management",
+      "FieldSelectors": [
+        {
+          "Field": "eventCategory",
+          "Equals": [
+            "Management"
+          ]
+        }
+      ]
+    }
+  ]
+}

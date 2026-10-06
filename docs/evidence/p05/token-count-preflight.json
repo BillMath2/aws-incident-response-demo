@@ -1,0 +1,16 @@
+[
+  {
+    "model": "amazon.nova-lite-v1:0",
+    "error": {
+      "Message": "The provided model doesn't support counting tokens.",
+      "Code": "ValidationException"
+    }
+  },
+  {
+    "model": "amazon.nova-pro-v1:0",
+    "error": {
+      "Message": "The provided model doesn't support counting tokens.",
+      "Code": "ValidationException"
+    }
+  }
+]

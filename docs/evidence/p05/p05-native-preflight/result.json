@@ -1,0 +1,197 @@
+{
+  "scope": "local controller with real Bedrock/Lambda; not AgentCore acceptance",
+  "reservation_usd": "0.25",
+  "audit": [
+    {
+      "event": "prompt_built",
+      "adapter_prompt_version": "p05-v6-native",
+      "response_phase": "decide",
+      "system_sha256": "ba6379f0ec1dab96acaccf6957f7bb2e8614aab2eaa6f83f9f1e9e09b8bc2cb3",
+      "tool_schema_sha256": "ae908c3185971d4d8b884abbc2adc6c16c87da931714a4359512b6ee86e3878b"
+    },
+    {
+      "event": "token_count_unsupported",
+      "reserved_input_tokens": 300000,
+      "input_bytes": 4844
+    },
+    {
+      "event": "model_started",
+      "input_tokens": null
+    },
+    {
+      "event": "model_finished",
+      "input_tokens": 1661,
+      "output_tokens": 22,
+      "request_id": "7d59c73c-b0ca-4830-a0b9-37564f742609"
+    },
+    {
+      "event": "lambda_started",
+      "tool": "get_service_health",
+      "attempt": 1
+    },
+    {
+      "event": "lambda_finished",
+      "tool": "get_service_health",
+      "attempt": 1,
+      "latency_ms": 297,
+      "request_id": "3b124d78-912f-4a5c-a92a-f7e716f4ab63"
+    },
+    {
+      "event": "prompt_built",
+      "adapter_prompt_version": "p05-v6-native",
+      "response_phase": "decide",
+      "system_sha256": "ba6379f0ec1dab96acaccf6957f7bb2e8614aab2eaa6f83f9f1e9e09b8bc2cb3",
+      "tool_schema_sha256": "ae908c3185971d4d8b884abbc2adc6c16c87da931714a4359512b6ee86e3878b"
+    },
+    {
+      "event": "token_count_unsupported",
+      "reserved_input_tokens": 300000,
+      "input_bytes": 5330
+    },
+    {
+      "event": "model_started",
+      "input_tokens": null
+    },
+    {
+      "event": "model_finished",
+      "input_tokens": 1866,
+      "output_tokens": 61,
+      "request_id": "ec49ee5b-a256-4a0d-aad4-da93aa9b0fb4"
+    }
+  ],
+  "result": {
+    "run_id": "p05-native-8e0c8184f9654589bfe153ee9bff0da7",
+    "variant": "V1",
+    "mode": "aws_live",
+    "status": "failed",
+    "stop_reason": "contract_or_citation_invalid",
+    "investigation": {
+      "run_id": "p05-native-8e0c8184f9654589bfe153ee9bff0da7",
+      "outcome": "incomplete",
+      "facts": [],
+      "hypotheses": [],
+      "missing_information": [
+        "contract_or_citation_invalid"
+      ],
+      "next_check": "Operator review or fresh diagnostic evidence",
+      "justification": "aws_live controller: contract_or_citation_invalid"
+    },
+    "evidence": [
+      {
+        "evidence_id": "obs-001-health",
+        "source": "get_service_health",
+        "collected_at": "2026-10-01T12:05:00Z",
+        "source_version": "fixtures-1.0.0",
+        "content_hash": "19fdce4867c76f03895ca46f5e70641437478de0327ffceaf0ef5b8ec98e1992",
+        "complete": true,
+        "sanitized": true,
+        "payload": {
+          "kind": "health",
+          "service_id": "checkout-api",
+          "observed_at": "2026-10-01T12:04:00Z",
+          "release": "release-42",
+          "error_rate": 0.25,
+          "latency_p95_ms": 1700.0,
+          "dependency_state": "healthy"
+        }
+      }
+    ],
+    "trace": [
+      {
+        "event": "boundary_checked",
+        "phase": "gather",
+        "round": 0,
+        "call": null,
+        "detail": "input: pass",
+        "branches": []
+      },
+      {
+        "event": "provider_attempt",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "Live model attempt 1",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "output: pass",
+        "branches": []
+      },
+      {
+        "event": "tool_selected",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_service_health",
+          "arguments": {
+            "service_id": "checkout-api"
+          }
+        },
+        "detail": "Collect observations with get_service_health",
+        "branches": []
+      },
+      {
+        "event": "tool_attempt",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_service_health",
+          "arguments": {
+            "service_id": "checkout-api"
+          }
+        },
+        "detail": "attempt 1",
+        "branches": []
+      },
+      {
+        "event": "boundary_checked",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "source: pass",
+        "branches": []
+      },
+      {
+        "event": "tool_observed",
+        "phase": "decide",
+        "round": 0,
+        "call": {
+          "name": "get_service_health",
+          "arguments": {
+            "service_id": "checkout-api"
+          }
+        },
+        "detail": "Validated observations collected",
+        "branches": []
+      },
+      {
+        "event": "provider_attempt",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "Live model attempt 1",
+        "branches": []
+      },
+      {
+        "event": "stopped",
+        "phase": "decide",
+        "round": 0,
+        "call": null,
+        "detail": "contract_or_citation_invalid",
+        "branches": []
+      }
+    ],
+    "provider_calls": 2,
+    "usage": {
+      "model_calls": 2,
+      "tool_calls": 1,
+      "input_tokens": 3527,
+      "output_tokens": 83
+    },
+    "active_latency_ms": 6820
+  }
+}

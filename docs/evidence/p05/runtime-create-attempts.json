@@ -1,0 +1,23 @@
+[
+  {
+    "at": "2026-10-06T00:56:09Z",
+    "response": {
+      "Access-Control-Expose-Headers": "x-amzn-errortype,x-amzn-requestid,x-amzn-trace-id",
+      "message": "User: arn:aws:sts::498084841421:assumed-role/cdk-incdemo-cfn-exec-role-498084841421-us-east-2/AWSCloudFormation is not authorized to perform: bedrock-agentcore:TagResource on resource: arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/* because no identity-based policy allows the bedrock-agentcore:TagResource action"
+    }
+  },
+  {
+    "at": "2026-10-06T00:51:57Z",
+    "response": {
+      "Access-Control-Expose-Headers": "x-amzn-errortype,x-amzn-requestid,x-amzn-trace-id",
+      "message": "User: arn:aws:sts::498084841421:assumed-role/cdk-incdemo-cfn-exec-role-498084841421-us-east-2/AWSCloudFormation is not authorized to perform: bedrock-agentcore:CreateAgentRuntimeEndpoint on resource: arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/* because no identity-based policy allows the bedrock-agentcore:CreateAgentRuntimeEndpoint action"
+    }
+  },
+  {
+    "at": "2026-10-06T00:46:46Z",
+    "response": {
+      "Access-Control-Expose-Headers": "x-amzn-errortype,x-amzn-requestid,x-amzn-trace-id",
+      "message": "User: arn:aws:sts::498084841421:assumed-role/cdk-incdemo-cfn-exec-role-498084841421-us-east-2/AWSCloudFormation is not authorized to perform: bedrock-agentcore:CreateAgentRuntime on resource: arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/* because no identity-based policy allows the bedrock-agentcore:CreateAgentRuntime action"
+    }
+  }
+]

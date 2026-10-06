@@ -1,0 +1,79 @@
+{
+  "at": "2026-10-06T02:06:58.916910+00:00",
+  "operation": "monotonic reconciliation of previously reserved local-only P05 checks",
+  "source_reservations": [
+    {
+      "batch_id": "p05-direct-diagnostic-preflight",
+      "reserved_usd": "0.10",
+      "reserved_at": "2026-10-06T00:58:44.131166+00:00"
+    },
+    {
+      "batch_id": "p05-format-diagnostic-1",
+      "reserved_usd": "0.25",
+      "reserved_at": "2026-10-06T01:25:35.282505+00:00"
+    },
+    {
+      "batch_id": "p05-format-diagnostic-2",
+      "reserved_usd": "0.25",
+      "reserved_at": "2026-10-06T01:30:27.786210+00:00"
+    },
+    {
+      "batch_id": "p05-format-diagnostic-3",
+      "reserved_usd": "0.25",
+      "reserved_at": "2026-10-06T01:31:43.911879+00:00"
+    },
+    {
+      "batch_id": "p05-format-diagnostic-4",
+      "reserved_usd": "0.25",
+      "reserved_at": "2026-10-06T01:36:53.221232+00:00"
+    },
+    {
+      "batch_id": "p05-format-diagnostic-5",
+      "reserved_usd": "0.25",
+      "reserved_at": "2026-10-06T01:38:06.418554+00:00"
+    },
+    {
+      "batch_id": "p05-format-diagnostic-6",
+      "reserved_usd": "0.25",
+      "reserved_at": "2026-10-06T01:39:28.234679+00:00"
+    },
+    {
+      "batch_id": "p05-native-8e0c8184f9654589bfe153ee9bff0da7",
+      "reserved_usd": "0.25",
+      "reserved_at": "2026-10-06T01:47:14.084011+00:00"
+    },
+    {
+      "batch_id": "p05-native-b22ebab565074286a022e21a83c5e606",
+      "reserved_usd": "0.25",
+      "reserved_at": "2026-10-06T01:48:58.947950+00:00"
+    }
+  ],
+  "added_cents": 210,
+  "before": {
+    "global": {
+      "reserved_cents": "250",
+      "pk": "global",
+      "lease_until": "0",
+      "lease_owner": "p05-0282bd6fff4d423e86e2e1655d86f6e7"
+    },
+    "batch#p05-dev-01": {
+      "reserved_cents": "250",
+      "pk": "batch#p05-dev-01"
+    }
+  },
+  "after": {
+    "global": {
+      "pk": "global",
+      "lease_until": "0",
+      "lease_owner": "p05-0282bd6fff4d423e86e2e1655d86f6e7",
+      "reserved_cents": "460"
+    },
+    "batch#p05-dev-01": {
+      "pk": "batch#p05-dev-01",
+      "reserved_cents": "460"
+    }
+  },
+  "marker": "reconciliation#p05-local-preflights",
+  "refunded_cents": 0,
+  "local_ledger_unchanged": true
+}

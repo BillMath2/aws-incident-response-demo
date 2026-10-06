@@ -1,0 +1,268 @@
+{
+  "StackResourceDrifts": [
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "Budget69569A1A",
+      "PhysicalResourceId": "incident-demo-live-budget",
+      "ResourceType": "AWS::DynamoDB::Table",
+      "ExpectedProperties": "{\"OnDemandThroughput\":{\"MaxReadRequestUnits\":10,\"MaxWriteRequestUnits\":10},\"SSESpecification\":{\"SSEEnabled\":true},\"TableName\":\"incident-demo-live-budget\",\"AttributeDefinitions\":[{\"AttributeType\":\"S\",\"AttributeName\":\"pk\"}],\"BillingMode\":\"PAY_PER_REQUEST\",\"PointInTimeRecoverySpecification\":{\"PointInTimeRecoveryEnabled\":true,\"RecoveryPeriodInDays\":7},\"KeySchema\":[{\"KeyType\":\"HASH\",\"AttributeName\":\"pk\"}],\"DeletionProtectionEnabled\":true,\"Tags\":[{\"Value\":\"P05\",\"Key\":\"Phase\"},{\"Value\":\"incident-demo\",\"Key\":\"Project\"}]}",
+      "ActualProperties": "{\"OnDemandThroughput\":{\"MaxReadRequestUnits\":10,\"MaxWriteRequestUnits\":10},\"SSESpecification\":{\"SSEEnabled\":true},\"TableName\":\"incident-demo-live-budget\",\"AttributeDefinitions\":[{\"AttributeName\":\"pk\",\"AttributeType\":\"S\"}],\"BillingMode\":\"PAY_PER_REQUEST\",\"PointInTimeRecoverySpecification\":{\"PointInTimeRecoveryEnabled\":true,\"RecoveryPeriodInDays\":7},\"KeySchema\":[{\"KeyType\":\"HASH\",\"AttributeName\":\"pk\"}],\"DeletionProtectionEnabled\":true,\"Tags\":[{\"Key\":\"Project\",\"Value\":\"incident-demo\"},{\"Key\":\"Phase\",\"Value\":\"P05\"}]}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:16.764000+00:00"
+    },
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "DefaultErrors1F79E265",
+      "PhysicalResourceId": "DefaultErrors1F79E265-sbEVHTG2eqsO",
+      "ResourceType": "AWS::Logs::MetricFilter",
+      "ExpectedProperties": "{\"MetricTransformations\":[{\"MetricName\":\"Failures\",\"MetricValue\":\"1\",\"MetricNamespace\":\"IncidentDemo/P05\"}],\"FilterPattern\":\"{ ($.event = \\\"runtime_failure\\\") || ($.status = \\\"failed\\\") }\",\"LogGroupName\":\"/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-DEFAULT\"}",
+      "ActualProperties": "{\"MetricTransformations\":[{\"MetricName\":\"Failures\",\"MetricNamespace\":\"IncidentDemo/P05\",\"MetricValue\":\"1\"}],\"FilterPattern\":\"{ ($.event = \\\"runtime_failure\\\") || ($.status = \\\"failed\\\") }\",\"LogGroupName\":\"/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-DEFAULT\"}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:17.030000+00:00"
+    },
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "DefaultLatency579CD744",
+      "PhysicalResourceId": "DefaultLatency579CD744-kBfGMjljZ5fG",
+      "ResourceType": "AWS::Logs::MetricFilter",
+      "ExpectedProperties": "{\"MetricTransformations\":[{\"MetricName\":\"WorkerLatencyMs\",\"MetricValue\":\"$.worker_latency_ms\",\"MetricNamespace\":\"IncidentDemo/P05\"}],\"FilterPattern\":\"{ $.event = \\\"investigation_finished\\\" }\",\"LogGroupName\":\"/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-DEFAULT\"}",
+      "ActualProperties": "{\"MetricTransformations\":[{\"MetricName\":\"WorkerLatencyMs\",\"MetricNamespace\":\"IncidentDemo/P05\",\"MetricValue\":\"$.worker_latency_ms\"}],\"FilterPattern\":\"{ $.event = \\\"investigation_finished\\\" }\",\"LogGroupName\":\"/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-DEFAULT\"}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:16.494000+00:00"
+    },
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "Endpoint",
+      "PhysicalResourceId": "arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator-yxOMou90km/runtime-endpoint/smoke",
+      "ResourceType": "AWS::BedrockAgentCore::RuntimeEndpoint",
+      "ExpectedProperties": "{\"AgentRuntimeVersion\":\"5\",\"Tags\":{\"Project\":\"incident-demo\",\"Phase\":\"P05\"},\"AgentRuntimeId\":\"incident_demo_investigator-yxOMou90km\",\"Name\":\"smoke\"}",
+      "ActualProperties": "{\"AgentRuntimeVersion\":\"5\",\"Tags\":{\"Project\":\"incident-demo\",\"Phase\":\"P05\"},\"Name\":\"smoke\",\"AgentRuntimeId\":\"incident_demo_investigator-yxOMou90km\"}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:16.947000+00:00"
+    },
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "InvestigatorRole413527E4",
+      "PhysicalResourceId": "incident-demo-investigator",
+      "ResourceType": "AWS::IAM::Role",
+      "ExpectedProperties": "{\"RoleName\":\"incident-demo-investigator\",\"Policies\":[{\"PolicyName\":\"InvestigatorRoleDefaultPolicyF8C0F70D\",\"PolicyDocument\":{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Action\":[\"bedrock:InvokeModel\",\"bedrock:CountTokens\"],\"Resource\":[\"arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-lite-v1:0\",\"arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-pro-v1:0\",\"arn:aws:bedrock:us-east-2::foundation-model/amazon.nova-lite-v1:0\",\"arn:aws:bedrock:us-east-2::foundation-model/amazon.nova-pro-v1:0\",\"arn:aws:bedrock:us-west-2::foundation-model/amazon.nova-lite-v1:0\",\"arn:aws:bedrock:us-west-2::foundation-model/amazon.nova-pro-v1:0\",\"arn:aws:bedrock:us-east-2:498084841421:inference-profile/us.amazon.nova-lite-v1:0\",\"arn:aws:bedrock:us-east-2:498084841421:inference-profile/us.amazon.nova-pro-v1:0\"]},{\"Effect\":\"Allow\",\"Action\":\"lambda:InvokeFunction\",\"Resource\":[\"arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-service-health\",\"arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-recent-changes\",\"arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-recent-logs\"]},{\"Effect\":\"Allow\",\"Action\":[\"dynamodb:UpdateItem\",\"dynamodb:PutItem\"],\"Resource\":\"arn:aws:dynamodb:us-east-2:498084841421:table/incident-demo-live-budget\"},{\"Effect\":\"Allow\",\"Action\":\"s3:PutObject\",\"Resource\":\"arn:aws:s3:::incident-demo-artifacts-498084841421-us-east-2/runs/p05/*\"},{\"Effect\":\"Allow\",\"Action\":[\"s3:GetObject\",\"s3:GetObjectVersion\"],\"Resource\":\"arn:aws:s3:::cdk-incdemo-assets-498084841421-us-east-2/074e185bbbe5e596114b4f3a6a78df5d5bef3296045b730918d128fcdd2dc42c.zip\"},{\"Effect\":\"Allow\",\"Action\":[\"logs:CreateLogStream\",\"logs:PutLogEvents\",\"logs:DescribeLogStreams\"],\"Resource\":\"arn:aws:logs:us-east-2:498084841421:log-group:/aws/bedrock-agentcore/runtimes/incident_demo_investigator*:*\"}]}}],\"AssumeRolePolicyDocument\":{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"bedrock-agentcore.amazonaws.com\"},\"Action\":\"sts:AssumeRole\",\"Condition\":{\"StringEquals\":{\"aws:SourceAccount\":\"498084841421\"},\"ArnLike\":{\"aws:SourceArn\":\"arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator*\"}}}]},\"Tags\":[{\"Value\":\"P05\",\"Key\":\"Phase\"},{\"Value\":\"incident-demo\",\"Key\":\"Project\"}]}",
+      "ActualProperties": "{\"RoleName\":\"incident-demo-investigator\",\"Policies\":[{\"PolicyName\":\"InvestigatorRoleDefaultPolicyF8C0F70D\",\"PolicyDocument\":{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Action\":[\"bedrock:InvokeModel\",\"bedrock:CountTokens\"],\"Resource\":[\"arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-lite-v1:0\",\"arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-pro-v1:0\",\"arn:aws:bedrock:us-east-2::foundation-model/amazon.nova-lite-v1:0\",\"arn:aws:bedrock:us-east-2::foundation-model/amazon.nova-pro-v1:0\",\"arn:aws:bedrock:us-west-2::foundation-model/amazon.nova-lite-v1:0\",\"arn:aws:bedrock:us-west-2::foundation-model/amazon.nova-pro-v1:0\",\"arn:aws:bedrock:us-east-2:498084841421:inference-profile/us.amazon.nova-lite-v1:0\",\"arn:aws:bedrock:us-east-2:498084841421:inference-profile/us.amazon.nova-pro-v1:0\"]},{\"Effect\":\"Allow\",\"Action\":\"lambda:InvokeFunction\",\"Resource\":[\"arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-service-health\",\"arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-recent-changes\",\"arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-recent-logs\"]},{\"Effect\":\"Allow\",\"Action\":[\"dynamodb:UpdateItem\",\"dynamodb:PutItem\"],\"Resource\":\"arn:aws:dynamodb:us-east-2:498084841421:table/incident-demo-live-budget\"},{\"Effect\":\"Allow\",\"Action\":\"s3:PutObject\",\"Resource\":\"arn:aws:s3:::incident-demo-artifacts-498084841421-us-east-2/runs/p05/*\"},{\"Effect\":\"Allow\",\"Action\":[\"s3:GetObject\",\"s3:GetObjectVersion\"],\"Resource\":\"arn:aws:s3:::cdk-incdemo-assets-498084841421-us-east-2/074e185bbbe5e596114b4f3a6a78df5d5bef3296045b730918d128fcdd2dc42c.zip\"},{\"Effect\":\"Allow\",\"Action\":[\"logs:CreateLogStream\",\"logs:PutLogEvents\",\"logs:DescribeLogStreams\"],\"Resource\":\"arn:aws:logs:us-east-2:498084841421:log-group:/aws/bedrock-agentcore/runtimes/incident_demo_investigator*:*\"}]}}],\"AssumeRolePolicyDocument\":{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"bedrock-agentcore.amazonaws.com\"},\"Action\":\"sts:AssumeRole\",\"Condition\":{\"StringEquals\":{\"aws:SourceAccount\":\"498084841421\"},\"ArnLike\":{\"aws:SourceArn\":\"arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator*\"}}}]},\"Tags\":[{\"Value\":\"incident-demo\",\"Key\":\"Project\"},{\"Value\":\"P05\",\"Key\":\"Phase\"}]}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:17.462000+00:00"
+    },
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "LogsKeyA6AB43B2",
+      "PhysicalResourceId": "afbebae5-f530-4513-b859-d0d2d3622a49",
+      "ResourceType": "AWS::KMS::Key",
+      "ExpectedProperties": "{\"EnableKeyRotation\":true,\"Description\":\"incident-demo P05 runtime log encryption\",\"KeyPolicy\":{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":\"kms:*\",\"Resource\":\"*\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::498084841421:root\"}},{\"Condition\":{\"ArnLike\":{\"kms:EncryptionContext:aws:logs:arn\":[\"arn:aws:logs:us-east-2:498084841421:log-group:/aws/bedrock-agentcore/runtimes/incident_demo_investigator*\",\"arn:aws:logs:us-east-2:498084841421:log-group:/aws/lambda/incident-demo-diag-*\"]}},\"Action\":[\"kms:Encrypt\",\"kms:Decrypt\",\"kms:ReEncrypt*\",\"kms:GenerateDataKey*\",\"kms:DescribeKey\"],\"Resource\":\"*\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"logs.us-east-2.amazonaws.com\"}}]},\"Tags\":[{\"Value\":\"P05\",\"Key\":\"Phase\"},{\"Value\":\"incident-demo\",\"Key\":\"Project\"}]}",
+      "ActualProperties": "{\"EnableKeyRotation\":true,\"Description\":\"incident-demo P05 runtime log encryption\",\"KeyPolicy\":{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":\"kms:*\",\"Resource\":\"*\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::498084841421:root\"}},{\"Condition\":{\"ArnLike\":{\"kms:EncryptionContext:aws:logs:arn\":[\"arn:aws:logs:us-east-2:498084841421:log-group:/aws/bedrock-agentcore/runtimes/incident_demo_investigator*\",\"arn:aws:logs:us-east-2:498084841421:log-group:/aws/lambda/incident-demo-diag-*\"]}},\"Action\":[\"kms:Encrypt\",\"kms:Decrypt\",\"kms:ReEncrypt*\",\"kms:GenerateDataKey*\",\"kms:DescribeKey\"],\"Resource\":\"*\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"logs.us-east-2.amazonaws.com\"}}]},\"Tags\":[{\"Key\":\"Project\",\"Value\":\"incident-demo\"},{\"Key\":\"Phase\",\"Value\":\"P05\"}]}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:17.379000+00:00"
+    },
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "Runtime",
+      "PhysicalResourceId": "incident_demo_investigator-yxOMou90km",
+      "ResourceType": "AWS::BedrockAgentCore::Runtime",
+      "ExpectedProperties": "{\"ProtocolConfiguration\":\"HTTP\",\"EnvironmentVariables\":{\"DIAGNOSTIC_FUNCTIONS\":\"{\\\"get_service_health\\\": \\\"arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-service-health\\\", \\\"get_recent_changes\\\": \\\"arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-recent-changes\\\", \\\"get_recent_logs\\\": \\\"arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-recent-logs\\\"}\",\"LANGSMITH_TRACING\":\"false\",\"BUDGET_TABLE\":\"incident-demo-live-budget\",\"AWS_MAX_ATTEMPTS\":\"1\",\"ARTIFACT_BUCKET\":\"incident-demo-artifacts-498084841421-us-east-2\"},\"LifecycleConfiguration\":{\"MaxLifetime\":180,\"IdleRuntimeSessionTimeout\":60},\"NetworkConfiguration\":{\"NetworkMode\":\"PUBLIC\"},\"AgentRuntimeName\":\"incident_demo_investigator\",\"AgentRuntimeArtifact\":{\"CodeConfiguration\":{\"Runtime\":\"PYTHON_3_12\",\"EntryPoint\":[\"main.py\"],\"Code\":{\"S3\":{\"Bucket\":\"cdk-incdemo-assets-498084841421-us-east-2\",\"Prefix\":\"074e185bbbe5e596114b4f3a6a78df5d5bef3296045b730918d128fcdd2dc42c.zip\"}}}},\"RoleArn\":\"arn:aws:iam::498084841421:role/incident-demo-investigator\",\"Tags\":{\"Project\":\"incident-demo\",\"Phase\":\"P05\"}}",
+      "ActualProperties": "{\"ProtocolConfiguration\":\"HTTP\",\"EnvironmentVariables\":{\"DIAGNOSTIC_FUNCTIONS\":\"{\\\"get_service_health\\\": \\\"arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-service-health\\\", \\\"get_recent_changes\\\": \\\"arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-recent-changes\\\", \\\"get_recent_logs\\\": \\\"arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-recent-logs\\\"}\",\"LANGSMITH_TRACING\":\"false\",\"BUDGET_TABLE\":\"incident-demo-live-budget\",\"AWS_MAX_ATTEMPTS\":\"1\",\"ARTIFACT_BUCKET\":\"incident-demo-artifacts-498084841421-us-east-2\"},\"LifecycleConfiguration\":{\"IdleRuntimeSessionTimeout\":60,\"MaxLifetime\":180},\"NetworkConfiguration\":{\"NetworkMode\":\"PUBLIC\"},\"AgentRuntimeName\":\"incident_demo_investigator\",\"AgentRuntimeArtifact\":{\"CodeConfiguration\":{\"Code\":{\"S3\":{\"Bucket\":\"cdk-incdemo-assets-498084841421-us-east-2\",\"Prefix\":\"074e185bbbe5e596114b4f3a6a78df5d5bef3296045b730918d128fcdd2dc42c.zip\"}},\"Runtime\":\"PYTHON_3_12\",\"EntryPoint\":[\"main.py\"]}},\"RoleArn\":\"arn:aws:iam::498084841421:role/incident-demo-investigator\",\"Tags\":{\"Project\":\"incident-demo\",\"Phase\":\"P05\"}}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:17.881000+00:00"
+    },
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "RuntimeLogs92941AA6",
+      "PhysicalResourceId": "/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-DEFAULT",
+      "ResourceType": "AWS::Logs::LogGroup",
+      "ExpectedProperties": "{\"RetentionInDays\":7,\"LogGroupName\":\"/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-DEFAULT\",\"KmsKeyId\":\"arn:aws:kms:us-east-2:498084841421:key/afbebae5-f530-4513-b859-d0d2d3622a49\",\"Tags\":[{\"Value\":\"P05\",\"Key\":\"Phase\"},{\"Value\":\"incident-demo\",\"Key\":\"Project\"}]}",
+      "ActualProperties": "{\"RetentionInDays\":7,\"LogGroupName\":\"/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-DEFAULT\",\"KmsKeyId\":\"arn:aws:kms:us-east-2:498084841421:key/afbebae5-f530-4513-b859-d0d2d3622a49\",\"Tags\":[{\"Key\":\"Project\",\"Value\":\"incident-demo\"},{\"Key\":\"Phase\",\"Value\":\"P05\"}]}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:17.829000+00:00"
+    },
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "SmokeErrorsF5CC30A1",
+      "PhysicalResourceId": "SmokeErrorsF5CC30A1-yXRPDmdGbiZm",
+      "ResourceType": "AWS::Logs::MetricFilter",
+      "ExpectedProperties": "{\"MetricTransformations\":[{\"MetricName\":\"Failures\",\"MetricValue\":\"1\",\"MetricNamespace\":\"IncidentDemo/P05\"}],\"FilterPattern\":\"{ ($.event = \\\"runtime_failure\\\") || ($.status = \\\"failed\\\") }\",\"LogGroupName\":\"/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-smoke\"}",
+      "ActualProperties": "{\"MetricTransformations\":[{\"MetricName\":\"Failures\",\"MetricNamespace\":\"IncidentDemo/P05\",\"MetricValue\":\"1\"}],\"FilterPattern\":\"{ ($.event = \\\"runtime_failure\\\") || ($.status = \\\"failed\\\") }\",\"LogGroupName\":\"/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-smoke\"}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:18.091000+00:00"
+    },
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "SmokeLatency512C8776",
+      "PhysicalResourceId": "SmokeLatency512C8776-zljjLrMovNvx",
+      "ResourceType": "AWS::Logs::MetricFilter",
+      "ExpectedProperties": "{\"MetricTransformations\":[{\"MetricName\":\"WorkerLatencyMs\",\"MetricValue\":\"$.worker_latency_ms\",\"MetricNamespace\":\"IncidentDemo/P05\"}],\"FilterPattern\":\"{ $.event = \\\"investigation_finished\\\" }\",\"LogGroupName\":\"/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-smoke\"}",
+      "ActualProperties": "{\"MetricTransformations\":[{\"MetricName\":\"WorkerLatencyMs\",\"MetricNamespace\":\"IncidentDemo/P05\",\"MetricValue\":\"$.worker_latency_ms\"}],\"FilterPattern\":\"{ $.event = \\\"investigation_finished\\\" }\",\"LogGroupName\":\"/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-smoke\"}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:18.157000+00:00"
+    },
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "SmokeLogs4DACAC0F",
+      "PhysicalResourceId": "/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-smoke",
+      "ResourceType": "AWS::Logs::LogGroup",
+      "ExpectedProperties": "{\"RetentionInDays\":7,\"LogGroupName\":\"/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-smoke\",\"KmsKeyId\":\"arn:aws:kms:us-east-2:498084841421:key/afbebae5-f530-4513-b859-d0d2d3622a49\",\"Tags\":[{\"Value\":\"P05\",\"Key\":\"Phase\"},{\"Value\":\"incident-demo\",\"Key\":\"Project\"}]}",
+      "ActualProperties": "{\"RetentionInDays\":7,\"LogGroupName\":\"/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-smoke\",\"KmsKeyId\":\"arn:aws:kms:us-east-2:498084841421:key/afbebae5-f530-4513-b859-d0d2d3622a49\",\"Tags\":[{\"Key\":\"Project\",\"Value\":\"incident-demo\"},{\"Key\":\"Phase\",\"Value\":\"P05\"}]}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:18.460000+00:00"
+    },
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "Trail022F0CF2",
+      "PhysicalResourceId": "incident-demo-p05",
+      "ResourceType": "AWS::CloudTrail::Trail",
+      "ExpectedProperties": "{\"IncludeGlobalServiceEvents\":true,\"IsMultiRegionTrail\":true,\"AdvancedEventSelectors\":[{\"FieldSelectors\":[{\"Field\":\"eventCategory\",\"Equals\":[\"Management\"]}],\"Name\":\"Management\"},{\"FieldSelectors\":[{\"Field\":\"eventCategory\",\"Equals\":[\"Data\"]},{\"Field\":\"resources.type\",\"Equals\":[\"AWS::BedrockAgentCore::Runtime\"]},{\"Field\":\"resources.ARN\",\"StartsWith\":[\"arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator\"]}],\"Name\":\"ProjectAgentCore\"},{\"FieldSelectors\":[{\"Field\":\"eventCategory\",\"Equals\":[\"Data\"]},{\"Field\":\"resources.type\",\"Equals\":[\"AWS::BedrockAgentCore::RuntimeEndpoint\"]},{\"Field\":\"resources.ARN\",\"StartsWith\":[\"arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator\"]}],\"Name\":\"ProjectAgentCoreEndpoint\"},{\"FieldSelectors\":[{\"Field\":\"eventCategory\",\"Equals\":[\"Data\"]},{\"Field\":\"resources.type\",\"Equals\":[\"AWS::Lambda::Function\"]},{\"Field\":\"resources.ARN\",\"StartsWith\":[\"arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-\"]}],\"Name\":\"ProjectLambda\"}],\"S3BucketName\":\"incident-demo-trail-498084841421-us-east-2\",\"TrailName\":\"incident-demo-p05\",\"EnableLogFileValidation\":true,\"Tags\":[{\"Value\":\"P05\",\"Key\":\"Phase\"},{\"Value\":\"incident-demo\",\"Key\":\"Project\"}],\"IsLogging\":true}",
+      "ActualProperties": "{\"IncludeGlobalServiceEvents\":true,\"IsMultiRegionTrail\":true,\"AdvancedEventSelectors\":[{\"Name\":\"ProjectAgentCoreEndpoint\",\"FieldSelectors\":[{\"Field\":\"resources.type\",\"Equals\":[\"AWS::BedrockAgentCore::RuntimeEndpoint\"]},{\"Field\":\"resources.ARN\",\"StartsWith\":[\"arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator\"]},{\"Field\":\"eventCategory\",\"Equals\":[\"Data\"]}]},{\"Name\":\"ProjectAgentCore\",\"FieldSelectors\":[{\"Field\":\"resources.type\",\"Equals\":[\"AWS::BedrockAgentCore::Runtime\"]},{\"Field\":\"resources.ARN\",\"StartsWith\":[\"arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator\"]},{\"Field\":\"eventCategory\",\"Equals\":[\"Data\"]}]},{\"Name\":\"ProjectLambda\",\"FieldSelectors\":[{\"Field\":\"resources.type\",\"Equals\":[\"AWS::Lambda::Function\"]},{\"Field\":\"resources.ARN\",\"StartsWith\":[\"arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-\"]},{\"Field\":\"eventCategory\",\"Equals\":[\"Data\"]}]},{\"Name\":\"Management\",\"FieldSelectors\":[{\"Field\":\"eventCategory\",\"Equals\":[\"Management\"]}]}],\"S3BucketName\":\"incident-demo-trail-498084841421-us-east-2\",\"TrailName\":\"incident-demo-p05\",\"EnableLogFileValidation\":true,\"Tags\":[{\"Key\":\"Project\",\"Value\":\"incident-demo\"},{\"Key\":\"Phase\",\"Value\":\"P05\"}],\"IsLogging\":true}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:18.558000+00:00"
+    },
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "TrailBucketA831CE63",
+      "PhysicalResourceId": "incident-demo-trail-498084841421-us-east-2",
+      "ResourceType": "AWS::S3::Bucket",
+      "ExpectedProperties": "{\"PublicAccessBlockConfiguration\":{\"RestrictPublicBuckets\":true,\"BlockPublicPolicy\":true,\"BlockPublicAcls\":true,\"IgnorePublicAcls\":true},\"BucketName\":\"incident-demo-trail-498084841421-us-east-2\",\"OwnershipControls\":{\"Rules\":[{\"ObjectOwnership\":\"BucketOwnerEnforced\"}]},\"BucketEncryption\":{\"ServerSideEncryptionConfiguration\":[{\"ServerSideEncryptionByDefault\":{\"SSEAlgorithm\":\"AES256\"}}]},\"LifecycleConfiguration\":{\"Rules\":[{\"Status\":\"Enabled\",\"ExpirationInDays\":7}]},\"Tags\":[{\"Value\":\"P05\",\"Key\":\"Phase\"},{\"Value\":\"incident-demo\",\"Key\":\"Project\"}]}",
+      "ActualProperties": "{\"PublicAccessBlockConfiguration\":{\"BlockPublicAcls\":true,\"BlockPublicPolicy\":true,\"IgnorePublicAcls\":true,\"RestrictPublicBuckets\":true},\"BucketName\":\"incident-demo-trail-498084841421-us-east-2\",\"OwnershipControls\":{\"Rules\":[{\"ObjectOwnership\":\"BucketOwnerEnforced\"}]},\"BucketEncryption\":{\"ServerSideEncryptionConfiguration\":[{\"ServerSideEncryptionByDefault\":{\"SSEAlgorithm\":\"AES256\"}}]},\"LifecycleConfiguration\":{\"Rules\":[{\"ExpirationInDays\":7,\"Status\":\"Enabled\"}]},\"Tags\":[{\"Key\":\"Project\",\"Value\":\"incident-demo\"},{\"Key\":\"Phase\",\"Value\":\"P05\"}]}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:19.351000+00:00"
+    },
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "failuresAlarm69E88357",
+      "PhysicalResourceId": "incident-demo-p05-failures",
+      "ResourceType": "AWS::CloudWatch::Alarm",
+      "ExpectedProperties": "{\"MetricName\":\"Failures\",\"ComparisonOperator\":\"GreaterThanOrEqualToThreshold\",\"TreatMissingData\":\"notBreaching\",\"AlarmName\":\"incident-demo-p05-failures\",\"Statistic\":\"Sum\",\"Period\":60,\"EvaluationPeriods\":1,\"Namespace\":\"IncidentDemo/P05\",\"Tags\":[{\"Value\":\"P05\",\"Key\":\"Phase\"},{\"Value\":\"incident-demo\",\"Key\":\"Project\"}],\"Threshold\":1}",
+      "ActualProperties": "{\"MetricName\":\"Failures\",\"ComparisonOperator\":\"GreaterThanOrEqualToThreshold\",\"TreatMissingData\":\"notBreaching\",\"AlarmName\":\"incident-demo-p05-failures\",\"Statistic\":\"Sum\",\"Period\":60,\"EvaluationPeriods\":1,\"Namespace\":\"IncidentDemo/P05\",\"Tags\":[{\"Key\":\"Project\",\"Value\":\"incident-demo\"},{\"Key\":\"Phase\",\"Value\":\"P05\"}],\"Threshold\":1.0}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:18.917000+00:00"
+    },
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "getrecentchanges57131F89",
+      "PhysicalResourceId": "incident-demo-diag-recent-changes",
+      "ResourceType": "AWS::Lambda::Function",
+      "ExpectedProperties": "{\"Role\":\"arn:aws:iam::498084841421:role/incident-demo-diag-recent-changes\",\"FunctionName\":\"incident-demo-diag-recent-changes\",\"MemorySize\":256,\"Runtime\":\"python3.12\",\"Timeout\":5,\"LoggingConfig\":{\"LogGroup\":\"/aws/lambda/incident-demo-diag-recent-changes\"},\"Environment\":{\"Variables\":{\"TOOL_NAME\":\"get_recent_changes\"}},\"Handler\":\"incident_demo.live.diagnostics.handler\",\"Code\":{},\"Tags\":[{\"Value\":\"P05\",\"Key\":\"Phase\"},{\"Value\":\"incident-demo\",\"Key\":\"Project\"}],\"Architectures\":[\"arm64\"]}",
+      "ActualProperties": "{\"Role\":\"arn:aws:iam::498084841421:role/incident-demo-diag-recent-changes\",\"MemorySize\":256,\"FunctionName\":\"incident-demo-diag-recent-changes\",\"Runtime\":\"python3.12\",\"Timeout\":5,\"LoggingConfig\":{\"LogGroup\":\"/aws/lambda/incident-demo-diag-recent-changes\"},\"Handler\":\"incident_demo.live.diagnostics.handler\",\"Environment\":{\"Variables\":{\"TOOL_NAME\":\"get_recent_changes\"}},\"Code\":{},\"Tags\":[{\"Key\":\"Project\",\"Value\":\"incident-demo\"},{\"Key\":\"Phase\",\"Value\":\"P05\"}],\"Architectures\":[\"arm64\"]}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:19.893000+00:00"
+    },
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "getrecentchangesLogs0B3452B9",
+      "PhysicalResourceId": "/aws/lambda/incident-demo-diag-recent-changes",
+      "ResourceType": "AWS::Logs::LogGroup",
+      "ExpectedProperties": "{\"RetentionInDays\":7,\"LogGroupName\":\"/aws/lambda/incident-demo-diag-recent-changes\",\"KmsKeyId\":\"arn:aws:kms:us-east-2:498084841421:key/afbebae5-f530-4513-b859-d0d2d3622a49\",\"Tags\":[{\"Value\":\"P05\",\"Key\":\"Phase\"},{\"Value\":\"incident-demo\",\"Key\":\"Project\"}]}",
+      "ActualProperties": "{\"RetentionInDays\":7,\"LogGroupName\":\"/aws/lambda/incident-demo-diag-recent-changes\",\"KmsKeyId\":\"arn:aws:kms:us-east-2:498084841421:key/afbebae5-f530-4513-b859-d0d2d3622a49\",\"Tags\":[{\"Key\":\"Project\",\"Value\":\"incident-demo\"},{\"Key\":\"Phase\",\"Value\":\"P05\"}]}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:20.164000+00:00"
+    },
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "getrecentchangesRole81F77D5D",
+      "PhysicalResourceId": "incident-demo-diag-recent-changes",
+      "ResourceType": "AWS::IAM::Role",
+      "ExpectedProperties": "{\"RoleName\":\"incident-demo-diag-recent-changes\",\"Policies\":[{\"PolicyName\":\"OwnLogs\",\"PolicyDocument\":{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Action\":[\"logs:CreateLogStream\",\"logs:PutLogEvents\"],\"Resource\":\"arn:aws:logs:us-east-2:498084841421:log-group:/aws/lambda/incident-demo-diag-recent-changes:*\"}]}}],\"AssumeRolePolicyDocument\":{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]},\"Tags\":[{\"Value\":\"P05\",\"Key\":\"Phase\"},{\"Value\":\"incident-demo\",\"Key\":\"Project\"}]}",
+      "ActualProperties": "{\"RoleName\":\"incident-demo-diag-recent-changes\",\"Policies\":[{\"PolicyName\":\"OwnLogs\",\"PolicyDocument\":{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Action\":[\"logs:CreateLogStream\",\"logs:PutLogEvents\"],\"Resource\":\"arn:aws:logs:us-east-2:498084841421:log-group:/aws/lambda/incident-demo-diag-recent-changes:*\"}]}}],\"AssumeRolePolicyDocument\":{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]},\"Tags\":[{\"Value\":\"incident-demo\",\"Key\":\"Project\"},{\"Value\":\"P05\",\"Key\":\"Phase\"}]}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:19.799000+00:00"
+    },
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "getrecentlogs216E16E1",
+      "PhysicalResourceId": "incident-demo-diag-recent-logs",
+      "ResourceType": "AWS::Lambda::Function",
+      "ExpectedProperties": "{\"Role\":\"arn:aws:iam::498084841421:role/incident-demo-diag-recent-logs\",\"FunctionName\":\"incident-demo-diag-recent-logs\",\"MemorySize\":256,\"Runtime\":\"python3.12\",\"Timeout\":5,\"LoggingConfig\":{\"LogGroup\":\"/aws/lambda/incident-demo-diag-recent-logs\"},\"Environment\":{\"Variables\":{\"TOOL_NAME\":\"get_recent_logs\"}},\"Handler\":\"incident_demo.live.diagnostics.handler\",\"Code\":{},\"Tags\":[{\"Value\":\"P05\",\"Key\":\"Phase\"},{\"Value\":\"incident-demo\",\"Key\":\"Project\"}],\"Architectures\":[\"arm64\"]}",
+      "ActualProperties": "{\"Role\":\"arn:aws:iam::498084841421:role/incident-demo-diag-recent-logs\",\"MemorySize\":256,\"FunctionName\":\"incident-demo-diag-recent-logs\",\"Runtime\":\"python3.12\",\"Timeout\":5,\"LoggingConfig\":{\"LogGroup\":\"/aws/lambda/incident-demo-diag-recent-logs\"},\"Handler\":\"incident_demo.live.diagnostics.handler\",\"Environment\":{\"Variables\":{\"TOOL_NAME\":\"get_recent_logs\"}},\"Code\":{},\"Tags\":[{\"Key\":\"Project\",\"Value\":\"incident-demo\"},{\"Key\":\"Phase\",\"Value\":\"P05\"}],\"Architectures\":[\"arm64\"]}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:20.311000+00:00"
+    },
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "getrecentlogsLogs74EAFA7A",
+      "PhysicalResourceId": "/aws/lambda/incident-demo-diag-recent-logs",
+      "ResourceType": "AWS::Logs::LogGroup",
+      "ExpectedProperties": "{\"RetentionInDays\":7,\"LogGroupName\":\"/aws/lambda/incident-demo-diag-recent-logs\",\"KmsKeyId\":\"arn:aws:kms:us-east-2:498084841421:key/afbebae5-f530-4513-b859-d0d2d3622a49\",\"Tags\":[{\"Value\":\"P05\",\"Key\":\"Phase\"},{\"Value\":\"incident-demo\",\"Key\":\"Project\"}]}",
+      "ActualProperties": "{\"RetentionInDays\":7,\"LogGroupName\":\"/aws/lambda/incident-demo-diag-recent-logs\",\"KmsKeyId\":\"arn:aws:kms:us-east-2:498084841421:key/afbebae5-f530-4513-b859-d0d2d3622a49\",\"Tags\":[{\"Key\":\"Project\",\"Value\":\"incident-demo\"},{\"Key\":\"Phase\",\"Value\":\"P05\"}]}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:20.512000+00:00"
+    },
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "getrecentlogsRoleCB933803",
+      "PhysicalResourceId": "incident-demo-diag-recent-logs",
+      "ResourceType": "AWS::IAM::Role",
+      "ExpectedProperties": "{\"RoleName\":\"incident-demo-diag-recent-logs\",\"Policies\":[{\"PolicyName\":\"OwnLogs\",\"PolicyDocument\":{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Action\":[\"logs:CreateLogStream\",\"logs:PutLogEvents\"],\"Resource\":\"arn:aws:logs:us-east-2:498084841421:log-group:/aws/lambda/incident-demo-diag-recent-logs:*\"}]}}],\"AssumeRolePolicyDocument\":{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]},\"Tags\":[{\"Value\":\"P05\",\"Key\":\"Phase\"},{\"Value\":\"incident-demo\",\"Key\":\"Project\"}]}",
+      "ActualProperties": "{\"RoleName\":\"incident-demo-diag-recent-logs\",\"Policies\":[{\"PolicyName\":\"OwnLogs\",\"PolicyDocument\":{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Action\":[\"logs:CreateLogStream\",\"logs:PutLogEvents\"],\"Resource\":\"arn:aws:logs:us-east-2:498084841421:log-group:/aws/lambda/incident-demo-diag-recent-logs:*\"}]}}],\"AssumeRolePolicyDocument\":{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]},\"Tags\":[{\"Value\":\"incident-demo\",\"Key\":\"Project\"},{\"Value\":\"P05\",\"Key\":\"Phase\"}]}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:20.935000+00:00"
+    },
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "getservicehealthEF276A61",
+      "PhysicalResourceId": "incident-demo-diag-service-health",
+      "ResourceType": "AWS::Lambda::Function",
+      "ExpectedProperties": "{\"Role\":\"arn:aws:iam::498084841421:role/incident-demo-diag-service-health\",\"FunctionName\":\"incident-demo-diag-service-health\",\"MemorySize\":256,\"Runtime\":\"python3.12\",\"Timeout\":5,\"LoggingConfig\":{\"LogGroup\":\"/aws/lambda/incident-demo-diag-service-health\"},\"Environment\":{\"Variables\":{\"TOOL_NAME\":\"get_service_health\"}},\"Handler\":\"incident_demo.live.diagnostics.handler\",\"Code\":{},\"Tags\":[{\"Value\":\"P05\",\"Key\":\"Phase\"},{\"Value\":\"incident-demo\",\"Key\":\"Project\"}],\"Architectures\":[\"arm64\"]}",
+      "ActualProperties": "{\"Role\":\"arn:aws:iam::498084841421:role/incident-demo-diag-service-health\",\"MemorySize\":256,\"FunctionName\":\"incident-demo-diag-service-health\",\"Runtime\":\"python3.12\",\"Timeout\":5,\"LoggingConfig\":{\"LogGroup\":\"/aws/lambda/incident-demo-diag-service-health\"},\"Handler\":\"incident_demo.live.diagnostics.handler\",\"Environment\":{\"Variables\":{\"TOOL_NAME\":\"get_service_health\"}},\"Code\":{},\"Tags\":[{\"Key\":\"Project\",\"Value\":\"incident-demo\"},{\"Key\":\"Phase\",\"Value\":\"P05\"}],\"Architectures\":[\"arm64\"]}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:20.875000+00:00"
+    },
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "getservicehealthLogsF827EE15",
+      "PhysicalResourceId": "/aws/lambda/incident-demo-diag-service-health",
+      "ResourceType": "AWS::Logs::LogGroup",
+      "ExpectedProperties": "{\"RetentionInDays\":7,\"LogGroupName\":\"/aws/lambda/incident-demo-diag-service-health\",\"KmsKeyId\":\"arn:aws:kms:us-east-2:498084841421:key/afbebae5-f530-4513-b859-d0d2d3622a49\",\"Tags\":[{\"Value\":\"P05\",\"Key\":\"Phase\"},{\"Value\":\"incident-demo\",\"Key\":\"Project\"}]}",
+      "ActualProperties": "{\"RetentionInDays\":7,\"LogGroupName\":\"/aws/lambda/incident-demo-diag-service-health\",\"KmsKeyId\":\"arn:aws:kms:us-east-2:498084841421:key/afbebae5-f530-4513-b859-d0d2d3622a49\",\"Tags\":[{\"Key\":\"Project\",\"Value\":\"incident-demo\"},{\"Key\":\"Phase\",\"Value\":\"P05\"}]}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:21.178000+00:00"
+    },
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "getservicehealthRole34E731B8",
+      "PhysicalResourceId": "incident-demo-diag-service-health",
+      "ResourceType": "AWS::IAM::Role",
+      "ExpectedProperties": "{\"RoleName\":\"incident-demo-diag-service-health\",\"Policies\":[{\"PolicyName\":\"OwnLogs\",\"PolicyDocument\":{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Action\":[\"logs:CreateLogStream\",\"logs:PutLogEvents\"],\"Resource\":\"arn:aws:logs:us-east-2:498084841421:log-group:/aws/lambda/incident-demo-diag-service-health:*\"}]}}],\"AssumeRolePolicyDocument\":{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]},\"Tags\":[{\"Value\":\"P05\",\"Key\":\"Phase\"},{\"Value\":\"incident-demo\",\"Key\":\"Project\"}]}",
+      "ActualProperties": "{\"RoleName\":\"incident-demo-diag-service-health\",\"Policies\":[{\"PolicyName\":\"OwnLogs\",\"PolicyDocument\":{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Action\":[\"logs:CreateLogStream\",\"logs:PutLogEvents\"],\"Resource\":\"arn:aws:logs:us-east-2:498084841421:log-group:/aws/lambda/incident-demo-diag-service-health:*\"}]}}],\"AssumeRolePolicyDocument\":{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]},\"Tags\":[{\"Value\":\"incident-demo\",\"Key\":\"Project\"},{\"Value\":\"P05\",\"Key\":\"Phase\"}]}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:21.431000+00:00"
+    },
+    {
+      "StackId": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "LogicalResourceId": "latencyAlarm4EABAD5E",
+      "PhysicalResourceId": "incident-demo-p05-latency",
+      "ResourceType": "AWS::CloudWatch::Alarm",
+      "ExpectedProperties": "{\"MetricName\":\"WorkerLatencyMs\",\"ComparisonOperator\":\"GreaterThanOrEqualToThreshold\",\"TreatMissingData\":\"notBreaching\",\"AlarmName\":\"incident-demo-p05-latency\",\"Statistic\":\"Maximum\",\"Period\":60,\"EvaluationPeriods\":1,\"Namespace\":\"IncidentDemo/P05\",\"Tags\":[{\"Value\":\"P05\",\"Key\":\"Phase\"},{\"Value\":\"incident-demo\",\"Key\":\"Project\"}],\"Threshold\":110000}",
+      "ActualProperties": "{\"MetricName\":\"WorkerLatencyMs\",\"ComparisonOperator\":\"GreaterThanOrEqualToThreshold\",\"TreatMissingData\":\"notBreaching\",\"AlarmName\":\"incident-demo-p05-latency\",\"Statistic\":\"Maximum\",\"Period\":60,\"EvaluationPeriods\":1,\"Namespace\":\"IncidentDemo/P05\",\"Tags\":[{\"Key\":\"Project\",\"Value\":\"incident-demo\"},{\"Key\":\"Phase\",\"Value\":\"P05\"}],\"Threshold\":110000.0}",
+      "PropertyDifferences": [],
+      "StackResourceDriftStatus": "IN_SYNC",
+      "Timestamp": "2026-10-06 01:57:21.828000+00:00"
+    }
+  ]
+}

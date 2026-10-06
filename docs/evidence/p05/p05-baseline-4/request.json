@@ -1,0 +1,26 @@
+{
+  "run_id": "p05-1a9b6b32da2b442ba80ca5b79135300e",
+  "batch_id": "p05-dev-01",
+  "telemetry_id": "0279077eb5108e0df7b144f5",
+  "incident": {
+    "service_id": "checkout-api",
+    "submitted_at": "2026-10-01T12:05:00Z",
+    "summary": "Checkout API errors have increased. Investigate and recommend a next step."
+  },
+  "variant": "V1",
+  "settings": {
+    "mode": "aws_live",
+    "model": "us.amazon.nova-lite-v1:0",
+    "temperature": 0.0,
+    "max_output_tokens": 1500,
+    "limits": {
+      "model_calls": 6,
+      "tool_calls": 8,
+      "retries": 1,
+      "deadline_seconds": 120.0,
+      "candidates": 2,
+      "expansion_rounds": 2
+    }
+  },
+  "operation": "investigate"
+}
