@@ -49,8 +49,10 @@ def main():
         StackName="incident-demo-workflow"
     )["Stacks"][0]
     audit = []
-    for page in op.sdk.client("logs", config=CONFIG).get_paginator("filter_log_events").paginate(
-        logGroupName="/incident-demo/p07/intake", filterPattern='"api_request"'
+    for page in (
+        op.sdk.client("logs", config=CONFIG)
+        .get_paginator("filter_log_events")
+        .paginate(logGroupName="/incident-demo/p07/intake", filterPattern='"api_request"')
     ):
         audit.extend(page["events"])
         if len(audit) >= 5:
@@ -68,8 +70,7 @@ def main():
             for key in ("global", "batch#p07-dev-01")
         },
         "private_api_audit_sample": [
-            {"timestamp": event["timestamp"], "message": event["message"]}
-            for event in audit
+            {"timestamp": event["timestamp"], "message": event["message"]} for event in audit
         ],
     }
     (folder / "final-state.json").write_text(json.dumps(summary, indent=2, default=str) + "\n")
