@@ -1,0 +1,13 @@
+{
+  "approved_on": "2026-10-06",
+  "authority": "owner message in the active conversation",
+  "statement": "I approve a $250 budget and all of the checks look good. Should we continue?",
+  "currency": "USD",
+  "total_ceiling": 250,
+  "per_batch_ceiling": 10,
+  "infrastructure_reserve": 10,
+  "retained_local_reservations_before_continuation": "23.45",
+  "next_development_reservation": "9.00",
+  "interpretation": "Replaces the prior $50 total ceiling; it is not $250 additional. Preserve all reservations and failed results. This authorizes continuation, not fabricated per-trial human review labels.",
+  "runtime_guard": "Existing stricter cloud ceiling stays in place for completion of the frozen development baseline. A reviewed runtime update is required before later evaluation would exceed it."
+}

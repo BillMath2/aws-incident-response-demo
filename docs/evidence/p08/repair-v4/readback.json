@@ -1,0 +1,85 @@
+{
+  "at": "2026-10-07T09:56:23.024087+00:00",
+  "runtime_version": "12",
+  "guardrail_version": "2",
+  "artifacts": [
+    {
+      "trial_id": "repair-case-001-v2-lite-r1",
+      "s3_sha256": "b08b0435c8d9ec60256c1b90e7ad3ef64fc85934cc62e65a048ce78db8adb2a4",
+      "matched": true,
+      "session_stopped": true,
+      "usage_complete": true,
+      "format_repairs": 1,
+      "provider_calls": 5
+    },
+    {
+      "trial_id": "repair-case-002-v2-lite-r1",
+      "s3_sha256": "921e22ed1c4c0bf0cfb7dc5334466851272b4ddbdc6eb591f55e3c3659aae3fd",
+      "matched": true,
+      "session_stopped": true,
+      "usage_complete": true,
+      "format_repairs": 0,
+      "provider_calls": 3
+    },
+    {
+      "trial_id": "repair-case-003-v2-lite-r1",
+      "s3_sha256": "5dff198709bef84fbc72125770db94b3a8112e0e6cb863ed3c424081af03972e",
+      "matched": true,
+      "session_stopped": true,
+      "usage_complete": true,
+      "format_repairs": 0,
+      "provider_calls": 4
+    },
+    {
+      "trial_id": "repair-case-004-v2-lite-r1",
+      "s3_sha256": "413767cb4e4951e3f1b01f1558c98151b4898636da29b0b21c80dfd0f0106834",
+      "matched": true,
+      "session_stopped": true,
+      "usage_complete": true,
+      "format_repairs": 0,
+      "provider_calls": 4
+    },
+    {
+      "trial_id": "repair-case-005-v2-lite-r1",
+      "s3_sha256": "0ed2063c11d063e48cd903ecea4602fa8f49ad9258c3aad2ed2aafba06441e20",
+      "matched": true,
+      "session_stopped": true,
+      "usage_complete": true,
+      "format_repairs": 1,
+      "provider_calls": 5
+    },
+    {
+      "trial_id": "repair-case-006-v2-lite-r1",
+      "s3_sha256": "0a3281d54b6d2027b6c5ce3151aaf2b3050f2f7f49923d93d5cbcc32416c3c2c",
+      "matched": true,
+      "session_stopped": true,
+      "usage_complete": true,
+      "format_repairs": 0,
+      "provider_calls": 4
+    },
+    {
+      "trial_id": "repair-case-007-v2-lite-r1",
+      "s3_sha256": "ed47aa0fe50e4535dbd25bb4a68e7b5b0cc41ed507eb01c5b730048e444bbc51",
+      "matched": true,
+      "session_stopped": true,
+      "usage_complete": true,
+      "format_repairs": 0,
+      "provider_calls": 4
+    },
+    {
+      "trial_id": "repair-case-008-v2-lite-r1",
+      "s3_sha256": "52e25d8c764e62bdb34b90b588c143d4c1f40d6559a04afcfca66be088ba6cef",
+      "matched": true,
+      "session_stopped": true,
+      "usage_complete": true,
+      "format_repairs": 1,
+      "provider_calls": 5
+    }
+  ],
+  "cloud_budget": {
+    "reserved_cents": "5860",
+    "pk": "global",
+    "lease_until": "0",
+    "lease_owner": "p08-b4569293308629b2ff68f0a325511352601e27dd"
+  }
+}

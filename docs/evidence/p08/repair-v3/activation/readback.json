@@ -1,0 +1,106 @@
+{
+  "at": "2026-10-07T09:33:48.497919+00:00",
+  "artifact_checks": [
+    {
+      "trial_id": "repair-case-001-v2-lite-r1",
+      "s3_key": "runs/p06/p08-351349b103db138949765e3bfd8efef1f8b218fe.json",
+      "sha256": "1dbcf952ecfb5410a21925c62788c8cd7abf9698164d035a4121a0a2bc9ff7d8",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "guardrail_version": "2",
+      "retrieval_performed": true,
+      "retrieved_inventory_matches_frozen_fixture": true
+    },
+    {
+      "trial_id": "repair-case-002-v2-lite-r1",
+      "s3_key": "runs/p06/p08-336caedbef9c0a2a6e32379149d65563a03a484e.json",
+      "sha256": "e54bfdb1b442ba0861e140c278a03fc5cbcfcbb65b173def480485b7569dd7cc",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "guardrail_version": "2",
+      "retrieval_performed": true,
+      "retrieved_inventory_matches_frozen_fixture": true
+    },
+    {
+      "trial_id": "repair-case-003-v2-lite-r1",
+      "s3_key": "runs/p06/p08-0682fc893dfb924fe551f1491f5b67952a8c001b.json",
+      "sha256": "548fe4a7c47def19fcc7e5208d50451186a135a954597d0dfc046399b54184cf",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "guardrail_version": "2",
+      "retrieval_performed": false,
+      "retrieved_inventory_matches_frozen_fixture": null
+    },
+    {
+      "trial_id": "repair-case-004-v2-lite-r1",
+      "s3_key": "runs/p06/p08-4df12e4baa9d3b6a8f9fb997ad8dc7ddbedd8292.json",
+      "sha256": "f7b991ab16a5ce9709400595c82d04b18c9137582754ddfdfb862092795970aa",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "guardrail_version": "2",
+      "retrieval_performed": true,
+      "retrieved_inventory_matches_frozen_fixture": true
+    },
+    {
+      "trial_id": "repair-case-005-v2-lite-r1",
+      "s3_key": "runs/p06/p08-0414acf1ea51517a75e4e5fc80dd98df250d8c22.json",
+      "sha256": "e1e684d5f2e1788b48e6f6fa80f96799d79ebb08d40b94f652abacb2b4516956",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "guardrail_version": "2",
+      "retrieval_performed": true,
+      "retrieved_inventory_matches_frozen_fixture": true
+    },
+    {
+      "trial_id": "repair-case-006-v2-lite-r1",
+      "s3_key": "runs/p06/p08-7bd72e35d33def874299bcf8a5111a301e638c59.json",
+      "sha256": "26f43e12ab69257d7025585feec549c8c5f231657878c4ec8cae18f034b2d17e",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "guardrail_version": "2",
+      "retrieval_performed": true,
+      "retrieved_inventory_matches_frozen_fixture": true
+    },
+    {
+      "trial_id": "repair-case-007-v2-lite-r1",
+      "s3_key": "runs/p06/p08-df44743bcecf63a97db5be1011ae10d233ca4264.json",
+      "sha256": "e45d663044f44af3ed15e82300007a9b50af5f5297e3816ad3f2dde9d407492e",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "guardrail_version": "2",
+      "retrieval_performed": true,
+      "retrieved_inventory_matches_frozen_fixture": true
+    },
+    {
+      "trial_id": "repair-case-008-v2-lite-r1",
+      "s3_key": "runs/p06/p08-9e02a6a8f5d771cedd5a953185f848db7603d26e.json",
+      "sha256": "037b881f12fdedc298e2c199866038dcbb51220260b3f9670ed01a978636a5b8",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "guardrail_version": "2",
+      "retrieval_performed": true,
+      "retrieved_inventory_matches_frozen_fixture": true
+    }
+  ],
+  "runtime_version": "11",
+  "endpoint_status": "READY",
+  "guardrail_version": "2",
+  "cloud_budget": {
+    "pk": "global",
+    "reserved_cents": "5260",
+    "lease_until": "0",
+    "lease_owner": "p08-9e02a6a8f5d771cedd5a953185f848db7603d26e"
+  },
+  "stacks": {
+    "incident-demo-live": "UPDATE_COMPLETE",
+    "incident-demo-retrieval": "UPDATE_COMPLETE"
+  }
+}

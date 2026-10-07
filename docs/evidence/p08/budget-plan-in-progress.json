@@ -1,0 +1,13 @@
+{
+  "approved_total_usd": "50",
+  "per_batch_usd": "10",
+  "retained_local_reservations_usd": "21.20",
+  "infrastructure_reserve_usd": "10",
+  "remaining_experiment_allowance_usd": "18.80",
+  "full_matrix_reservation_usd": "171.00",
+  "base_development_24_reservation_usd": "18.00",
+  "comparison_development_8_reservation_usd": "20.00",
+  "judge_allowance_proposed_usd": "3.00",
+  "full_program_before_contingency_usd": "243.20",
+  "note": "Conservative retained reservations, not predicted AWS charges; no ledger resets or refunds."
+}

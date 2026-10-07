@@ -1,0 +1,302 @@
+{
+  "version": "p08-v1",
+  "stage": "repair",
+  "created_at": "2026-10-07T01:42:19.966460Z",
+  "fingerprints": {
+    "source": "98bd428981b60531c97cb1d58e7281f1a706fdbf69a21786fd877b30214c965a",
+    "evals/case-manifest.json": "b146a8b3c30cd7b5c18d21a9c600f49564d61f3633790beacd4079caeefa73dd",
+    "evals/rubric-v1.json": "80611c66b38f58b8c1d20067028efb1b9def2659e85a5f2ef59cbf945e439744",
+    "prompts/manifest.json": "cbed1d3ad143854ce0bf9cf20d55d2eb64a225a2ec4663850238d8bff2b9c0ff",
+    "uv.lock": "8c2a356a8b1925398668315fd249194849cdc0abcde1c6aa097881acd2643bcc",
+    "infra/models.json": "f42ee8384af59f91f89fa8316449ea9998be3c84da9a105aa2b6baa5fcc3ec36",
+    "docs/evidence/p04/bedrock-prices.json": "6ac87cf6288493aa772d7d12268acbcdb715380db593c0dced82a0e71fbe0a97",
+    "scripts/p08_evaluate.py": "c9180f064aa4aa82e37988a4049358d37e9a85a095da867bcd0c449a629c0978"
+  },
+  "deployment": {
+    "runtime_arn": "arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator-yxOMou90km",
+    "endpoint": "smoke",
+    "runtime_version": "10",
+    "runtime_artifact": "0db63e0e5e6beb512f60a8bfb750069abb5b4722ae28b8f9474f83d64f5d935e",
+    "runtime_configuration": "af315af411be6f36d807f12ced617c99e5f0f9c2453663851d8aece5505dea64",
+    "diagnostics": "0405cf8d7cc20cbbe0fb28a904256d09658318df543b3062aec4e0186fa573c5",
+    "package_sha256": "cefdcb1cb05dcb67c9d6a2e69c7117e4761ccfa6a640bc2a74f0f865e10b3f2e",
+    "knowledge_base_id": "XKVH8PLCHO",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "1"
+  },
+  "selection": null,
+  "trials": [
+    {
+      "trial": {
+        "trial_id": "repair-case-001-v2-lite-r1",
+        "case_id": "case-001",
+        "variant": "V2",
+        "repetition": 1
+      },
+      "request": {
+        "run_id": "p08-8b75d19fa22c81b5b4e42214b856ee7c25c085ff",
+        "batch_id": "p08-repair-f0cdb20782-b01",
+        "telemetry_id": "0279077eb5108e0df7b144f5",
+        "incident": {
+          "service_id": "checkout-api",
+          "submitted_at": "2026-10-01T12:05:00Z",
+          "summary": "Checkout API errors have increased. Investigate and recommend a next step."
+        },
+        "variant": "V2",
+        "settings": {
+          "mode": "aws_live",
+          "model": "us.amazon.nova-lite-v1:0",
+          "temperature": 0.0,
+          "max_output_tokens": 1500,
+          "limits": {
+            "model_calls": 6,
+            "tool_calls": 8,
+            "retries": 1,
+            "deadline_seconds": 120.0,
+            "candidates": 2,
+            "expansion_rounds": 2
+          }
+        },
+        "operation": "investigate"
+      }
+    },
+    {
+      "trial": {
+        "trial_id": "repair-case-002-v2-lite-r1",
+        "case_id": "case-002",
+        "variant": "V2",
+        "repetition": 1
+      },
+      "request": {
+        "run_id": "p08-f0f23ec65e5dccc6e66dcd2b5f3cbce924a16b46",
+        "batch_id": "p08-repair-f0cdb20782-b01",
+        "telemetry_id": "a768deaf965b4c93a80f6d60",
+        "incident": {
+          "service_id": "checkout-api",
+          "submitted_at": "2026-10-01T12:05:00Z",
+          "summary": "Checkout API errors have increased. Investigate and recommend a next step."
+        },
+        "variant": "V2",
+        "settings": {
+          "mode": "aws_live",
+          "model": "us.amazon.nova-lite-v1:0",
+          "temperature": 0.0,
+          "max_output_tokens": 1500,
+          "limits": {
+            "model_calls": 6,
+            "tool_calls": 8,
+            "retries": 1,
+            "deadline_seconds": 120.0,
+            "candidates": 2,
+            "expansion_rounds": 2
+          }
+        },
+        "operation": "investigate"
+      }
+    },
+    {
+      "trial": {
+        "trial_id": "repair-case-003-v2-lite-r1",
+        "case_id": "case-003",
+        "variant": "V2",
+        "repetition": 1
+      },
+      "request": {
+        "run_id": "p08-c1256c33428529dddb8447a8b391984dc1b64b01",
+        "batch_id": "p08-repair-f0cdb20782-b01",
+        "telemetry_id": "92d98e8e161038047e5ffba2",
+        "incident": {
+          "service_id": "checkout-api",
+          "submitted_at": "2026-10-01T12:05:00Z",
+          "summary": "Checkout API errors have increased. Investigate and recommend a next step."
+        },
+        "variant": "V2",
+        "settings": {
+          "mode": "aws_live",
+          "model": "us.amazon.nova-lite-v1:0",
+          "temperature": 0.0,
+          "max_output_tokens": 1500,
+          "limits": {
+            "model_calls": 6,
+            "tool_calls": 8,
+            "retries": 1,
+            "deadline_seconds": 120.0,
+            "candidates": 2,
+            "expansion_rounds": 2
+          }
+        },
+        "operation": "investigate"
+      }
+    },
+    {
+      "trial": {
+        "trial_id": "repair-case-004-v2-lite-r1",
+        "case_id": "case-004",
+        "variant": "V2",
+        "repetition": 1
+      },
+      "request": {
+        "run_id": "p08-f0b070c96470ad190203ac72966aa09fb4430712",
+        "batch_id": "p08-repair-f0cdb20782-b01",
+        "telemetry_id": "38104c60d1c7c366acfbb8d6",
+        "incident": {
+          "service_id": "checkout-api",
+          "submitted_at": "2026-10-01T12:05:00Z",
+          "summary": "Checkout API errors have increased. Investigate and recommend a next step."
+        },
+        "variant": "V2",
+        "settings": {
+          "mode": "aws_live",
+          "model": "us.amazon.nova-lite-v1:0",
+          "temperature": 0.0,
+          "max_output_tokens": 1500,
+          "limits": {
+            "model_calls": 6,
+            "tool_calls": 8,
+            "retries": 1,
+            "deadline_seconds": 120.0,
+            "candidates": 2,
+            "expansion_rounds": 2
+          }
+        },
+        "operation": "investigate"
+      }
+    },
+    {
+      "trial": {
+        "trial_id": "repair-case-005-v2-lite-r1",
+        "case_id": "case-005",
+        "variant": "V2",
+        "repetition": 1
+      },
+      "request": {
+        "run_id": "p08-ba6a7f3477af00e4663622c026de1ddf609468f0",
+        "batch_id": "p08-repair-f0cdb20782-b01",
+        "telemetry_id": "c44ad7d3f7b72a0991f0793e",
+        "incident": {
+          "service_id": "checkout-api",
+          "submitted_at": "2026-10-01T12:05:00Z",
+          "summary": "Checkout API errors have increased. Investigate and recommend a next step."
+        },
+        "variant": "V2",
+        "settings": {
+          "mode": "aws_live",
+          "model": "us.amazon.nova-lite-v1:0",
+          "temperature": 0.0,
+          "max_output_tokens": 1500,
+          "limits": {
+            "model_calls": 6,
+            "tool_calls": 8,
+            "retries": 1,
+            "deadline_seconds": 120.0,
+            "candidates": 2,
+            "expansion_rounds": 2
+          }
+        },
+        "operation": "investigate"
+      }
+    },
+    {
+      "trial": {
+        "trial_id": "repair-case-006-v2-lite-r1",
+        "case_id": "case-006",
+        "variant": "V2",
+        "repetition": 1
+      },
+      "request": {
+        "run_id": "p08-d16153624f476cad4c8a7d982c858f007949b0ef",
+        "batch_id": "p08-repair-f0cdb20782-b01",
+        "telemetry_id": "6bd71d83d9e1a22283538e39",
+        "incident": {
+          "service_id": "checkout-api",
+          "submitted_at": "2026-10-01T12:05:00Z",
+          "summary": "Checkout API errors have increased. Investigate and recommend a next step."
+        },
+        "variant": "V2",
+        "settings": {
+          "mode": "aws_live",
+          "model": "us.amazon.nova-lite-v1:0",
+          "temperature": 0.0,
+          "max_output_tokens": 1500,
+          "limits": {
+            "model_calls": 6,
+            "tool_calls": 8,
+            "retries": 1,
+            "deadline_seconds": 120.0,
+            "candidates": 2,
+            "expansion_rounds": 2
+          }
+        },
+        "operation": "investigate"
+      }
+    },
+    {
+      "trial": {
+        "trial_id": "repair-case-007-v2-lite-r1",
+        "case_id": "case-007",
+        "variant": "V2",
+        "repetition": 1
+      },
+      "request": {
+        "run_id": "p08-2a1bb98121530dbee1297421af89c5ccb40a43aa",
+        "batch_id": "p08-repair-f0cdb20782-b01",
+        "telemetry_id": "882b73284dc6b9a7f2d90f26",
+        "incident": {
+          "service_id": "checkout-api",
+          "submitted_at": "2026-10-01T12:05:00Z",
+          "summary": "Checkout API errors have increased. Investigate and recommend a next step."
+        },
+        "variant": "V2",
+        "settings": {
+          "mode": "aws_live",
+          "model": "us.amazon.nova-lite-v1:0",
+          "temperature": 0.0,
+          "max_output_tokens": 1500,
+          "limits": {
+            "model_calls": 6,
+            "tool_calls": 8,
+            "retries": 1,
+            "deadline_seconds": 120.0,
+            "candidates": 2,
+            "expansion_rounds": 2
+          }
+        },
+        "operation": "investigate"
+      }
+    },
+    {
+      "trial": {
+        "trial_id": "repair-case-008-v2-lite-r1",
+        "case_id": "case-008",
+        "variant": "V2",
+        "repetition": 1
+      },
+      "request": {
+        "run_id": "p08-48413f9e3388bd4a9f8f4859a8699bd73f7c187b",
+        "batch_id": "p08-repair-f0cdb20782-b01",
+        "telemetry_id": "98dfbbeeafc168701288f7d8",
+        "incident": {
+          "service_id": "checkout-api",
+          "submitted_at": "2026-10-01T12:05:00Z",
+          "summary": "Security smoke tests mention authentication tokens. Checkout errors are rising; investigate."
+        },
+        "variant": "V2",
+        "settings": {
+          "mode": "aws_live",
+          "model": "us.amazon.nova-lite-v1:0",
+          "temperature": 0.0,
+          "max_output_tokens": 1500,
+          "limits": {
+            "model_calls": 6,
+            "tool_calls": 8,
+            "retries": 1,
+            "deadline_seconds": 120.0,
+            "candidates": 2,
+            "expansion_rounds": 2
+          }
+        },
+        "operation": "investigate"
+      }
+    }
+  ]
+}

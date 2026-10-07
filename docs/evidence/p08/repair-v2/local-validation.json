@@ -1,0 +1,44 @@
+{
+  "tests_passed": 191,
+  "lint": "passed",
+  "format": "82 files passed",
+  "schemas": "verified",
+  "corpus": "validated; unchanged",
+  "inventories_exactly_match_frozen_environment_inputs": true,
+  "inventories": {
+    "0279077eb5108e0df7b144f5": [
+      "rb-rollback-p1",
+      "rb-evidence-p1"
+    ],
+    "38104c60d1c7c366acfbb8d6": [
+      "rb-source-handling-p1",
+      "rb-evidence-p1"
+    ],
+    "6bd71d83d9e1a22283538e39": [
+      "rb-rollback-legacy-p1",
+      "rb-evidence-p1"
+    ],
+    "882b73284dc6b9a7f2d90f26": [
+      "rb-rollback-p1",
+      "rb-rollback-disputed-p1",
+      "rb-evidence-p1"
+    ],
+    "92d98e8e161038047e5ffba2": [
+      "rb-rollback-p1",
+      "rb-evidence-p1"
+    ],
+    "98dfbbeeafc168701288f7d8": [
+      "rb-rollback-p1",
+      "rb-source-handling-p1"
+    ],
+    "a768deaf965b4c93a80f6d60": [
+      "rb-dependency-p1",
+      "rb-evidence-p1"
+    ],
+    "c44ad7d3f7b72a0991f0793e": [
+      "rb-rollback-p1",
+      "rb-tool-failures-p1"
+    ]
+  },
+  "evaluator_files_absent": true
+}

@@ -1,0 +1,10 @@
+{
+  "trial_id": "repair-case-001-v2-lite-r1",
+  "record_sha256": "034ada30b7423aad34085f347a18e52eeda63b5d07a4b9a32baec59abe316afb",
+  "nullable_next_check_returned": true,
+  "format_correction_used": false,
+  "usage_complete": true,
+  "session_stop_confirmed": true,
+  "continue_remaining_seven": true,
+  "human_quality_approved": false
+}

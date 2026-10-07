@@ -21,7 +21,15 @@ def test_retrieval_is_frozen_private_and_region_scoped():
             "VectorIngestionConfiguration": {"ChunkingConfiguration": {"ChunkingStrategy": "NONE"}},
         },
     )
-    template.resource_count_is("AWS::Bedrock::GuardrailVersion", 1)
+    template.resource_count_is("AWS::Bedrock::GuardrailVersion", 2)
+    filters = next(iter(template.find_resources("AWS::Bedrock::Guardrail").values()))["Properties"][
+        "ContentPolicyConfig"
+    ]["FiltersConfig"]
+    assert next(f for f in filters if f["Type"] == "PROMPT_ATTACK") == {
+        "Type": "PROMPT_ATTACK",
+        "InputStrength": "MEDIUM",
+        "OutputStrength": "NONE",
+    }
     resources = template.to_json()["Resources"]
     for resource in resources.values():
         if resource["Type"] != "AWS::IAM::Role":

@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-07",
+  "owner": "Bill Mathers",
+  "user_statement": "Okay, this is a demo, so I am not to concerned with the reasoning issues.",
+  "interpreted_scope": "Accept the documented reasoning limitations for the synthetic demo; further paid reasoning-polish batches are no longer a demo priority.",
+  "latest_runtime_version": "13",
+  "guardrail_version": "2",
+  "latest_report": "repair-v5/report.json",
+  "latest_review_packet": "repair-v5/review-packet.json",
+  "mechanical_candidates": 8,
+  "mechanical_failures": 0,
+  "formal_human_review_labels_submitted_by_this_decision": false,
+  "full_p08_evaluation_complete": false,
+  "safety_controls_and_explicit_action_approval": "unchanged",
+  "total_budget_usd": "250.00",
+  "per_batch_limit_usd": "10.00",
+  "historical_results_and_review_packets": "unchanged"
+}

@@ -1,0 +1,156 @@
+{
+  "at": "2026-10-07T09:29:44.715861+00:00",
+  "versions": {
+    "1": {
+      "ResponseMetadata": {
+        "RequestId": "6ce52246-5ec6-42aa-ad38-68e90d7af638",
+        "HTTPStatusCode": 200,
+        "HTTPHeaders": {
+          "date": "Wed, 07 Oct 2026 09:29:44 GMT",
+          "content-type": "application/json",
+          "content-length": "2218",
+          "connection": "keep-alive",
+          "x-amzn-requestid": "6ce52246-5ec6-42aa-ad38-68e90d7af638"
+        },
+        "MaxAttemptsReached": true,
+        "RetryAttempts": 0
+      },
+      "name": "incident-demo-boundaries",
+      "description": "Frozen P06 v1 content/prompt-attack and synthetic-secret policy",
+      "guardrailId": "a4aiug3xzh6e",
+      "guardrailArn": "arn:aws:bedrock:us-east-2:498084841421:guardrail/a4aiug3xzh6e",
+      "version": "1",
+      "status": "READY",
+      "contentPolicy": {
+        "filters": [
+          {
+            "type": "VIOLENCE",
+            "inputStrength": "MEDIUM",
+            "outputStrength": "MEDIUM"
+          },
+          {
+            "type": "PROMPT_ATTACK",
+            "inputStrength": "HIGH",
+            "outputStrength": "NONE"
+          },
+          {
+            "type": "MISCONDUCT",
+            "inputStrength": "MEDIUM",
+            "outputStrength": "MEDIUM"
+          },
+          {
+            "type": "HATE",
+            "inputStrength": "MEDIUM",
+            "outputStrength": "MEDIUM"
+          },
+          {
+            "type": "SEXUAL",
+            "inputStrength": "MEDIUM",
+            "outputStrength": "MEDIUM"
+          },
+          {
+            "type": "INSULTS",
+            "inputStrength": "MEDIUM",
+            "outputStrength": "MEDIUM"
+          }
+        ],
+        "tier": {
+          "tierName": "CLASSIC"
+        }
+      },
+      "sensitiveInformationPolicy": {
+        "piiEntities": [],
+        "regexes": [
+          {
+            "name": "SyntheticSecret",
+            "description": "Synthetic demo secret values only",
+            "pattern": "DEMO_CANARY_[A-Za-z0-9]+",
+            "action": "BLOCK"
+          }
+        ]
+      },
+      "createdAt": "2026-10-06 03:02:54+00:00",
+      "updatedAt": "2026-10-06 03:02:54.282982+00:00",
+      "statusReasons": [],
+      "failureRecommendations": [],
+      "blockedInputMessaging": "Content blocked by incident demo policy.",
+      "blockedOutputsMessaging": "Content blocked by incident demo policy."
+    },
+    "2": {
+      "ResponseMetadata": {
+        "RequestId": "dac5d459-6f2b-4cd4-b339-3681d53446a1",
+        "HTTPStatusCode": 200,
+        "HTTPHeaders": {
+          "date": "Wed, 07 Oct 2026 09:29:44 GMT",
+          "content-type": "application/json",
+          "content-length": "2222",
+          "connection": "keep-alive",
+          "x-amzn-requestid": "dac5d459-6f2b-4cd4-b339-3681d53446a1"
+        },
+        "MaxAttemptsReached": true,
+        "RetryAttempts": 0
+      },
+      "name": "incident-demo-boundaries",
+      "description": "P08 v2: medium prompt-attack sensitivity; other filters unchanged",
+      "guardrailId": "a4aiug3xzh6e",
+      "guardrailArn": "arn:aws:bedrock:us-east-2:498084841421:guardrail/a4aiug3xzh6e",
+      "version": "2",
+      "status": "READY",
+      "contentPolicy": {
+        "filters": [
+          {
+            "type": "VIOLENCE",
+            "inputStrength": "MEDIUM",
+            "outputStrength": "MEDIUM"
+          },
+          {
+            "type": "PROMPT_ATTACK",
+            "inputStrength": "MEDIUM",
+            "outputStrength": "NONE"
+          },
+          {
+            "type": "MISCONDUCT",
+            "inputStrength": "MEDIUM",
+            "outputStrength": "MEDIUM"
+          },
+          {
+            "type": "HATE",
+            "inputStrength": "MEDIUM",
+            "outputStrength": "MEDIUM"
+          },
+          {
+            "type": "SEXUAL",
+            "inputStrength": "MEDIUM",
+            "outputStrength": "MEDIUM"
+          },
+          {
+            "type": "INSULTS",
+            "inputStrength": "MEDIUM",
+            "outputStrength": "MEDIUM"
+          }
+        ],
+        "tier": {
+          "tierName": "CLASSIC"
+        }
+      },
+      "sensitiveInformationPolicy": {
+        "piiEntities": [],
+        "regexes": [
+          {
+            "name": "SyntheticSecret",
+            "description": "Synthetic demo secret values only",
+            "pattern": "DEMO_CANARY_[A-Za-z0-9]+",
+            "action": "BLOCK"
+          }
+        ]
+      },
+      "createdAt": "2026-10-07 09:26:10+00:00",
+      "updatedAt": "2026-10-07 09:26:11.291693+00:00",
+      "statusReasons": [],
+      "failureRecommendations": [],
+      "blockedInputMessaging": "Content blocked by incident demo policy.",
+      "blockedOutputsMessaging": "Content blocked by incident demo policy."
+    }
+  },
+  "other_filters_unchanged": true
+}

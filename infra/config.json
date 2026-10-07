@@ -10,10 +10,10 @@
   "workflow_api_id": "ko8n1lkhkc",
   "budget": {
     "currency": "USD",
-    "total": 50,
+    "total": 250,
     "per_batch": 10,
     "infrastructure_reserve": 10,
-    "approved_on": "2026-10-05"
+    "approved_on": "2026-10-06"
   },
   "limits": {
     "concurrency": 1,

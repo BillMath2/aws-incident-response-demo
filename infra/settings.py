@@ -16,8 +16,8 @@ def load_config(path: Path = ROOT / "config.json") -> dict:
     if config["project"] != "incident-demo" or config["stack_name"] != "incident-demo-foundation":
         raise ValueError("resource names must match the scoped execution policy")
     budget = config["budget"]
-    if not 0 < budget["per_batch"] <= budget["total"] <= 50:
-        raise ValueError("budget exceeds the approved $50 total / $10 batch allowance")
+    if not 0 < budget["per_batch"] <= budget["total"] <= 250:
+        raise ValueError("budget exceeds the approved $250 total / $10 batch allowance")
     if budget["per_batch"] > 10 or not 0 < budget["infrastructure_reserve"] < budget["total"]:
         raise ValueError("invalid batch limit or infrastructure reserve")
     return config

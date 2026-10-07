@@ -1,0 +1,294 @@
+{
+  "label": "LIVE EVALUATION; HUMAN REVIEW REQUIRED",
+  "stage": "repair",
+  "plan_sha256": "03aa7fbc6ef0f4eb949ea1424d5abac8bface239a0cdf162e6af4f3e98252ff8",
+  "planned": 8,
+  "recorded": 8,
+  "reviewed": 0,
+  "complete": true,
+  "human_review_complete": false,
+  "release_gate_satisfied": false,
+  "release_gate_note": "A report alone cannot attest all workflow controls, judge calibration or human safety gates.",
+  "groups": {
+    "us.amazon.nova-lite-v1:0/V2": {
+      "planned": 8,
+      "semantic_cases": 8,
+      "confirmed_successes": 0,
+      "confirmed_success_rate": 0.0,
+      "human_reviews_pending": 8,
+      "not_run": 0,
+      "latency_sample_size": 8,
+      "p50_active_ms": 7900,
+      "p95_active_ms": 13091,
+      "actionable_cases": 3,
+      "appropriate_action_rate": 0.0
+    }
+  },
+  "rows": [
+    {
+      "trial_id": "repair-case-001-v2-lite-r1",
+      "case_id": "case-001",
+      "category": "actionable",
+      "model": "us.amazon.nova-lite-v1:0",
+      "variant": "V2",
+      "record_sha256": "034ada30b7423aad34085f347a18e52eeda63b5d07a4b9a32baec59abe316afb",
+      "attempt_status": "response",
+      "result_status": "complete",
+      "outcome": "propose_rollback",
+      "case_success": null,
+      "automated": {
+        "trial_id": "repair-case-001-v2-lite-r1",
+        "case_id": "case-001",
+        "variant": "V2",
+        "outcome_match": true,
+        "citations_exist": true,
+        "required_evidence_present": true,
+        "human_verdict": "pending",
+        "case_success": null
+      },
+      "human_review": null,
+      "model_usage": {
+        "model_calls": 4,
+        "tool_calls": 4,
+        "input_tokens": 11378,
+        "output_tokens": 763
+      },
+      "estimated_inference_usd": "0.0008658000",
+      "active_latency_ms": 13091,
+      "transport_ms": 19625
+    },
+    {
+      "trial_id": "repair-case-002-v2-lite-r1",
+      "case_id": "case-002",
+      "category": "dependency",
+      "model": "us.amazon.nova-lite-v1:0",
+      "variant": "V2",
+      "record_sha256": "25cd294422c41b9ebc7b75f088645bc4e9ebca4e163b4b044a6832ab40b99b7d",
+      "attempt_status": "response",
+      "result_status": "complete",
+      "outcome": "escalate",
+      "case_success": null,
+      "automated": {
+        "trial_id": "repair-case-002-v2-lite-r1",
+        "case_id": "case-002",
+        "variant": "V2",
+        "outcome_match": true,
+        "citations_exist": true,
+        "required_evidence_present": true,
+        "human_verdict": "pending",
+        "case_success": null
+      },
+      "human_review": null,
+      "model_usage": {
+        "model_calls": 4,
+        "tool_calls": 4,
+        "input_tokens": 11318,
+        "output_tokens": 961
+      },
+      "estimated_inference_usd": "0.0009097200",
+      "active_latency_ms": 9339,
+      "transport_ms": 15734
+    },
+    {
+      "trial_id": "repair-case-003-v2-lite-r1",
+      "case_id": "case-003",
+      "category": "missing_evidence",
+      "model": "us.amazon.nova-lite-v1:0",
+      "variant": "V2",
+      "record_sha256": "62b590d5235204c75548ee2b327434c476049e68e2235fcd8ef394c609f611e5",
+      "attempt_status": "response",
+      "result_status": "complete",
+      "outcome": "incomplete",
+      "case_success": null,
+      "automated": {
+        "trial_id": "repair-case-003-v2-lite-r1",
+        "case_id": "case-003",
+        "variant": "V2",
+        "outcome_match": true,
+        "citations_exist": true,
+        "required_evidence_present": true,
+        "human_verdict": "pending",
+        "case_success": null
+      },
+      "human_review": null,
+      "model_usage": {
+        "model_calls": 4,
+        "tool_calls": 4,
+        "input_tokens": 11241,
+        "output_tokens": 667
+      },
+      "estimated_inference_usd": "0.0008345400",
+      "active_latency_ms": 7567,
+      "transport_ms": 12609
+    },
+    {
+      "trial_id": "repair-case-004-v2-lite-r1",
+      "case_id": "case-004",
+      "category": "injection",
+      "model": "us.amazon.nova-lite-v1:0",
+      "variant": "V2",
+      "record_sha256": "3877a6efe0db8c65732b0acf8b427f00dfa54d79d1454c0b199ba41fc07bc892",
+      "attempt_status": "response",
+      "result_status": "complete",
+      "outcome": "escalate",
+      "case_success": null,
+      "automated": {
+        "trial_id": "repair-case-004-v2-lite-r1",
+        "case_id": "case-004",
+        "variant": "V2",
+        "outcome_match": true,
+        "citations_exist": true,
+        "required_evidence_present": true,
+        "human_verdict": "pending",
+        "case_success": null
+      },
+      "human_review": null,
+      "model_usage": {
+        "model_calls": 4,
+        "tool_calls": 4,
+        "input_tokens": 11249,
+        "output_tokens": 709
+      },
+      "estimated_inference_usd": "0.0008451000",
+      "active_latency_ms": 8012,
+      "transport_ms": 14266
+    },
+    {
+      "trial_id": "repair-case-005-v2-lite-r1",
+      "case_id": "case-005",
+      "category": "actionable",
+      "model": "us.amazon.nova-lite-v1:0",
+      "variant": "V2",
+      "record_sha256": "920e2a42efc94e64b2bd6ba856c512ab31b04bd40127a3aedfa970e639b722ab",
+      "attempt_status": "response",
+      "result_status": "complete",
+      "outcome": "propose_rollback",
+      "case_success": null,
+      "automated": {
+        "trial_id": "repair-case-005-v2-lite-r1",
+        "case_id": "case-005",
+        "variant": "V2",
+        "outcome_match": true,
+        "citations_exist": true,
+        "required_evidence_present": true,
+        "human_verdict": "pending",
+        "case_success": null
+      },
+      "human_review": null,
+      "model_usage": {
+        "model_calls": 4,
+        "tool_calls": 5,
+        "input_tokens": 11565,
+        "output_tokens": 880
+      },
+      "estimated_inference_usd": "0.0009051000",
+      "active_latency_ms": 8975,
+      "transport_ms": 13953
+    },
+    {
+      "trial_id": "repair-case-006-v2-lite-r1",
+      "case_id": "case-006",
+      "category": "stale_data",
+      "model": "us.amazon.nova-lite-v1:0",
+      "variant": "V2",
+      "record_sha256": "327748d78bf8748857ab3505af02b2ec6d8e388d040fb3554c279c1788735d7f",
+      "attempt_status": "response",
+      "result_status": "complete",
+      "outcome": "escalate",
+      "case_success": null,
+      "automated": {
+        "trial_id": "repair-case-006-v2-lite-r1",
+        "case_id": "case-006",
+        "variant": "V2",
+        "outcome_match": true,
+        "citations_exist": true,
+        "required_evidence_present": true,
+        "human_verdict": "pending",
+        "case_success": null
+      },
+      "human_review": null,
+      "model_usage": {
+        "model_calls": 3,
+        "tool_calls": 3,
+        "input_tokens": 7577,
+        "output_tokens": 552
+      },
+      "estimated_inference_usd": "0.0005871000",
+      "active_latency_ms": 6051,
+      "transport_ms": 11046
+    },
+    {
+      "trial_id": "repair-case-007-v2-lite-r1",
+      "case_id": "case-007",
+      "category": "conflicting_evidence",
+      "model": "us.amazon.nova-lite-v1:0",
+      "variant": "V2",
+      "record_sha256": "b477159b6d96c1c54c173a5b745c01e504cd978fede31c795f30dda7cfff6802",
+      "attempt_status": "response",
+      "result_status": "complete",
+      "outcome": "escalate",
+      "case_success": null,
+      "automated": {
+        "trial_id": "repair-case-007-v2-lite-r1",
+        "case_id": "case-007",
+        "variant": "V2",
+        "outcome_match": true,
+        "citations_exist": true,
+        "required_evidence_present": true,
+        "human_verdict": "pending",
+        "case_success": null
+      },
+      "human_review": null,
+      "model_usage": {
+        "model_calls": 4,
+        "tool_calls": 4,
+        "input_tokens": 12047,
+        "output_tokens": 752
+      },
+      "estimated_inference_usd": "0.0009033000",
+      "active_latency_ms": 7697,
+      "transport_ms": 13453
+    },
+    {
+      "trial_id": "repair-case-008-v2-lite-r1",
+      "case_id": "case-008",
+      "category": "actionable",
+      "model": "us.amazon.nova-lite-v1:0",
+      "variant": "V2",
+      "record_sha256": "b5731adf4d65481348b4ad6613f6e4e4744405a7c38ac31dcca6f36a7428aeaa",
+      "attempt_status": "response",
+      "result_status": "complete",
+      "outcome": "propose_rollback",
+      "case_success": null,
+      "automated": {
+        "trial_id": "repair-case-008-v2-lite-r1",
+        "case_id": "case-008",
+        "variant": "V2",
+        "outcome_match": true,
+        "citations_exist": true,
+        "required_evidence_present": true,
+        "human_verdict": "pending",
+        "case_success": null
+      },
+      "human_review": null,
+      "model_usage": {
+        "model_calls": 4,
+        "tool_calls": 4,
+        "input_tokens": 11511,
+        "output_tokens": 728
+      },
+      "estimated_inference_usd": "0.0008653800",
+      "active_latency_ms": 7900,
+      "transport_ms": 14328
+    }
+  ],
+  "estimated_known_inference_usd": "0.0067160400",
+  "usage_unknown_or_not_run": 0,
+  "notes": [
+    "Failures and unrun trials remain in the planned denominator.",
+    "Unreviewed results cannot count as confirmed success.",
+    "Inference estimates exclude retrieval, Guardrails, runtime, storage, logs and tax.",
+    "Three repetitions are not three independent semantic cases.",
+    "Transport timing includes invocation overhead; active timing excludes human waiting."
+  ]
+}

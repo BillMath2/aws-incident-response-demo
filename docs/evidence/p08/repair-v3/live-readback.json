@@ -1,0 +1,38 @@
+{
+  "runtime_version": "10",
+  "endpoint_status": "READY",
+  "guardrail_version": "1",
+  "guardrail_v1_filters": [
+    {
+      "type": "VIOLENCE",
+      "inputStrength": "MEDIUM",
+      "outputStrength": "MEDIUM"
+    },
+    {
+      "type": "PROMPT_ATTACK",
+      "inputStrength": "HIGH",
+      "outputStrength": "NONE"
+    },
+    {
+      "type": "MISCONDUCT",
+      "inputStrength": "MEDIUM",
+      "outputStrength": "MEDIUM"
+    },
+    {
+      "type": "HATE",
+      "inputStrength": "MEDIUM",
+      "outputStrength": "MEDIUM"
+    },
+    {
+      "type": "SEXUAL",
+      "inputStrength": "MEDIUM",
+      "outputStrength": "MEDIUM"
+    },
+    {
+      "type": "INSULTS",
+      "inputStrength": "MEDIUM",
+      "outputStrength": "MEDIUM"
+    }
+  ],
+  "deployment_attempt": "rejected before execution by automatic approval review"
+}

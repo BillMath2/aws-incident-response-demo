@@ -1,0 +1,7 @@
+{
+  "run_id": "p08-guardrail-aa241ee10e7c4bbbaa0d751281435328",
+  "batch": "p08-guardrail-diagnostic-v3",
+  "reserved_usd": "0.75",
+  "maximum_guardrail_calls": 6,
+  "model_calls": 0
+}

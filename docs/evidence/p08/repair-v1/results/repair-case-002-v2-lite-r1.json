@@ -1,0 +1,1502 @@
+{
+  "plan_sha256": "6b9cd56854e284536e9907836688967cab3f0beec4edeb73cfeffa3d9826806e",
+  "trial_id": "repair-case-002-v2-lite-r1",
+  "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+  "status": "response",
+  "response": {
+    "artifact_key": "runs/p06/p08-c69802d37966c235b2325eb284ef1ad5be8207c8.json",
+    "audit": [
+      {
+        "at": "2026-10-07T00:57:37.693243+00:00",
+        "boundary": "input",
+        "call": 1,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "action": "NONE",
+        "at": "2026-10-07T00:57:37.836359+00:00",
+        "boundary": "input",
+        "call": 1,
+        "coverage": {
+          "guarded": 154,
+          "total": 154
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "request_id": "a3ad3022-1e0a-4bc6-af3d-3e95ca6e8296",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "at": "2026-10-07T00:57:37.838987+00:00",
+        "attempt": 1,
+        "event": "lambda_started",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "tool": "get_service_health"
+      },
+      {
+        "at": "2026-10-07T00:57:37.873674+00:00",
+        "attempt": 1,
+        "event": "lambda_finished",
+        "latency_ms": 34,
+        "request_id": "db8aef40-55d3-4165-a41c-5da6e1b036e2",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "tool": "get_service_health"
+      },
+      {
+        "at": "2026-10-07T00:57:37.874243+00:00",
+        "boundary": "source",
+        "call": 2,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "action": "NONE",
+        "at": "2026-10-07T00:57:38.005575+00:00",
+        "boundary": "source",
+        "call": 2,
+        "coverage": {
+          "guarded": 437,
+          "total": 437
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "request_id": "ed9cb722-b8b0-4999-9b86-23140bc14659",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "at": "2026-10-07T00:57:38.006030+00:00",
+        "attempt": 1,
+        "event": "lambda_started",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "tool": "get_recent_changes"
+      },
+      {
+        "at": "2026-10-07T00:57:38.040671+00:00",
+        "attempt": 1,
+        "event": "lambda_finished",
+        "latency_ms": 34,
+        "request_id": "5ec41027-0414-4f64-83b5-a9d75bb7d8d5",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "tool": "get_recent_changes"
+      },
+      {
+        "at": "2026-10-07T00:57:38.041212+00:00",
+        "boundary": "source",
+        "call": 3,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "action": "NONE",
+        "at": "2026-10-07T00:57:38.228334+00:00",
+        "boundary": "source",
+        "call": 3,
+        "coverage": {
+          "guarded": 507,
+          "total": 507
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "request_id": "a536f038-abfc-4cd9-8a4e-0c4068937065",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "adapter_prompt_version": "p08-v1-native",
+        "at": "2026-10-07T00:57:38.244633+00:00",
+        "event": "prompt_built",
+        "response_phase": "seed",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "system_sha256": "533083a95836521346bff454ac97f4cf3890acc59ad349c89aafc7d5ef1277c5",
+        "tool_schema_sha256": "fd15b39aa8bf9454f5626e2ce99ae1bac53cc2183e6c0cdd6d2cf89d6e12525c"
+      },
+      {
+        "at": "2026-10-07T00:57:38.370836+00:00",
+        "event": "token_count_unsupported",
+        "input_bytes": 6708,
+        "reserved_input_tokens": 300000,
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "at": "2026-10-07T00:57:38.371032+00:00",
+        "event": "model_started",
+        "input_tokens": null,
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "at": "2026-10-07T00:57:39.846262+00:00",
+        "event": "model_finished",
+        "input_tokens": 2162,
+        "output_tokens": 185,
+        "request_id": "82df4228-bf33-496a-907e-7d18a1cb87eb",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "at": "2026-10-07T00:57:39.847689+00:00",
+        "event": "native_response",
+        "proposed_decisions": 1,
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "stop_reason": "tool_use",
+        "unused_decisions": 0
+      },
+      {
+        "at": "2026-10-07T00:57:39.850662+00:00",
+        "boundary": "output",
+        "call": 4,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "action": "NONE",
+        "at": "2026-10-07T00:57:40.021226+00:00",
+        "boundary": "output",
+        "call": 4,
+        "coverage": {
+          "guarded": 663,
+          "total": 663
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "request_id": "e9998bc6-1e7f-4fdc-ae57-707d0a221076",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "at": "2026-10-07T00:57:40.022491+00:00",
+        "attempt": 1,
+        "event": "lambda_started",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "tool": "get_recent_logs"
+      },
+      {
+        "at": "2026-10-07T00:57:40.038684+00:00",
+        "attempt": 1,
+        "event": "lambda_finished",
+        "latency_ms": 16,
+        "request_id": "d68d176e-cf54-4f31-bb31-f13b7ef6f00d",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "tool": "get_recent_logs"
+      },
+      {
+        "at": "2026-10-07T00:57:40.039128+00:00",
+        "boundary": "source",
+        "call": 5,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "action": "NONE",
+        "at": "2026-10-07T00:57:40.174858+00:00",
+        "boundary": "source",
+        "call": 5,
+        "coverage": {
+          "guarded": 457,
+          "total": 457
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "request_id": "7d029ba3-bf6a-4750-bf90-c636fa1ebea7",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "adapter_prompt_version": "p08-v1-native",
+        "at": "2026-10-07T00:57:40.196583+00:00",
+        "event": "prompt_built",
+        "response_phase": "update",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "system_sha256": "533083a95836521346bff454ac97f4cf3890acc59ad349c89aafc7d5ef1277c5",
+        "tool_schema_sha256": "ca928b185ce2e5621a0e296663daa2ae51ec1cf225727a8347a16b428f9fac34"
+      },
+      {
+        "at": "2026-10-07T00:57:40.234418+00:00",
+        "event": "token_count_unsupported",
+        "input_bytes": 7293,
+        "reserved_input_tokens": 300000,
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "at": "2026-10-07T00:57:40.234601+00:00",
+        "event": "model_started",
+        "input_tokens": null,
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "at": "2026-10-07T00:57:42.009203+00:00",
+        "event": "model_finished",
+        "input_tokens": 2326,
+        "output_tokens": 209,
+        "request_id": "68257b29-854a-4d79-ad8f-af33e2a615e5",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "at": "2026-10-07T00:57:42.009716+00:00",
+        "event": "native_response",
+        "proposed_decisions": 1,
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "stop_reason": "tool_use",
+        "unused_decisions": 0
+      },
+      {
+        "at": "2026-10-07T00:57:42.012596+00:00",
+        "boundary": "output",
+        "call": 6,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "action": "NONE",
+        "at": "2026-10-07T00:57:42.177188+00:00",
+        "boundary": "output",
+        "call": 6,
+        "coverage": {
+          "guarded": 786,
+          "total": 786
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "request_id": "501d3ead-4893-4d75-8b65-5b9d36a24cbd",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "at": "2026-10-07T00:57:42.178311+00:00",
+        "event": "retrieval_started",
+        "knowledge_base_id": "XKVH8PLCHO",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "at": "2026-10-07T00:57:42.512316+00:00",
+        "event": "retrieval_finished",
+        "knowledge_base_id": "XKVH8PLCHO",
+        "passages": [
+          {
+            "id": "rb-tool-failures-p1",
+            "score": 0.5777049660682678,
+            "sha256": "f3c163bb445a91d65d039e155ce2f5fc25caefa2cfc0a66e0f126f4785f49cd7",
+            "status": "current"
+          },
+          {
+            "id": "rb-verification-p1",
+            "score": 0.5706914663314819,
+            "sha256": "eed7dc67aa0ceb8c85dbedc0e0a73585bf51816bdc8b968c99b7ba56d1b98af2",
+            "status": "current"
+          },
+          {
+            "id": "rb-dependency-p1",
+            "score": 0.5645892918109894,
+            "sha256": "485a82e6e24ec3d80d3de8306277e8f72dfcea236b3b68e4aa93765ec3ec622f",
+            "status": "current"
+          }
+        ],
+        "request_id": "36908033-61e2-4d4c-aea0-c12c894ac7be",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "at": "2026-10-07T00:57:42.512703+00:00",
+        "boundary": "source",
+        "call": 7,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "action": "NONE",
+        "at": "2026-10-07T00:57:42.664925+00:00",
+        "boundary": "source",
+        "call": 7,
+        "coverage": {
+          "guarded": 986,
+          "total": 986
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "request_id": "830139aa-83bd-4119-b8ce-aed5525cbc41",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "at": "2026-10-07T00:57:42.666234+00:00",
+        "boundary": "source",
+        "call": 8,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "action": "NONE",
+        "at": "2026-10-07T00:57:42.826893+00:00",
+        "boundary": "source",
+        "call": 8,
+        "coverage": {
+          "guarded": 983,
+          "total": 983
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "request_id": "acaf33a6-5845-4a87-bfb2-978451673905",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "at": "2026-10-07T00:57:42.827337+00:00",
+        "boundary": "source",
+        "call": 9,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "action": "NONE",
+        "at": "2026-10-07T00:57:42.996540+00:00",
+        "boundary": "source",
+        "call": 9,
+        "coverage": {
+          "guarded": 987,
+          "total": 987
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "request_id": "1ab02f8b-b8d7-4ca3-bc57-6a6419bc4b4a",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "adapter_prompt_version": "p08-v1-native",
+        "at": "2026-10-07T00:57:43.010250+00:00",
+        "event": "prompt_built",
+        "response_phase": "update",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "system_sha256": "28490deb79425f1936c060905380ca0de456bde0e12252e0519e955fba00f35a",
+        "tool_schema_sha256": "bf5fdcb4eef9bcb3559684edd2a41f97aaae113882ff94e33d5fbe5a58bf9748"
+      },
+      {
+        "at": "2026-10-07T00:57:43.049205+00:00",
+        "event": "token_count_unsupported",
+        "input_bytes": 10179,
+        "reserved_input_tokens": 300000,
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "at": "2026-10-07T00:57:43.049351+00:00",
+        "event": "model_started",
+        "input_tokens": null,
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "at": "2026-10-07T00:57:44.516577+00:00",
+        "event": "model_finished",
+        "input_tokens": 3184,
+        "output_tokens": 161,
+        "request_id": "e778d069-3314-4395-b57b-dd3184c0a169",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "at": "2026-10-07T00:57:44.517086+00:00",
+        "event": "native_response",
+        "proposed_decisions": 1,
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "stop_reason": "tool_use",
+        "unused_decisions": 0
+      },
+      {
+        "at": "2026-10-07T00:57:44.517405+00:00",
+        "boundary": "output",
+        "call": 10,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "action": "NONE",
+        "at": "2026-10-07T00:57:44.651272+00:00",
+        "boundary": "output",
+        "call": 10,
+        "coverage": {
+          "guarded": 576,
+          "total": 576
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "request_id": "f0e9758d-c161-47c6-80e3-c00a468406ec",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "adapter_prompt_version": "p08-v1-native",
+        "at": "2026-10-07T00:57:44.664848+00:00",
+        "event": "prompt_built",
+        "response_phase": "final",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "system_sha256": "533083a95836521346bff454ac97f4cf3890acc59ad349c89aafc7d5ef1277c5",
+        "tool_schema_sha256": "61a9747b235534582fe268dc77cc043105213d98d8f9382f39a3a6b179eebc51"
+      },
+      {
+        "at": "2026-10-07T00:57:44.713329+00:00",
+        "event": "token_count_unsupported",
+        "input_bytes": 10755,
+        "reserved_input_tokens": 300000,
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "at": "2026-10-07T00:57:44.713494+00:00",
+        "event": "model_started",
+        "input_tokens": null,
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "at": "2026-10-07T00:57:47.621976+00:00",
+        "event": "model_finished",
+        "input_tokens": 3430,
+        "output_tokens": 286,
+        "request_id": "6e7f2d93-4895-4127-b0fb-6d9171880672",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "at": "2026-10-07T00:57:47.622941+00:00",
+        "event": "native_response",
+        "proposed_decisions": 1,
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "stop_reason": "tool_use",
+        "unused_decisions": 0
+      },
+      {
+        "at": "2026-10-07T00:57:47.623438+00:00",
+        "boundary": "output",
+        "call": 11,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      {
+        "action": "NONE",
+        "at": "2026-10-07T00:57:47.778594+00:00",
+        "boundary": "output",
+        "call": 11,
+        "coverage": {
+          "guarded": 1079,
+          "total": 1079
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "request_id": "2d739d83-e363-4cfd-a3b6-637879b64295",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 2,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 2,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      }
+    ],
+    "guardrail_policy": {
+      "id": "a4aiug3xzh6e",
+      "version": "1"
+    },
+    "mode": "aws_live",
+    "reserved_usd": "0.75",
+    "result": {
+      "active_latency_ms": 10092,
+      "evidence": [
+        {
+          "collected_at": "2026-10-01T12:05:00Z",
+          "complete": true,
+          "content_hash": "d050a8e7e3dbda54db778ebde022dfced3d7677dd45bfdfeae8ea98be738f19f",
+          "evidence_id": "obs-002-health",
+          "payload": {
+            "dependency_state": "degraded",
+            "error_rate": 0.25,
+            "kind": "health",
+            "latency_p95_ms": 1700.0,
+            "observed_at": "2026-10-01T12:04:00Z",
+            "release": "release-42",
+            "service_id": "checkout-api"
+          },
+          "sanitized": true,
+          "source": "get_service_health",
+          "source_version": "fixtures-1.0.0"
+        },
+        {
+          "collected_at": "2026-10-01T12:05:00Z",
+          "complete": true,
+          "content_hash": "f93be8ff9e326b8db03eb78a95fcfa16347337387677012652eb6662823ab2a7",
+          "evidence_id": "obs-002-changes",
+          "payload": {
+            "items": [
+              {
+                "change_id": "change-002",
+                "changed_at": "2026-10-01T11:55:00Z",
+                "kind": "deployment",
+                "release": "release-42",
+                "summary": "Checkout release-42 deployed; release-41 baseline error rate was 0.003."
+              }
+            ],
+            "kind": "changes",
+            "service_id": "checkout-api"
+          },
+          "sanitized": true,
+          "source": "get_recent_changes",
+          "source_version": "fixtures-1.0.0"
+        },
+        {
+          "collected_at": "2026-10-01T12:05:00Z",
+          "complete": true,
+          "content_hash": "f6f386bf2ee9774b5a8a69ac6089b060de974333475d8cad8b7c7652a3e8390a",
+          "evidence_id": "obs-002-logs",
+          "payload": {
+            "entries": [
+              {
+                "message": "payment-provider timeout; upstream probe failing on release-41 and release-42",
+                "observed_at": "2026-10-01T12:04:00Z"
+              }
+            ],
+            "kind": "logs",
+            "service_id": "checkout-api",
+            "truncated": false
+          },
+          "sanitized": true,
+          "source": "get_recent_logs",
+          "source_version": "fixtures-1.0.0"
+        },
+        {
+          "collected_at": "2026-10-01T12:05:00Z",
+          "complete": true,
+          "content_hash": "f3c163bb445a91d65d039e155ce2f5fc25caefa2cfc0a66e0f126f4785f49cd7",
+          "evidence_id": "kb-rb-tool-failures-p1",
+          "payload": {
+            "document_id": "rb-tool-failures",
+            "excerpt": "# Diagnostic failure handling\n\nRetry a transient diagnostic failure at most once, counting it in the total tool budget of eight calls. The model budget is six calls and investigation deadline is 120 seconds; these are initial development bounds. If a required diagnostic remains unavailable, return incomplete or escalate and identify the missing check. Never invent a successful response, treat an error as healthy, or execute an unchecked fallback.",
+            "kind": "runbook",
+            "owner": "platform-operations",
+            "passage_id": "rb-tool-failures-p1",
+            "service_id": "checkout-api",
+            "status": "current",
+            "valid_from": "2026-08-01T00:00:00Z",
+            "valid_until": "2027-01-01T00:00:00Z",
+            "version": "1.0.0"
+          },
+          "sanitized": true,
+          "source": "retrieve_runbook",
+          "source_version": "kb-corpus-1.0.0"
+        },
+        {
+          "collected_at": "2026-10-01T12:05:00Z",
+          "complete": true,
+          "content_hash": "eed7dc67aa0ceb8c85dbedc0e0a73585bf51816bdc8b968c99b7ba56d1b98af2",
+          "evidence_id": "kb-rb-verification-p1",
+          "payload": {
+            "document_id": "rb-verification",
+            "excerpt": "# Independent sandbox verification\n\nAfter a separately approved sandbox transition, obtain a new health observation with a timestamp after the action receipt. In this demo, recovery requires error_rate <= 0.01, latency_p95_ms <= 500, healthy dependencies and release-41. Failed, missing or stale verification leaves the incident unresolved. Preserve earlier evidence. Local fixtures simulate observations and must never be labeled live AWS telemetry.",
+            "kind": "runbook",
+            "owner": "checkout-operations",
+            "passage_id": "rb-verification-p1",
+            "service_id": "checkout-api",
+            "status": "current",
+            "valid_from": "2026-08-01T00:00:00Z",
+            "valid_until": "2027-01-01T00:00:00Z",
+            "version": "1.0.0"
+          },
+          "sanitized": true,
+          "source": "retrieve_runbook",
+          "source_version": "kb-corpus-1.0.0"
+        },
+        {
+          "collected_at": "2026-10-01T12:05:00Z",
+          "complete": true,
+          "content_hash": "485a82e6e24ec3d80d3de8306277e8f72dfcea236b3b68e4aa93765ec3ec622f",
+          "evidence_id": "kb-rb-dependency-p1",
+          "payload": {
+            "document_id": "rb-dependency",
+            "excerpt": "# Dependency degradation\n\nWhen checkout errors coincide with an unhealthy payment dependency or upstream timeouts, record the dependency evidence and escalate to its owner. A recent checkout deployment does not prove causation. Do not roll back checkout solely to treat an upstream outage. Collect timestamps, timeout excerpts and dependency health; if dependency health is unknown, request it. Never claim that a dependency recovered without new observations.",
+            "kind": "runbook",
+            "owner": "payments-operations",
+            "passage_id": "rb-dependency-p1",
+            "service_id": "checkout-api",
+            "status": "current",
+            "valid_from": "2026-08-01T00:00:00Z",
+            "valid_until": "2027-01-01T00:00:00Z",
+            "version": "1.0.0"
+          },
+          "sanitized": true,
+          "source": "retrieve_runbook",
+          "source_version": "kb-corpus-1.0.0"
+        }
+      ],
+      "investigation": {
+        "facts": [],
+        "hypotheses": [],
+        "justification": "aws_live controller: proposal_preconditions_failed",
+        "missing_information": [
+          "proposal_preconditions_failed"
+        ],
+        "next_check": "Operator review or fresh diagnostic evidence",
+        "outcome": "incomplete",
+        "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8"
+      },
+      "mode": "aws_live",
+      "provider_calls": 4,
+      "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+      "status": "failed",
+      "stop_reason": "proposal_preconditions_failed",
+      "trace": [
+        {
+          "branches": [],
+          "call": null,
+          "detail": "input: pass",
+          "event": "boundary_checked",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": {
+            "arguments": {
+              "service_id": "checkout-api"
+            },
+            "name": "get_service_health"
+          },
+          "detail": "attempt 1",
+          "event": "tool_attempt",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": null,
+          "detail": "source: pass",
+          "event": "boundary_checked",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": {
+            "arguments": {
+              "service_id": "checkout-api"
+            },
+            "name": "get_service_health"
+          },
+          "detail": "Validated observations collected",
+          "event": "tool_observed",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": {
+            "arguments": {
+              "service_id": "checkout-api",
+              "window_minutes": 60
+            },
+            "name": "get_recent_changes"
+          },
+          "detail": "attempt 1",
+          "event": "tool_attempt",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": null,
+          "detail": "source: pass",
+          "event": "boundary_checked",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": {
+            "arguments": {
+              "service_id": "checkout-api",
+              "window_minutes": 60
+            },
+            "name": "get_recent_changes"
+          },
+          "detail": "Validated observations collected",
+          "event": "tool_observed",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": null,
+          "detail": "Live model attempt 1",
+          "event": "provider_attempt",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": null,
+          "detail": "output: pass",
+          "event": "boundary_checked",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-002-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a performance issue unrelated to the recent deployment.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "filter": "errors",
+              "limit": 20,
+              "service_id": "checkout-api"
+            },
+            "name": "get_recent_logs"
+          },
+          "detail": "To identify any error messages or patterns that could support or contradict the current hypotheses.",
+          "event": "search_state",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-002-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a performance issue unrelated to the recent deployment.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "filter": "errors",
+              "limit": 20,
+              "service_id": "checkout-api"
+            },
+            "name": "get_recent_logs"
+          },
+          "detail": "attempt 1",
+          "event": "tool_attempt",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-002-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a performance issue unrelated to the recent deployment.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": null,
+          "detail": "source: pass",
+          "event": "boundary_checked",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-002-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a performance issue unrelated to the recent deployment.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "filter": "errors",
+              "limit": 20,
+              "service_id": "checkout-api"
+            },
+            "name": "get_recent_logs"
+          },
+          "detail": "Validated observations collected",
+          "event": "tool_observed",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-002-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a performance issue unrelated to the recent deployment.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": null,
+          "detail": "Live model attempt 1",
+          "event": "provider_attempt",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-002-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a performance issue unrelated to the recent deployment.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": null,
+          "detail": "output: pass",
+          "event": "boundary_checked",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-002-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a performance issue unrelated to the recent deployment.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "limit": 3,
+              "query": "error rate increase",
+              "service_id": "checkout-api"
+            },
+            "name": "retrieve_runbook"
+          },
+          "detail": "To determine if the recent deployment of release-42 is related to the increased error rate, we need to retrieve the runbook for the checkout-api service to understand the expected behavior and any known issues.",
+          "event": "search_state",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-002-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a performance issue unrelated to the recent deployment.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "limit": 3,
+              "query": "error rate increase",
+              "service_id": "checkout-api"
+            },
+            "name": "retrieve_runbook"
+          },
+          "detail": "attempt 1",
+          "event": "tool_attempt",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-002-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a performance issue unrelated to the recent deployment.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": null,
+          "detail": "source: pass",
+          "event": "boundary_checked",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-002-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a performance issue unrelated to the recent deployment.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": null,
+          "detail": "source: pass",
+          "event": "boundary_checked",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-002-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a performance issue unrelated to the recent deployment.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": null,
+          "detail": "source: pass",
+          "event": "boundary_checked",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-002-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a performance issue unrelated to the recent deployment.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "limit": 3,
+              "query": "error rate increase",
+              "service_id": "checkout-api"
+            },
+            "name": "retrieve_runbook"
+          },
+          "detail": "Validated observations collected",
+          "event": "tool_observed",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-002-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a performance issue unrelated to the recent deployment.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": null,
+          "detail": "Live model attempt 1",
+          "event": "provider_attempt",
+          "phase": "update",
+          "round": 2
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-002-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a performance issue unrelated to the recent deployment.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": null,
+          "detail": "output: pass",
+          "event": "boundary_checked",
+          "phase": "update",
+          "round": 2
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-002-changes",
+                  "obs-002-health"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a performance issue unrelated to the recent deployment.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "pruned"
+            }
+          ],
+          "call": null,
+          "detail": "Determine if the recent deployment of release-42 is related to the increased error rate.",
+          "event": "search_state",
+          "phase": "update",
+          "round": 2
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-002-changes",
+                  "obs-002-health"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a performance issue unrelated to the recent deployment.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "pruned"
+            }
+          ],
+          "call": null,
+          "detail": "Live model attempt 1",
+          "event": "provider_attempt",
+          "phase": "final",
+          "round": 2
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-002-changes",
+                  "obs-002-health"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a performance issue unrelated to the recent deployment.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "pruned"
+            }
+          ],
+          "call": null,
+          "detail": "output: pass",
+          "event": "boundary_checked",
+          "phase": "final",
+          "round": 2
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-002-changes",
+                  "obs-002-health"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a performance issue unrelated to the recent deployment.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "pruned"
+            }
+          ],
+          "call": null,
+          "detail": "proposal_preconditions_failed",
+          "event": "stopped",
+          "phase": "final",
+          "round": 2
+        }
+      ],
+      "usage": {
+        "input_tokens": 11102,
+        "model_calls": 4,
+        "output_tokens": 841,
+        "tool_calls": 4
+      },
+      "variant": "V2"
+    },
+    "retrieval": {
+      "corpus_version": "1.0.0",
+      "knowledge_base_id": "XKVH8PLCHO",
+      "search_type": "SEMANTIC"
+    },
+    "run_id": "p08-c69802d37966c235b2325eb284ef1ad5be8207c8",
+    "schema_version": "p06-v1",
+    "settings": {
+      "limits": {
+        "candidates": 2,
+        "deadline_seconds": 120.0,
+        "expansion_rounds": 2,
+        "model_calls": 6,
+        "retries": 1,
+        "tool_calls": 8
+      },
+      "max_output_tokens": 1500,
+      "mode": "aws_live",
+      "model": "us.amazon.nova-lite-v1:0",
+      "temperature": 0.0
+    },
+    "synthetic_telemetry": true,
+    "usage_complete": true,
+    "worker_latency_ms": 13039
+  },
+  "error_category": null,
+  "transport_ms": 16390,
+  "session_stop_confirmed": true
+}

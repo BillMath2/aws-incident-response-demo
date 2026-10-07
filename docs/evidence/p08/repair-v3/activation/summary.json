@@ -1,0 +1,41 @@
+{
+  "at": "2026-10-07T09:35:59.290803+00:00",
+  "runtime_version": "11",
+  "guardrail_version": "2",
+  "owner_approval": "approval.json",
+  "preactivation_checks": {
+    "runbooks_accepted": 8,
+    "content_controls_passed": 8,
+    "controller_boundaries_passed": 6
+  },
+  "incident_trials": 8,
+  "mechanical_candidates": 6,
+  "failures": 2,
+  "human_reviews": 0,
+  "human_confirmed_successes": 0,
+  "estimated_inference_usd": "0.0063289800",
+  "retained_local_reservations_usd": "52.70",
+  "activation_reservations_usd": "7.50",
+  "remaining_experiment_allowance_usd": "187.30",
+  "full_program_reusing_this_batch_usd": "268.70",
+  "full_program_shortfall_usd": "18.70",
+  "offline_validation": {
+    "application_tests": 195,
+    "infrastructure_tests": 21,
+    "lint": "passed",
+    "format_files": 83,
+    "corpus": "passed",
+    "schemas": "passed",
+    "harness_edit": "canonical serialization and explicit batch ID; lint/format/diff checks passed"
+  },
+  "p08_green": false,
+  "remaining_failures": {
+    "case-003": "empty seed candidate list",
+    "case-006": "final fact has an empty citation list"
+  },
+  "quality_notes_are_assistant_assessments_not_human_labels": true,
+  "held_out_trials": 0,
+  "comparison_trials": 0,
+  "judge_calls": 0,
+  "actions_executed": 0
+}

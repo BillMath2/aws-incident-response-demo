@@ -10,8 +10,28 @@ IAM-denial and audit evidence. **P06 adds live S3 Vectors retrieval and explicit
 output Guardrails checks.** V0/V1 live integration passes; V2's unsupported proposal is
 safely rejected and remains a quality limitation. **P07's durable cloud workflow passed live
 acceptance in Ohio: 45 control checks and 33 deployment/permission checks.** The real
-investigation escalated without action; model-quality evaluation remains P08 work.
-The model-quality gate remains P08 work.
+investigation escalated without action. **P08 is in progress:** all 24 live development trials are
+retained, with human review pending and a $250 total / $10 per-batch budget approved. Seven passed mechanical checks;
+17 did not. No held-out quality gate is claimed. See [P08 acceptance](docs/p08-acceptance.md).
+The first separate V2 repair batch collected runbooks in all eight attempts, but yielded only
+one mechanical candidate (with a known narrative error) and seven failures. Quality remains
+unverified; original results are retained. The second repair aligns retrieval with the frozen
+scenario inventories and yields five mechanical candidates and three failures; factual concerns
+remain. Bill explicitly approved a separately versioned MEDIUM prompt-attack policy after
+diagnostics identified benign LOW-confidence false blocks. All preactivation boundary checks
+passed. Runtime 11 / Guardrail 2 produced six mechanical candidates and two schema failures in
+the third eight-case V2 repair batch; factual quality and human review remain unresolved.
+The fourth repair's correction loop yielded four candidates and four failures, exposing an SDK
+transport mismatch that stripped null from required fields. The fifth repair preserves native
+schemas through LangChain: runtime 13 / Guardrail 2 now yields eight mechanical candidates with
+no format corrections. Human review remains pending, with causal/evidence-quality concerns.
+Total retained reservations are $64.70 of $250. Reusing this latest batch, the remaining full
+evaluation projects $280.70 including prior work and infrastructure; it has not started.
+On October 7, Bill accepted the known reasoning limitations for this synthetic demo.
+Further paid reasoning-polish batches are no longer a demo priority; the next delivery focus
+is the operator screen and walkthrough. Safety controls and action approval remain in place.
+Full P08 evaluation remains incomplete. See the
+[owner decision](docs/evidence/p08/demo-limitations-acceptance-2026-10-07.json).
 
 The [master implementation plan](docs/aws-incident-response-demo-master-implementation-plan.md)
 defines scope. See [P01 acceptance](docs/p01-acceptance.md) and

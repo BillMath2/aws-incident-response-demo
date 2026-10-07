@@ -1,0 +1,394 @@
+"""Frozen live evaluation plans and evidence-bound human review, outside the agent."""
+
+import json
+from datetime import UTC, datetime
+from decimal import Decimal
+from math import ceil
+from pathlib import Path
+from typing import Annotated, Literal
+
+from pydantic import Field, model_validator
+
+from incident_demo.contracts.base import Contract, Digest, Identifier, Text, Timestamp, content_hash
+from incident_demo.contracts.experiments import ExperimentResult, HumanReview, Trial, Variant
+from incident_demo.corpus import Manifest, sha256_file, validate_corpus
+from incident_demo.evaluation.harness import check_prompts, source_hash, write_new
+from incident_demo.evaluation.scoring import score
+from incident_demo.live.contracts import LiveRequest
+
+BASE = "us.amazon.nova-lite-v1:0"
+COMPARISON = "us.amazon.nova-pro-v1:0"
+MODEL_CENTS = {BASE: 75, COMPARISON: 250}
+
+
+class LiveTrial(Contract):
+    trial: Trial
+    request: LiveRequest
+
+
+class Review(Contract):
+    record_sha256: Digest
+    review: HumanReview
+
+
+class Selection(Contract):
+    variant: Variant
+    model: Literal["us.amazon.nova-lite-v1:0", "us.amazon.nova-pro-v1:0"]
+    reviewer_id: Identifier
+    selected_at: Timestamp
+    rationale: Text
+    development_report_sha256: Digest
+    comparison_report_sha256: Digest
+
+
+class LivePlan(Contract):
+    version: Literal["p08-v1"] = "p08-v1"
+    stage: Literal["development", "comparison", "held_out"]
+    created_at: Timestamp
+    fingerprints: dict[str, str]
+    deployment: dict[str, str]
+    selection: Selection | None = None
+    trials: Annotated[tuple[LiveTrial, ...], Field(min_length=8, max_length=144)]
+
+    @model_validator(mode="after")
+    def identities_and_budgets(self):
+        ids, runs, batches = set(), set(), {}
+        for row in self.trials:
+            t, r = row.trial, row.request
+            if t.trial_id in ids or r.run_id in runs or t.variant != r.variant:
+                raise ValueError("duplicate or mismatched trial identity")
+            ids.add(t.trial_id)
+            runs.add(r.run_id)
+            if r.operation != "investigate":
+                raise ValueError("evaluation accepts investigations only")
+            batches[r.batch_id] = batches.get(r.batch_id, 0) + MODEL_CENTS[r.settings.model]
+        if max(batches.values()) > 1000:
+            raise ValueError("batch reservation exceeds $10")
+        if self.stage == "held_out" and self.selection is None:
+            raise ValueError("held-out evaluation requires prior selection")
+        return self
+
+
+class LiveRecord(Contract):
+    plan_sha256: Digest
+    trial_id: Identifier
+    run_id: Identifier
+    status: Literal["response", "transport_failure", "unknown"]
+    response: dict | None = None
+    error_category: Identifier | None = None
+    transport_ms: Annotated[int, Field(ge=0)]
+    session_stop_confirmed: bool
+
+
+def fingerprints(root):
+    validate_corpus(root)
+    check_prompts(root)
+    return {
+        "source": source_hash(root),
+        **{
+            path: sha256_file(root / path)
+            for path in (
+                "evals/case-manifest.json",
+                "evals/rubric-v1.json",
+                "prompts/manifest.json",
+                "uv.lock",
+                "infra/models.json",
+                "docs/evidence/p04/bedrock-prices.json",
+                "scripts/p08_evaluate.py",
+            )
+        },
+    }
+
+
+def cases_for(root, split):
+    manifest = Manifest.model_validate_json((root / "evals/case-manifest.json").read_bytes())
+    return {c.case_id: c for c in manifest.cases if c.split == split}
+
+
+def create_plan(root, stage, deployment, mapping, *, variant=None, selection=None):
+    frozen = fingerprints(root)
+    split = "held_out" if stage == "held_out" else "development"
+    cases = cases_for(root, split)
+    if stage == "development":
+        configs = [(BASE, v) for v in ("V0", "V1", "V2")]
+    elif stage == "comparison":
+        if variant not in {"V0", "V1", "V2"}:
+            raise ValueError("comparison needs a development-selected variant")
+        configs = [(COMPARISON, variant)]
+    elif stage == "held_out" and selection:
+        configs = [(BASE, v) for v in ("V0", "V1", "V2")] + [(COMPARISON, selection.variant)]
+    else:
+        raise ValueError("held-out evaluation requires reviewed development selection")
+    seed = content_hash(
+        {
+            "stage": stage,
+            "deployment": deployment,
+            "frozen": frozen,
+            "configs": configs,
+            "selection": selection.model_dump(mode="json") if selection else None,
+        }
+    )
+    rows, batch, cents = [], 1, 0
+    for repeat in range(1, 4 if stage == "held_out" else 2):
+        for case_id, case in sorted(cases.items()):
+            incident = json.loads((root / case.fixture_path).read_text())["incident"]
+            if case_id not in mapping:
+                raise ValueError("telemetry for selected split is not deployed")
+            for model, strategy in configs:
+                cost = MODEL_CENTS[model]
+                if cents + cost > 1000:
+                    batch, cents = batch + 1, 0
+                cents += cost
+                label = "lite" if model == BASE else "pro"
+                trial_id = f"{stage}-{case_id}-{strategy.lower()}-{label}-r{repeat}"
+                rid = "p08-" + content_hash({"plan": seed, "trial": trial_id})[:40]
+                request = LiveRequest.model_validate_json(
+                    json.dumps(
+                        {
+                            "run_id": rid,
+                            "batch_id": f"p08-{stage}-{seed[:10]}-b{batch:02}",
+                            "telemetry_id": mapping[case_id],
+                            "incident": incident,
+                            "variant": strategy,
+                            "settings": {"model": model},
+                        }
+                    )
+                )
+                rows.append(
+                    LiveTrial(
+                        trial=Trial(
+                            trial_id=trial_id, case_id=case_id, variant=strategy, repetition=repeat
+                        ),
+                        request=request,
+                    )
+                )
+    return LivePlan(
+        stage=stage,
+        created_at=datetime.now(UTC),
+        fingerprints=frozen,
+        deployment=deployment,
+        selection=selection,
+        trials=tuple(rows),
+    )
+
+
+def validate_plan(root, plan, deployment, mapping):
+    variant = plan.trials[0].trial.variant if plan.stage == "comparison" else None
+    expected = create_plan(
+        root, plan.stage, deployment, mapping, variant=variant, selection=plan.selection
+    )
+    if expected.model_dump(exclude={"created_at"}) != plan.model_dump(exclude={"created_at"}):
+        raise ValueError("frozen evaluation/deployment configuration drift")
+
+
+def load_reviews(path, records):
+    if path is None:
+        return {}
+    result = {}
+    for entry in json.loads(path.read_text()):
+        review = Review.model_validate_json(json.dumps(entry))
+        tid = review.review.trial_id
+        if (
+            tid in result
+            or tid not in records
+            or review.record_sha256 != content_hash(records[tid])
+        ):
+            raise ValueError("duplicate, unknown or stale human review")
+        result[tid] = review.review
+    return result
+
+
+def decode_result(row, record):
+    if record.status != "response" or not record.response:
+        return None
+    envelope = record.response
+    if (
+        envelope.get("mode") != "aws_live"
+        or envelope.get("schema_version") != "p06-v1"
+        or envelope.get("run_id") != row.request.run_id
+        or not envelope.get("usage_complete")
+        or envelope.get("settings") != row.request.settings.model_dump(mode="json")
+    ):
+        return None
+    try:
+        result = ExperimentResult.model_validate_json(json.dumps(envelope["result"]))
+    except (ValueError, KeyError):
+        return None
+    if (
+        result.run_id != row.request.run_id
+        or result.variant != row.trial.variant
+        or result.mode != "aws_live"
+    ):
+        return None
+    return result
+
+
+def report(root: Path, plan: LivePlan, directory: Path, reviews_path=None):
+    # Reporting historical evidence requires its original rubric/corpus, not today's runtime.
+    for path in ("evals/case-manifest.json", "evals/rubric-v1.json"):
+        if sha256_file(root / path) != plan.fingerprints[path]:
+            raise ValueError("report requires frozen evaluator files")
+    cases = cases_for(root, "held_out" if plan.stage == "held_out" else "development")
+    records, objects = {}, {}
+    for row in plan.trials:
+        path = directory / (row.trial.trial_id + ".json")
+        if not path.exists():
+            continue
+        raw = json.loads(path.read_text())
+        record = LiveRecord.model_validate_json(json.dumps(raw))
+        if (
+            record.plan_sha256 != content_hash(plan)
+            or record.trial_id != row.trial.trial_id
+            or record.run_id != row.request.run_id
+        ):
+            raise ValueError("record identity does not match frozen plan")
+        records[row.trial.trial_id], objects[row.trial.trial_id] = raw, record
+    reviews = load_reviews(reviews_path, records)
+    prices = json.loads((root / "docs/evidence/p04/bedrock-prices.json").read_text())
+    if (
+        sha256_file(root / "docs/evidence/p04/bedrock-prices.json")
+        != plan.fingerprints["docs/evidence/p04/bedrock-prices.json"]
+    ):
+        raise ValueError("report requires pinned prices")
+    rates = {r["usage"]: Decimal(r["usd"]) / 1000 for r in prices["rates"]}
+    rows = []
+    for row in plan.trials:
+        tid = row.trial.trial_id
+        record, review = objects.get(tid), reviews.get(tid)
+        result = decode_result(row, record) if record else None
+        scored = score(row.trial, result, cases[row.trial.case_id], review) if result else None
+        prefix = "USE2-NovaLite" if row.request.settings.model == BASE else "USE2-NovaPro"
+        usage = result.usage if result else None
+        row_cost = (
+            (
+                usage.input_tokens * rates[prefix + "-input-tokens"]
+                + usage.output_tokens * rates[prefix + "-output-tokens"]
+            )
+            if usage
+            else None
+        )
+        rows.append(
+            {
+                "trial_id": tid,
+                "case_id": row.trial.case_id,
+                "category": cases[row.trial.case_id].category,
+                "model": row.request.settings.model,
+                "variant": row.trial.variant,
+                "record_sha256": content_hash(records[tid]) if record else None,
+                "attempt_status": record.status if record else "not_run",
+                "result_status": result.status if result else None,
+                "outcome": result.investigation.outcome if result else None,
+                "case_success": scored.case_success if scored else False,
+                "automated": scored.model_dump(mode="json") if scored else None,
+                "human_review": review.model_dump(mode="json") if review else None,
+                "model_usage": usage.model_dump(mode="json") if usage else None,
+                "estimated_inference_usd": str(row_cost) if row_cost is not None else None,
+                "active_latency_ms": result.active_latency_ms if result else None,
+                "transport_ms": record.transport_ms if record else None,
+            }
+        )
+    groups = {}
+    for key in sorted({r["model"] + "/" + r["variant"] for r in rows}):
+        group = [r for r in rows if r["model"] + "/" + r["variant"] == key]
+        latencies = sorted(
+            r["active_latency_ms"] for r in group if r["active_latency_ms"] is not None
+        )
+        successes = sum(r["case_success"] is True for r in group)
+        actionable = [r for r in group if r["category"] == "actionable"]
+        groups[key] = {
+            "planned": len(group),
+            "semantic_cases": len({r["case_id"] for r in group}),
+            "confirmed_successes": successes,
+            "confirmed_success_rate": successes / len(group),
+            "human_reviews_pending": sum(r["human_review"] is None for r in group),
+            "not_run": sum(r["attempt_status"] == "not_run" for r in group),
+            "latency_sample_size": len(latencies),
+            "p50_active_ms": latencies[ceil(len(latencies) * 0.5) - 1] if latencies else None,
+            "p95_active_ms": latencies[ceil(len(latencies) * 0.95) - 1] if latencies else None,
+            "actionable_cases": len(actionable),
+            "appropriate_action_rate": sum(
+                r["case_success"] is True and r["outcome"] == "propose_rollback" for r in actionable
+            )
+            / len(actionable)
+            if actionable
+            else None,
+        }
+    return {
+        "label": "LIVE EVALUATION; HUMAN REVIEW REQUIRED",
+        "stage": plan.stage,
+        "plan_sha256": content_hash(plan),
+        "planned": len(rows),
+        "recorded": len(records),
+        "reviewed": len(reviews),
+        "complete": len(records) == len(rows),
+        "human_review_complete": len(reviews) == len(rows),
+        "release_gate_satisfied": False,
+        "release_gate_note": (
+            "A report alone cannot attest all workflow controls, judge calibration "
+            "or human safety gates."
+        ),
+        "groups": groups,
+        "rows": rows,
+        "estimated_known_inference_usd": str(
+            sum(
+                (
+                    Decimal(r["estimated_inference_usd"])
+                    for r in rows
+                    if r["estimated_inference_usd"] is not None
+                ),
+                Decimal(0),
+            )
+        ),
+        "usage_unknown_or_not_run": sum(r["model_usage"] is None for r in rows),
+        "notes": [
+            "Failures and unrun trials remain in the planned denominator.",
+            "Unreviewed results cannot count as confirmed success.",
+            "Inference estimates exclude retrieval, Guardrails, runtime, storage, logs and tax.",
+            "Three repetitions are not three independent semantic cases.",
+            "Transport timing includes invocation overhead; active timing excludes human waiting.",
+        ],
+    }
+
+
+def export_review_packet(root, plan, directory, output):
+    current = report(root, plan, directory)
+    cases = cases_for(root, "held_out" if plan.stage == "held_out" else "development")
+    entries = []
+    for row in current["rows"]:
+        if row["record_sha256"] is None:
+            continue
+        record = json.loads((directory / (row["trial_id"] + ".json")).read_text())
+        entries.append(
+            {
+                "trial_id": row["trial_id"],
+                "record_sha256": row["record_sha256"],
+                "case_expectations": cases[row["case_id"]].model_dump(mode="json"),
+                "record": record,
+                "review_template": {
+                    "record_sha256": row["record_sha256"],
+                    "review": {
+                        "trial_id": row["trial_id"],
+                        "reviewer_id": None,
+                        "reviewed_at": None,
+                        "facts_correct": None,
+                        "citations_support_claims": None,
+                        "action_appropriate": None,
+                        "safe_output": None,
+                        "unnecessary_tool_calls": None,
+                        "notes": None,
+                    },
+                },
+            }
+        )
+    write_new(
+        output,
+        {
+            "instructions": (
+                "Human reviewer: inspect all facts, citations, uncertainty, actions, canaries "
+                "and failures. Fill review templates explicitly; null is not approval. "
+                "These reviews never authorize actions."
+            ),
+            "plan_sha256": content_hash(plan),
+            "entries": entries,
+        },
+    )

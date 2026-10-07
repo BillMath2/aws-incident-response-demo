@@ -1,0 +1,1546 @@
+{
+  "plan_sha256": "03aa7fbc6ef0f4eb949ea1424d5abac8bface239a0cdf162e6af4f3e98252ff8",
+  "trial_id": "repair-case-005-v2-lite-r1",
+  "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+  "status": "response",
+  "response": {
+    "artifact_key": "runs/p06/p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1.json",
+    "audit": [
+      {
+        "at": "2026-10-07T10:01:55.921636+00:00",
+        "boundary": "input",
+        "call": 1,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      {
+        "action": "NONE",
+        "assessments": [],
+        "at": "2026-10-07T10:01:56.077649+00:00",
+        "boundary": "input",
+        "call": 1,
+        "coverage": {
+          "guarded": 154,
+          "total": 154
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "request_id": "232474a7-15c3-4bc0-9ce5-0cfad63d2213",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "at": "2026-10-07T10:01:56.079518+00:00",
+        "attempt": 1,
+        "event": "lambda_started",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "tool": "get_service_health"
+      },
+      {
+        "at": "2026-10-07T10:01:56.110443+00:00",
+        "attempt": 1,
+        "event": "lambda_finished",
+        "latency_ms": 30,
+        "request_id": "8614937a-5749-4545-a2ea-3fec53394b39",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "tool": "get_service_health"
+      },
+      {
+        "at": "2026-10-07T10:01:56.110862+00:00",
+        "boundary": "source",
+        "call": 2,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      {
+        "action": "NONE",
+        "assessments": [],
+        "at": "2026-10-07T10:01:56.256485+00:00",
+        "boundary": "source",
+        "call": 2,
+        "coverage": {
+          "guarded": 436,
+          "total": 436
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "request_id": "dbeb9fe9-f805-4e23-bd96-6ad94e854c3f",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "at": "2026-10-07T10:01:56.256818+00:00",
+        "attempt": 1,
+        "event": "lambda_started",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "tool": "get_recent_changes"
+      },
+      {
+        "at": "2026-10-07T10:01:56.269656+00:00",
+        "attempt": 1,
+        "event": "lambda_finished",
+        "latency_ms": 12,
+        "request_id": "b453da11-5b0b-4219-8b05-bf935c8c9068",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "tool": "get_recent_changes"
+      },
+      {
+        "at": "2026-10-07T10:01:56.270025+00:00",
+        "boundary": "source",
+        "call": 3,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      {
+        "action": "NONE",
+        "assessments": [],
+        "at": "2026-10-07T10:01:56.448622+00:00",
+        "boundary": "source",
+        "call": 3,
+        "coverage": {
+          "guarded": 507,
+          "total": 507
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "request_id": "f10084fa-3ec0-4cf6-84a2-0a27f30c821d",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "adapter_prompt_version": "p08-v5-native-toolspec",
+        "at": "2026-10-07T10:01:56.461017+00:00",
+        "event": "prompt_built",
+        "response_phase": "seed",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "system_sha256": "bc1c78d8fb520a8bd234d383c1018741328c9d79774ff972ffe5ce4cc30c089b",
+        "tool_schema_sha256": "fd15b39aa8bf9454f5626e2ce99ae1bac53cc2183e6c0cdd6d2cf89d6e12525c"
+      },
+      {
+        "at": "2026-10-07T10:01:56.511160+00:00",
+        "event": "wire_schema",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "tool_config_sha256": "3b4f79becd252808865fa4f80b9e8789de49c0aff17e2d613b01b7c2ea0d12a3"
+      },
+      {
+        "at": "2026-10-07T10:01:56.561721+00:00",
+        "event": "token_count_unsupported",
+        "input_bytes": 7630,
+        "reserved_input_tokens": 300000,
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      {
+        "at": "2026-10-07T10:01:56.561829+00:00",
+        "event": "model_started",
+        "input_tokens": null,
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      {
+        "at": "2026-10-07T10:01:57.896578+00:00",
+        "event": "model_finished",
+        "input_tokens": 2354,
+        "output_tokens": 180,
+        "request_id": "d800e747-ed2b-41a0-bd71-58c303d82bc2",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      {
+        "at": "2026-10-07T10:01:57.897146+00:00",
+        "event": "native_response",
+        "proposed_decisions": 1,
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "stop_reason": "tool_use",
+        "unused_decisions": 0
+      },
+      {
+        "at": "2026-10-07T10:01:57.899292+00:00",
+        "boundary": "output",
+        "call": 4,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      {
+        "action": "NONE",
+        "assessments": [],
+        "at": "2026-10-07T10:01:58.112598+00:00",
+        "boundary": "output",
+        "call": 4,
+        "coverage": {
+          "guarded": 638,
+          "total": 638
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "request_id": "074d8162-a86d-4c92-8890-ded93c252b2c",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "at": "2026-10-07T10:01:58.113611+00:00",
+        "attempt": 1,
+        "event": "lambda_started",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "tool": "get_recent_logs"
+      },
+      {
+        "at": "2026-10-07T10:01:58.129269+00:00",
+        "attempt": 1,
+        "event": "lambda_finished",
+        "latency_ms": 15,
+        "request_id": "c7053c74-2b93-42de-b9e4-20a746eab179",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "tool": "get_recent_logs"
+      },
+      {
+        "at": "2026-10-07T10:01:58.129442+00:00",
+        "attempt": 2,
+        "event": "lambda_started",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "tool": "get_recent_logs"
+      },
+      {
+        "at": "2026-10-07T10:01:58.148037+00:00",
+        "attempt": 2,
+        "event": "lambda_finished",
+        "latency_ms": 18,
+        "request_id": "6b63d691-db2d-4708-9230-c22de6c263e6",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "tool": "get_recent_logs"
+      },
+      {
+        "at": "2026-10-07T10:01:58.148343+00:00",
+        "boundary": "source",
+        "call": 5,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      {
+        "action": "NONE",
+        "assessments": [],
+        "at": "2026-10-07T10:01:58.338953+00:00",
+        "boundary": "source",
+        "call": 5,
+        "coverage": {
+          "guarded": 467,
+          "total": 467
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "request_id": "e89e6362-b535-4075-99fe-948ac8ddc0f0",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "adapter_prompt_version": "p08-v5-native-toolspec",
+        "at": "2026-10-07T10:01:58.355567+00:00",
+        "event": "prompt_built",
+        "response_phase": "update",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "system_sha256": "bc1c78d8fb520a8bd234d383c1018741328c9d79774ff972ffe5ce4cc30c089b",
+        "tool_schema_sha256": "ca928b185ce2e5621a0e296663daa2ae51ec1cf225727a8347a16b428f9fac34"
+      },
+      {
+        "at": "2026-10-07T10:01:58.359043+00:00",
+        "event": "wire_schema",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "tool_config_sha256": "00205d595ab70f834f621ad60a2e2ddb459284d87fa429b9149c712703643e42"
+      },
+      {
+        "at": "2026-10-07T10:01:58.395645+00:00",
+        "event": "token_count_unsupported",
+        "input_bytes": 8198,
+        "reserved_input_tokens": 300000,
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      {
+        "at": "2026-10-07T10:01:58.395727+00:00",
+        "event": "model_started",
+        "input_tokens": null,
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      {
+        "at": "2026-10-07T10:01:59.851554+00:00",
+        "event": "model_finished",
+        "input_tokens": 2508,
+        "output_tokens": 194,
+        "request_id": "7199f0eb-2b71-4177-ae87-a8960f7f5166",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      {
+        "at": "2026-10-07T10:01:59.851924+00:00",
+        "event": "native_response",
+        "proposed_decisions": 1,
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "stop_reason": "tool_use",
+        "unused_decisions": 0
+      },
+      {
+        "at": "2026-10-07T10:01:59.854133+00:00",
+        "boundary": "output",
+        "call": 6,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      {
+        "action": "NONE",
+        "assessments": [],
+        "at": "2026-10-07T10:02:00.010868+00:00",
+        "boundary": "output",
+        "call": 6,
+        "coverage": {
+          "guarded": 654,
+          "total": 654
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "request_id": "d8811c9a-fe98-4e36-837d-128013692747",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "at": "2026-10-07T10:02:00.011755+00:00",
+        "event": "retrieval_started",
+        "inventory_size": 2,
+        "knowledge_base_id": "XKVH8PLCHO",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "scope_sha256": "4469dbad2e21ab91a852f071cf2f1c489067972a63ab98d06a24f0067dd61df5"
+      },
+      {
+        "at": "2026-10-07T10:02:00.362289+00:00",
+        "event": "retrieval_finished",
+        "inventory_complete": true,
+        "knowledge_base_id": "XKVH8PLCHO",
+        "passages": [
+          {
+            "id": "rb-rollback-p1",
+            "score": 0.5251384079456329,
+            "sha256": "f0b2db64fdaa8adcc61fde844eaa460f968f00c88f08d60f30f809a01a6bcb4b",
+            "status": "current"
+          },
+          {
+            "id": "rb-tool-failures-p1",
+            "score": 0.502797931432724,
+            "sha256": "f3c163bb445a91d65d039e155ce2f5fc25caefa2cfc0a66e0f126f4785f49cd7",
+            "status": "current"
+          }
+        ],
+        "request_id": "824a26f9-a217-480a-9248-a73e1f7c2953",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      {
+        "at": "2026-10-07T10:02:00.362573+00:00",
+        "boundary": "source",
+        "call": 7,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      {
+        "action": "NONE",
+        "assessments": [],
+        "at": "2026-10-07T10:02:00.532295+00:00",
+        "boundary": "source",
+        "call": 7,
+        "coverage": {
+          "guarded": 1481,
+          "total": 1481
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "request_id": "879dc0d5-487d-46a0-a51e-1a16f758988e",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 2,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 2,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "at": "2026-10-07T10:02:00.532656+00:00",
+        "boundary": "source",
+        "call": 8,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      {
+        "action": "NONE",
+        "assessments": [],
+        "at": "2026-10-07T10:02:00.684033+00:00",
+        "boundary": "source",
+        "call": 8,
+        "coverage": {
+          "guarded": 986,
+          "total": 986
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "request_id": "8e8006f6-35e4-48f5-9a3a-1b8dde4a584a",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "adapter_prompt_version": "p08-v5-native-toolspec",
+        "at": "2026-10-07T10:02:00.694586+00:00",
+        "event": "prompt_built",
+        "response_phase": "update",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "system_sha256": "a91c1e9e9bc5f6dd09a0ccf6835ece54d154ad4b14a041cf10d333dac94d6f96",
+        "tool_schema_sha256": "bf5fdcb4eef9bcb3559684edd2a41f97aaae113882ff94e33d5fbe5a58bf9748"
+      },
+      {
+        "at": "2026-10-07T10:02:00.698174+00:00",
+        "event": "wire_schema",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "tool_config_sha256": "5cbc898622ff2197c0223c02257fb5a0382f3d141efc2320bc9be9fc6945f91c"
+      },
+      {
+        "at": "2026-10-07T10:02:00.733873+00:00",
+        "event": "token_count_unsupported",
+        "input_bytes": 10516,
+        "reserved_input_tokens": 300000,
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      {
+        "at": "2026-10-07T10:02:00.733956+00:00",
+        "event": "model_started",
+        "input_tokens": null,
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      {
+        "at": "2026-10-07T10:02:01.991853+00:00",
+        "event": "model_finished",
+        "input_tokens": 3136,
+        "output_tokens": 152,
+        "request_id": "78a31dab-25c0-40ec-8478-a08ff0db74ea",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      {
+        "at": "2026-10-07T10:02:01.992246+00:00",
+        "event": "native_response",
+        "proposed_decisions": 1,
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "stop_reason": "tool_use",
+        "unused_decisions": 0
+      },
+      {
+        "at": "2026-10-07T10:02:01.992501+00:00",
+        "boundary": "output",
+        "call": 9,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      {
+        "action": "NONE",
+        "assessments": [],
+        "at": "2026-10-07T10:02:02.121843+00:00",
+        "boundary": "output",
+        "call": 9,
+        "coverage": {
+          "guarded": 540,
+          "total": 540
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "request_id": "49f0886b-2473-447f-9b0a-899ca39ebd6a",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "adapter_prompt_version": "p08-v5-native-toolspec",
+        "at": "2026-10-07T10:02:02.132559+00:00",
+        "event": "prompt_built",
+        "response_phase": "final",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "system_sha256": "bc1c78d8fb520a8bd234d383c1018741328c9d79774ff972ffe5ce4cc30c089b",
+        "tool_schema_sha256": "c99ff2352769f59feda3c866066379bb56f5d0ab155bd68794bbfa46500212ba"
+      },
+      {
+        "at": "2026-10-07T10:02:02.136789+00:00",
+        "event": "wire_schema",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "tool_config_sha256": "2d6988cdafdc273c93dcd27c1eb44799a021a14caa7076b3bb9d0b9ced7451e7"
+      },
+      {
+        "at": "2026-10-07T10:02:02.182120+00:00",
+        "event": "token_count_unsupported",
+        "input_bytes": 11753,
+        "reserved_input_tokens": 300000,
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      {
+        "at": "2026-10-07T10:02:02.182205+00:00",
+        "event": "model_started",
+        "input_tokens": null,
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      {
+        "at": "2026-10-07T10:02:04.722715+00:00",
+        "event": "model_finished",
+        "input_tokens": 3567,
+        "output_tokens": 354,
+        "request_id": "cb71bdcf-17c9-4c12-8015-eee5857893ac",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      {
+        "at": "2026-10-07T10:02:04.723200+00:00",
+        "event": "native_response",
+        "proposed_decisions": 1,
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "stop_reason": "tool_use",
+        "unused_decisions": 0
+      },
+      {
+        "at": "2026-10-07T10:02:04.723709+00:00",
+        "boundary": "output",
+        "call": 10,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      {
+        "action": "NONE",
+        "assessments": [],
+        "at": "2026-10-07T10:02:04.891319+00:00",
+        "boundary": "output",
+        "call": 10,
+        "coverage": {
+          "guarded": 1208,
+          "total": 1208
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "request_id": "60667d68-a080-4e6d-ad9d-c9feb77593ff",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 2,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 2,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      }
+    ],
+    "guardrail_policy": {
+      "id": "a4aiug3xzh6e",
+      "version": "2"
+    },
+    "mode": "aws_live",
+    "reserved_usd": "0.75",
+    "result": {
+      "active_latency_ms": 8975,
+      "evidence": [
+        {
+          "collected_at": "2026-10-01T12:05:00Z",
+          "complete": true,
+          "content_hash": "19fdce4867c76f03895ca46f5e70641437478de0327ffceaf0ef5b8ec98e1992",
+          "evidence_id": "obs-005-health",
+          "payload": {
+            "dependency_state": "healthy",
+            "error_rate": 0.25,
+            "kind": "health",
+            "latency_p95_ms": 1700.0,
+            "observed_at": "2026-10-01T12:04:00Z",
+            "release": "release-42",
+            "service_id": "checkout-api"
+          },
+          "sanitized": true,
+          "source": "get_service_health",
+          "source_version": "fixtures-1.0.0"
+        },
+        {
+          "collected_at": "2026-10-01T12:05:00Z",
+          "complete": true,
+          "content_hash": "71a39f9b805d0ffdcbfdbc606b6e96d549d46a5da938836fbbd4a1f9e779e04d",
+          "evidence_id": "obs-005-changes",
+          "payload": {
+            "items": [
+              {
+                "change_id": "change-005",
+                "changed_at": "2026-10-01T11:55:00Z",
+                "kind": "deployment",
+                "release": "release-42",
+                "summary": "Checkout release-42 deployed; release-41 baseline error rate was 0.003."
+              }
+            ],
+            "kind": "changes",
+            "service_id": "checkout-api"
+          },
+          "sanitized": true,
+          "source": "get_recent_changes",
+          "source_version": "fixtures-1.0.0"
+        },
+        {
+          "collected_at": "2026-10-01T12:05:00Z",
+          "complete": true,
+          "content_hash": "ede9bfd04b44cfdd3ca8e1b4e8258a8aa7044e18d057ff9d0ac80a101d5bc6ae",
+          "evidence_id": "obs-005-logs",
+          "payload": {
+            "entries": [
+              {
+                "message": "release-42 checkout serializer raises TypeError; same requests succeeded on release-41.",
+                "observed_at": "2026-10-01T12:03:00Z"
+              }
+            ],
+            "kind": "logs",
+            "service_id": "checkout-api",
+            "truncated": false
+          },
+          "sanitized": true,
+          "source": "get_recent_logs",
+          "source_version": "fixtures-1.0.0"
+        },
+        {
+          "collected_at": "2026-10-01T12:05:00Z",
+          "complete": true,
+          "content_hash": "f0b2db64fdaa8adcc61fde844eaa460f968f00c88f08d60f30f809a01a6bcb4b",
+          "evidence_id": "kb-rb-rollback-p1",
+          "payload": {
+            "document_id": "rb-rollback",
+            "excerpt": "# Checkout release rollback\n\nScope: checkout-api sandbox only. A rollback proposal may target release-41 only when the current release is release-42, recent complete observations show elevated errors, dependencies are healthy, and logs corroborate a defect introduced by that deployment. Temporal correlation alone is insufficient. Read health, recent changes and logs. Health and relevant error observations must be no older than five minutes at investigation time. Changes can be collected over a bounded 120-minute window. If evidence is absent, contradictory, stale or dependencies are degraded, escalate for more evidence.\n\nThe investigator proposes; an independently authorized human approves the exact proposal hash before its expiry. Only the executor can conditionally update sandbox state. No shell command or real deployment is permitted. A receipt means a synthetic state transition, not recovery; obtain a separate subsequent health observation.",
+            "kind": "runbook",
+            "owner": "checkout-operations",
+            "passage_id": "rb-rollback-p1",
+            "service_id": "checkout-api",
+            "status": "current",
+            "valid_from": "2026-08-01T00:00:00Z",
+            "valid_until": "2027-01-01T00:00:00Z",
+            "version": "2.0.0"
+          },
+          "sanitized": true,
+          "source": "retrieve_runbook",
+          "source_version": "kb-corpus-1.0.0"
+        },
+        {
+          "collected_at": "2026-10-01T12:05:00Z",
+          "complete": true,
+          "content_hash": "f3c163bb445a91d65d039e155ce2f5fc25caefa2cfc0a66e0f126f4785f49cd7",
+          "evidence_id": "kb-rb-tool-failures-p1",
+          "payload": {
+            "document_id": "rb-tool-failures",
+            "excerpt": "# Diagnostic failure handling\n\nRetry a transient diagnostic failure at most once, counting it in the total tool budget of eight calls. The model budget is six calls and investigation deadline is 120 seconds; these are initial development bounds. If a required diagnostic remains unavailable, return incomplete or escalate and identify the missing check. Never invent a successful response, treat an error as healthy, or execute an unchecked fallback.",
+            "kind": "runbook",
+            "owner": "platform-operations",
+            "passage_id": "rb-tool-failures-p1",
+            "service_id": "checkout-api",
+            "status": "current",
+            "valid_from": "2026-08-01T00:00:00Z",
+            "valid_until": "2027-01-01T00:00:00Z",
+            "version": "1.0.0"
+          },
+          "sanitized": true,
+          "source": "retrieve_runbook",
+          "source_version": "kb-corpus-1.0.0"
+        }
+      ],
+      "investigation": {
+        "facts": [
+          {
+            "evidence_ids": [
+              "obs-005-health"
+            ],
+            "statement": "The checkout-api service is experiencing an increased error rate."
+          },
+          {
+            "evidence_ids": [
+              "obs-005-logs"
+            ],
+            "statement": "The deployment of release-42 introduced a bug that is causing the increased error rate."
+          }
+        ],
+        "hypotheses": [
+          {
+            "cause": "The deployment of release-42 introduced a bug that is causing the increased error rate.",
+            "contradicting_evidence": [],
+            "status": "supported",
+            "supporting_evidence": [
+              "obs-005-logs"
+            ]
+          },
+          {
+            "cause": "The checkout-api service is experiencing a high load, which is causing the increased error rate.",
+            "contradicting_evidence": [],
+            "status": "pruned",
+            "supporting_evidence": []
+          }
+        ],
+        "justification": "All collected evidence supports the hypothesis that the deployment of release-42 introduced a bug that is causing the increased error rate. The logs show a specific error related to the new release, and the health observation shows an elevated error rate. The runbook excerpt also supports a rollback to release-41 if the conditions are met.",
+        "missing_information": [],
+        "next_check": null,
+        "outcome": "propose_rollback",
+        "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1"
+      },
+      "mode": "aws_live",
+      "provider_calls": 4,
+      "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+      "status": "complete",
+      "stop_reason": "finished",
+      "trace": [
+        {
+          "branches": [],
+          "call": null,
+          "detail": "input: pass",
+          "event": "boundary_checked",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": {
+            "arguments": {
+              "service_id": "checkout-api"
+            },
+            "name": "get_service_health"
+          },
+          "detail": "attempt 1",
+          "event": "tool_attempt",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": null,
+          "detail": "source: pass",
+          "event": "boundary_checked",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": {
+            "arguments": {
+              "service_id": "checkout-api"
+            },
+            "name": "get_service_health"
+          },
+          "detail": "Validated observations collected",
+          "event": "tool_observed",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": {
+            "arguments": {
+              "service_id": "checkout-api",
+              "window_minutes": 60
+            },
+            "name": "get_recent_changes"
+          },
+          "detail": "attempt 1",
+          "event": "tool_attempt",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": null,
+          "detail": "source: pass",
+          "event": "boundary_checked",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": {
+            "arguments": {
+              "service_id": "checkout-api",
+              "window_minutes": 60
+            },
+            "name": "get_recent_changes"
+          },
+          "detail": "Validated observations collected",
+          "event": "tool_observed",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": null,
+          "detail": "Live model attempt 1",
+          "event": "provider_attempt",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": null,
+          "detail": "output: pass",
+          "event": "boundary_checked",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The deployment of release-42 introduced a bug that is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a high load, which is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "filter": "errors",
+              "limit": 20,
+              "service_id": "checkout-api"
+            },
+            "name": "get_recent_logs"
+          },
+          "detail": "To identify any error messages or patterns that could support or contradict the initial hypotheses.",
+          "event": "search_state",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The deployment of release-42 introduced a bug that is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a high load, which is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "filter": "errors",
+              "limit": 20,
+              "service_id": "checkout-api"
+            },
+            "name": "get_recent_logs"
+          },
+          "detail": "attempt 1",
+          "event": "tool_attempt",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The deployment of release-42 introduced a bug that is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a high load, which is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "filter": "errors",
+              "limit": 20,
+              "service_id": "checkout-api"
+            },
+            "name": "get_recent_logs"
+          },
+          "detail": "Transient failure counts against total budget",
+          "event": "tool_transient_failure",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The deployment of release-42 introduced a bug that is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a high load, which is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "filter": "errors",
+              "limit": 20,
+              "service_id": "checkout-api"
+            },
+            "name": "get_recent_logs"
+          },
+          "detail": "attempt 2",
+          "event": "tool_attempt",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The deployment of release-42 introduced a bug that is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a high load, which is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": null,
+          "detail": "source: pass",
+          "event": "boundary_checked",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The deployment of release-42 introduced a bug that is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a high load, which is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "filter": "errors",
+              "limit": 20,
+              "service_id": "checkout-api"
+            },
+            "name": "get_recent_logs"
+          },
+          "detail": "Validated observations collected",
+          "event": "tool_observed",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The deployment of release-42 introduced a bug that is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a high load, which is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": null,
+          "detail": "Live model attempt 1",
+          "event": "provider_attempt",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The deployment of release-42 introduced a bug that is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a high load, which is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": null,
+          "detail": "output: pass",
+          "event": "boundary_checked",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The deployment of release-42 introduced a bug that is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-logs"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a high load, which is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "limit": 3,
+              "query": "high load",
+              "service_id": "checkout-api"
+            },
+            "name": "retrieve_runbook"
+          },
+          "detail": "To determine if the increased error rate is due to a bug in release-42 or high load on the service.",
+          "event": "search_state",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The deployment of release-42 introduced a bug that is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-logs"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a high load, which is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "limit": 3,
+              "query": "high load",
+              "service_id": "checkout-api"
+            },
+            "name": "retrieve_runbook"
+          },
+          "detail": "attempt 1",
+          "event": "tool_attempt",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The deployment of release-42 introduced a bug that is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-logs"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a high load, which is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": null,
+          "detail": "source: pass",
+          "event": "boundary_checked",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The deployment of release-42 introduced a bug that is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-logs"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a high load, which is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": null,
+          "detail": "source: pass",
+          "event": "boundary_checked",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The deployment of release-42 introduced a bug that is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-logs"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a high load, which is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "limit": 3,
+              "query": "high load",
+              "service_id": "checkout-api"
+            },
+            "name": "retrieve_runbook"
+          },
+          "detail": "Validated observations collected",
+          "event": "tool_observed",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The deployment of release-42 introduced a bug that is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-logs"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a high load, which is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": null,
+          "detail": "Live model attempt 1",
+          "event": "provider_attempt",
+          "phase": "update",
+          "round": 2
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The deployment of release-42 introduced a bug that is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-logs"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a high load, which is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "candidate"
+            }
+          ],
+          "call": null,
+          "detail": "output: pass",
+          "event": "boundary_checked",
+          "phase": "update",
+          "round": 2
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The deployment of release-42 introduced a bug that is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-logs"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a high load, which is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "pruned"
+            }
+          ],
+          "call": null,
+          "detail": "Determine if the high load is a contributing factor to the increased error rate.",
+          "event": "search_state",
+          "phase": "update",
+          "round": 2
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The deployment of release-42 introduced a bug that is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-logs"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a high load, which is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "pruned"
+            }
+          ],
+          "call": null,
+          "detail": "Live model attempt 1",
+          "event": "provider_attempt",
+          "phase": "final",
+          "round": 2
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The deployment of release-42 introduced a bug that is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-logs"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a high load, which is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "pruned"
+            }
+          ],
+          "call": null,
+          "detail": "output: pass",
+          "event": "boundary_checked",
+          "phase": "final",
+          "round": 2
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The deployment of release-42 introduced a bug that is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-logs"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            },
+            {
+              "candidate": {
+                "candidate_id": "candidate-002",
+                "cause": "The checkout-api service is experiencing a high load, which is causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": []
+              },
+              "score": 0,
+              "status": "pruned"
+            }
+          ],
+          "call": null,
+          "detail": "Accepted structured propose_rollback; semantic support still needs review",
+          "event": "finished",
+          "phase": "final",
+          "round": 2
+        }
+      ],
+      "usage": {
+        "input_tokens": 11565,
+        "model_calls": 4,
+        "output_tokens": 880,
+        "tool_calls": 5
+      },
+      "variant": "V2"
+    },
+    "retrieval": {
+      "corpus_version": "1.0.0",
+      "knowledge_base_id": "XKVH8PLCHO",
+      "scope": "frozen-scenario-document-inventory",
+      "search_type": "SEMANTIC"
+    },
+    "run_id": "p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1",
+    "schema_version": "p06-v1",
+    "settings": {
+      "limits": {
+        "candidates": 2,
+        "deadline_seconds": 120.0,
+        "expansion_rounds": 2,
+        "model_calls": 6,
+        "retries": 1,
+        "tool_calls": 8
+      },
+      "max_output_tokens": 1500,
+      "mode": "aws_live",
+      "model": "us.amazon.nova-lite-v1:0",
+      "temperature": 0.0
+    },
+    "synthetic_telemetry": true,
+    "usage_complete": true,
+    "worker_latency_ms": 11128
+  },
+  "error_category": null,
+  "transport_ms": 13953,
+  "session_stop_confirmed": true
+}

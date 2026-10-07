@@ -1,0 +1,96 @@
+{
+  "recorded_at": "2026-10-07T00:47:04.501503+00:00",
+  "reviewer_id": "Bill",
+  "source": "Owner reply in the active conversation",
+  "question": "Did you agree with the 17 failure classifications in the review index, or did you find any that should be corrected?",
+  "answer": "I agree with the failure classifications",
+  "report_sha256": "8da8275a12eee09681a953c8a880629246f9d45d2f7fd1fa58713ed1d6db689d",
+  "scope": "Agreement with the failure classifications only. Does not assert all factual claims are supported, approve the seven mechanical candidates, select a model, or authorize a rollback.",
+  "failures": [
+    {
+      "trial_id": "development-case-001-v0-lite-r1",
+      "record_sha256": "79f21ecd2e59e256046a9256dd182d28774c840349fcb6263efbe6187590c332",
+      "classification_agreed": true
+    },
+    {
+      "trial_id": "development-case-001-v1-lite-r1",
+      "record_sha256": "5ecd53c8ed871d9b883fc4c8849e3683db07f4bba2fd1a536b3aa36e91d26aa4",
+      "classification_agreed": true
+    },
+    {
+      "trial_id": "development-case-001-v2-lite-r1",
+      "record_sha256": "17c8a94036241a54edaef4fcf6d32160b3e0b3393ffd9eddb6e614737b1da09c",
+      "classification_agreed": true
+    },
+    {
+      "trial_id": "development-case-002-v2-lite-r1",
+      "record_sha256": "fe6c824001e85447c87669f27b4edd439a2f3e2a5d6b2aff01c8f7edb6820473",
+      "classification_agreed": true
+    },
+    {
+      "trial_id": "development-case-003-v1-lite-r1",
+      "record_sha256": "c3eddbe01d60b34e5d1cffb3282e69c9f23caa5ee9b4ee56884a1f4cf7d9c81b",
+      "classification_agreed": true
+    },
+    {
+      "trial_id": "development-case-003-v2-lite-r1",
+      "record_sha256": "d3dba70bda937a3f1b02aa02206dd2849de6a22a9a385f83a54274534dc64498",
+      "classification_agreed": true
+    },
+    {
+      "trial_id": "development-case-004-v2-lite-r1",
+      "record_sha256": "879f25926d2e4223aafe2baa7cd9ec8e0d5d5f0f0c33d10c62b740390c167e89",
+      "classification_agreed": true
+    },
+    {
+      "trial_id": "development-case-005-v0-lite-r1",
+      "record_sha256": "7b526536ed53f8a9de31f0265b3babc67b58180b1de964926db1f54d0c1b5873",
+      "classification_agreed": true
+    },
+    {
+      "trial_id": "development-case-005-v1-lite-r1",
+      "record_sha256": "718cbcb34850c51d19a26c66aae5e114e86dac675a565568bffd80eb6a79073d",
+      "classification_agreed": true
+    },
+    {
+      "trial_id": "development-case-005-v2-lite-r1",
+      "record_sha256": "23b2c8a5fce39b523e26d5aae566ef21866e5afabb9c6b8e87e3d536590f0ea4",
+      "classification_agreed": true
+    },
+    {
+      "trial_id": "development-case-006-v0-lite-r1",
+      "record_sha256": "310c4b6f50bfa1908fd010dd7784d099f4746bbebcca79c14f160e86f812285f",
+      "classification_agreed": true
+    },
+    {
+      "trial_id": "development-case-006-v2-lite-r1",
+      "record_sha256": "082d3f18205236c01e3e68da7b1f23e3d0530b9ccc57706b7305697230f2bac8",
+      "classification_agreed": true
+    },
+    {
+      "trial_id": "development-case-007-v1-lite-r1",
+      "record_sha256": "adfc7737d57763885cfde231a9504fd5957e23d49284a7c4a625e2eadbf6dd17",
+      "classification_agreed": true
+    },
+    {
+      "trial_id": "development-case-007-v2-lite-r1",
+      "record_sha256": "02a9fbe911bea148494f2c81f4a73bc14d0af7aa1739c921b1fb4bf039453d45",
+      "classification_agreed": true
+    },
+    {
+      "trial_id": "development-case-008-v0-lite-r1",
+      "record_sha256": "4087ae6249f1a8422d5b362b462e571350f26656ebdc43a0abd4c90aa6d328c9",
+      "classification_agreed": true
+    },
+    {
+      "trial_id": "development-case-008-v1-lite-r1",
+      "record_sha256": "db686f008f6af00df8d6a30eb445d483b0ea9474d60192f6b763684fd8aa4349",
+      "classification_agreed": true
+    },
+    {
+      "trial_id": "development-case-008-v2-lite-r1",
+      "record_sha256": "921ff2c8bc1c7fc69689330d381332e06efd46dcd2d8d24c4e51615ad49351aa",
+      "classification_agreed": true
+    }
+  ]
+}

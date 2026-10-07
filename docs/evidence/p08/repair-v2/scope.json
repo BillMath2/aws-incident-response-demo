@@ -1,0 +1,27 @@
+{
+  "stage": "repair",
+  "variant": "V2",
+  "cases": "all eight development cases; one repetition each",
+  "reservation_usd": "6.00",
+  "approved_total_usd": "250",
+  "per_batch_usd": "10",
+  "infrastructure_reserve_usd": "10",
+  "retained_local_before_usd": "38.45",
+  "projected_local_after_usd": "44.45",
+  "cloud_ceiling_cents": 23990,
+  "cloud_ceiling_basis": "25000 approved less 1000 infrastructure less 10 existing local-only P04 cents; preserve all counters",
+  "changes": [
+    "Native selected_candidate_id uses the existing nullable Identifier schema",
+    "One shared prerequisite function feeds both native outcome choices and controller enforcement",
+    "Frozen fixture document inventories constrain real KB retrieval on the server",
+    "Missing inventory passages mark guidance incomplete; out-of-scope passages are rejected",
+    "Explicit release-41 rollback target instruction"
+  ],
+  "retrieval_scope_basis": "Existing frozen fixture.retrieval_passage_ids environment inputs; never derive from categories, expected facts or outcomes",
+  "evaluation_boundary": "Measures real KB retrieval and reasoning within supplied synthetic environment inventories, not discovery of production document applicability",
+  "original_evidence_retained": true,
+  "heldout_used_for_tuning": false,
+  "full_replanned_program_usd": "260.45",
+  "full_program_exceeds_approval_usd": "10.45",
+  "budget_note": "This $6 diagnostic batch is authorized. A fresh three-strategy comparison under the corrected retrieval settings cannot be silently replaced by the old baseline. Larger evaluation remains unstarted pending a budget/scope reconciliation."
+}

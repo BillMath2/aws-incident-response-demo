@@ -1,0 +1,35 @@
+{
+  "recorded_at": "2026-10-07T09:28:58.267581+00:00",
+  "purpose": "Validate candidate-selection repair and approved Guardrail v2 on the same eight development cases, V2/Nova Lite only.",
+  "model_trials": 8,
+  "maximum_batch_reservation_usd": "6.00",
+  "local_reserved_before_model_trials_usd": "46.70",
+  "projected_local_after_model_trials_usd": "52.70",
+  "remaining_allowance_after_usd": "187.30",
+  "protected_infrastructure_usd": "10",
+  "approved_total_usd": "250",
+  "guardrail_id": "a4aiug3xzh6e",
+  "guardrail_version": "2",
+  "retained_previous_guardrail_version": "1",
+  "preactivation_checks": {
+    "frozen_runbooks": 8,
+    "content_controls": 8,
+    "controller_boundaries": 6
+  },
+  "changes": [
+    "Shared unique supported candidate rule in schema and controller; selection remains model supplied.",
+    "Explicit candidate field and guidance distinguishing service and dependency health.",
+    "Bounded sanitized assessment enums added to Guardrail audit.",
+    "Prompt-attack strength MEDIUM per explicit owner approval; other filters unchanged."
+  ],
+  "unchanged": [
+    "Frozen case inputs and expected outcomes",
+    "Runbook corpus and inventory scoping",
+    "Model/tool/time/token bounds",
+    "Controller authorization and proposal prerequisites",
+    "Original trial records and human review requirements"
+  ],
+  "held_out_or_comparison_calls": 0,
+  "fair_remaining_program_including_current_reservations_usd": "268.70",
+  "full_program_fits_current_reservation_ceiling": false
+}

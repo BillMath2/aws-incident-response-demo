@@ -1,0 +1,31 @@
+{
+  "at": "2026-10-07T10:07:21.841151+00:00",
+  "runtime_version": "13",
+  "guardrail_version": "2",
+  "trials": 8,
+  "mechanical_candidates": 8,
+  "mechanical_failures": 0,
+  "human_reviews": 0,
+  "human_confirmed_successes": 0,
+  "format_corrections": 0,
+  "nullable_followups": 7,
+  "actual_retrievals": 7,
+  "local_reserved_usd": "64.70",
+  "cloud_reserved_usd": "64.6",
+  "estimated_inference_usd": "0.0067160400",
+  "remaining_experiment_allowance_usd": "175.30",
+  "full_program_reusing_latest_batch_usd": "280.70",
+  "reservation_shortfall_usd": "30.70",
+  "application_tests": 206,
+  "p08_green": false,
+  "human_quality_concerns": [
+    "Causal inference appears in facts",
+    "Case 002 prunes dependency cause despite evidence",
+    "Case 004 misstates unusable logs as missing",
+    "Case 006 escalates before runbook retrieval"
+  ],
+  "held_out_calls": 0,
+  "comparison_calls": 0,
+  "judge_calls": 0,
+  "actions_executed": 0
+}

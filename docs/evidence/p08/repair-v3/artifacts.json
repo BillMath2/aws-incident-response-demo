@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-07T09:22:36.726450+00:00",
+  "prior_manifests_verified": {
+    "repair-v1": 32,
+    "repair-v2": 39
+  },
+  "sha256": {
+    "budget-after-diagnostics.json": "b8159bdce236d8f58e54c488cf69fbba9ed074172d5c767630487319e3d6a489",
+    "candidate-package.json": "62cec93f881741b4150d4c9b06dea8b700b9351cc5ab02e4e28f3912d0ed737e",
+    "cost-explorer.json": "d6552e98c56152820d7346224fd3071cd9efc7bb2825db5872f0a547caba9c66",
+    "frozen/infra__retrieval_stack.py.txt": "f7eb38cb0cfc2c4b99697bff4a3803e97b8df9080722644a6d33a338c9965efc",
+    "frozen/scripts__p08_guardrail_diagnostics.py.txt": "b16fcd3d3c10173fa8fe3a25d5eebd2882ccb326977d3e42bf40eb43aeb4b803",
+    "frozen/src__incident_demo__investigator__engine.py.txt": "7052814bea782bc85c821c15bbcddbd5dd9d1bcfe39c454bb6211aaf912ee5b2",
+    "frozen/src__incident_demo__investigator__policy.py.txt": "095141da517ca729abe28920f81ed577cc016b3c531bb807565181b404aa4bb1",
+    "frozen/src__incident_demo__live__adapters.py.txt": "0474b209e7c59b43943149999c828176503e9b5405ed42fab4f27772e36cc4fb",
+    "frozen/src__incident_demo__live__guardrails.py.txt": "99d32a7e2d35ce6b0abd4052f8f30f04a164952187843a76d09909721d2ad391",
+    "guardrail-probes/audit.json": "6b4826b26fb884844392a2788c508e0f3baf43df18fba17ce5e55b9852eb591c",
+    "guardrail-probes/budget-readback.json": "9935a3781449d0d8dab7419d4807328a4117cb1fafa0bd0aa03de03c8c8b34db",
+    "guardrail-probes/reservation.json": "7a85bf2de12a26b4b2acf729538c97de0a1ea2661eecfbe7ded37d5f17797e63",
+    "guardrail-probes/results.json": "dafcd8e3e5d05f7e925c64e9b65bc7ffeb713f720ae1cb200b57686e23731ae8",
+    "live-readback.json": "c170d51dc1dae6daa786b2bfe51b97c9e584c2ffb594c575b29a1768bb6b2e57",
+    "package-build-retry.txt": "f7f62addfc0863702164156015fc82e7260c3c72b5c5f711425025d7a6550f10",
+    "package-build.txt": "47faf7bc0f8412b30cbb0fa169d2e1071cb1aeee21a0abf3a3a2c06160f64c9f",
+    "retrieval-diff.txt": "9903c7a7a9e632ce14a8ad44db920b7d2fa89f219168480b8771114e14093747",
+    "summary.json": "42c0fb5bf65a7fdd9b0ef3aa088e1b2ed96b9de9a3810ee25bd6ec34bd62308b"
+  }
+}

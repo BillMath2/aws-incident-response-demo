@@ -1,0 +1,6 @@
+{
+  "recorded_at": "2026-10-07T09:25:15.847304+00:00",
+  "question": "May I deploy and validate Guardrail version 2 at MEDIUM sensitivity? It permits low-confidence detections while retaining medium/high-confidence attack blocking and secret blocking.",
+  "owner_answer": "yes",
+  "scope": "Deploy and validate the reviewed version 2 policy, then activate prepared runtime repair if checks pass. Existing $250 total and $10 batch limits remain."
+}

@@ -1,0 +1,11 @@
+{
+  "application_tests": 206,
+  "format_files": 83,
+  "lint": "passed",
+  "corpus_and_schemas": "Unchanged and previously checked this turn",
+  "zip_and_sources": "matched",
+  "langchain_aws": "1.8.0",
+  "langchain_core": "1.6.6",
+  "transport_test": "actual ChatBedrockConverse invoke reaches a fake client.converse with identical native toolConfig; required null branches survive",
+  "no_dependency_upgrade": true
+}

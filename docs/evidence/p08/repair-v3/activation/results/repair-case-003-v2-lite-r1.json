@@ -1,0 +1,401 @@
+{
+  "plan_sha256": "fcb8629c78f7a86800dfc9a604c6947371c69b117bd0a9d22f956a7994268d34",
+  "trial_id": "repair-case-003-v2-lite-r1",
+  "run_id": "p08-0682fc893dfb924fe551f1491f5b67952a8c001b",
+  "status": "response",
+  "response": {
+    "artifact_key": "runs/p06/p08-0682fc893dfb924fe551f1491f5b67952a8c001b.json",
+    "audit": [
+      {
+        "at": "2026-10-07T09:31:29.535889+00:00",
+        "boundary": "input",
+        "call": 1,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "run_id": "p08-0682fc893dfb924fe551f1491f5b67952a8c001b"
+      },
+      {
+        "action": "NONE",
+        "assessments": [],
+        "at": "2026-10-07T09:31:29.694728+00:00",
+        "boundary": "input",
+        "call": 1,
+        "coverage": {
+          "guarded": 154,
+          "total": 154
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "request_id": "04745fdc-6f10-4986-9a05-90c6489756d3",
+        "run_id": "p08-0682fc893dfb924fe551f1491f5b67952a8c001b",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "at": "2026-10-07T09:31:29.697558+00:00",
+        "attempt": 1,
+        "event": "lambda_started",
+        "run_id": "p08-0682fc893dfb924fe551f1491f5b67952a8c001b",
+        "tool": "get_service_health"
+      },
+      {
+        "at": "2026-10-07T09:31:29.732824+00:00",
+        "attempt": 1,
+        "event": "lambda_finished",
+        "latency_ms": 35,
+        "request_id": "cf11713c-aa2b-4323-aac9-35e902eba835",
+        "run_id": "p08-0682fc893dfb924fe551f1491f5b67952a8c001b",
+        "tool": "get_service_health"
+      },
+      {
+        "at": "2026-10-07T09:31:29.733397+00:00",
+        "boundary": "source",
+        "call": 2,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "run_id": "p08-0682fc893dfb924fe551f1491f5b67952a8c001b"
+      },
+      {
+        "action": "NONE",
+        "assessments": [],
+        "at": "2026-10-07T09:31:29.865268+00:00",
+        "boundary": "source",
+        "call": 2,
+        "coverage": {
+          "guarded": 436,
+          "total": 436
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "request_id": "1ba2aa75-6564-41c1-b03d-fc648a1e61fd",
+        "run_id": "p08-0682fc893dfb924fe551f1491f5b67952a8c001b",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "at": "2026-10-07T09:31:29.865913+00:00",
+        "attempt": 1,
+        "event": "lambda_started",
+        "run_id": "p08-0682fc893dfb924fe551f1491f5b67952a8c001b",
+        "tool": "get_recent_changes"
+      },
+      {
+        "at": "2026-10-07T09:31:29.903863+00:00",
+        "attempt": 1,
+        "event": "lambda_finished",
+        "latency_ms": 37,
+        "request_id": "612169e7-a941-4f05-9608-5e7c50b13e48",
+        "run_id": "p08-0682fc893dfb924fe551f1491f5b67952a8c001b",
+        "tool": "get_recent_changes"
+      },
+      {
+        "at": "2026-10-07T09:31:29.904533+00:00",
+        "boundary": "source",
+        "call": 3,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "run_id": "p08-0682fc893dfb924fe551f1491f5b67952a8c001b"
+      },
+      {
+        "action": "NONE",
+        "assessments": [],
+        "at": "2026-10-07T09:31:30.064660+00:00",
+        "boundary": "source",
+        "call": 3,
+        "coverage": {
+          "guarded": 507,
+          "total": 507
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "request_id": "da507afd-a926-4f3a-a9a9-5aa89a463b15",
+        "run_id": "p08-0682fc893dfb924fe551f1491f5b67952a8c001b",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "adapter_prompt_version": "p08-v3-native",
+        "at": "2026-10-07T09:31:30.082633+00:00",
+        "event": "prompt_built",
+        "response_phase": "seed",
+        "run_id": "p08-0682fc893dfb924fe551f1491f5b67952a8c001b",
+        "system_sha256": "bc1c78d8fb520a8bd234d383c1018741328c9d79774ff972ffe5ce4cc30c089b",
+        "tool_schema_sha256": "fd15b39aa8bf9454f5626e2ce99ae1bac53cc2183e6c0cdd6d2cf89d6e12525c"
+      },
+      {
+        "at": "2026-10-07T09:31:30.200223+00:00",
+        "event": "token_count_unsupported",
+        "input_bytes": 7575,
+        "reserved_input_tokens": 300000,
+        "run_id": "p08-0682fc893dfb924fe551f1491f5b67952a8c001b"
+      },
+      {
+        "at": "2026-10-07T09:31:30.200416+00:00",
+        "event": "model_started",
+        "input_tokens": null,
+        "run_id": "p08-0682fc893dfb924fe551f1491f5b67952a8c001b"
+      },
+      {
+        "at": "2026-10-07T09:31:31.550416+00:00",
+        "event": "model_finished",
+        "input_tokens": 2339,
+        "output_tokens": 160,
+        "request_id": "bbf07d97-7d84-4420-9b4b-8e2e66910976",
+        "run_id": "p08-0682fc893dfb924fe551f1491f5b67952a8c001b"
+      },
+      {
+        "at": "2026-10-07T09:31:31.551179+00:00",
+        "event": "native_response",
+        "proposed_decisions": 1,
+        "run_id": "p08-0682fc893dfb924fe551f1491f5b67952a8c001b",
+        "stop_reason": "tool_use",
+        "unused_decisions": 0
+      },
+      {
+        "at": "2026-10-07T09:31:31.557357+00:00",
+        "error_types": [
+          "too_short"
+        ],
+        "event": "model_output_invalid",
+        "issues": [
+          {
+            "location": [
+              "search",
+              "candidates"
+            ],
+            "type": "too_short"
+          }
+        ],
+        "run_id": "p08-0682fc893dfb924fe551f1491f5b67952a8c001b"
+      }
+    ],
+    "guardrail_policy": {
+      "id": "a4aiug3xzh6e",
+      "version": "2"
+    },
+    "mode": "aws_live",
+    "reserved_usd": "0.75",
+    "result": {
+      "active_latency_ms": 2028,
+      "evidence": [
+        {
+          "collected_at": "2026-10-01T12:05:00Z",
+          "complete": true,
+          "content_hash": "19fdce4867c76f03895ca46f5e70641437478de0327ffceaf0ef5b8ec98e1992",
+          "evidence_id": "obs-003-health",
+          "payload": {
+            "dependency_state": "healthy",
+            "error_rate": 0.25,
+            "kind": "health",
+            "latency_p95_ms": 1700.0,
+            "observed_at": "2026-10-01T12:04:00Z",
+            "release": "release-42",
+            "service_id": "checkout-api"
+          },
+          "sanitized": true,
+          "source": "get_service_health",
+          "source_version": "fixtures-1.0.0"
+        },
+        {
+          "collected_at": "2026-10-01T12:05:00Z",
+          "complete": true,
+          "content_hash": "c7cec8aaf06a83dc2098f050d168bb76a2f5e39322ed6c5a140a9bdf2ecd7c05",
+          "evidence_id": "obs-003-changes",
+          "payload": {
+            "items": [
+              {
+                "change_id": "change-003",
+                "changed_at": "2026-10-01T11:55:00Z",
+                "kind": "deployment",
+                "release": "release-42",
+                "summary": "Checkout release-42 deployed; release-41 baseline error rate was 0.003."
+              }
+            ],
+            "kind": "changes",
+            "service_id": "checkout-api"
+          },
+          "sanitized": true,
+          "source": "get_recent_changes",
+          "source_version": "fixtures-1.0.0"
+        }
+      ],
+      "investigation": {
+        "facts": [],
+        "hypotheses": [],
+        "justification": "aws_live controller: contract_or_citation_invalid",
+        "missing_information": [
+          "contract_or_citation_invalid"
+        ],
+        "next_check": "Operator review or fresh diagnostic evidence",
+        "outcome": "incomplete",
+        "run_id": "p08-0682fc893dfb924fe551f1491f5b67952a8c001b"
+      },
+      "mode": "aws_live",
+      "provider_calls": 1,
+      "run_id": "p08-0682fc893dfb924fe551f1491f5b67952a8c001b",
+      "status": "failed",
+      "stop_reason": "contract_or_citation_invalid",
+      "trace": [
+        {
+          "branches": [],
+          "call": null,
+          "detail": "input: pass",
+          "event": "boundary_checked",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": {
+            "arguments": {
+              "service_id": "checkout-api"
+            },
+            "name": "get_service_health"
+          },
+          "detail": "attempt 1",
+          "event": "tool_attempt",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": null,
+          "detail": "source: pass",
+          "event": "boundary_checked",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": {
+            "arguments": {
+              "service_id": "checkout-api"
+            },
+            "name": "get_service_health"
+          },
+          "detail": "Validated observations collected",
+          "event": "tool_observed",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": {
+            "arguments": {
+              "service_id": "checkout-api",
+              "window_minutes": 60
+            },
+            "name": "get_recent_changes"
+          },
+          "detail": "attempt 1",
+          "event": "tool_attempt",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": null,
+          "detail": "source: pass",
+          "event": "boundary_checked",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": {
+            "arguments": {
+              "service_id": "checkout-api",
+              "window_minutes": 60
+            },
+            "name": "get_recent_changes"
+          },
+          "detail": "Validated observations collected",
+          "event": "tool_observed",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": null,
+          "detail": "Live model attempt 1",
+          "event": "provider_attempt",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": null,
+          "detail": "contract_or_citation_invalid",
+          "event": "stopped",
+          "phase": "seed",
+          "round": 0
+        }
+      ],
+      "usage": {
+        "input_tokens": 2339,
+        "model_calls": 1,
+        "output_tokens": 160,
+        "tool_calls": 2
+      },
+      "variant": "V2"
+    },
+    "retrieval": {
+      "corpus_version": "1.0.0",
+      "knowledge_base_id": "XKVH8PLCHO",
+      "scope": "frozen-scenario-document-inventory",
+      "search_type": "SEMANTIC"
+    },
+    "run_id": "p08-0682fc893dfb924fe551f1491f5b67952a8c001b",
+    "schema_version": "p06-v1",
+    "settings": {
+      "limits": {
+        "candidates": 2,
+        "deadline_seconds": 120.0,
+        "expansion_rounds": 2,
+        "model_calls": 6,
+        "retries": 1,
+        "tool_calls": 8
+      },
+      "max_output_tokens": 1500,
+      "mode": "aws_live",
+      "model": "us.amazon.nova-lite-v1:0",
+      "temperature": 0.0
+    },
+    "synthetic_telemetry": true,
+    "usage_complete": true,
+    "worker_latency_ms": 4922
+  },
+  "error_category": null,
+  "transport_ms": 8344,
+  "session_stop_confirmed": true
+}

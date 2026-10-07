@@ -1,0 +1,21 @@
+{
+  "captured_at": "2026-10-07T09:22:35.510274+00:00",
+  "estimated_account_cost_usd": "0.1121788251",
+  "cost_query_start_inclusive": "2026-10-01",
+  "cost_query_end_exclusive": "2026-10-08",
+  "credits_refunds_excluded": true,
+  "account": "498084841421",
+  "cost_query_requests": 1,
+  "billing_query_cost_usd": "0.01",
+  "billing_query_allowance": "protected infrastructure reserve",
+  "billing_complete": false,
+  "reservations_refunded": false,
+  "fresh_program_reservation_shortfall_usd": "17.20",
+  "application_tests_passed": 195,
+  "infrastructure_tests_passed": 21,
+  "format_files_checked": 83,
+  "deployment": "rejected before execution; explicit approval pending",
+  "new_model_trials": 0,
+  "standalone_guardrail_probes": 6,
+  "candidate_package_sha256": "7141bbbb10a7411ae391c50d63ce73a4569d0a9fb783bc926d250372cda87c30"
+}

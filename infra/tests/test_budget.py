@@ -15,12 +15,22 @@ def test_cost_uses_input_and_output_rates():
 
 def test_total_and_batch_limits_and_duplicate_reservation(tmp_path):
     path = tmp_path / "ledger.json"
-    for n in range(4):
+    for n in range(24):
         reserve(str(n), Decimal("10"), path)
-    for name, amount in [("4", "0.01"), ("0", "1"), ("5", "11"), ("6", "-1"), ("7", "NaN")]:
+    for name, amount in [("24", "0.01"), ("0", "1"), ("25", "11"), ("26", "-1"), ("27", "NaN")]:
         with pytest.raises(ValueError):
             reserve(name, Decimal(amount), path)
-    assert len(json.loads(path.read_text())["reservations"]) == 4
+    assert len(json.loads(path.read_text())["reservations"]) == 24
+
+
+@pytest.mark.parametrize("total,per_batch", [(251, 10), (250, 11)])
+def test_config_rejects_unapproved_allowances(tmp_path, total, per_batch):
+    config = load_config()
+    config["budget"].update(total=total, per_batch=per_batch)
+    path = tmp_path / "config.json"
+    path.write_text(json.dumps(config))
+    with pytest.raises(ValueError):
+        load_config(path)
 
 
 def test_competing_process_cannot_overwrite_ledger(tmp_path):

@@ -1,0 +1,102 @@
+{
+  "at": "2026-10-07T01:46:37.063923+00:00",
+  "artifact_checks": [
+    {
+      "trial_id": "repair-case-001-v2-lite-r1",
+      "s3_key": "runs/p06/p08-8b75d19fa22c81b5b4e42214b856ee7c25c085ff.json",
+      "sha256": "73b48dd94953a2d5ec35f2c7e2c8d1c2c43a9f768ea60f98f9295ca2590406bd",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "retrieved_inventory_matches_frozen_fixture": true
+    },
+    {
+      "trial_id": "repair-case-002-v2-lite-r1",
+      "s3_key": "runs/p06/p08-f0f23ec65e5dccc6e66dcd2b5f3cbce924a16b46.json",
+      "sha256": "5fdbc08f0874b8f5db87701dc5cf77ffff168ad8216b134a5526a2ff9c14b72c",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "retrieved_inventory_matches_frozen_fixture": true
+    },
+    {
+      "trial_id": "repair-case-003-v2-lite-r1",
+      "s3_key": "runs/p06/p08-c1256c33428529dddb8447a8b391984dc1b64b01.json",
+      "sha256": "6ca0a666789b241a30aa475dcb05ac3d0f99454a1475055817a5c2a9cd29db11",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "retrieved_inventory_matches_frozen_fixture": true
+    },
+    {
+      "trial_id": "repair-case-004-v2-lite-r1",
+      "s3_key": "runs/p06/p08-f0b070c96470ad190203ac72966aa09fb4430712.json",
+      "sha256": "46b1a905eb7a9c1f5cda42b4cbd2caaa0405ef9b72077accff3ec2ffde5e2c2f",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "retrieved_inventory_matches_frozen_fixture": true
+    },
+    {
+      "trial_id": "repair-case-005-v2-lite-r1",
+      "s3_key": "runs/p06/p08-ba6a7f3477af00e4663622c026de1ddf609468f0.json",
+      "sha256": "1195efee5cf522af5f9f1b7b4d3003101ea5e998af5e3fcbacc8fe85eb01f419",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "retrieved_inventory_matches_frozen_fixture": true
+    },
+    {
+      "trial_id": "repair-case-006-v2-lite-r1",
+      "s3_key": "runs/p06/p08-d16153624f476cad4c8a7d982c858f007949b0ef.json",
+      "sha256": "1cbf083823a8153071fa004008932bc1c14e48729a8b249585335066b549e35c",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "retrieved_inventory_matches_frozen_fixture": true
+    },
+    {
+      "trial_id": "repair-case-007-v2-lite-r1",
+      "s3_key": "runs/p06/p08-2a1bb98121530dbee1297421af89c5ccb40a43aa.json",
+      "sha256": "01e130c325cf89c1b5db50d081943d23d160755f9ff6b40c6b7c0f5deefd533a",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "retrieved_inventory_matches_frozen_fixture": true
+    },
+    {
+      "trial_id": "repair-case-008-v2-lite-r1",
+      "s3_key": "runs/p06/p08-48413f9e3388bd4a9f8f4859a8699bd73f7c187b.json",
+      "sha256": "8e47064646dcda6599f251dddc9e13586bda629e1b6405e030bfb6c316065ca5",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "retrieved_inventory_matches_frozen_fixture": true
+    }
+  ],
+  "budget": {
+    "global": {
+      "lease_owner": "p08-48413f9e3388bd4a9f8f4859a8699bd73f7c187b",
+      "pk": "global",
+      "reserved_cents": "4435",
+      "lease_until": "0"
+    },
+    "batch#p08-repair-f0cdb20782-b01": {
+      "reserved_cents": "600",
+      "pk": "batch#p08-repair-f0cdb20782-b01"
+    }
+  },
+  "guardrail_usage_units": {
+    "automatedReasoningPolicies": 0,
+    "automatedReasoningPolicyUnits": 0,
+    "contentPolicyUnits": 90,
+    "contextualGroundingPolicyUnits": 0,
+    "sensitiveInformationPolicyFreeUnits": 90,
+    "sensitiveInformationPolicyUnits": 0,
+    "topicPolicyUnits": 0,
+    "wordPolicyUnits": 0
+  },
+  "deployment_matches_frozen": true,
+  "stack_status": "UPDATE_COMPLETE",
+  "previous_evidence_unchanged": true
+}

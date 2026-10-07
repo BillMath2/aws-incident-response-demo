@@ -1,0 +1,1374 @@
+{
+  "plan_sha256": "e776cdf97b81eed61d95bb2a2ab11102532f20ab8da38523be012d84f70a2525",
+  "trial_id": "repair-case-005-v2-lite-r1",
+  "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+  "status": "response",
+  "response": {
+    "artifact_key": "runs/p06/p08-8837696755219679320011adda0fff73d3314350.json",
+    "audit": [
+      {
+        "at": "2026-10-07T09:51:01.449993+00:00",
+        "boundary": "input",
+        "call": 1,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "action": "NONE",
+        "assessments": [],
+        "at": "2026-10-07T09:51:01.612465+00:00",
+        "boundary": "input",
+        "call": 1,
+        "coverage": {
+          "guarded": 154,
+          "total": 154
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "request_id": "dc8d2230-bb49-4e22-9992-d512c6a89bd4",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "at": "2026-10-07T09:51:01.615184+00:00",
+        "attempt": 1,
+        "event": "lambda_started",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "tool": "get_service_health"
+      },
+      {
+        "at": "2026-10-07T09:51:01.653059+00:00",
+        "attempt": 1,
+        "event": "lambda_finished",
+        "latency_ms": 37,
+        "request_id": "996c2638-2242-4019-8e4f-161aeff7701d",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "tool": "get_service_health"
+      },
+      {
+        "at": "2026-10-07T09:51:01.653680+00:00",
+        "boundary": "source",
+        "call": 2,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "action": "NONE",
+        "assessments": [],
+        "at": "2026-10-07T09:51:01.783410+00:00",
+        "boundary": "source",
+        "call": 2,
+        "coverage": {
+          "guarded": 436,
+          "total": 436
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "request_id": "2a15607e-5093-44bb-b9fc-f9502295ad39",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "at": "2026-10-07T09:51:01.783918+00:00",
+        "attempt": 1,
+        "event": "lambda_started",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "tool": "get_recent_changes"
+      },
+      {
+        "at": "2026-10-07T09:51:01.816810+00:00",
+        "attempt": 1,
+        "event": "lambda_finished",
+        "latency_ms": 32,
+        "request_id": "8d436a25-0e10-449c-833b-434f0ce092d5",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "tool": "get_recent_changes"
+      },
+      {
+        "at": "2026-10-07T09:51:01.817357+00:00",
+        "boundary": "source",
+        "call": 3,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "action": "NONE",
+        "assessments": [],
+        "at": "2026-10-07T09:51:01.978743+00:00",
+        "boundary": "source",
+        "call": 3,
+        "coverage": {
+          "guarded": 507,
+          "total": 507
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "request_id": "e2c315f9-b2c2-4d81-ab6d-d6213b527dd9",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "adapter_prompt_version": "p08-v4-native",
+        "at": "2026-10-07T09:51:01.996949+00:00",
+        "event": "prompt_built",
+        "response_phase": "seed",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "system_sha256": "bc1c78d8fb520a8bd234d383c1018741328c9d79774ff972ffe5ce4cc30c089b",
+        "tool_schema_sha256": "fd15b39aa8bf9454f5626e2ce99ae1bac53cc2183e6c0cdd6d2cf89d6e12525c"
+      },
+      {
+        "at": "2026-10-07T09:51:02.113161+00:00",
+        "event": "token_count_unsupported",
+        "input_bytes": 7602,
+        "reserved_input_tokens": 300000,
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "at": "2026-10-07T09:51:02.113367+00:00",
+        "event": "model_started",
+        "input_tokens": null,
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "at": "2026-10-07T09:51:03.188422+00:00",
+        "event": "model_finished",
+        "input_tokens": 2343,
+        "output_tokens": 139,
+        "request_id": "710bb8a9-5a09-4a6e-a97a-cab267856781",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "at": "2026-10-07T09:51:03.189145+00:00",
+        "event": "native_response",
+        "proposed_decisions": 1,
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "stop_reason": "tool_use",
+        "unused_decisions": 0
+      },
+      {
+        "at": "2026-10-07T09:51:03.192208+00:00",
+        "boundary": "output",
+        "call": 4,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "action": "NONE",
+        "assessments": [],
+        "at": "2026-10-07T09:51:03.328277+00:00",
+        "boundary": "output",
+        "call": 4,
+        "coverage": {
+          "guarded": 473,
+          "total": 473
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "request_id": "3f3410ce-7cac-42fe-bb35-3494211aa27f",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "at": "2026-10-07T09:51:03.329518+00:00",
+        "attempt": 1,
+        "event": "lambda_started",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "tool": "get_recent_logs"
+      },
+      {
+        "at": "2026-10-07T09:51:03.362820+00:00",
+        "attempt": 1,
+        "event": "lambda_finished",
+        "latency_ms": 33,
+        "request_id": "c6bfb223-5a01-49f2-a4b3-2915996ca003",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "tool": "get_recent_logs"
+      },
+      {
+        "at": "2026-10-07T09:51:03.363128+00:00",
+        "attempt": 2,
+        "event": "lambda_started",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "tool": "get_recent_logs"
+      },
+      {
+        "at": "2026-10-07T09:51:03.382277+00:00",
+        "attempt": 2,
+        "event": "lambda_finished",
+        "latency_ms": 19,
+        "request_id": "2c499ef2-198b-4ae0-974a-7ef71ca9340c",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "tool": "get_recent_logs"
+      },
+      {
+        "at": "2026-10-07T09:51:03.382799+00:00",
+        "boundary": "source",
+        "call": 5,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "action": "NONE",
+        "assessments": [],
+        "at": "2026-10-07T09:51:03.536063+00:00",
+        "boundary": "source",
+        "call": 5,
+        "coverage": {
+          "guarded": 467,
+          "total": 467
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "request_id": "feb6a304-eb44-40a1-972d-2913111a90d7",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "adapter_prompt_version": "p08-v4-native",
+        "at": "2026-10-07T09:51:03.559872+00:00",
+        "event": "prompt_built",
+        "response_phase": "update",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "system_sha256": "bc1c78d8fb520a8bd234d383c1018741328c9d79774ff972ffe5ce4cc30c089b",
+        "tool_schema_sha256": "ca928b185ce2e5621a0e296663daa2ae51ec1cf225727a8347a16b428f9fac34"
+      },
+      {
+        "at": "2026-10-07T09:51:03.595495+00:00",
+        "event": "token_count_unsupported",
+        "input_bytes": 7939,
+        "reserved_input_tokens": 300000,
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "at": "2026-10-07T09:51:03.595647+00:00",
+        "event": "model_started",
+        "input_tokens": null,
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "at": "2026-10-07T09:51:04.817691+00:00",
+        "event": "model_finished",
+        "input_tokens": 2450,
+        "output_tokens": 151,
+        "request_id": "993e2407-9f2b-43c4-89d5-aa455dd2ec25",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "at": "2026-10-07T09:51:04.818134+00:00",
+        "event": "native_response",
+        "proposed_decisions": 1,
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "stop_reason": "tool_use",
+        "unused_decisions": 0
+      },
+      {
+        "at": "2026-10-07T09:51:04.821110+00:00",
+        "boundary": "output",
+        "call": 6,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "action": "NONE",
+        "assessments": [],
+        "at": "2026-10-07T09:51:04.983254+00:00",
+        "boundary": "output",
+        "call": 6,
+        "coverage": {
+          "guarded": 478,
+          "total": 478
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "request_id": "87ceff4b-8ded-463c-9eeb-676defffd62d",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "at": "2026-10-07T09:51:04.984471+00:00",
+        "event": "retrieval_started",
+        "inventory_size": 2,
+        "knowledge_base_id": "XKVH8PLCHO",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "scope_sha256": "4469dbad2e21ab91a852f071cf2f1c489067972a63ab98d06a24f0067dd61df5"
+      },
+      {
+        "at": "2026-10-07T09:51:05.290364+00:00",
+        "event": "retrieval_finished",
+        "inventory_complete": true,
+        "knowledge_base_id": "XKVH8PLCHO",
+        "passages": [
+          {
+            "id": "rb-rollback-p1",
+            "score": 0.7683418691158295,
+            "sha256": "f0b2db64fdaa8adcc61fde844eaa460f968f00c88f08d60f30f809a01a6bcb4b",
+            "status": "current"
+          },
+          {
+            "id": "rb-tool-failures-p1",
+            "score": 0.5613087713718414,
+            "sha256": "f3c163bb445a91d65d039e155ce2f5fc25caefa2cfc0a66e0f126f4785f49cd7",
+            "status": "current"
+          }
+        ],
+        "request_id": "56b103d3-d022-4a15-a966-ad3fc573b7ac",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "at": "2026-10-07T09:51:05.290743+00:00",
+        "boundary": "source",
+        "call": 7,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "action": "NONE",
+        "assessments": [],
+        "at": "2026-10-07T09:51:05.500271+00:00",
+        "boundary": "source",
+        "call": 7,
+        "coverage": {
+          "guarded": 1481,
+          "total": 1481
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "request_id": "160fb844-2b64-4fe7-8784-5272d0070cef",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 2,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 2,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "at": "2026-10-07T09:51:05.501254+00:00",
+        "boundary": "source",
+        "call": 8,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "action": "NONE",
+        "assessments": [],
+        "at": "2026-10-07T09:51:05.649368+00:00",
+        "boundary": "source",
+        "call": 8,
+        "coverage": {
+          "guarded": 986,
+          "total": 986
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "request_id": "7438f90e-bf12-425b-81d3-f504090972ad",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "adapter_prompt_version": "p08-v4-native",
+        "at": "2026-10-07T09:51:05.664931+00:00",
+        "event": "prompt_built",
+        "response_phase": "update",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "system_sha256": "a91c1e9e9bc5f6dd09a0ccf6835ece54d154ad4b14a041cf10d333dac94d6f96",
+        "tool_schema_sha256": "bf5fdcb4eef9bcb3559684edd2a41f97aaae113882ff94e33d5fbe5a58bf9748"
+      },
+      {
+        "at": "2026-10-07T09:51:05.702374+00:00",
+        "event": "token_count_unsupported",
+        "input_bytes": 10286,
+        "reserved_input_tokens": 300000,
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "at": "2026-10-07T09:51:05.702536+00:00",
+        "event": "model_started",
+        "input_tokens": null,
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "at": "2026-10-07T09:51:06.626491+00:00",
+        "event": "model_finished",
+        "input_tokens": 3091,
+        "output_tokens": 124,
+        "request_id": "af402ba9-01b1-4f13-9b3a-4c8eb98561f9",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "at": "2026-10-07T09:51:06.627416+00:00",
+        "event": "native_response",
+        "proposed_decisions": 1,
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "stop_reason": "tool_use",
+        "unused_decisions": 0
+      },
+      {
+        "at": "2026-10-07T09:51:06.627800+00:00",
+        "boundary": "output",
+        "call": 9,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "action": "NONE",
+        "assessments": [],
+        "at": "2026-10-07T09:51:06.758572+00:00",
+        "boundary": "output",
+        "call": 9,
+        "coverage": {
+          "guarded": 438,
+          "total": 438
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "2",
+        "request_id": "4096dada-31f2-4c2f-8939-2bd35a5cb621",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "adapter_prompt_version": "p08-v4-native",
+        "at": "2026-10-07T09:51:06.774858+00:00",
+        "event": "prompt_built",
+        "response_phase": "final",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "system_sha256": "bc1c78d8fb520a8bd234d383c1018741328c9d79774ff972ffe5ce4cc30c089b",
+        "tool_schema_sha256": "c99ff2352769f59feda3c866066379bb56f5d0ab155bd68794bbfa46500212ba"
+      },
+      {
+        "at": "2026-10-07T09:51:06.813417+00:00",
+        "event": "token_count_unsupported",
+        "input_bytes": 11470,
+        "reserved_input_tokens": 300000,
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "at": "2026-10-07T09:51:06.813582+00:00",
+        "event": "model_started",
+        "input_tokens": null,
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "at": "2026-10-07T09:51:09.361493+00:00",
+        "event": "model_finished",
+        "input_tokens": 3497,
+        "output_tokens": 324,
+        "request_id": "7eada1aa-0527-4e85-824c-5da6b4d24048",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "at": "2026-10-07T09:51:09.362307+00:00",
+        "event": "native_response",
+        "proposed_decisions": 1,
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "stop_reason": "tool_use",
+        "unused_decisions": 0
+      },
+      {
+        "at": "2026-10-07T09:51:09.362842+00:00",
+        "event": "model_output_invalid",
+        "issues": [
+          "finish.investigation.next_check:meaningful_text_or_null"
+        ],
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "adapter_prompt_version": "p08-v4-native",
+        "at": "2026-10-07T09:51:09.377834+00:00",
+        "event": "prompt_built",
+        "response_phase": "final",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "system_sha256": "f6b38d273d13ffe7a72a17da991450331a88cc19c78db0df22691cff20608f8e",
+        "tool_schema_sha256": "c99ff2352769f59feda3c866066379bb56f5d0ab155bd68794bbfa46500212ba"
+      },
+      {
+        "at": "2026-10-07T09:51:09.421726+00:00",
+        "event": "token_count_unsupported",
+        "input_bytes": 11902,
+        "reserved_input_tokens": 300000,
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "at": "2026-10-07T09:51:09.421908+00:00",
+        "event": "model_started",
+        "input_tokens": null,
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "at": "2026-10-07T09:51:11.674015+00:00",
+        "event": "model_finished",
+        "input_tokens": 3581,
+        "output_tokens": 342,
+        "request_id": "053daebc-ef02-4bc7-b7f4-1aaf348ad569",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      {
+        "at": "2026-10-07T09:51:11.674496+00:00",
+        "event": "native_response",
+        "proposed_decisions": 1,
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+        "stop_reason": "tool_use",
+        "unused_decisions": 0
+      },
+      {
+        "at": "2026-10-07T09:51:11.674757+00:00",
+        "event": "model_output_invalid",
+        "issues": [
+          "finish.investigation.next_check:meaningful_text_or_null"
+        ],
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      }
+    ],
+    "guardrail_policy": {
+      "id": "a4aiug3xzh6e",
+      "version": "2"
+    },
+    "mode": "aws_live",
+    "reserved_usd": "0.75",
+    "result": {
+      "active_latency_ms": 10231,
+      "evidence": [
+        {
+          "collected_at": "2026-10-01T12:05:00Z",
+          "complete": true,
+          "content_hash": "19fdce4867c76f03895ca46f5e70641437478de0327ffceaf0ef5b8ec98e1992",
+          "evidence_id": "obs-005-health",
+          "payload": {
+            "dependency_state": "healthy",
+            "error_rate": 0.25,
+            "kind": "health",
+            "latency_p95_ms": 1700.0,
+            "observed_at": "2026-10-01T12:04:00Z",
+            "release": "release-42",
+            "service_id": "checkout-api"
+          },
+          "sanitized": true,
+          "source": "get_service_health",
+          "source_version": "fixtures-1.0.0"
+        },
+        {
+          "collected_at": "2026-10-01T12:05:00Z",
+          "complete": true,
+          "content_hash": "71a39f9b805d0ffdcbfdbc606b6e96d549d46a5da938836fbbd4a1f9e779e04d",
+          "evidence_id": "obs-005-changes",
+          "payload": {
+            "items": [
+              {
+                "change_id": "change-005",
+                "changed_at": "2026-10-01T11:55:00Z",
+                "kind": "deployment",
+                "release": "release-42",
+                "summary": "Checkout release-42 deployed; release-41 baseline error rate was 0.003."
+              }
+            ],
+            "kind": "changes",
+            "service_id": "checkout-api"
+          },
+          "sanitized": true,
+          "source": "get_recent_changes",
+          "source_version": "fixtures-1.0.0"
+        },
+        {
+          "collected_at": "2026-10-01T12:05:00Z",
+          "complete": true,
+          "content_hash": "ede9bfd04b44cfdd3ca8e1b4e8258a8aa7044e18d057ff9d0ac80a101d5bc6ae",
+          "evidence_id": "obs-005-logs",
+          "payload": {
+            "entries": [
+              {
+                "message": "release-42 checkout serializer raises TypeError; same requests succeeded on release-41.",
+                "observed_at": "2026-10-01T12:03:00Z"
+              }
+            ],
+            "kind": "logs",
+            "service_id": "checkout-api",
+            "truncated": false
+          },
+          "sanitized": true,
+          "source": "get_recent_logs",
+          "source_version": "fixtures-1.0.0"
+        },
+        {
+          "collected_at": "2026-10-01T12:05:00Z",
+          "complete": true,
+          "content_hash": "f0b2db64fdaa8adcc61fde844eaa460f968f00c88f08d60f30f809a01a6bcb4b",
+          "evidence_id": "kb-rb-rollback-p1",
+          "payload": {
+            "document_id": "rb-rollback",
+            "excerpt": "# Checkout release rollback\n\nScope: checkout-api sandbox only. A rollback proposal may target release-41 only when the current release is release-42, recent complete observations show elevated errors, dependencies are healthy, and logs corroborate a defect introduced by that deployment. Temporal correlation alone is insufficient. Read health, recent changes and logs. Health and relevant error observations must be no older than five minutes at investigation time. Changes can be collected over a bounded 120-minute window. If evidence is absent, contradictory, stale or dependencies are degraded, escalate for more evidence.\n\nThe investigator proposes; an independently authorized human approves the exact proposal hash before its expiry. Only the executor can conditionally update sandbox state. No shell command or real deployment is permitted. A receipt means a synthetic state transition, not recovery; obtain a separate subsequent health observation.",
+            "kind": "runbook",
+            "owner": "checkout-operations",
+            "passage_id": "rb-rollback-p1",
+            "service_id": "checkout-api",
+            "status": "current",
+            "valid_from": "2026-08-01T00:00:00Z",
+            "valid_until": "2027-01-01T00:00:00Z",
+            "version": "2.0.0"
+          },
+          "sanitized": true,
+          "source": "retrieve_runbook",
+          "source_version": "kb-corpus-1.0.0"
+        },
+        {
+          "collected_at": "2026-10-01T12:05:00Z",
+          "complete": true,
+          "content_hash": "f3c163bb445a91d65d039e155ce2f5fc25caefa2cfc0a66e0f126f4785f49cd7",
+          "evidence_id": "kb-rb-tool-failures-p1",
+          "payload": {
+            "document_id": "rb-tool-failures",
+            "excerpt": "# Diagnostic failure handling\n\nRetry a transient diagnostic failure at most once, counting it in the total tool budget of eight calls. The model budget is six calls and investigation deadline is 120 seconds; these are initial development bounds. If a required diagnostic remains unavailable, return incomplete or escalate and identify the missing check. Never invent a successful response, treat an error as healthy, or execute an unchecked fallback.",
+            "kind": "runbook",
+            "owner": "platform-operations",
+            "passage_id": "rb-tool-failures-p1",
+            "service_id": "checkout-api",
+            "status": "current",
+            "valid_from": "2026-08-01T00:00:00Z",
+            "valid_until": "2027-01-01T00:00:00Z",
+            "version": "1.0.0"
+          },
+          "sanitized": true,
+          "source": "retrieve_runbook",
+          "source_version": "kb-corpus-1.0.0"
+        }
+      ],
+      "investigation": {
+        "facts": [],
+        "hypotheses": [],
+        "justification": "aws_live controller: model_output_invalid",
+        "missing_information": [
+          "model_output_invalid"
+        ],
+        "next_check": "Operator review or fresh diagnostic evidence",
+        "outcome": "incomplete",
+        "run_id": "p08-8837696755219679320011adda0fff73d3314350"
+      },
+      "mode": "aws_live",
+      "provider_calls": 5,
+      "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+      "status": "failed",
+      "stop_reason": "model_output_invalid",
+      "trace": [
+        {
+          "branches": [],
+          "call": null,
+          "detail": "input: pass",
+          "event": "boundary_checked",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": {
+            "arguments": {
+              "service_id": "checkout-api"
+            },
+            "name": "get_service_health"
+          },
+          "detail": "attempt 1",
+          "event": "tool_attempt",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": null,
+          "detail": "source: pass",
+          "event": "boundary_checked",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": {
+            "arguments": {
+              "service_id": "checkout-api"
+            },
+            "name": "get_service_health"
+          },
+          "detail": "Validated observations collected",
+          "event": "tool_observed",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": {
+            "arguments": {
+              "service_id": "checkout-api",
+              "window_minutes": 60
+            },
+            "name": "get_recent_changes"
+          },
+          "detail": "attempt 1",
+          "event": "tool_attempt",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": null,
+          "detail": "source: pass",
+          "event": "boundary_checked",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": {
+            "arguments": {
+              "service_id": "checkout-api",
+              "window_minutes": 60
+            },
+            "name": "get_recent_changes"
+          },
+          "detail": "Validated observations collected",
+          "event": "tool_observed",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": null,
+          "detail": "Live model attempt 1",
+          "event": "provider_attempt",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": null,
+          "detail": "output: pass",
+          "event": "boundary_checked",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "filter": "errors",
+              "limit": 20,
+              "service_id": "checkout-api"
+            },
+            "name": "get_recent_logs"
+          },
+          "detail": "To identify any error messages or patterns that could indicate the source of the increased error rate.",
+          "event": "search_state",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "filter": "errors",
+              "limit": 20,
+              "service_id": "checkout-api"
+            },
+            "name": "get_recent_logs"
+          },
+          "detail": "attempt 1",
+          "event": "tool_attempt",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "filter": "errors",
+              "limit": 20,
+              "service_id": "checkout-api"
+            },
+            "name": "get_recent_logs"
+          },
+          "detail": "Transient failure counts against total budget",
+          "event": "tool_transient_failure",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "filter": "errors",
+              "limit": 20,
+              "service_id": "checkout-api"
+            },
+            "name": "get_recent_logs"
+          },
+          "detail": "attempt 2",
+          "event": "tool_attempt",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            }
+          ],
+          "call": null,
+          "detail": "source: pass",
+          "event": "boundary_checked",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "filter": "errors",
+              "limit": 20,
+              "service_id": "checkout-api"
+            },
+            "name": "get_recent_logs"
+          },
+          "detail": "Validated observations collected",
+          "event": "tool_observed",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            }
+          ],
+          "call": null,
+          "detail": "Live model attempt 1",
+          "event": "provider_attempt",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            }
+          ],
+          "call": null,
+          "detail": "output: pass",
+          "event": "boundary_checked",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-changes",
+                  "obs-005-logs"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "limit": 3,
+              "query": "rollback release-42",
+              "service_id": "checkout-api"
+            },
+            "name": "retrieve_runbook"
+          },
+          "detail": "To determine if the increased error rate is due to the deployment of release-42.",
+          "event": "search_state",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-changes",
+                  "obs-005-logs"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "limit": 3,
+              "query": "rollback release-42",
+              "service_id": "checkout-api"
+            },
+            "name": "retrieve_runbook"
+          },
+          "detail": "attempt 1",
+          "event": "tool_attempt",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-changes",
+                  "obs-005-logs"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            }
+          ],
+          "call": null,
+          "detail": "source: pass",
+          "event": "boundary_checked",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-changes",
+                  "obs-005-logs"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            }
+          ],
+          "call": null,
+          "detail": "source: pass",
+          "event": "boundary_checked",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-changes",
+                  "obs-005-logs"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "limit": 3,
+              "query": "rollback release-42",
+              "service_id": "checkout-api"
+            },
+            "name": "retrieve_runbook"
+          },
+          "detail": "Validated observations collected",
+          "event": "tool_observed",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-changes",
+                  "obs-005-logs"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            }
+          ],
+          "call": null,
+          "detail": "Live model attempt 1",
+          "event": "provider_attempt",
+          "phase": "update",
+          "round": 2
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-changes",
+                  "obs-005-logs"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            }
+          ],
+          "call": null,
+          "detail": "output: pass",
+          "event": "boundary_checked",
+          "phase": "update",
+          "round": 2
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-changes",
+                  "obs-005-logs"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            }
+          ],
+          "call": null,
+          "detail": "The two search rounds are exhausted. Set next_check to null. Report candidate evidence only; the controller will request the final decision next.",
+          "event": "search_state",
+          "phase": "update",
+          "round": 2
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-changes",
+                  "obs-005-logs"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            }
+          ],
+          "call": null,
+          "detail": "Live model attempt 1",
+          "event": "provider_attempt",
+          "phase": "final",
+          "round": 2
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-changes",
+                  "obs-005-logs"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            }
+          ],
+          "call": null,
+          "detail": "One format correction within existing budgets",
+          "event": "model_output_repair",
+          "phase": "final",
+          "round": 2
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-changes",
+                  "obs-005-logs"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            }
+          ],
+          "call": null,
+          "detail": "Live model attempt 2",
+          "event": "provider_attempt",
+          "phase": "final",
+          "round": 2
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-005-changes",
+                  "obs-005-logs"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            }
+          ],
+          "call": null,
+          "detail": "model_output_invalid",
+          "event": "stopped",
+          "phase": "final",
+          "round": 2
+        }
+      ],
+      "usage": {
+        "input_tokens": 14962,
+        "model_calls": 5,
+        "output_tokens": 1080,
+        "tool_calls": 5
+      },
+      "variant": "V2"
+    },
+    "retrieval": {
+      "corpus_version": "1.0.0",
+      "knowledge_base_id": "XKVH8PLCHO",
+      "scope": "frozen-scenario-document-inventory",
+      "search_type": "SEMANTIC"
+    },
+    "run_id": "p08-8837696755219679320011adda0fff73d3314350",
+    "schema_version": "p06-v1",
+    "settings": {
+      "limits": {
+        "candidates": 2,
+        "deadline_seconds": 120.0,
+        "expansion_rounds": 2,
+        "model_calls": 6,
+        "retries": 1,
+        "tool_calls": 8
+      },
+      "max_output_tokens": 1500,
+      "mode": "aws_live",
+      "model": "us.amazon.nova-lite-v1:0",
+      "temperature": 0.0
+    },
+    "synthetic_telemetry": true,
+    "usage_complete": true,
+    "worker_latency_ms": 13135
+  },
+  "error_category": null,
+  "transport_ms": 16046,
+  "session_stop_confirmed": true
+}

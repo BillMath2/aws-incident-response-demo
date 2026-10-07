@@ -1,0 +1,284 @@
+"""Freeze and execute one bounded development batch; retain every paid attempt."""
+
+import argparse
+import base64
+import json
+import sys
+from decimal import Decimal
+from pathlib import Path
+from time import monotonic
+
+import boto3
+from botocore.config import Config
+
+from incident_demo.contracts.base import content_hash
+from incident_demo.evaluation.harness import write_new
+from incident_demo.evaluation.live import (
+    MODEL_CENTS,
+    LivePlan,
+    LiveRecord,
+    create_plan,
+    decode_result,
+    export_review_packet,
+    report,
+    validate_plan,
+)
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "infra"))
+from budget import LEDGER, reserve  # noqa: E402
+from settings import load_config  # noqa: E402
+
+CONFIG = Config(connect_timeout=5, read_timeout=150, retries={"total_max_attempts": 1})
+
+
+class Runner:
+    def __init__(self):
+        self.sdk = boto3.Session(profile_name="incident-demo", region_name="us-east-2")
+        if self.sdk.client("sts", config=CONFIG).get_caller_identity()["Account"] != "498084841421":
+            raise ValueError("wrong AWS account")
+        self.outputs = json.loads((ROOT / "infra/cdk.out/live-outputs.json").read_text())[
+            "incident-demo-live"
+        ]
+        self.control = self.sdk.client("bedrock-agentcore-control", config=CONFIG)
+        self.runtime = self.sdk.client("bedrock-agentcore", config=CONFIG)
+        self.s3 = self.sdk.client("s3", config=CONFIG)
+        self.bucket = "incident-demo-artifacts-498084841421-us-east-2"
+        self.package = json.loads((ROOT / ".tools/p05-build/package.json").read_text())
+
+    def deployment(self):
+        endpoint = self.control.get_agent_runtime_endpoint(
+            agentRuntimeId=self.outputs["RuntimeIdOutput"], endpointName="smoke"
+        )
+        if endpoint["status"] != "READY" or endpoint.get("targetVersion") not in {
+            None,
+            endpoint["liveVersion"],
+        }:
+            raise ValueError("runtime endpoint is not stable and ready")
+        runtime = self.control.get_agent_runtime(
+            agentRuntimeId=self.outputs["RuntimeIdOutput"],
+            agentRuntimeVersion=endpoint["liveVersion"],
+        )
+        functions = self.sdk.client("lambda", config=CONFIG)
+        hashes = {}
+        for name in ("getservicehealthOutput", "getrecentchangesOutput", "getrecentlogsOutput"):
+            function = functions.get_function_configuration(FunctionName=self.outputs[name])
+            hashes[name] = function["CodeSha256"]
+        expected = base64.b64encode(bytes.fromhex(self.package["sha256"])).decode()
+        if any(digest != expected for digest in hashes.values()):
+            raise ValueError("diagnostic package differs from frozen local telemetry map")
+        environment = runtime["environmentVariables"]
+        return {
+            "runtime_arn": self.outputs["RuntimeArnOutput"],
+            "endpoint": "smoke",
+            "runtime_version": endpoint["liveVersion"],
+            "runtime_artifact": content_hash(runtime["agentRuntimeArtifact"]),
+            "runtime_configuration": content_hash(
+                {
+                    k: runtime[k]
+                    for k in (
+                        "roleArn",
+                        "environmentVariables",
+                        "networkConfiguration",
+                        "lifecycleConfiguration",
+                    )
+                }
+            ),
+            "diagnostics": content_hash(hashes),
+            "package_sha256": self.package["sha256"],
+            "knowledge_base_id": environment["KNOWLEDGE_BASE_ID"],
+            "guardrail_id": environment["GUARDRAIL_ID"],
+            "guardrail_version": environment["GUARDRAIL_VERSION"],
+        }
+
+    def recover(self, run_id):
+        key = f"runs/p06/{run_id}.json"
+        response = self.s3.list_objects_v2(Bucket=self.bucket, Prefix=key, MaxKeys=1)
+        if not any(o["Key"] == key for o in response.get("Contents", [])):
+            return None
+        with self.s3.get_object(Bucket=self.bucket, Key=key)["Body"] as stream:
+            raw = stream.read(196609)
+        if len(raw) > 196608:
+            raise ValueError("oversized recovered artifact")
+        return json.loads(raw)
+
+    def invoke(self, request, plan):
+        started, stopped, raw, error = monotonic(), False, None, None
+        try:
+            response = self.runtime.invoke_agent_runtime(
+                agentRuntimeArn=plan.deployment["runtime_arn"],
+                qualifier=plan.deployment["endpoint"],
+                runtimeSessionId=request.run_id,
+                contentType="application/json",
+                payload=request.model_dump_json().encode(),
+            )
+            with response["response"] as stream:
+                data = stream.read(196609)
+            if len(data) > 196608:
+                raise ValueError("oversized runtime response")
+            raw = json.loads(data)
+        except Exception as exc:
+            # Top-level transport boundary: preserve failure without logging provider text/secrets.
+            error = type(exc).__name__
+        finally:
+            try:
+                self.runtime.stop_runtime_session(
+                    agentRuntimeArn=plan.deployment["runtime_arn"],
+                    qualifier=plan.deployment["endpoint"],
+                    runtimeSessionId=request.run_id,
+                )
+                stopped = True
+            except Exception as exc:
+                error = type(exc).__name__
+        return raw, error, stopped, int((monotonic() - started) * 1000)
+
+
+def execute_batch(root, plan, directory, runner, maximum):
+    validate_plan(root, plan, runner.deployment(), runner.package["development_telemetry"])
+    directory.mkdir(parents=True, exist_ok=True)
+    manifest_path = directory / "manifest.json"
+    if manifest_path.exists():
+        if content_hash(json.loads(manifest_path.read_text())) != content_hash(plan):
+            raise ValueError("output directory belongs to another plan")
+    else:
+        write_new(manifest_path, plan.model_dump(mode="json"))
+    # A process lock prevents local overlap. The runtime also enforces a cloud lease.
+    with (directory / ".runner.lock").open("x"):
+        pass
+    completed, batch = 0, None
+    try:
+        for row in plan.trials:
+            target = directory / (row.trial.trial_id + ".json")
+            if target.exists():
+                continue
+            request = row.request
+            if completed >= maximum or batch not in {None, request.batch_id}:
+                break
+            batch = request.batch_id
+            claim = directory / (row.trial.trial_id + ".claim.json")
+            if claim.exists():
+                # Unknown paid outcomes are never silently invoked a second time.
+                raw = runner.recover(request.run_id)
+                result = LiveRecord(
+                    plan_sha256=content_hash(plan),
+                    trial_id=row.trial.trial_id,
+                    run_id=request.run_id,
+                    status="response" if raw else "unknown",
+                    response=raw,
+                    error_category="interrupted_attempt",
+                    transport_ms=0,
+                    session_stop_confirmed=False,
+                )
+                write_new(target, result.model_dump(mode="json"))
+                raise RuntimeError("interrupted attempt retained; inspect before continuing")
+            write_new(claim, {"run_id": request.run_id, "plan_sha256": content_hash(plan)})
+            reserve(request.run_id, Decimal(MODEL_CENTS[request.settings.model]) / 100)
+            raw, error, stopped, elapsed = runner.invoke(request, plan)
+            record = LiveRecord(
+                plan_sha256=content_hash(plan),
+                trial_id=row.trial.trial_id,
+                run_id=request.run_id,
+                status="response" if raw else "transport_failure",
+                response=raw,
+                error_category=error,
+                transport_ms=elapsed,
+                session_stop_confirmed=stopped,
+            )
+            write_new(target, record.model_dump(mode="json"))
+            result = decode_result(row, record)
+            print(
+                json.dumps(
+                    {
+                        "trial": row.trial.trial_id,
+                        "status": result.status if result else record.status,
+                        "outcome": result.investigation.outcome if result else None,
+                    }
+                ),
+                flush=True,
+            )
+            completed += 1
+            if not stopped or result is None:
+                raise RuntimeError("incomplete usage/transport; retained attempt and stopped batch")
+    finally:
+        (directory / ".runner.lock").unlink()
+    return completed
+
+
+def budget_plan():
+    approved = load_config()["budget"]
+    used = sum(
+        (Decimal(r["reserved_usd"]) for r in json.loads(LEDGER.read_text())["reservations"]),
+        Decimal(0),
+    )
+    return {
+        "approved_total_usd": str(approved["total"]),
+        "per_batch_usd": str(approved["per_batch"]),
+        "retained_local_reservations_usd": str(used),
+        "infrastructure_reserve_usd": str(approved["infrastructure_reserve"]),
+        "remaining_experiment_allowance_usd": str(
+            Decimal(str(approved["total"]))
+            - used
+            - Decimal(str(approved["infrastructure_reserve"]))
+        ),
+        "full_matrix_reservation_usd": "171.00",
+        "base_development_24_reservation_usd": "18.00",
+        "comparison_development_8_reservation_usd": "20.00",
+        "judge_allowance_proposed_usd": "3.00",
+        "full_program_before_contingency_usd": str(used + Decimal("222")),
+        "note": (
+            "Conservative retained reservations, not predicted AWS charges; "
+            "no ledger resets or refunds."
+        ),
+    }
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "action", choices=["budget", "freeze-development", "run", "report", "review-packet"]
+    )
+    parser.add_argument("--plan", type=Path)
+    parser.add_argument("--directory", type=Path)
+    parser.add_argument("--output", type=Path)
+    parser.add_argument("--reviews", type=Path)
+    parser.add_argument("--max-trials", type=int, default=1)
+    args = parser.parse_args()
+    if not 1 <= args.max_trials <= 13:
+        parser.error("--max-trials must be 1 through 13; execution stops at one $10 batch")
+    if args.action == "budget":
+        data = budget_plan()
+        if args.output:
+            write_new(args.output, data)
+        print(json.dumps(data, indent=2))
+        return
+    if args.action == "freeze-development":
+        if not args.output:
+            parser.error("--output required")
+        runner = Runner()
+        plan = create_plan(
+            ROOT, "development", runner.deployment(), runner.package["development_telemetry"]
+        )
+        write_new(args.output, plan.model_dump(mode="json"))
+        print(json.dumps({"plan_sha256": content_hash(plan), "trials": len(plan.trials)}))
+        return
+    if not args.plan or not args.directory:
+        parser.error("--plan and --directory required")
+    plan = LivePlan.model_validate_json(args.plan.read_bytes())
+    if args.action == "run":
+        print(
+            json.dumps(
+                {"completed": execute_batch(ROOT, plan, args.directory, Runner(), args.max_trials)}
+            )
+        )
+    elif args.action == "report":
+        if not args.output:
+            parser.error("--output required")
+        write_new(args.output, report(ROOT, plan, args.directory, args.reviews))
+    elif args.action == "review-packet":
+        if not args.output:
+            parser.error("--output required")
+        export_review_packet(ROOT, plan, args.directory, args.output)
+
+
+if __name__ == "__main__":
+    main()

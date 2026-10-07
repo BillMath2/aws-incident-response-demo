@@ -1,0 +1,38 @@
+[
+  {
+    "sample": "canonical-evidence",
+    "sha256": "eea7d6bd4432928c4a8672ec8f20a9c11e6aa0b60c6ff3ed0990dd597f80d75a",
+    "characters": 1093,
+    "allowed": false
+  },
+  {
+    "sample": "canonical-evidence-repeat",
+    "sha256": "eea7d6bd4432928c4a8672ec8f20a9c11e6aa0b60c6ff3ed0990dd597f80d75a",
+    "characters": 1093,
+    "allowed": false
+  },
+  {
+    "sample": "pydantic-evidence",
+    "sha256": "69687fb7c28d3df64a35a3e62ab8f92680877d5affb1eb12e3c35b426ca7ef52",
+    "characters": 1093,
+    "allowed": true
+  },
+  {
+    "sample": "plain-excerpt",
+    "sha256": "7f0830c92f759528676ba6d6fc9a49af02a2d778c41cb5fa2f6788e7225a5b32",
+    "characters": 551,
+    "allowed": false
+  },
+  {
+    "sample": "attack-control",
+    "sha256": "ebd10ace01575563370f221f783ad0a1956c4fe9b90df15f9d4ea6aea8f2a34b",
+    "characters": 172,
+    "allowed": false
+  },
+  {
+    "sample": "canary-control",
+    "sha256": "4f38e1d75752b67f015cd6803097a5862b1f6e38de4147fa7cdf9536b4ce4d62",
+    "characters": 45,
+    "allowed": false
+  }
+]

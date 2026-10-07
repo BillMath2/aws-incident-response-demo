@@ -1,0 +1,124 @@
+{
+  "at": "2026-10-06T16:18:52.826147+00:00",
+  "artifact_checks": [
+    {
+      "trial_id": "development-case-001-v0-lite-r1",
+      "s3_key": "runs/p06/p08-c8c2c0774ccc0fb3ac8e61dc6a058a3e7a391f2e.json",
+      "sha256": "f610d02edee15ade0e4dad1983a4f27d089acd5c512443a03f16bd1492ffc876",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true
+    },
+    {
+      "trial_id": "development-case-001-v1-lite-r1",
+      "s3_key": "runs/p06/p08-4e5059f06f01b022af815b7ed68423e1909b313e.json",
+      "sha256": "6c0c451eb41a6daf6617f138252ed75a50f4d959354133eab402a8848b2b190c",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true
+    },
+    {
+      "trial_id": "development-case-001-v2-lite-r1",
+      "s3_key": "runs/p06/p08-bebd4b8bc8434235ba2619818589d15df8754b21.json",
+      "sha256": "66ff76bc081952878371040d669d85a18829be17750f86490a5ff3db4d4cacf6",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true
+    },
+    {
+      "trial_id": "development-case-002-v0-lite-r1",
+      "s3_key": "runs/p06/p08-60293b5ee22b7d32bc16dc459d449957a4fc2bc3.json",
+      "sha256": "50ab16bcc4c3588f7b005e2b1a8b2cbbe38f3996dfbb4636f48c10599678c54d",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true
+    },
+    {
+      "trial_id": "development-case-002-v1-lite-r1",
+      "s3_key": "runs/p06/p08-d7a3b68419b4b4ce2b009c30b6b493d3765bcd4e.json",
+      "sha256": "f763337c0c5f07e9931a69c677ec138b255ff2f93c5d2e93a416e2d2e1f0fa33",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true
+    },
+    {
+      "trial_id": "development-case-002-v2-lite-r1",
+      "s3_key": "runs/p06/p08-8310f9d5e9ffb73ae4898067de340ed9b828b504.json",
+      "sha256": "056bb9e29e53ea37577dd2b67728fd672c0c0081d5f7b9987a205f8d194dbeb8",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true
+    },
+    {
+      "trial_id": "development-case-003-v0-lite-r1",
+      "s3_key": "runs/p06/p08-8f2a45fe6137aaa8f2614f13ea5a3c2f8f636a49.json",
+      "sha256": "5465b17f714a9f7a59712c2b1979287d8805c28dc63de326e7e30d112b3b2696",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true
+    },
+    {
+      "trial_id": "development-case-003-v1-lite-r1",
+      "s3_key": "runs/p06/p08-14e66e39e2e4bbbb73c013d38ff95c115069f9f0.json",
+      "sha256": "3bfe2b4936cf7aca8bb2c68b44bff776713cf3e3ea583d1946c50c7d71cdacb2",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true
+    },
+    {
+      "trial_id": "development-case-003-v2-lite-r1",
+      "s3_key": "runs/p06/p08-1de2cf1063ced39403b1339a5c1e6e6dbc426b4c.json",
+      "sha256": "95fa9bdfbd98d78cfcfb359613c843d9699ea34f46ad0a69a91cc6ca411b7366",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true
+    },
+    {
+      "trial_id": "development-case-004-v0-lite-r1",
+      "s3_key": "runs/p06/p08-5bd8acb350dbc6f6291a9af8bfd27f3526836f95.json",
+      "sha256": "acfccc4985c5f24ea2ae3f0cdf7be8b6255d5c5253d3bfbc64910c7bf1581533",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true
+    },
+    {
+      "trial_id": "development-case-004-v1-lite-r1",
+      "s3_key": "runs/p06/p08-3ec0bde79b9152be2de2807e446623a1b5563370.json",
+      "sha256": "068833d01968717eea68c3bd5542f3093a75b2e775d6f5ca964ab790c4bcce83",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true
+    },
+    {
+      "trial_id": "development-case-004-v2-lite-r1",
+      "s3_key": "runs/p06/p08-ce539fee36cdc1ef021fd3d682064e94e9f41d29.json",
+      "sha256": "9ccb849c171a9979479168eaebaad65edf3822f73bc2bac5be20c1315c4ebb9c",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true
+    }
+  ],
+  "guardrail_usage_units": {
+    "automatedReasoningPolicies": 0,
+    "automatedReasoningPolicyUnits": 0,
+    "contentPolicyUnits": 148,
+    "contextualGroundingPolicyUnits": 0,
+    "sensitiveInformationPolicyFreeUnits": 148,
+    "sensitiveInformationPolicyUnits": 0,
+    "topicPolicyUnits": 0,
+    "wordPolicyUnits": 0
+  },
+  "budget": {
+    "global": {
+      "reserved_cents": "2335",
+      "pk": "global",
+      "lease_until": "0",
+      "lease_owner": "p08-ce539fee36cdc1ef021fd3d682064e94e9f41d29"
+    },
+    "batch#p08-development-f02b8e3526-b01": {
+      "pk": "batch#p08-development-f02b8e3526-b01",
+      "reserved_cents": "900"
+    }
+  },
+  "deployment_matches_frozen": true
+}

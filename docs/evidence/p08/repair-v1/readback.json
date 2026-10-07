@@ -1,0 +1,94 @@
+{
+  "at": "2026-10-07T01:00:48.847853+00:00",
+  "artifact_checks": [
+    {
+      "trial_id": "repair-case-001-v2-lite-r1",
+      "s3_key": "runs/p06/p08-3253d319c5b955c7ee0951ea56b2db8ebded1861.json",
+      "sha256": "8190c73d9e6dced04d9632b2f70e9317971475654b167b450e636fa3467bd8be",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true
+    },
+    {
+      "trial_id": "repair-case-002-v2-lite-r1",
+      "s3_key": "runs/p06/p08-c69802d37966c235b2325eb284ef1ad5be8207c8.json",
+      "sha256": "141b5b80fc31d1834e4fedf0a76c32d4c350d941b9f744dfc0a31f16065080c4",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true
+    },
+    {
+      "trial_id": "repair-case-003-v2-lite-r1",
+      "s3_key": "runs/p06/p08-04d5ebf66397b18b183015d0c1e4e0d92ffb66ba.json",
+      "sha256": "288de6a5cb783711162d47b72b07ee0c684cfd6f0c3b7ddb233ad9df0075ff15",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true
+    },
+    {
+      "trial_id": "repair-case-004-v2-lite-r1",
+      "s3_key": "runs/p06/p08-20f0cdf9020d0556afa1c80c4f2967fcd4285281.json",
+      "sha256": "74387c68e149db11419bcc75fe2c612bab324b3ff26cf6263f66e4286e1d6450",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true
+    },
+    {
+      "trial_id": "repair-case-005-v2-lite-r1",
+      "s3_key": "runs/p06/p08-d7205a369e4f6a42535691271e41dde291b1275b.json",
+      "sha256": "07dc151dcd1c21b7a401eba227850ad775e7e4988ec17ba05d66f81fab641c32",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true
+    },
+    {
+      "trial_id": "repair-case-006-v2-lite-r1",
+      "s3_key": "runs/p06/p08-c4a8ecb9645ead7238ef118b70436ed7d2553ebf.json",
+      "sha256": "f0b0bc55e976f6b50d642ceee53c6bccd65f69da64f87367a94537c47d9993ea",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true
+    },
+    {
+      "trial_id": "repair-case-007-v2-lite-r1",
+      "s3_key": "runs/p06/p08-44c59e73262a4d4bd0e2c1cb8edcd9f2f38c47b7.json",
+      "sha256": "ec636edc97529543fba246284896e51e2de4f83dee37d7ab51584916eb2cbc49",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true
+    },
+    {
+      "trial_id": "repair-case-008-v2-lite-r1",
+      "s3_key": "runs/p06/p08-e0dea31e612b1b4d5a214c77871e68acab2ff268.json",
+      "sha256": "b1beda411f33c5972212cfe778469ec36b9bb77e66e95b749e7f8052ad665b80",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true
+    }
+  ],
+  "budget": {
+    "global": {
+      "pk": "global",
+      "reserved_cents": "3835",
+      "lease_owner": "p08-e0dea31e612b1b4d5a214c77871e68acab2ff268",
+      "lease_until": "0"
+    },
+    "batch#p08-repair-6265b3f51f-b01": {
+      "pk": "batch#p08-repair-6265b3f51f-b01",
+      "reserved_cents": "600"
+    }
+  },
+  "guardrail_usage_units": {
+    "automatedReasoningPolicies": 0,
+    "automatedReasoningPolicyUnits": 0,
+    "contentPolicyUnits": 100,
+    "contextualGroundingPolicyUnits": 0,
+    "sensitiveInformationPolicyFreeUnits": 100,
+    "sensitiveInformationPolicyUnits": 0,
+    "topicPolicyUnits": 0,
+    "wordPolicyUnits": 0
+  },
+  "deployment_matches_frozen": true,
+  "stack_status": "UPDATE_COMPLETE",
+  "baseline_evidence_unchanged": true
+}

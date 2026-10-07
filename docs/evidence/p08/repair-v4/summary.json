@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-07T09:57:06.692835+00:00",
+  "runtime_version": "12",
+  "mechanical_candidates": 4,
+  "failures": 4,
+  "human_reviews": 0,
+  "format_corrections_attempted": 3,
+  "successful_format_corrections": 0,
+  "failed_cases": {
+    "001": "punctuation-only next_check repeated after correction",
+    "002": "candidate identity changed",
+    "005": "punctuation-only next_check repeated after correction",
+    "008": "punctuation-only next_check repeated after correction"
+  },
+  "known_inference_estimate_usd": "0.0075309600",
+  "local_reservations_usd": "58.70",
+  "status": "Historical development experiment; no success claim for added correction loop.",
+  "root_cause_found_after_batch": "Pinned LangChain bind_tools conversion strips nullable union branches, making required next_check a string on the actual wire. Candidate repair-v5 passes native toolConfig directly; transport test verifies preservation."
+}

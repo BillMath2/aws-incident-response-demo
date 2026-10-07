@@ -1,0 +1,620 @@
+[
+  {
+    "event": "guardrail_started",
+    "boundary": "input",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 1
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "input",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 1,
+    "action": "GUARDRAIL_INTERVENED",
+    "coverage": {
+      "guarded": 107,
+      "total": 107
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "assessments": [
+      {
+        "policy": "regexes",
+        "action": "BLOCKED"
+      }
+    ],
+    "request_id": "7a373e19-3a26-4d20-8372-092ec03ca9c9"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "input",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "999999",
+    "call": 1
+  },
+  {
+    "event": "guardrail_unavailable",
+    "boundary": "input",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "999999",
+    "call": 1,
+    "category": "ValidationException"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "input",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 1
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "input",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 1,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 154,
+      "total": 154
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "assessments": [],
+    "request_id": "3eb71f7d-3f34-4b44-8296-d6059e18365d"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 2
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 2,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 436,
+      "total": 436
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "assessments": [],
+    "request_id": "a2858089-ed6b-4629-bc6b-df70445c6cd0"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 3
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 3,
+    "action": "GUARDRAIL_INTERVENED",
+    "coverage": {
+      "guarded": 463,
+      "total": 463
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "assessments": [
+      {
+        "policy": "regexes",
+        "action": "BLOCKED"
+      }
+    ],
+    "request_id": "09711d47-e513-4b40-99cc-6ee5b51cab75"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "input",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 1
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "input",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 1,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 154,
+      "total": 154
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "assessments": [],
+    "request_id": "1a812418-a719-44b7-90ca-7a9748794ee1"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "999999",
+    "call": 1
+  },
+  {
+    "event": "guardrail_unavailable",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "999999",
+    "call": 1,
+    "category": "ValidationException"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "input",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 1
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "input",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 1,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 154,
+      "total": 154
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "assessments": [],
+    "request_id": "c1f2a357-eb74-4546-8c37-0c00fbb06052"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 2
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 2,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 436,
+      "total": 436
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "assessments": [],
+    "request_id": "4f707117-3a5c-433c-89b8-bcd48c69216b"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 3
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 3,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 507,
+      "total": 507
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "assessments": [],
+    "request_id": "6306f5d5-7384-486f-9f88-359d6816a391"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 4
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 4,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 467,
+      "total": 467
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "assessments": [],
+    "request_id": "cb4f6421-e4fc-4fa3-a8a6-498713092a4d"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 5
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 5,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 1470,
+      "total": 1470
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 2,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 2,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "assessments": [],
+    "request_id": "57508310-4471-4053-9d91-4ab3396bfbaa"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 6
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 6,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 965,
+      "total": 965
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "assessments": [],
+    "request_id": "6fad0249-a3a1-4795-80ae-c9276afac6c5"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "output",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 7
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "output",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 7,
+    "action": "GUARDRAIL_INTERVENED",
+    "coverage": {
+      "guarded": 879,
+      "total": 879
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "assessments": [
+      {
+        "policy": "regexes",
+        "action": "BLOCKED"
+      }
+    ],
+    "request_id": "53d724de-3402-4c35-8066-065d3196f946"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "input",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 1
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "input",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 1,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 154,
+      "total": 154
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "assessments": [],
+    "request_id": "7bfea813-2d62-4cb0-a193-a26d38b5d912"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 2
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 2,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 436,
+      "total": 436
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "assessments": [],
+    "request_id": "9a7a53f1-d35a-4291-a696-c0ecdec9e9ec"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 3
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 3,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 507,
+      "total": 507
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "assessments": [],
+    "request_id": "e9c77087-b47d-4585-a4d6-a3806edd2f32"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 4
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 4,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 467,
+      "total": 467
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "assessments": [],
+    "request_id": "be4d4771-b8a6-4112-95c7-a6e694faef95"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 5
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 5,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 1470,
+      "total": 1470
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 2,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 2,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "assessments": [],
+    "request_id": "d8f0348c-880d-409d-890d-46de27d639dc"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 6
+  },
+  {
+    "event": "guardrail_finished",
+    "boundary": "source",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "2",
+    "call": 6,
+    "action": "NONE",
+    "coverage": {
+      "guarded": 965,
+      "total": 965
+    },
+    "usage": {
+      "topicPolicyUnits": 0,
+      "contentPolicyUnits": 1,
+      "wordPolicyUnits": 0,
+      "sensitiveInformationPolicyUnits": 0,
+      "sensitiveInformationPolicyFreeUnits": 1,
+      "contextualGroundingPolicyUnits": 0,
+      "automatedReasoningPolicyUnits": 0,
+      "automatedReasoningPolicies": 0
+    },
+    "assessments": [],
+    "request_id": "1236b1f6-72fe-4109-88ee-fd93d6434974"
+  },
+  {
+    "event": "guardrail_started",
+    "boundary": "output",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "999999",
+    "call": 1
+  },
+  {
+    "event": "guardrail_unavailable",
+    "boundary": "output",
+    "guardrail_id": "a4aiug3xzh6e",
+    "guardrail_version": "999999",
+    "call": 1,
+    "category": "ValidationException"
+  }
+]

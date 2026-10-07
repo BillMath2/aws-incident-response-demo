@@ -2,10 +2,33 @@
 
 Date: October 3, 2026  
 Prepared for: Bill Mathers  
-Status: P01-P03 locally verified; P04-P07 AWS integration, boundary and durable workflow gates verified in Ohio; P08-P10 remain planned; model quality remains unverified
+Status: P01-P03 locally verified; P04-P07 AWS gates verified in Ohio; P08 baseline and five repairs recorded (64 live development attempts, $250 total budget approved); owner accepts known reasoning limitations for the demo; full evaluation remains incomplete; P09-P10 planned
 
 Project destination: C:\Github\aws-incident-response-demo  
 Target role: [Duke job description](DukeJob.txt)
+
+P08 update (October 7, 2026): after Bill explicitly approved the HIGH-to-MEDIUM prompt-attack
+sensitivity change and all boundary checks passed, runtime 11 / Guardrail 2 ran the third V2
+repair batch: six mechanical candidates and two schema failures. The previous source-filter and
+candidate-selection failures cleared; factual quality remains unverified. The code passed 195
+application / 21 infrastructure tests. Reservations are $52.70 of the approved $250. No held-out,
+model-comparison or judge work ran. See [P08 acceptance](p08-acceptance.md) for retained evidence,
+human-review needs and the remaining reservation shortfall.
+
+Latest P08 update: runtime 13 / Guardrail 2 completed the fifth V2 repair with eight mechanical
+candidates and no format corrections. A real LangChain transport test identified null stripping
+in the SDK's tool conversion; native toolConfig now preserves the required nullable schema.
+The fourth repair's four candidates/four failures remain retained. **206 application tests** pass.
+Human semantic review and model quality remain unverified; case 006 even escalates before
+retrieving the stale guidance. Reservations are $64.70, with the $250 ceiling unchanged.
+The larger evaluation needs budget/scope reconciliation. No held-out or judge work has run.
+
+Owner decision (October 7, 2026): Bill accepts the remaining reasoning issues for this synthetic
+demo. Further paid reasoning-polish batches are no longer a demo priority, and these issues
+alone do not block preparing P09's operator screen and walkthrough. Existing safety checks,
+explicit action approval and spending limits remain in place. This does not mark the full
+P08 evaluation complete or supply formal factual/citation labels. See the
+[decision record](evidence/p08/demo-limitations-acceptance-2026-10-07.json).
 
 Implementation update (October 3, 2026): P01 now has a pinned local environment, shared contracts
 and JSON Schemas, eight versioned runbooks, twenty frozen cases (eight development / twelve
@@ -36,8 +59,13 @@ no changes and stack drift is IN_SYNC. See [P05 acceptance](p05-acceptance.md) a
 [live runbook](p05-live-runbook.md). Diagnostics remain synthetic. Model quality, retrieval,
 Guardrail coverage and durable cloud approval/action isolation remain later gates.
 P05's conservative reservations require a budget reconciliation/replan before the P08 matrix;
-the approved $50 total / $10 batch allowance has not increased.
+at P05 completion the approved allowance remained $50 total / $10 per batch.
 The design and estimates below are retained as the planning baseline.
+
+P08 budget amendment (October 6, 2026): Bill approved a $250 total ceiling with the existing
+$10 batch limit and $10 infrastructure reserve. Prior reservations are retained. The next
+step is to review the now-complete frozen development baseline before model selection
+and held-out evaluation. See the [approval record](evidence/p08/budget-approval-2026-10-06.json).
 
 P06 update (October 5, 2026): eight frozen runbooks are indexed in the Ohio S3 Vectors
 Knowledge Base. Live retrieval verifies passage metadata and hashes. Numbered Bedrock
@@ -326,11 +354,24 @@ The implemented AWS demo is complete only when:
 - Project-owned resources are inventoried before cleanup; retained evidence is exported; deletion and any remaining billable resources are verified.
 - Unresolved limitations are stated, including the synthetic workload, small evaluation set, and absence of production customer operations.
 
-The current implementation package is P07: event workflow and durable approval/action isolation.
-The durable control plane, signed CLI and infrastructure passed 45 live control checks and
-33 readback/permission checks. The real AgentCore investigation escalated without action;
-the final deployment diff is clean. See [P07 acceptance](p07-acceptance.md) and the
-[P07 runbook](p07-live-runbook.md). P08 has not started.
+The current implementation package is P08: controlled experiments and human review.
+All 24 frozen development trials are retained: seven mechanical candidates awaiting human review
+and 17 mechanical failures. Runtime, prompts and corpus remained unchanged between batches.
+Bill agreed with those 17 failure classifications. A separate eight-case V2 repair on runtime
+version 9 fixed missing runbook collection in that batch, but produced one mechanical candidate
+with a narrative error and seven failures. Retrieval/scenario alignment and model quality remain
+unresolved; the original baseline and repair results are separate. Reservations total $38.45.
+The second repair (runtime version 10) aligns live KB retrieval with the frozen scenario document
+inventories and corrects the nullable selection schema. Five of eight results are mechanical
+candidates, three fail, and factual concerns still require human review. Retained reservations
+now total $44.45. A fair rerun of all strategies under these corrected settings plus the remaining
+full evaluation projects $260.45 in reservations, exceeding the $250 ceiling; budget/scope
+reconciliation is required before the larger evaluation. No held-out inference has run.
+The budget increase is approved. Human review, the second-model comparison, final preselection, 144 held-out
+investigations and 12 judge cases remain outstanding. See [P08 acceptance](p08-acceptance.md)
+and the [P08 runbook](p08-evaluation-runbook.md). P08 is not green.
+P07 passed 45 live control checks and 33 readback/permission checks, with a clean final deployment
+diff. See [P07 acceptance](p07-acceptance.md) and the [P07 runbook](p07-live-runbook.md).
 Gateway access logs are explicitly deferred after automatic approval review rejected account-level
 log-delivery permissions; private Lambda request audits and API metrics are the narrower alternative.
 P06 verifies retrieval and explicit filtering in Ohio; it does not satisfy the workflow or

@@ -1,0 +1,130 @@
+{
+  "at": "2026-10-07T10:04:48.821555+00:00",
+  "runtime_version": "13",
+  "guardrail_version": "2",
+  "artifact_checks": [
+    {
+      "trial_id": "repair-case-001-v2-lite-r1",
+      "s3_key": "runs/p06/p08-5b7ce7d844dbbb7fe9815c25ea910c0eabed38e1.json",
+      "sha256": "785ec7d2afe8fe670015adbb91fdb73855d69a599ca19e40ab49bd5fbe599172",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "retrieval_performed": true,
+      "retrieval_matches_frozen_inventory": true,
+      "format_repairs": 0,
+      "provider_calls": 4,
+      "wire_schema_audited": true,
+      "next_check_null": true
+    },
+    {
+      "trial_id": "repair-case-002-v2-lite-r1",
+      "s3_key": "runs/p06/p08-9eba72a6e82f59feaeaf00ddbc9b3f4fcda902ff.json",
+      "sha256": "bc2812268d2161f904c777939b5967907ebaa853e1857e731b35f43097552176",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "retrieval_performed": true,
+      "retrieval_matches_frozen_inventory": true,
+      "format_repairs": 0,
+      "provider_calls": 4,
+      "wire_schema_audited": true,
+      "next_check_null": true
+    },
+    {
+      "trial_id": "repair-case-003-v2-lite-r1",
+      "s3_key": "runs/p06/p08-b162e891ffec67d1d0e4310122b5d91c8a1cb21b.json",
+      "sha256": "ce500943b4f8727c88ab82277898a306aa7250995e23a1ceb9cbc3198e57920c",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "retrieval_performed": true,
+      "retrieval_matches_frozen_inventory": true,
+      "format_repairs": 0,
+      "provider_calls": 4,
+      "wire_schema_audited": true,
+      "next_check_null": false
+    },
+    {
+      "trial_id": "repair-case-004-v2-lite-r1",
+      "s3_key": "runs/p06/p08-4378776e2d2fc27be64498e95802b922fa557b1f.json",
+      "sha256": "39022de2b96f1e881c64103f1ba27b2b5c7630dd0620eed7867d8c5538a7082c",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "retrieval_performed": true,
+      "retrieval_matches_frozen_inventory": true,
+      "format_repairs": 0,
+      "provider_calls": 4,
+      "wire_schema_audited": true,
+      "next_check_null": true
+    },
+    {
+      "trial_id": "repair-case-005-v2-lite-r1",
+      "s3_key": "runs/p06/p08-e16ae2d4ccd09cfa93c3656484e740d4d4354de1.json",
+      "sha256": "836e23181022f9b675dc8450396a198cbcf204b64318a5e12aab786a803bffa0",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "retrieval_performed": true,
+      "retrieval_matches_frozen_inventory": true,
+      "format_repairs": 0,
+      "provider_calls": 4,
+      "wire_schema_audited": true,
+      "next_check_null": true
+    },
+    {
+      "trial_id": "repair-case-006-v2-lite-r1",
+      "s3_key": "runs/p06/p08-70e198f3061a2fd7fa320a10584e33925612cb4d.json",
+      "sha256": "d1ea7cae0593dca05ea14c14b2ab6ef308bfda046ff544f7161ed674ba429f4c",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "retrieval_performed": false,
+      "retrieval_matches_frozen_inventory": null,
+      "format_repairs": 0,
+      "provider_calls": 3,
+      "wire_schema_audited": true,
+      "next_check_null": true
+    },
+    {
+      "trial_id": "repair-case-007-v2-lite-r1",
+      "s3_key": "runs/p06/p08-8751a0b783380d23919f72eac0cf2043ecc9b666.json",
+      "sha256": "65f5e624af82abdfd3da88175716706a38927a747fbbfa4949c638b82bc63eb5",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "retrieval_performed": true,
+      "retrieval_matches_frozen_inventory": true,
+      "format_repairs": 0,
+      "provider_calls": 4,
+      "wire_schema_audited": true,
+      "next_check_null": true
+    },
+    {
+      "trial_id": "repair-case-008-v2-lite-r1",
+      "s3_key": "runs/p06/p08-92cb4b6297e2022943d73b81cac3177a5012c105.json",
+      "sha256": "3d79e9fe5c0ca93a3a232ac48cba1b9fa6f32626637667f8a15cc15ac286c19c",
+      "matched": true,
+      "session_stop_confirmed": true,
+      "usage_complete": true,
+      "retrieval_performed": true,
+      "retrieval_matches_frozen_inventory": true,
+      "format_repairs": 0,
+      "provider_calls": 4,
+      "wire_schema_audited": true,
+      "next_check_null": true
+    }
+  ],
+  "cloud_budget": {
+    "lease_owner": "p08-92cb4b6297e2022943d73b81cac3177a5012c105",
+    "pk": "global",
+    "reserved_cents": "6460",
+    "lease_until": "0"
+  },
+  "stacks": {
+    "incident-demo-live": "UPDATE_COMPLETE",
+    "incident-demo-retrieval": "UPDATE_COMPLETE"
+  },
+  "review_note": "Case 006 escalated before retrieval; absence is recorded rather than treated as a verified inventory."
+}

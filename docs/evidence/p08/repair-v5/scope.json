@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-07T09:57:06.871952+00:00",
+  "change": "Preserve required nullable native schema fields through actual LangChain Converse transport by binding Bedrock toolConfig directly. Retain LangChain inference integration, counted client and all response validation. Audit hash of actual toolConfig.",
+  "evidence": "Transport test reproduces null-stripping via pinned _format_tools and asserts exact native config at fake client.converse, including nullable required next_check.",
+  "test_calls": "First one development case; only complete remaining seven if nullable behavior and bounds pass.",
+  "maximum_trials": 8,
+  "batch_reservation_usd": "6.00",
+  "retained_before_usd": "58.70",
+  "projected_retained_after_usd": "64.70",
+  "remaining_allowance_after_usd": "175.30",
+  "full_program_reusing_batch_usd": "280.70",
+  "full_program_shortfall_usd": "30.70",
+  "unchanged": [
+    "Guardrail 2",
+    "Six model calls and 120 seconds",
+    "One format correction per investigation",
+    "Citation and proposal controls",
+    "Frozen cases, corpus, expected outcomes and retrieval inventories"
+  ],
+  "package_sha256": "17a870a129f6a31b74141777ecea41cb8137151c10e9bec2d84b1dccc7627a0a",
+  "offline_tests_passed": 206,
+  "same_configuration_comparison_with_prior_batches": false
+}

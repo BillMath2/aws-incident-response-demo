@@ -1,0 +1,58 @@
+"""Shared mechanical proposal prerequisites; never a semantic diagnosis or approval."""
+
+from datetime import timedelta
+
+
+def supported_candidate_id(branches):
+    """Return the unique highest-scoring supported branch, or no eligible selection."""
+    supported = [b for b in branches if b.status == "supported"]
+    winners = (
+        [b for b in supported if b.score == max(x.score for x in supported)] if supported else []
+    )
+    return winners[0].candidate.candidate_id if len(winners) == 1 else None
+
+
+def proposal_evidence_issue(evidence, incident):
+    kinds = {e.payload.kind for e in evidence if e.complete}
+    if not {"health", "changes", "logs", "runbook"} <= kinds:
+        return "missing_proposal_evidence"
+    by_kind = {e.payload.kind: e for e in evidence if e.payload.kind != "runbook"}
+    health, changes, logs = (by_kind[k] for k in ("health", "changes", "logs"))
+    now = incident.submitted_at
+
+    def recent(at):
+        return timedelta(0) <= now - at <= timedelta(minutes=5)
+
+    if (
+        not all(e.complete and recent(e.collected_at) for e in (health, changes, logs))
+        or not recent(health.payload.observed_at)
+        or health.payload.observed_at > health.collected_at
+        or health.payload.release != "release-42"
+        or health.payload.error_rate <= 0.01
+        or health.payload.dependency_state != "healthy"
+    ):
+        return "proposal_preconditions_failed"
+    deployments = [c for c in changes.payload.items if c.kind == "deployment"]
+    deployment = max(deployments, key=lambda c: c.changed_at) if deployments else None
+    if (
+        not deployment
+        or deployment.release != "release-42"
+        or not timedelta(0) <= now - deployment.changed_at <= timedelta(minutes=120)
+        or not logs.payload.entries
+        or logs.payload.truncated
+        or any(
+            not recent(e.observed_at)
+            or e.observed_at > logs.collected_at
+            or e.observed_at < deployment.changed_at
+            for e in logs.payload.entries
+        )
+    ):
+        return "proposal_preconditions_failed"
+    passages = [e.payload for e in evidence if e.payload.kind == "runbook"]
+    if any(
+        p.status != "current" or not p.valid_from <= now < p.valid_until for p in passages
+    ) or not any(
+        p.document_id == "rb-rollback" and p.owner == "checkout-operations" for p in passages
+    ):
+        return "proposal_preconditions_failed"
+    return None

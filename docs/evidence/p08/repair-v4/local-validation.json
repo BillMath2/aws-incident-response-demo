@@ -1,0 +1,11 @@
+{
+  "application_tests": 205,
+  "new_fault_tests": 10,
+  "lint": "passed",
+  "format_files": 83,
+  "corpus": "passed",
+  "schemas": "passed",
+  "candidate_zip_hash_and_sources_match": true,
+  "evaluator_inputs_excluded_from_package": true,
+  "infrastructure_unchanged": "Prior 21 infrastructure tests still apply; reviewed diff only changes exact asset references."
+}

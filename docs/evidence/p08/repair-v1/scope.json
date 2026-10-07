@@ -1,0 +1,26 @@
+{
+  "stage": "repair",
+  "variant": "V2",
+  "cases": "all eight development cases; one repetition each",
+  "reservation_usd": "6.00",
+  "approved_total_usd": "250",
+  "per_batch_usd": "10",
+  "local_reservations_before_usd": "32.45",
+  "projected_local_after_usd": "38.45",
+  "projected_total_including_remaining_comparison_heldout_judge_infrastructure_usd": "242.45",
+  "runtime_budget_guard": "Original stricter 3990-cent cloud ceiling retained; projected cloud total 3835 cents.",
+  "changes": [
+    "Restrict live search checks to uncollected immutable sources within two rounds",
+    "Derive search discriminator from the native tool name",
+    "Clarify cited-fact, health, verification and nonempty-field instructions",
+    "Record validation locations without rejected values"
+  ],
+  "unresolved": [
+    "Runbook conflict applicability is not established; retain all conflict checks",
+    "Seven baseline mechanical candidates still need detailed human review",
+    "No strategy/model has been selected; repair results are not a final comparative evaluation"
+  ],
+  "baseline": "../development-plan.json",
+  "original_failures_retained": true,
+  "heldout_used_for_tuning": false
+}

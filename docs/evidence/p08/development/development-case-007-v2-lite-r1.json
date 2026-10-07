@@ -1,0 +1,1138 @@
+{
+  "plan_sha256": "f75d0de39f6834703703796adf97ce640ddd1e760b8382bca61a3583a9fc461d",
+  "trial_id": "development-case-007-v2-lite-r1",
+  "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+  "status": "response",
+  "response": {
+    "artifact_key": "runs/p06/p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570.json",
+    "audit": [
+      {
+        "at": "2026-10-07T00:40:00.912959+00:00",
+        "boundary": "input",
+        "call": 1,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570"
+      },
+      {
+        "action": "NONE",
+        "at": "2026-10-07T00:40:01.058325+00:00",
+        "boundary": "input",
+        "call": 1,
+        "coverage": {
+          "guarded": 154,
+          "total": 154
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "request_id": "9067765c-1a9a-4a38-a757-861a5bc8eadb",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "at": "2026-10-07T00:40:01.060811+00:00",
+        "attempt": 1,
+        "event": "lambda_started",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "tool": "get_service_health"
+      },
+      {
+        "at": "2026-10-07T00:40:01.093701+00:00",
+        "attempt": 1,
+        "event": "lambda_finished",
+        "latency_ms": 32,
+        "request_id": "82d56c63-4ba8-4fbd-923b-bfc24e8a9f3f",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "tool": "get_service_health"
+      },
+      {
+        "at": "2026-10-07T00:40:01.094247+00:00",
+        "boundary": "source",
+        "call": 2,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570"
+      },
+      {
+        "action": "NONE",
+        "at": "2026-10-07T00:40:01.221019+00:00",
+        "boundary": "source",
+        "call": 2,
+        "coverage": {
+          "guarded": 436,
+          "total": 436
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "request_id": "a16708f8-513b-4664-8415-02bd8c48ca09",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "at": "2026-10-07T00:40:01.221475+00:00",
+        "attempt": 1,
+        "event": "lambda_started",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "tool": "get_recent_changes"
+      },
+      {
+        "at": "2026-10-07T00:40:01.244418+00:00",
+        "attempt": 1,
+        "event": "lambda_finished",
+        "latency_ms": 22,
+        "request_id": "d66b1af1-559e-4205-8bb8-6accccd72f10",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "tool": "get_recent_changes"
+      },
+      {
+        "at": "2026-10-07T00:40:01.244858+00:00",
+        "boundary": "source",
+        "call": 3,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570"
+      },
+      {
+        "action": "NONE",
+        "at": "2026-10-07T00:40:01.390347+00:00",
+        "boundary": "source",
+        "call": 3,
+        "coverage": {
+          "guarded": 507,
+          "total": 507
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "request_id": "634869f4-bc44-47ff-af66-de01d35d7666",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "adapter_prompt_version": "p06-v2-native",
+        "at": "2026-10-07T00:40:01.404143+00:00",
+        "event": "prompt_built",
+        "response_phase": "seed",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "system_sha256": "e17c9b3053770a3525fc6674eb34696613f3938536c7570c46b35a2cee62a9d8",
+        "tool_schema_sha256": "cd4432da33959c8dd3315abd044546db223245b7141011f4d774703aa004d2ea"
+      },
+      {
+        "at": "2026-10-07T00:40:01.529766+00:00",
+        "event": "token_count_unsupported",
+        "input_bytes": 6607,
+        "reserved_input_tokens": 300000,
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570"
+      },
+      {
+        "at": "2026-10-07T00:40:01.529902+00:00",
+        "event": "model_started",
+        "input_tokens": null,
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570"
+      },
+      {
+        "at": "2026-10-07T00:40:03.317256+00:00",
+        "event": "model_finished",
+        "input_tokens": 2238,
+        "output_tokens": 142,
+        "request_id": "f06e05fb-ab0f-4120-8a80-747ed824283f",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570"
+      },
+      {
+        "at": "2026-10-07T00:40:03.318084+00:00",
+        "event": "native_response",
+        "proposed_decisions": 1,
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "stop_reason": "tool_use",
+        "unused_decisions": 0
+      },
+      {
+        "at": "2026-10-07T00:40:03.318484+00:00",
+        "boundary": "output",
+        "call": 4,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570"
+      },
+      {
+        "action": "NONE",
+        "at": "2026-10-07T00:40:03.496516+00:00",
+        "boundary": "output",
+        "call": 4,
+        "coverage": {
+          "guarded": 455,
+          "total": 455
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "request_id": "bc97f620-07c2-4d1f-8b41-e5a49ca0ee17",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "at": "2026-10-07T00:40:03.497681+00:00",
+        "attempt": 1,
+        "event": "lambda_started",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "tool": "get_recent_logs"
+      },
+      {
+        "at": "2026-10-07T00:40:03.516145+00:00",
+        "attempt": 1,
+        "event": "lambda_finished",
+        "latency_ms": 18,
+        "request_id": "3f80b9a7-d2e4-4974-993c-50afca50fa0e",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "tool": "get_recent_logs"
+      },
+      {
+        "at": "2026-10-07T00:40:03.516546+00:00",
+        "boundary": "source",
+        "call": 5,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570"
+      },
+      {
+        "action": "NONE",
+        "at": "2026-10-07T00:40:03.656451+00:00",
+        "boundary": "source",
+        "call": 5,
+        "coverage": {
+          "guarded": 467,
+          "total": 467
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "request_id": "4c150ced-bd83-4d61-975e-536c3ee9e84c",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "adapter_prompt_version": "p06-v2-native",
+        "at": "2026-10-07T00:40:03.675209+00:00",
+        "event": "prompt_built",
+        "response_phase": "update",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "system_sha256": "e17c9b3053770a3525fc6674eb34696613f3938536c7570c46b35a2cee62a9d8",
+        "tool_schema_sha256": "cd4432da33959c8dd3315abd044546db223245b7141011f4d774703aa004d2ea"
+      },
+      {
+        "at": "2026-10-07T00:40:04.158148+00:00",
+        "event": "token_count_unsupported",
+        "input_bytes": 7398,
+        "reserved_input_tokens": 300000,
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570"
+      },
+      {
+        "at": "2026-10-07T00:40:04.158336+00:00",
+        "event": "model_started",
+        "input_tokens": null,
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570"
+      },
+      {
+        "at": "2026-10-07T00:40:05.749600+00:00",
+        "event": "model_finished",
+        "input_tokens": 2494,
+        "output_tokens": 152,
+        "request_id": "1492a1d3-f9a2-4e94-ae8b-03e9963107fc",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570"
+      },
+      {
+        "at": "2026-10-07T00:40:05.750042+00:00",
+        "event": "native_response",
+        "proposed_decisions": 1,
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "stop_reason": "tool_use",
+        "unused_decisions": 0
+      },
+      {
+        "at": "2026-10-07T00:40:05.750382+00:00",
+        "boundary": "output",
+        "call": 6,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570"
+      },
+      {
+        "action": "NONE",
+        "at": "2026-10-07T00:40:05.917902+00:00",
+        "boundary": "output",
+        "call": 6,
+        "coverage": {
+          "guarded": 483,
+          "total": 483
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "request_id": "3c44d383-0dcc-43c7-a236-dee72bef2a12",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "at": "2026-10-07T00:40:05.919081+00:00",
+        "attempt": 2,
+        "event": "lambda_started",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "tool": "get_recent_logs"
+      },
+      {
+        "at": "2026-10-07T00:40:05.942754+00:00",
+        "attempt": 2,
+        "event": "lambda_finished",
+        "latency_ms": 23,
+        "request_id": "7aadc40d-2428-4a4e-b66b-3c9f1b276a88",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "tool": "get_recent_logs"
+      },
+      {
+        "at": "2026-10-07T00:40:05.943197+00:00",
+        "boundary": "source",
+        "call": 7,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570"
+      },
+      {
+        "action": "NONE",
+        "at": "2026-10-07T00:40:06.082910+00:00",
+        "boundary": "source",
+        "call": 7,
+        "coverage": {
+          "guarded": 467,
+          "total": 467
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "request_id": "59193ef5-ac6c-4969-a909-b556a5aaa3e4",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "adapter_prompt_version": "p06-v2-native",
+        "at": "2026-10-07T00:40:06.096271+00:00",
+        "event": "prompt_built",
+        "response_phase": "update",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "system_sha256": "42c7ff8bfe77ef5a5f4b05347ad59eb8adfe1e25db0b4ae2ad2b9de410d991a8",
+        "tool_schema_sha256": "c4c83132a7e94479dc366e912410868acd48fd1d9e74a028a8985d2cddfb0aad"
+      },
+      {
+        "at": "2026-10-07T00:40:06.133235+00:00",
+        "event": "token_count_unsupported",
+        "input_bytes": 6005,
+        "reserved_input_tokens": 300000,
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570"
+      },
+      {
+        "at": "2026-10-07T00:40:06.133395+00:00",
+        "event": "model_started",
+        "input_tokens": null,
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570"
+      },
+      {
+        "at": "2026-10-07T00:40:07.038297+00:00",
+        "event": "model_finished",
+        "input_tokens": 2026,
+        "output_tokens": 114,
+        "request_id": "939507db-b6a2-4e91-887e-ca7608afff04",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570"
+      },
+      {
+        "at": "2026-10-07T00:40:07.039792+00:00",
+        "event": "native_response",
+        "proposed_decisions": 1,
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "stop_reason": "tool_use",
+        "unused_decisions": 0
+      },
+      {
+        "at": "2026-10-07T00:40:07.040146+00:00",
+        "boundary": "output",
+        "call": 8,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570"
+      },
+      {
+        "action": "NONE",
+        "at": "2026-10-07T00:40:07.207412+00:00",
+        "boundary": "output",
+        "call": 8,
+        "coverage": {
+          "guarded": 363,
+          "total": 363
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "request_id": "a7179d6d-52ad-4ce9-b1c7-a252932ac034",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 1,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 1,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      },
+      {
+        "adapter_prompt_version": "p06-v2-native",
+        "at": "2026-10-07T00:40:07.221291+00:00",
+        "event": "prompt_built",
+        "response_phase": "final",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "system_sha256": "e17c9b3053770a3525fc6674eb34696613f3938536c7570c46b35a2cee62a9d8",
+        "tool_schema_sha256": "61a9747b235534582fe268dc77cc043105213d98d8f9382f39a3a6b179eebc51"
+      },
+      {
+        "at": "2026-10-07T00:40:07.269823+00:00",
+        "event": "token_count_unsupported",
+        "input_bytes": 6516,
+        "reserved_input_tokens": 300000,
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570"
+      },
+      {
+        "at": "2026-10-07T00:40:07.270060+00:00",
+        "event": "model_started",
+        "input_tokens": null,
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570"
+      },
+      {
+        "at": "2026-10-07T00:40:09.526085+00:00",
+        "event": "model_finished",
+        "input_tokens": 2244,
+        "output_tokens": 337,
+        "request_id": "1bf32802-d2ae-4efd-8760-e8fe27bd0fd3",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570"
+      },
+      {
+        "at": "2026-10-07T00:40:09.526572+00:00",
+        "event": "native_response",
+        "proposed_decisions": 1,
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "stop_reason": "tool_use",
+        "unused_decisions": 0
+      },
+      {
+        "at": "2026-10-07T00:40:09.527010+00:00",
+        "boundary": "output",
+        "call": 9,
+        "event": "guardrail_started",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570"
+      },
+      {
+        "action": "NONE",
+        "at": "2026-10-07T00:40:09.688933+00:00",
+        "boundary": "output",
+        "call": 9,
+        "coverage": {
+          "guarded": 1068,
+          "total": 1068
+        },
+        "event": "guardrail_finished",
+        "guardrail_id": "a4aiug3xzh6e",
+        "guardrail_version": "1",
+        "request_id": "dfdaaaec-dad0-4818-9430-d2612f2eea21",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+        "usage": {
+          "automatedReasoningPolicies": 0,
+          "automatedReasoningPolicyUnits": 0,
+          "contentPolicyUnits": 2,
+          "contextualGroundingPolicyUnits": 0,
+          "sensitiveInformationPolicyFreeUnits": 2,
+          "sensitiveInformationPolicyUnits": 0,
+          "topicPolicyUnits": 0,
+          "wordPolicyUnits": 0
+        }
+      }
+    ],
+    "guardrail_policy": {
+      "id": "a4aiug3xzh6e",
+      "version": "1"
+    },
+    "mode": "aws_live",
+    "reserved_usd": "0.75",
+    "result": {
+      "active_latency_ms": 8783,
+      "evidence": [
+        {
+          "collected_at": "2026-10-01T12:05:00Z",
+          "complete": true,
+          "content_hash": "19fdce4867c76f03895ca46f5e70641437478de0327ffceaf0ef5b8ec98e1992",
+          "evidence_id": "obs-007-health",
+          "payload": {
+            "dependency_state": "healthy",
+            "error_rate": 0.25,
+            "kind": "health",
+            "latency_p95_ms": 1700.0,
+            "observed_at": "2026-10-01T12:04:00Z",
+            "release": "release-42",
+            "service_id": "checkout-api"
+          },
+          "sanitized": true,
+          "source": "get_service_health",
+          "source_version": "fixtures-1.0.0"
+        },
+        {
+          "collected_at": "2026-10-01T12:05:00Z",
+          "complete": true,
+          "content_hash": "cb57ae1d6e26afaa47564c81e9fc921261fe6f9f5c876d1f7ebe3b381ab67930",
+          "evidence_id": "obs-007-changes",
+          "payload": {
+            "items": [
+              {
+                "change_id": "change-007",
+                "changed_at": "2026-10-01T11:55:00Z",
+                "kind": "deployment",
+                "release": "release-42",
+                "summary": "Checkout release-42 deployed; release-41 baseline error rate was 0.003."
+              }
+            ],
+            "kind": "changes",
+            "service_id": "checkout-api"
+          },
+          "sanitized": true,
+          "source": "get_recent_changes",
+          "source_version": "fixtures-1.0.0"
+        },
+        {
+          "collected_at": "2026-10-01T12:05:00Z",
+          "complete": true,
+          "content_hash": "ede9bfd04b44cfdd3ca8e1b4e8258a8aa7044e18d057ff9d0ac80a101d5bc6ae",
+          "evidence_id": "obs-007-logs",
+          "payload": {
+            "entries": [
+              {
+                "message": "release-42 checkout serializer raises TypeError; same requests succeeded on release-41.",
+                "observed_at": "2026-10-01T12:03:00Z"
+              }
+            ],
+            "kind": "logs",
+            "service_id": "checkout-api",
+            "truncated": false
+          },
+          "sanitized": true,
+          "source": "get_recent_logs",
+          "source_version": "fixtures-1.0.0"
+        }
+      ],
+      "investigation": {
+        "facts": [],
+        "hypotheses": [],
+        "justification": "aws_live controller: missing_proposal_evidence",
+        "missing_information": [
+          "missing_proposal_evidence"
+        ],
+        "next_check": "Operator review or fresh diagnostic evidence",
+        "outcome": "incomplete",
+        "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570"
+      },
+      "mode": "aws_live",
+      "provider_calls": 4,
+      "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+      "status": "failed",
+      "stop_reason": "missing_proposal_evidence",
+      "trace": [
+        {
+          "branches": [],
+          "call": null,
+          "detail": "input: pass",
+          "event": "boundary_checked",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": {
+            "arguments": {
+              "service_id": "checkout-api"
+            },
+            "name": "get_service_health"
+          },
+          "detail": "attempt 1",
+          "event": "tool_attempt",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": null,
+          "detail": "source: pass",
+          "event": "boundary_checked",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": {
+            "arguments": {
+              "service_id": "checkout-api"
+            },
+            "name": "get_service_health"
+          },
+          "detail": "Validated observations collected",
+          "event": "tool_observed",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": {
+            "arguments": {
+              "service_id": "checkout-api",
+              "window_minutes": 60
+            },
+            "name": "get_recent_changes"
+          },
+          "detail": "attempt 1",
+          "event": "tool_attempt",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": null,
+          "detail": "source: pass",
+          "event": "boundary_checked",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": {
+            "arguments": {
+              "service_id": "checkout-api",
+              "window_minutes": 60
+            },
+            "name": "get_recent_changes"
+          },
+          "detail": "Validated observations collected",
+          "event": "tool_observed",
+          "phase": "gather",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": null,
+          "detail": "Live model attempt 1",
+          "event": "provider_attempt",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [],
+          "call": null,
+          "detail": "output: pass",
+          "event": "boundary_checked",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-007-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "filter": "errors",
+              "limit": 20,
+              "service_id": "checkout-api"
+            },
+            "name": "get_recent_logs"
+          },
+          "detail": "To identify any recent errors that could be related to the deployment of release-42.",
+          "event": "search_state",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-007-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "filter": "errors",
+              "limit": 20,
+              "service_id": "checkout-api"
+            },
+            "name": "get_recent_logs"
+          },
+          "detail": "attempt 1",
+          "event": "tool_attempt",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-007-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            }
+          ],
+          "call": null,
+          "detail": "source: pass",
+          "event": "boundary_checked",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-007-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "filter": "errors",
+              "limit": 20,
+              "service_id": "checkout-api"
+            },
+            "name": "get_recent_logs"
+          },
+          "detail": "Validated observations collected",
+          "event": "tool_observed",
+          "phase": "seed",
+          "round": 0
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-007-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            }
+          ],
+          "call": null,
+          "detail": "Live model attempt 1",
+          "event": "provider_attempt",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-007-changes"
+                ]
+              },
+              "score": 1,
+              "status": "supported"
+            }
+          ],
+          "call": null,
+          "detail": "output: pass",
+          "event": "boundary_checked",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-007-changes",
+                  "obs-007-logs"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "filter": "errors",
+              "limit": 20,
+              "service_id": "checkout-api"
+            },
+            "name": "get_recent_logs"
+          },
+          "detail": "To further investigate the error rate increase and confirm if it is due to the recent deployment.",
+          "event": "search_state",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-007-changes",
+                  "obs-007-logs"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "filter": "errors",
+              "limit": 20,
+              "service_id": "checkout-api"
+            },
+            "name": "get_recent_logs"
+          },
+          "detail": "attempt 1",
+          "event": "tool_attempt",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-007-changes",
+                  "obs-007-logs"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            }
+          ],
+          "call": null,
+          "detail": "source: pass",
+          "event": "boundary_checked",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-007-changes",
+                  "obs-007-logs"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            }
+          ],
+          "call": {
+            "arguments": {
+              "filter": "errors",
+              "limit": 20,
+              "service_id": "checkout-api"
+            },
+            "name": "get_recent_logs"
+          },
+          "detail": "Validated observations collected",
+          "event": "tool_observed",
+          "phase": "update",
+          "round": 1
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-007-changes",
+                  "obs-007-logs"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            }
+          ],
+          "call": null,
+          "detail": "Live model attempt 1",
+          "event": "provider_attempt",
+          "phase": "update",
+          "round": 2
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-007-changes",
+                  "obs-007-logs"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            }
+          ],
+          "call": null,
+          "detail": "output: pass",
+          "event": "boundary_checked",
+          "phase": "update",
+          "round": 2
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-007-changes",
+                  "obs-007-logs"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            }
+          ],
+          "call": null,
+          "detail": "Verify if the error rate increased after the deployment of release-42.",
+          "event": "search_state",
+          "phase": "update",
+          "round": 2
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-007-changes",
+                  "obs-007-logs"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            }
+          ],
+          "call": null,
+          "detail": "Live model attempt 1",
+          "event": "provider_attempt",
+          "phase": "final",
+          "round": 2
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-007-changes",
+                  "obs-007-logs"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            }
+          ],
+          "call": null,
+          "detail": "output: pass",
+          "event": "boundary_checked",
+          "phase": "final",
+          "round": 2
+        },
+        {
+          "branches": [
+            {
+              "candidate": {
+                "candidate_id": "candidate-001",
+                "cause": "The recent deployment of release-42 may have introduced a bug causing the increased error rate.",
+                "contradicting_evidence": [],
+                "supporting_evidence": [
+                  "obs-007-changes",
+                  "obs-007-logs"
+                ]
+              },
+              "score": 2,
+              "status": "supported"
+            }
+          ],
+          "call": null,
+          "detail": "missing_proposal_evidence",
+          "event": "stopped",
+          "phase": "final",
+          "round": 2
+        }
+      ],
+      "usage": {
+        "input_tokens": 9002,
+        "model_calls": 4,
+        "output_tokens": 745,
+        "tool_calls": 4
+      },
+      "variant": "V2"
+    },
+    "retrieval": {
+      "corpus_version": "1.0.0",
+      "knowledge_base_id": "XKVH8PLCHO",
+      "search_type": "SEMANTIC"
+    },
+    "run_id": "p08-6592c96f05abbf0d8bf51f90aa1c2a5e17c4c570",
+    "schema_version": "p06-v1",
+    "settings": {
+      "limits": {
+        "candidates": 2,
+        "deadline_seconds": 120.0,
+        "expansion_rounds": 2,
+        "model_calls": 6,
+        "retries": 1,
+        "tool_calls": 8
+      },
+      "max_output_tokens": 1500,
+      "mode": "aws_live",
+      "model": "us.amazon.nova-lite-v1:0",
+      "temperature": 0.0
+    },
+    "synthetic_telemetry": true,
+    "usage_complete": true,
+    "worker_latency_ms": 11635
+  },
+  "error_category": null,
+  "transport_ms": 14609,
+  "session_stop_confirmed": true
+}
