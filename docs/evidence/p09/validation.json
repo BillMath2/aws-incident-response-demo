@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-07",
+  "python_tests_passed": 226,
+  "new_operator_python_tests": 20,
+  "ui_logic_tests_passed": 9,
+  "recorded_example_http_checks_passed": 12,
+  "ruff_check": "passed",
+  "ruff_format_check": "88 files already formatted",
+  "corpus_check": "passed",
+  "schema_check": "passed",
+  "git_diff_check": "passed",
+  "cloud_review": "existing resolved control and immutable investigation loaded through local HTTP and signed approver API",
+  "new_model_calls": 0,
+  "cloud_mutations": 0,
+  "browser_visual_verification": "not performed: no browser automation surface available",
+  "fresh_cloud_approval_walkthrough": "pending owner review",
+  "hosted_ci": "not verified for this change"
+}

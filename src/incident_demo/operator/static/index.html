@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="operator-token" content="__PAGE_TOKEN__">
+  <title>Incident desk · Checkout</title>
+  <link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script>
+</head>
+<body>
+<header><div class="brand">IR<span> / </span>INCIDENT DESK</div><div id="connection">Connecting…</div></header>
+<main>
+  <div class="intro"><div><p class="eyebrow">AWS INCIDENT RESPONSE DEMO</p><h1>Investigate. Review. Decide.</h1>
+  <p class="subtitle">A human stays in control of every sandbox action.</p></div><span class="region">OHIO · us-east-2</span></div>
+  <div class="layout">
+    <aside>
+      <section class="card"><p class="eyebrow">WORKSPACE</p><h2>Checkout API</h2><p>Synthetic incidents and sandbox state only.</p>
+        <label for="examples">Saved walkthroughs</label><select id="examples"><option value="">Choose an example</option></select>
+        <button id="load-example" class="secondary" disabled>Loading saved walkthroughs…</button>
+      </section>
+      <section class="card" id="cloud-controls" hidden><p class="eyebrow">LIVE CLOUD WORKFLOW</p>
+        <label for="intake-key">Incident key</label><input id="intake-key" maxlength="100" autocomplete="off">
+        <p class="hint">One new investigation reserves $0.75. Reuse the same key after a timeout.</p>
+        <button id="start">Start investigation</button><button id="new-key" class="quiet">Generate another key</button>
+        <hr><label for="run-id">Existing run ID</label><input id="run-id" placeholder="p07-…" autocomplete="off">
+        <button id="open-run" class="secondary">Open cloud run</button>
+      </section>
+      <section class="card note"><h3>Demo scope</h3><p>Reasoning limitations are accepted for this demo. Review the cited evidence before approving an action.</p><p>Approval changes synthetic service state. It never changes a production deployment.</p></section>
+    </aside>
+    <div class="content">
+      <div id="notice" role="status" aria-live="polite">Choose a saved walkthrough to explore the evidence.</div>
+      <section class="card status-card"><div class="section-top"><h2 id="run-title">Ready for review</h2><span id="status" class="badge">NO RUN SELECTED</span></div>
+        <p id="provenance">Saved examples are read-only and make no AWS calls.</p><p id="run-reference" class="mono"></p>
+        <div class="toolbar"><button id="refresh" class="secondary" disabled>Refresh status</button><button id="export" class="quiet" disabled>Export evidence JSON</button></div>
+        <ol id="timeline" class="timeline"></ol>
+      </section>
+      <section class="card"><p class="eyebrow">01 / INVESTIGATION</p><h2>Findings &amp; reasoning</h2><div id="findings"><p class="muted">The investigation will appear here.</p></div></section>
+      <section class="card"><p class="eyebrow">02 / SOURCE MATERIAL</p><h2>Evidence &amp; citations</h2><p class="hint">Expand each source to inspect its content, time and completeness.</p><div id="evidence"></div></section>
+      <section class="card"><p class="eyebrow">03 / HUMAN DECISION</p><h2>Proposed action</h2><div id="proposal"><p class="muted">No executable proposal selected.</p></div>
+        <form id="decision-form" hidden>
+          <label for="hash-confirm">Paste the full proposal hash shown above</label><input id="hash-confirm" autocomplete="off" maxlength="64" required>
+          <label for="reason">Decision reason</label><textarea id="reason" maxlength="500" rows="3" required></textarea>
+          <label class="check"><input type="checkbox" id="facts-reviewed"> I reviewed the factual support.</label>
+          <label class="check"><input type="checkbox" id="citations-reviewed"> I reviewed the cited evidence.</label>
+          <div class="toolbar"><button type="button" id="approve" disabled>Approve sandbox rollback</button><button type="button" id="reject" class="danger" disabled>Reject proposal</button></div>
+        </form>
+      </section>
+      <section class="card"><p class="eyebrow">04 / OUTCOME</p><h2>Execution &amp; verification</h2><div id="verification"><p class="muted">No outcome selected.</p></div></section>
+      <details class="card"><summary>Complete retained record</summary><pre id="raw">{}</pre></details>
+    </div>
+  </div>
+  <footer>Model recommendations are advisory. Only a signed, unexpired approval can authorize the sandbox executor.</footer>
+</main>
+</body></html>

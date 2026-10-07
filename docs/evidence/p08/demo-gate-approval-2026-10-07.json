@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-07",
+  "owner": "Bill Mathers",
+  "user_statement": "ok P08 is green.  Stsrt P09",
+  "p08_demo_gate": "green",
+  "p09_authorized": true,
+  "scope": "Synthetic demo with the previously accepted reasoning limitations",
+  "full_benchmark_complete": false,
+  "formal_semantic_labels_changed": false,
+  "budget_and_safety_controls": "unchanged"
+}

@@ -10,6 +10,9 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.17.0"
       - uses: astral-sh/setup-uv@v6
         with:
           version: "0.9.5"
@@ -18,6 +21,7 @@ jobs:
       - run: uv run --locked --extra live ruff check .
       - run: uv run --locked --extra live ruff format --check .
       - run: uv run --locked --extra live pytest
+      - run: node --test tests/operator_ui.test.cjs
       - run: uv run --locked --extra live incident-demo validate-corpus
       - run: uv run --locked --extra live incident-demo schemas --check
   infrastructure:

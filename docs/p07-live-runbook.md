@@ -1,7 +1,8 @@
 # P07 durable workflow runbook
 
 Target: account `498084841421`, profile `incident-demo`, Ohio (`us-east-2`).
-The approved allowance remains $50 total, $10 per batch, with $10 reserved for infrastructure.
+The current approved allowance is $250 total, $10 per batch, with $10 reserved for infrastructure
+(increased during P08; the original P07 acceptance used $50).
 
 ## Flow and authority
 

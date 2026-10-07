@@ -1,5 +1,9 @@
 # P08 development review index
 
+**Demo gate: owner-approved green on October 7, 2026.** Bill requested P09 with the known
+reasoning limitations accepted. The unfinished full evaluation and formal labels are unchanged.
+See [the approval record](evidence/p08/demo-gate-approval-2026-10-07.json).
+
 The original 24-trial development baseline has seven mechanical candidates and 17 failures. Bill has
 reviewed and agreed with all 17 failure classifications; see the
 [recorded review](evidence/p08/failure-classification-review.json). Detailed claim/citation

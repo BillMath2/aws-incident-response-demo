@@ -1,0 +1,11 @@
+{
+  "account": "498084841421",
+  "region": "us-east-2",
+  "http_status": 200,
+  "run_id": "p07-16476b92278b620f7f1dfb4c4a639091290a1391",
+  "status": "resolved",
+  "investigation_loaded": true,
+  "model_calls": 0,
+  "mutations": 0,
+  "loopback_http_bridge_verified": true
+}

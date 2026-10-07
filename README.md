@@ -1,5 +1,18 @@
 # AWS incident response demo
 
+**Current: P08 and P09 are owner-approved green for the demo scope. P09 was reviewed in
+local and cloud modes. P10 is next: fresh replay, recording and cleanup verification.** Launch the screen with:
+
+```powershell
+.venv/Scripts/python.exe scripts/p09_operator.py
+```
+
+Open **http://127.0.0.1:8765** for saved evidence with no AWS calls. Add `--cloud` to enable the
+existing signed AWS workflow. See [operator instructions](docs/p09-operator-runbook.md),
+[P09 acceptance](docs/p09-acceptance.md), [architecture](docs/p09-architecture.md),
+[decision brief](docs/p09-decision-brief.md) and [draft walkthrough](docs/p09-walkthrough.md).
+The full P08 benchmark remains unfinished; reasoning limitations are accepted for this demo.
+
 A synthetic checkout incident-response demonstration being built with Python, LangGraph,
 LangChain and Amazon Bedrock AgentCore. **P01-P03 are implemented and locally verified:**
 contracts, a frozen case corpus, a local approval walkthrough, and executable LangGraph
@@ -10,7 +23,7 @@ IAM-denial and audit evidence. **P06 adds live S3 Vectors retrieval and explicit
 output Guardrails checks.** V0/V1 live integration passes; V2's unsupported proposal is
 safely rejected and remains a quality limitation. **P07's durable cloud workflow passed live
 acceptance in Ohio: 45 control checks and 33 deployment/permission checks.** The real
-investigation escalated without action. **P08 is in progress:** all 24 live development trials are
+investigation escalated without action. **P08 development evidence:** all 24 live development trials are
 retained, with human review pending and a $250 total / $10 per-batch budget approved. Seven passed mechanical checks;
 17 did not. No held-out quality gate is claimed. See [P08 acceptance](docs/p08-acceptance.md).
 The first separate V2 repair batch collected runbooks in all eight attempts, but yielded only

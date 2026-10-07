@@ -1,4 +1,10 @@
-# P08 acceptance — in progress, not green
+# P08 acceptance — green for the approved demo scope
+
+Bill explicitly marked P08 green on October 7, 2026 and requested P09. This closes the demo
+gate with the known reasoning limitations accepted. The full comparison/held-out/judge program
+and formal semantic labels remain unfinished; retained reports and scores are unchanged.
+Earlier gate assessments below are historical. See the
+[demo gate approval](evidence/p08/demo-gate-approval-2026-10-07.json).
 
 P08 started on October 6, 2026. The first development batch ran 12 real AgentCore/Nova Lite
 investigations in Ohio: cases 001–004 with V0, V1 and V2. After budget approval and renewed

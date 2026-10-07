@@ -2,10 +2,18 @@
 
 Date: October 3, 2026  
 Prepared for: Bill Mathers  
-Status: P01-P03 locally verified; P04-P07 AWS gates verified in Ohio; P08 baseline and five repairs recorded (64 live development attempts, $250 total budget approved); owner accepts known reasoning limitations for the demo; full evaluation remains incomplete; P09-P10 planned
+Status: P01-P03 locally verified; P04-P07 AWS gates verified in Ohio; P08 owner-approved green for demo scope (full benchmark unfinished); P09 owner-reviewed green in local and cloud modes; P10 next; $250 total budget unchanged
 
 Project destination: C:\Github\aws-incident-response-demo  
 Target role: [Duke job description](DukeJob.txt)
+
+P09 update (October 7, 2026): Bill marked P08 green for the demo and requested P09.
+The localhost operator screen, signed cloud bridge, saved-evidence replay, architecture/permission
+diagrams, decision brief and draft walkthrough are implemented. **226 Python tests and nine UI
+logic tests pass.** The new bridge read an existing cloud run successfully, with no new model calls
+or AWS changes. Bill subsequently reviewed local and cloud modes and accepted P09.
+P10 owns the fresh replay, recording and cleanup verification. See [P09 acceptance](p09-acceptance.md) and
+[launch instructions](p09-operator-runbook.md).
 
 P08 update (October 7, 2026): after Bill explicitly approved the HIGH-to-MEDIUM prompt-attack
 sensitivity change and all boundary checks passed, runtime 11 / Guardrail 2 ran the third V2
