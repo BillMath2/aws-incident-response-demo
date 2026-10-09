@@ -1,0 +1,251 @@
+{
+  "workflow_batch": {
+    "accepted": 8,
+    "live": 2
+  },
+  "budget": {
+    "global": {
+      "reserved_cents": "6535",
+      "pk": "global",
+      "lease_until": "0",
+      "lease_owner": "p07-4fe745515876639a812053e5bf8c75c3066ef0e2"
+    },
+    "batch#p07-dev-01": {
+      "pk": "batch#p07-dev-01",
+      "reserved_cents": "300"
+    }
+  },
+  "runs": [
+    {
+      "run_id": "p07-6c5e661cae0e7e9fdae1f9c6a13421647be1aa07",
+      "status": "unresolved",
+      "scenario": "control-unresolved",
+      "history": [
+        {
+          "at": "2026-10-06T12:12:53.720073+00:00",
+          "status": "pending"
+        },
+        {
+          "at": "2026-10-06T12:12:56.531213+00:00",
+          "status": "investigating"
+        },
+        {
+          "at": "2026-10-06T12:12:56.666374+00:00",
+          "status": "proposal_ready"
+        },
+        {
+          "at": "2026-10-06T12:12:56.844401+00:00",
+          "status": "awaiting_approval"
+        },
+        {
+          "at": "2026-10-06T12:13:08.894051+00:00",
+          "status": "unresolved"
+        }
+      ],
+      "artifact": {
+        "key": "runs/p07/p07-6c5e661cae0e7e9fdae1f9c6a13421647be1aa07/investigation.json",
+        "sha256": "3400a644ea226d32c9c4e46b26dd5cd1654e8b5db68b135fb82bd9fb591ed38e"
+      },
+      "verification": {
+        "key": "runs/p07/p07-6c5e661cae0e7e9fdae1f9c6a13421647be1aa07/verification.json",
+        "sha256": "1693890458c0b4464f50fd1c7e8cc3e9be10556aa00d7f549c6e9beebb116692"
+      }
+    },
+    {
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "status": "escalated",
+      "scenario": "investigate",
+      "history": [
+        {
+          "at": "2026-10-06T12:16:56.850291+00:00",
+          "status": "pending"
+        },
+        {
+          "at": "2026-10-06T12:17:26.454849+00:00",
+          "status": "investigating"
+        },
+        {
+          "at": "2026-10-06T12:17:44.159344+00:00",
+          "status": "escalated"
+        }
+      ],
+      "artifact": {
+        "key": "runs/p07/p07-b0b557f6f18bbcc84ef86015427806267464aefa/investigation.json",
+        "sha256": "8c011935ac998f6d4531178f3722d232f176c8a7a0f53f6828b160823cd700c9"
+      },
+      "verification": null
+    },
+    {
+      "run_id": "p07-f97a887312143763d0114ed07ccbc38e9e68bb1c",
+      "status": "failed",
+      "scenario": "control-recovery",
+      "history": [
+        {
+          "at": "2026-10-06T12:06:53.661556+00:00",
+          "status": "pending"
+        },
+        {
+          "at": "2026-10-06T12:10:26.790728+00:00",
+          "status": "failed"
+        }
+      ],
+      "artifact": null,
+      "verification": null
+    },
+    {
+      "run_id": "p07-7ef80d3030d0be5f3a4eb299a49ff554685d351a",
+      "status": "rejected",
+      "scenario": "control-recovery",
+      "history": [
+        {
+          "at": "2026-10-06T12:13:20.946919+00:00",
+          "status": "pending"
+        },
+        {
+          "at": "2026-10-06T12:13:23.673097+00:00",
+          "status": "investigating"
+        },
+        {
+          "at": "2026-10-06T12:13:23.721203+00:00",
+          "status": "proposal_ready"
+        },
+        {
+          "at": "2026-10-06T12:13:23.916473+00:00",
+          "status": "awaiting_approval"
+        },
+        {
+          "at": "2026-10-06T12:13:39.956881+00:00",
+          "status": "rejected"
+        }
+      ],
+      "artifact": {
+        "key": "runs/p07/p07-7ef80d3030d0be5f3a4eb299a49ff554685d351a/investigation.json",
+        "sha256": "3f3fe3b26231fc615f66a9c3968ce0af5c1bc9b7b6626f50f8fb0078ba31d073"
+      },
+      "verification": null
+    },
+    {
+      "run_id": "p07-16476b92278b620f7f1dfb4c4a639091290a1391",
+      "status": "resolved",
+      "scenario": "control-recovery",
+      "history": [
+        {
+          "at": "2026-10-06T12:11:59.546072+00:00",
+          "status": "pending"
+        },
+        {
+          "at": "2026-10-06T12:12:14.473192+00:00",
+          "status": "investigating"
+        },
+        {
+          "at": "2026-10-06T12:12:15.533443+00:00",
+          "status": "proposal_ready"
+        },
+        {
+          "at": "2026-10-06T12:12:19.864853+00:00",
+          "status": "awaiting_approval"
+        },
+        {
+          "at": "2026-10-06T12:12:44.214437+00:00",
+          "status": "resolved"
+        }
+      ],
+      "artifact": {
+        "key": "runs/p07/p07-16476b92278b620f7f1dfb4c4a639091290a1391/investigation.json",
+        "sha256": "03cef00132ee368e7eeaad1258893cc9931275f793f3ee273d93d688a4ce9e5a"
+      },
+      "verification": {
+        "key": "runs/p07/p07-16476b92278b620f7f1dfb4c4a639091290a1391/verification.json",
+        "sha256": "83e6ff27e930d56ab215de1adf1e8e91a4dd64586eb2b822471301de56e69006"
+      }
+    },
+    {
+      "run_id": "p07-29fc92017c9a8cf5b1bf74008eb32e9ea9dff2a5",
+      "status": "expired",
+      "scenario": "control-expiry",
+      "history": [
+        {
+          "at": "2026-10-06T12:13:44.957688+00:00",
+          "status": "pending"
+        },
+        {
+          "at": "2026-10-06T12:14:26.514971+00:00",
+          "status": "investigating"
+        },
+        {
+          "at": "2026-10-06T12:14:26.646858+00:00",
+          "status": "proposal_ready"
+        },
+        {
+          "at": "2026-10-06T12:14:26.838725+00:00",
+          "status": "awaiting_approval"
+        },
+        {
+          "at": "2026-10-06T12:14:56.899625+00:00",
+          "status": "expired"
+        }
+      ],
+      "artifact": {
+        "key": "runs/p07/p07-29fc92017c9a8cf5b1bf74008eb32e9ea9dff2a5/investigation.json",
+        "sha256": "0015ad8e7fcc42a6048f0b53e8ed1795246f2ddc9fbc164572bc1d1b130fca17"
+      },
+      "verification": null
+    },
+    {
+      "run_id": "p07-8e62505150176fe27e3fe1d8c9682826153b9dd9",
+      "status": "rejected",
+      "scenario": "control-recovery",
+      "history": [
+        {
+          "at": "2026-10-06T12:16:38.664410+00:00",
+          "status": "pending"
+        },
+        {
+          "at": "2026-10-06T12:16:39.720365+00:00",
+          "status": "investigating"
+        },
+        {
+          "at": "2026-10-06T12:16:39.861887+00:00",
+          "status": "proposal_ready"
+        },
+        {
+          "at": "2026-10-06T12:16:40.147510+00:00",
+          "status": "awaiting_approval"
+        },
+        {
+          "at": "2026-10-06T12:16:50.221140+00:00",
+          "status": "rejected"
+        }
+      ],
+      "artifact": {
+        "key": "runs/p07/p07-8e62505150176fe27e3fe1d8c9682826153b9dd9/investigation.json",
+        "sha256": "f0b05e9be49305b98f84ac96f76553f03de09e313abf2f3296a2678d2b9dd606"
+      },
+      "verification": null
+    },
+    {
+      "run_id": "p07-4fe745515876639a812053e5bf8c75c3066ef0e2",
+      "status": "escalated",
+      "scenario": "investigate",
+      "history": [
+        {
+          "at": "2026-10-07T10:54:20.278493+00:00",
+          "status": "pending"
+        },
+        {
+          "at": "2026-10-07T10:54:38.724437+00:00",
+          "status": "investigating"
+        },
+        {
+          "at": "2026-10-07T10:54:59.551088+00:00",
+          "status": "escalated"
+        }
+      ],
+      "artifact": {
+        "key": "runs/p07/p07-4fe745515876639a812053e5bf8c75c3066ef0e2/investigation.json",
+        "sha256": "1bc4b427f39a579f51cb3d3e4074dca59334742e14d47fc58abb07506b2e71dc"
+      },
+      "verification": null
+    }
+  ]
+}

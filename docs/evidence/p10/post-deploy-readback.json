@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-07T11:25:14.868354+00:00",
+  "stack_statuses": {
+    "foundation": "CREATE_COMPLETE",
+    "live": "UPDATE_COMPLETE",
+    "retrieval": "UPDATE_COMPLETE",
+    "workflow": "UPDATE_COMPLETE"
+  },
+  "endpoint_status": "READY",
+  "runtime_version": "13",
+  "active_workflows": [],
+  "workflow_variant": "V1",
+  "model": "us.amazon.nova-lite-v1:0",
+  "live_calls_started_by_p10": 0,
+  "resource_deletions": 0
+}

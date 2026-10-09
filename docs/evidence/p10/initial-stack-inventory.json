@@ -1,0 +1,1535 @@
+{
+  "stacks": [
+    {
+      "name": "incident-demo-foundation",
+      "id": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-foundation/b5e60260-c115-11f1-ad8c-02aabb75b103",
+      "status": "CREATE_COMPLETE",
+      "termination_protection": true,
+      "outputs": [
+        {
+          "OutputKey": "ArtifactBucket",
+          "OutputValue": "incident-demo-artifacts-498084841421-us-east-2"
+        },
+        {
+          "OutputKey": "StateTable",
+          "OutputValue": "incident-demo-state"
+        },
+        {
+          "OutputKey": "AccessLogBucket",
+          "OutputValue": "incident-demo-access-logs-498084841421-us-east-2"
+        },
+        {
+          "OutputKey": "AuditLogGroup",
+          "OutputValue": "/incident-demo/foundation"
+        }
+      ]
+    },
+    {
+      "name": "incident-demo-live",
+      "id": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9",
+      "status": "UPDATE_COMPLETE",
+      "termination_protection": true,
+      "outputs": [
+        {
+          "OutputKey": "LogsKeyArnOutput",
+          "OutputValue": "arn:aws:kms:us-east-2:498084841421:key/afbebae5-f530-4513-b859-d0d2d3622a49"
+        },
+        {
+          "OutputKey": "RuntimeLogGroupOutput",
+          "OutputValue": "/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-DEFAULT"
+        },
+        {
+          "OutputKey": "getservicehealthOutput",
+          "OutputValue": "arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-service-health"
+        },
+        {
+          "OutputKey": "TrailBucketOutput",
+          "OutputValue": "incident-demo-trail-498084841421-us-east-2"
+        },
+        {
+          "OutputKey": "getrecentlogsOutput",
+          "OutputValue": "arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-recent-logs"
+        },
+        {
+          "OutputKey": "BudgetTableOutput",
+          "OutputValue": "incident-demo-live-budget"
+        },
+        {
+          "OutputKey": "RuntimeArnOutput",
+          "OutputValue": "arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator-yxOMou90km"
+        },
+        {
+          "OutputKey": "RuntimeIdOutput",
+          "OutputValue": "incident_demo_investigator-yxOMou90km"
+        },
+        {
+          "OutputKey": "InvestigatorRoleOutput",
+          "OutputValue": "arn:aws:iam::498084841421:role/incident-demo-investigator"
+        },
+        {
+          "OutputKey": "getrecentchangesOutput",
+          "OutputValue": "arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-recent-changes"
+        },
+        {
+          "OutputKey": "EndpointArnOutput",
+          "OutputValue": "arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator-yxOMou90km/runtime-endpoint/smoke"
+        }
+      ]
+    },
+    {
+      "name": "incident-demo-retrieval",
+      "id": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-retrieval/6564b3a0-c132-11f1-a2b9-06fffb6c40b3",
+      "status": "UPDATE_COMPLETE",
+      "termination_protection": true,
+      "outputs": [
+        {
+          "OutputKey": "GuardrailArnOutput",
+          "OutputValue": "arn:aws:bedrock:us-east-2:498084841421:guardrail/a4aiug3xzh6e"
+        },
+        {
+          "OutputKey": "GuardrailIdOutput",
+          "OutputValue": "a4aiug3xzh6e"
+        },
+        {
+          "OutputKey": "SourceBucketOutput",
+          "OutputValue": "incident-demo-artifacts-498084841421-us-east-2"
+        },
+        {
+          "OutputKey": "KnowledgeBaseIdOutput",
+          "OutputValue": "XKVH8PLCHO"
+        },
+        {
+          "OutputKey": "DataSourceIdOutput",
+          "OutputValue": "CVMNH90331"
+        },
+        {
+          "OutputKey": "VectorBucketNameOutput",
+          "OutputValue": "incident-demo-vectors-498084841421-us-east-2"
+        },
+        {
+          "OutputKey": "IndexArnOutput",
+          "OutputValue": "arn:aws:s3vectors:us-east-2:498084841421:bucket/incident-demo-vectors-498084841421-us-east-2/index/runbooks-v1"
+        },
+        {
+          "OutputKey": "KnowledgeBaseArnOutput",
+          "OutputValue": "arn:aws:bedrock:us-east-2:498084841421:knowledge-base/XKVH8PLCHO"
+        },
+        {
+          "OutputKey": "GuardrailVersionOutput",
+          "OutputValue": "2"
+        }
+      ]
+    },
+    {
+      "name": "incident-demo-workflow",
+      "id": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-workflow/febcdb80-c16a-11f1-b00e-02d72ca12757",
+      "status": "UPDATE_COMPLETE",
+      "termination_protection": true,
+      "outputs": [
+        {
+          "OutputKey": "MachineArnOutput",
+          "OutputValue": "arn:aws:states:us-east-2:498084841421:stateMachine:incident-demo-p07"
+        },
+        {
+          "OutputKey": "AnalystRoleOutput",
+          "OutputValue": "arn:aws:iam::498084841421:role/incident-demo-p07-analyst"
+        },
+        {
+          "OutputKey": "BusArnOutput",
+          "OutputValue": "arn:aws:events:us-east-2:498084841421:event-busv2/incident-demo-p07/apclyoy2y11jty8053bvcx5sw"
+        },
+        {
+          "OutputKey": "ApproverRoleOutput",
+          "OutputValue": "arn:aws:iam::498084841421:role/incident-demo-p07-approver"
+        },
+        {
+          "OutputKey": "ApiUrlOutput",
+          "OutputValue": "https://ko8n1lkhkc.execute-api.us-east-2.amazonaws.com"
+        },
+        {
+          "OutputKey": "DeadLetterUrlOutput",
+          "OutputValue": "https://sqs.us-east-2.amazonaws.com/498084841421/incident-demo-p07-dlq"
+        },
+        {
+          "OutputKey": "SubscriberArnOutput",
+          "OutputValue": "arn:aws:events:us-east-2:498084841421:subscriber/incident-demo-p07-start/5y98c6tkkrjcl4h3q56ry2fqg"
+        },
+        {
+          "OutputKey": "ApprovalsTableOutput",
+          "OutputValue": "incident-demo-p07-approvals"
+        },
+        {
+          "OutputKey": "SandboxTableOutput",
+          "OutputValue": "incident-demo-p07-sandbox"
+        },
+        {
+          "OutputKey": "RunsTableOutput",
+          "OutputValue": "incident-demo-p07-runs"
+        },
+        {
+          "OutputKey": "TesterRoleOutput",
+          "OutputValue": "arn:aws:iam::498084841421:role/incident-demo-p07-tester"
+        }
+      ]
+    },
+    {
+      "name": "incident-demo-toolkit",
+      "id": "arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-toolkit/56358ca0-c115-11f1-98c6-021c5a095c33",
+      "status": "CREATE_COMPLETE",
+      "termination_protection": true,
+      "outputs": [
+        {
+          "OutputKey": "ImageRepositoryName",
+          "OutputValue": "cdk-incdemo-container-assets-498084841421-us-east-2",
+          "Description": "The name of the ECR repository which hosts docker image assets"
+        },
+        {
+          "OutputKey": "BucketName",
+          "OutputValue": "cdk-incdemo-assets-498084841421-us-east-2",
+          "Description": "The name of the S3 bucket owned by the CDK toolkit stack"
+        },
+        {
+          "OutputKey": "BootstrapVersion",
+          "OutputValue": "32",
+          "Description": "The version of the bootstrap resources that are currently mastered in this stack"
+        },
+        {
+          "OutputKey": "BucketDomainName",
+          "OutputValue": "cdk-incdemo-assets-498084841421-us-east-2.s3.us-east-2.amazonaws.com",
+          "Description": "The domain name of the S3 bucket owned by the CDK toolkit stack"
+        },
+        {
+          "OutputKey": "FileAssetKeyArn",
+          "OutputValue": "AWS_MANAGED_KEY",
+          "Description": "The ARN of the KMS key used to encrypt the asset bucket (deprecated)",
+          "ExportName": "CdkBootstrap-incdemo-FileAssetKeyArn"
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "stack": "incident-demo-foundation",
+      "logical_id": "AccessLogs8B620ECA",
+      "type": "AWS::S3::Bucket",
+      "physical_id": "incident-demo-access-logs-498084841421-us-east-2",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-foundation",
+      "logical_id": "AccessLogsPolicyABDC4D2D",
+      "type": "AWS::S3::BucketPolicy",
+      "physical_id": "incident-demo-access-logs-498084841421-us-east-2",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-foundation",
+      "logical_id": "Artifacts82DD59A1",
+      "type": "AWS::S3::Bucket",
+      "physical_id": "incident-demo-artifacts-498084841421-us-east-2",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-foundation",
+      "logical_id": "ArtifactsPolicy6E9058CC",
+      "type": "AWS::S3::BucketPolicy",
+      "physical_id": "incident-demo-artifacts-498084841421-us-east-2",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-foundation",
+      "logical_id": "AuditLogsB945E340",
+      "type": "AWS::Logs::LogGroup",
+      "physical_id": "/incident-demo/foundation",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-foundation",
+      "logical_id": "State1C20CC9A",
+      "type": "AWS::DynamoDB::Table",
+      "physical_id": "incident-demo-state",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "Budget69569A1A",
+      "type": "AWS::DynamoDB::Table",
+      "physical_id": "incident-demo-live-budget",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "DefaultErrors1F79E265",
+      "type": "AWS::Logs::MetricFilter",
+      "physical_id": "DefaultErrors1F79E265-sbEVHTG2eqsO",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "DefaultLatency579CD744",
+      "type": "AWS::Logs::MetricFilter",
+      "physical_id": "DefaultLatency579CD744-kBfGMjljZ5fG",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "Endpoint",
+      "type": "AWS::BedrockAgentCore::RuntimeEndpoint",
+      "physical_id": "arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator-yxOMou90km/runtime-endpoint/smoke",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "InvestigatorRole413527E4",
+      "type": "AWS::IAM::Role",
+      "physical_id": "incident-demo-investigator",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "InvestigatorRoleDefaultPolicyF8C0F70D",
+      "type": "AWS::IAM::Policy",
+      "physical_id": "incid-Inves-hrK5mBGxUTUE",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "LogsKeyA6AB43B2",
+      "type": "AWS::KMS::Key",
+      "physical_id": "afbebae5-f530-4513-b859-d0d2d3622a49",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "Runtime",
+      "type": "AWS::BedrockAgentCore::Runtime",
+      "physical_id": "incident_demo_investigator-yxOMou90km",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "RuntimeLogs92941AA6",
+      "type": "AWS::Logs::LogGroup",
+      "physical_id": "/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-DEFAULT",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "SmokeErrorsF5CC30A1",
+      "type": "AWS::Logs::MetricFilter",
+      "physical_id": "SmokeErrorsF5CC30A1-yXRPDmdGbiZm",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "SmokeLatency512C8776",
+      "type": "AWS::Logs::MetricFilter",
+      "physical_id": "SmokeLatency512C8776-zljjLrMovNvx",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "SmokeLogs4DACAC0F",
+      "type": "AWS::Logs::LogGroup",
+      "physical_id": "/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-smoke",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "Trail022F0CF2",
+      "type": "AWS::CloudTrail::Trail",
+      "physical_id": "incident-demo-p05",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "TrailBucketA831CE63",
+      "type": "AWS::S3::Bucket",
+      "physical_id": "incident-demo-trail-498084841421-us-east-2",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "TrailBucketPolicyFEBC3C5C",
+      "type": "AWS::S3::BucketPolicy",
+      "physical_id": "incident-demo-trail-498084841421-us-east-2",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "failuresAlarm69E88357",
+      "type": "AWS::CloudWatch::Alarm",
+      "physical_id": "incident-demo-p05-failures",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "getrecentchanges57131F89",
+      "type": "AWS::Lambda::Function",
+      "physical_id": "incident-demo-diag-recent-changes",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "getrecentchangesLogs0B3452B9",
+      "type": "AWS::Logs::LogGroup",
+      "physical_id": "/aws/lambda/incident-demo-diag-recent-changes",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "getrecentchangesRole81F77D5D",
+      "type": "AWS::IAM::Role",
+      "physical_id": "incident-demo-diag-recent-changes",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "getrecentlogs216E16E1",
+      "type": "AWS::Lambda::Function",
+      "physical_id": "incident-demo-diag-recent-logs",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "getrecentlogsLogs74EAFA7A",
+      "type": "AWS::Logs::LogGroup",
+      "physical_id": "/aws/lambda/incident-demo-diag-recent-logs",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "getrecentlogsRoleCB933803",
+      "type": "AWS::IAM::Role",
+      "physical_id": "incident-demo-diag-recent-logs",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "getservicehealthEF276A61",
+      "type": "AWS::Lambda::Function",
+      "physical_id": "incident-demo-diag-service-health",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "getservicehealthLogsF827EE15",
+      "type": "AWS::Logs::LogGroup",
+      "physical_id": "/aws/lambda/incident-demo-diag-service-health",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "getservicehealthRole34E731B8",
+      "type": "AWS::IAM::Role",
+      "physical_id": "incident-demo-diag-service-health",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-live",
+      "logical_id": "latencyAlarm4EABAD5E",
+      "type": "AWS::CloudWatch::Alarm",
+      "physical_id": "incident-demo-p05-latency",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-retrieval",
+      "logical_id": "DataSource",
+      "type": "AWS::Bedrock::DataSource",
+      "physical_id": "XKVH8PLCHO|CVMNH90331",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-retrieval",
+      "logical_id": "Guardrail",
+      "type": "AWS::Bedrock::Guardrail",
+      "physical_id": "arn:aws:bedrock:us-east-2:498084841421:guardrail/a4aiug3xzh6e",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-retrieval",
+      "logical_id": "GuardrailVersionV1",
+      "type": "AWS::Bedrock::GuardrailVersion",
+      "physical_id": "a4aiug3xzh6e|1",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-retrieval",
+      "logical_id": "GuardrailVersionV2",
+      "type": "AWS::Bedrock::GuardrailVersion",
+      "physical_id": "a4aiug3xzh6e|2",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-retrieval",
+      "logical_id": "Index",
+      "type": "AWS::S3Vectors::Index",
+      "physical_id": "arn:aws:s3vectors:us-east-2:498084841421:bucket/incident-demo-vectors-498084841421-us-east-2/index/runbooks-v1",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-retrieval",
+      "logical_id": "KnowledgeBase",
+      "type": "AWS::Bedrock::KnowledgeBase",
+      "physical_id": "XKVH8PLCHO",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-retrieval",
+      "logical_id": "KnowledgeRoleDA807A58",
+      "type": "AWS::IAM::Role",
+      "physical_id": "incident-demo-knowledge",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-retrieval",
+      "logical_id": "Vectors",
+      "type": "AWS::S3Vectors::VectorBucket",
+      "physical_id": "arn:aws:s3vectors:us-east-2:498084841421:bucket/incident-demo-vectors-498084841421-us-east-2",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "Api",
+      "type": "AWS::ApiGatewayV2::Api",
+      "physical_id": "ko8n1lkhkc",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "Bus",
+      "type": "AWS::EventsV2::EventBus",
+      "physical_id": "arn:aws:events:us-east-2:498084841421:event-busv2/incident-demo-p07/apclyoy2y11jty8053bvcx5sw",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "DeadLetterAlarmBB7AE56D",
+      "type": "AWS::CloudWatch::Alarm",
+      "physical_id": "incident-demo-p07-deadletters",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "DeadLettersBBF8BAAB",
+      "type": "AWS::SQS::Queue",
+      "physical_id": "https://sqs.us-east-2.amazonaws.com/498084841421/incident-demo-p07-dlq",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "DeadLettersPolicy05322138",
+      "type": "AWS::SQS::QueuePolicy",
+      "physical_id": "incident-demo-workflow-DeadLettersPolicy05322138-IxEzX807lQ0M",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "DeliveryRole2A8B8F29",
+      "type": "AWS::IAM::Role",
+      "physical_id": "incident-demo-p07-delivery",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "DeliveryRoleDefaultPolicyEB7AF3C1",
+      "type": "AWS::IAM::Policy",
+      "physical_id": "incid-Deliv-LBMJUCwVXvWk",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "GETrunsrunidIntegration",
+      "type": "AWS::ApiGatewayV2::Integration",
+      "physical_id": "xh1xlm7",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "GETrunsrunidRoute",
+      "type": "AWS::ApiGatewayV2::Route",
+      "physical_id": "bmkml0t",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "LogsKeyA6AB43B2",
+      "type": "AWS::KMS::Key",
+      "physical_id": "003ae626-a881-4f90-ab65-1cd8c3d8a989",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "Machine",
+      "type": "AWS::StepFunctions::StateMachine",
+      "physical_id": "arn:aws:states:us-east-2:498084841421:stateMachine:incident-demo-p07",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "MachineRole7E10B2C3",
+      "type": "AWS::IAM::Role",
+      "physical_id": "incident-demo-p07-machine",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "MachineRoleDefaultPolicyFF0C7676",
+      "type": "AWS::IAM::Policy",
+      "physical_id": "incid-Machi-VO2dmJRmW2fl",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "POSTcontroltestsIntegration",
+      "type": "AWS::ApiGatewayV2::Integration",
+      "physical_id": "99z4ajm",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "POSTcontroltestsRoute",
+      "type": "AWS::ApiGatewayV2::Route",
+      "physical_id": "btryer2",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "POSTincidentsIntegration",
+      "type": "AWS::ApiGatewayV2::Integration",
+      "physical_id": "dqtqsc1",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "POSTincidentsRoute",
+      "type": "AWS::ApiGatewayV2::Route",
+      "physical_id": "xy4i9mb",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "POSTrunsruniddecisionIntegration",
+      "type": "AWS::ApiGatewayV2::Integration",
+      "physical_id": "y84jj3i",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "POSTrunsruniddecisionRoute",
+      "type": "AWS::ApiGatewayV2::Route",
+      "physical_id": "i0up51h",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "Stage",
+      "type": "AWS::ApiGatewayV2::Stage",
+      "physical_id": "$default",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "Subscriber",
+      "type": "AWS::EventsV2::Subscriber",
+      "physical_id": "arn:aws:events:us-east-2:498084841421:subscriber/incident-demo-p07-start/5y98c6tkkrjcl4h3q56ry2fqg",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "WorkflowFailureAlarm5DA6A1B8",
+      "type": "AWS::CloudWatch::Alarm",
+      "physical_id": "incident-demo-p07-failed",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "analystUserRole0CA40236",
+      "type": "AWS::IAM::Role",
+      "physical_id": "incident-demo-p07-analyst",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "analystUserRoleDefaultPolicyDA467247",
+      "type": "AWS::IAM::Policy",
+      "physical_id": "incid-analy-ZM243XxKfAYH",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "apiLogsC6C29EB1",
+      "type": "AWS::Logs::LogGroup",
+      "physical_id": "/incident-demo/p07/api",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "approvalsTable0D9D2CB1",
+      "type": "AWS::DynamoDB::Table",
+      "physical_id": "incident-demo-p07-approvals",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "approverUserRole773C25E8",
+      "type": "AWS::IAM::Role",
+      "physical_id": "incident-demo-p07-approver",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "approverUserRoleDefaultPolicy2B9DFF05",
+      "type": "AWS::IAM::Policy",
+      "physical_id": "incid-appro-7LMBtVAGWgLY",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "bridge6E10D0E7",
+      "type": "AWS::Lambda::Function",
+      "physical_id": "incident-demo-p07-bridge",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "bridgeEventInvokeConfig14914802",
+      "type": "AWS::Lambda::EventInvokeConfig",
+      "physical_id": "incident-demo-p07-bridge|$LATEST",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "bridgeLogs1986EDCD",
+      "type": "AWS::Logs::LogGroup",
+      "physical_id": "/incident-demo/p07/bridge",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "bridgeRoleDD541455",
+      "type": "AWS::IAM::Role",
+      "physical_id": "incident-demo-p07-bridge",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "bridgeRoleDefaultPolicy5475B8B5",
+      "type": "AWS::IAM::Policy",
+      "physical_id": "incid-bridg-tgEF7AncKz36",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "callbacks73F1223E",
+      "type": "AWS::Lambda::Function",
+      "physical_id": "incident-demo-p07-callbacks",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "callbacksEventInvokeConfigF9284340",
+      "type": "AWS::Lambda::EventInvokeConfig",
+      "physical_id": "incident-demo-p07-callbacks|$LATEST",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "callbacksLogs9F123A65",
+      "type": "AWS::Logs::LogGroup",
+      "physical_id": "/incident-demo/p07/callbacks",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "callbacksRole16F8F471",
+      "type": "AWS::IAM::Role",
+      "physical_id": "incident-demo-p07-callbacks",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "callbacksRoleDefaultPolicy722379C3",
+      "type": "AWS::IAM::Policy",
+      "physical_id": "incid-callb-R6uGWSLqher7",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "callbacksSchedule17B9CD93",
+      "type": "AWS::Events::Rule",
+      "physical_id": "incident-demo-p07-callbacks",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "callbacksScheduleAllowEventRuleincidentdemoworkflowcallbacksF6EA05E3160CD553",
+      "type": "AWS::Lambda::Permission",
+      "physical_id": "incident-demo-workflow-callbacksScheduleAllowEventRuleincidentdemoworkflowcallbacksF6EA-e4Ly6nHFDzsx",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "decision07284020",
+      "type": "AWS::Lambda::Function",
+      "physical_id": "incident-demo-p07-decision",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "decisionEventInvokeConfigD2C69D52",
+      "type": "AWS::Lambda::EventInvokeConfig",
+      "physical_id": "incident-demo-p07-decision|$LATEST",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "decisionLogs6D554AB0",
+      "type": "AWS::Logs::LogGroup",
+      "physical_id": "/incident-demo/p07/decision",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "decisionPOSTrunsruniddecisionApiPermissionC22AEBE8",
+      "type": "AWS::Lambda::Permission",
+      "physical_id": "incident-demo-workflow-decisionPOSTrunsruniddecisionApiPermissionC22AEBE8-jjgWQqqaVnlF",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "decisionRole63F543BF",
+      "type": "AWS::IAM::Role",
+      "physical_id": "incident-demo-p07-decision",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "decisionRoleDefaultPolicyF1E71D96",
+      "type": "AWS::IAM::Policy",
+      "physical_id": "incid-decis-ZbAbofs5m3k8",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "dispatch5280861B",
+      "type": "AWS::Lambda::Function",
+      "physical_id": "incident-demo-p07-dispatch",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "dispatchEventInvokeConfigAB0E8FA9",
+      "type": "AWS::Lambda::EventInvokeConfig",
+      "physical_id": "incident-demo-p07-dispatch|$LATEST",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "dispatchLogs55D128EB",
+      "type": "AWS::Logs::LogGroup",
+      "physical_id": "/incident-demo/p07/dispatch",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "dispatchRoleDefaultPolicy2256039C",
+      "type": "AWS::IAM::Policy",
+      "physical_id": "incid-dispa-CRwOgh03odsr",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "dispatchRoleFCF06148",
+      "type": "AWS::IAM::Role",
+      "physical_id": "incident-demo-p07-dispatch",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "dispatchSchedule1BB27557",
+      "type": "AWS::Events::Rule",
+      "physical_id": "incident-demo-p07-dispatch",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "dispatchScheduleAllowEventRuleincidentdemoworkflowdispatch2490CCF5B95D3C29",
+      "type": "AWS::Lambda::Permission",
+      "physical_id": "incident-demo-workflow-dispatchScheduleAllowEventRuleincidentdemoworkflowdispatch2490CC-gwePNtKvYMj1",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "executorA4E83EF8",
+      "type": "AWS::Lambda::Function",
+      "physical_id": "incident-demo-executor",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "executorEventInvokeConfig0832CBF7",
+      "type": "AWS::Lambda::EventInvokeConfig",
+      "physical_id": "incident-demo-executor|$LATEST",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "executorLogs9FE68664",
+      "type": "AWS::Logs::LogGroup",
+      "physical_id": "/incident-demo/p07/executor",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "executorRole88A1F287",
+      "type": "AWS::IAM::Role",
+      "physical_id": "incident-demo-p07-executor",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "executorRoleDefaultPolicyAD13E2B3",
+      "type": "AWS::IAM::Policy",
+      "physical_id": "incid-execu-83rPjelEfynC",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "finish9C09ADCF",
+      "type": "AWS::Lambda::Function",
+      "physical_id": "incident-demo-p07-finish",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "finishEventInvokeConfig892A890E",
+      "type": "AWS::Lambda::EventInvokeConfig",
+      "physical_id": "incident-demo-p07-finish|$LATEST",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "finishLogsEA106CD1",
+      "type": "AWS::Logs::LogGroup",
+      "physical_id": "/incident-demo/p07/finish",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "finishRole3CC53D7D",
+      "type": "AWS::IAM::Role",
+      "physical_id": "incident-demo-p07-finish",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "finishRoleDefaultPolicy544DE30E",
+      "type": "AWS::IAM::Policy",
+      "physical_id": "incid-finis-93ZDmcOvXmaF",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "intakeB8A8F412",
+      "type": "AWS::Lambda::Function",
+      "physical_id": "incident-demo-p07-intake",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "intakeEventInvokeConfigB3F0193C",
+      "type": "AWS::Lambda::EventInvokeConfig",
+      "physical_id": "incident-demo-p07-intake|$LATEST",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "intakeLogsB3F57793",
+      "type": "AWS::Logs::LogGroup",
+      "physical_id": "/incident-demo/p07/intake",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "intakePOSTcontroltestsApiPermission64C6B7B6",
+      "type": "AWS::Lambda::Permission",
+      "physical_id": "incident-demo-workflow-intakePOSTcontroltestsApiPermission64C6B7B6-vXYEy1zeW0uI",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "intakePOSTincidentsApiPermission510C8BC2",
+      "type": "AWS::Lambda::Permission",
+      "physical_id": "incident-demo-workflow-intakePOSTincidentsApiPermission510C8BC2-eLo5ICvaSEf1",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "intakeRoleCB4DE32C",
+      "type": "AWS::IAM::Role",
+      "physical_id": "incident-demo-p07-intake",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "intakeRoleDefaultPolicyE2D1F5B9",
+      "type": "AWS::IAM::Policy",
+      "physical_id": "incid-intak-bOSp7dJvW8V3",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "observeEventInvokeConfig26644C6B",
+      "type": "AWS::Lambda::EventInvokeConfig",
+      "physical_id": "incident-demo-p07-observe|$LATEST",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "observeFB3EA279",
+      "type": "AWS::Lambda::Function",
+      "physical_id": "incident-demo-p07-observe",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "observeLogs340D4FB3",
+      "type": "AWS::Logs::LogGroup",
+      "physical_id": "/incident-demo/p07/observe",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "observeRoleCF7FFBEB",
+      "type": "AWS::IAM::Role",
+      "physical_id": "incident-demo-p07-observe",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "observeRoleDefaultPolicyB2DD7A88",
+      "type": "AWS::IAM::Policy",
+      "physical_id": "incid-obser-fcAlhBcUQLQ6",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "read01E76452",
+      "type": "AWS::Lambda::Function",
+      "physical_id": "incident-demo-p07-read",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "readEventInvokeConfig564B728B",
+      "type": "AWS::Lambda::EventInvokeConfig",
+      "physical_id": "incident-demo-p07-read|$LATEST",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "readGETrunsrunidApiPermission4A6690F6",
+      "type": "AWS::Lambda::Permission",
+      "physical_id": "incident-demo-workflow-readGETrunsrunidApiPermission4A6690F6-1YmrAUqEtUn7",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "readLogs9A2C56EF",
+      "type": "AWS::Logs::LogGroup",
+      "physical_id": "/incident-demo/p07/read",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "readRole31AFCE78",
+      "type": "AWS::IAM::Role",
+      "physical_id": "incident-demo-p07-read",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "readRoleDefaultPolicy505044A2",
+      "type": "AWS::IAM::Policy",
+      "physical_id": "incid-readR-d8hJE2FyRgNe",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "register07798668",
+      "type": "AWS::Lambda::Function",
+      "physical_id": "incident-demo-p07-register",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "registerEventInvokeConfig313CFE0D",
+      "type": "AWS::Lambda::EventInvokeConfig",
+      "physical_id": "incident-demo-p07-register|$LATEST",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "registerLogs25C41DF6",
+      "type": "AWS::Logs::LogGroup",
+      "physical_id": "/incident-demo/p07/register",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "registerRole36F12DEA",
+      "type": "AWS::IAM::Role",
+      "physical_id": "incident-demo-p07-register",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "registerRoleDefaultPolicyC6A97791",
+      "type": "AWS::IAM::Policy",
+      "physical_id": "incid-regis-tHA7QPjqZeHF",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "runsTable64456998",
+      "type": "AWS::DynamoDB::Table",
+      "physical_id": "incident-demo-p07-runs",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "sandboxTableBC027C82",
+      "type": "AWS::DynamoDB::Table",
+      "physical_id": "incident-demo-p07-sandbox",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "starterE2718FCC",
+      "type": "AWS::Lambda::Function",
+      "physical_id": "incident-demo-p07-starter",
+      "status": "UPDATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "starterEventInvokeConfigE260D90E",
+      "type": "AWS::Lambda::EventInvokeConfig",
+      "physical_id": "incident-demo-p07-starter|$LATEST",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "starterLogs91DFBB03",
+      "type": "AWS::Logs::LogGroup",
+      "physical_id": "/incident-demo/p07/starter",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "starterRoleDCF3DE6E",
+      "type": "AWS::IAM::Role",
+      "physical_id": "incident-demo-p07-starter",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "starterRoleDefaultPolicy6470EC3A",
+      "type": "AWS::IAM::Policy",
+      "physical_id": "incid-start-mf3IfLeNc3Vq",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "testerUserRoleDefaultPolicy46C61AAD",
+      "type": "AWS::IAM::Policy",
+      "physical_id": "incid-teste-HoJxBDcbdaHu",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "testerUserRoleF8F98E9F",
+      "type": "AWS::IAM::Role",
+      "physical_id": "incident-demo-p07-tester",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-workflow",
+      "logical_id": "workflowLogsF64B9DA5",
+      "type": "AWS::Logs::LogGroup",
+      "physical_id": "/incident-demo/p07/workflow",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-toolkit",
+      "logical_id": "CdkBootstrapVersion",
+      "type": "AWS::SSM::Parameter",
+      "physical_id": "/cdk-bootstrap/incdemo/version",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-toolkit",
+      "logical_id": "CloudFormationExecutionRole",
+      "type": "AWS::IAM::Role",
+      "physical_id": "cdk-incdemo-cfn-exec-role-498084841421-us-east-2",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-toolkit",
+      "logical_id": "ContainerAssetsRepository",
+      "type": "AWS::ECR::Repository",
+      "physical_id": "cdk-incdemo-container-assets-498084841421-us-east-2",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-toolkit",
+      "logical_id": "DeploymentActionRole",
+      "type": "AWS::IAM::Role",
+      "physical_id": "cdk-incdemo-deploy-role-498084841421-us-east-2",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-toolkit",
+      "logical_id": "FilePublishingRole",
+      "type": "AWS::IAM::Role",
+      "physical_id": "cdk-incdemo-file-publishing-role-498084841421-us-east-2",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-toolkit",
+      "logical_id": "FilePublishingRoleDefaultPolicy",
+      "type": "AWS::IAM::Policy",
+      "physical_id": "incid-FileP-NhFHvo0Mg0vL",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-toolkit",
+      "logical_id": "ImagePublishingRole",
+      "type": "AWS::IAM::Role",
+      "physical_id": "cdk-incdemo-image-publishing-role-498084841421-us-east-2",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-toolkit",
+      "logical_id": "ImagePublishingRoleDefaultPolicy",
+      "type": "AWS::IAM::Policy",
+      "physical_id": "incid-Image-sDec5OiOCoLj",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-toolkit",
+      "logical_id": "LookupRole",
+      "type": "AWS::IAM::Role",
+      "physical_id": "cdk-incdemo-lookup-role-498084841421-us-east-2",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    },
+    {
+      "stack": "incident-demo-toolkit",
+      "logical_id": "StagingBucket",
+      "type": "AWS::S3::Bucket",
+      "physical_id": "cdk-incdemo-assets-498084841421-us-east-2",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Retain",
+      "replacement_policy": "Retain"
+    },
+    {
+      "stack": "incident-demo-toolkit",
+      "logical_id": "StagingBucketPolicy",
+      "type": "AWS::S3::BucketPolicy",
+      "physical_id": "cdk-incdemo-assets-498084841421-us-east-2",
+      "status": "CREATE_COMPLETE",
+      "deletion_policy": "Delete",
+      "replacement_policy": "Delete"
+    }
+  ]
+}

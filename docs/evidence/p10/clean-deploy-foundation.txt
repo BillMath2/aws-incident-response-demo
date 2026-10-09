@@ -1,0 +1,22 @@
+{"account": "498084841421", "region": "us-east-2"}
+arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-foundation/b5e60260-c115-11f1-ad8c-02aabb75b103
+AI agent detected
+
+✨  Synthesis time: 19.84s
+
+incident-demo-foundation: creating CloudFormation changeset...
+incident-demo-foundation: deploying... [1/1]
+
+✅  incident-demo-foundation (no changes)
+
+✨  Deployment time: 0s
+
+Outputs:
+incident-demo-foundation.AccessLogBucket = incident-demo-access-logs-498084841421-us-east-2
+incident-demo-foundation.ArtifactBucket = incident-demo-artifacts-498084841421-us-east-2
+incident-demo-foundation.AuditLogGroup = /incident-demo/foundation
+incident-demo-foundation.StateTable = incident-demo-state
+Stack ARN:
+
+✨  Total time: 23.03s
+

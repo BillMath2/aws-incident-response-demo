@@ -2,10 +2,18 @@
 
 Date: October 3, 2026  
 Prepared for: Bill Mathers  
-Status: P01-P03 locally verified; P04-P07 AWS gates verified in Ohio; P08 owner-approved green for demo scope (full benchmark unfinished); P09 owner-reviewed green in local and cloud modes; P10 next; $250 total budget unchanged
+Status: P01-P03 locally verified; P04-P07 AWS gates verified in Ohio; P08 owner-approved green for demo scope (full benchmark unfinished); P09 owner-reviewed green in local and cloud modes; P10 in progress: clean-environment deployments and evidence export complete, recording and cleanup pending; $250 total budget unchanged
 
 Project destination: C:\Github\aws-incident-response-demo  
 Target role: [Duke job description](DukeJob.txt)
+
+P10 update (October 7, 2026): fresh dependency environments from the committed P09 source pass
+226 application tests, 21 infrastructure tests and nine UI tests. All four existing application
+stacks redeploy with no changes; this is not a new empty-account provisioning test. Five stacks,
+147 resources, five tables and 92 current run artifacts are inventoried/exported. Runtime 13 is
+READY and no workflows are running. One live intake slot is preserved for recording. No new
+model calls or resource deletions ran. See [P10 acceptance](p10-acceptance.md),
+[recording instructions](p10-recording-runbook.md) and [cleanup scope](p10-cleanup-plan.md).
 
 P09 update (October 7, 2026): Bill marked P08 green for the demo and requested P09.
 The localhost operator screen, signed cloud bridge, saved-evidence replay, architecture/permission
@@ -362,7 +370,7 @@ The implemented AWS demo is complete only when:
 - Project-owned resources are inventoried before cleanup; retained evidence is exported; deletion and any remaining billable resources are verified.
 - Unresolved limitations are stated, including the synthetic workload, small evaluation set, and absence of production customer operations.
 
-The current implementation package is P08: controlled experiments and human review.
+Historical P08 checkpoint (superseded by the owner-approved demo gate and current P10 status):
 All 24 frozen development trials are retained: seven mechanical candidates awaiting human review
 and 17 mechanical failures. Runtime, prompts and corpus remained unchanged between batches.
 Bill agreed with those 17 failure classifications. A separate eight-case V2 repair on runtime
@@ -377,7 +385,8 @@ full evaluation projects $260.45 in reservations, exceeding the $250 ceiling; bu
 reconciliation is required before the larger evaluation. No held-out inference has run.
 The budget increase is approved. Human review, the second-model comparison, final preselection, 144 held-out
 investigations and 12 judge cases remain outstanding. See [P08 acceptance](p08-acceptance.md)
-and the [P08 runbook](p08-evaluation-runbook.md). P08 is not green.
+and the [P08 runbook](p08-evaluation-runbook.md). P08 was not green at this checkpoint;
+the later owner decision accepted it for the demo scope with these evaluation limitations.
 P07 passed 45 live control checks and 33 readback/permission checks, with a clean final deployment
 diff. See [P07 acceptance](p07-acceptance.md) and the [P07 runbook](p07-live-runbook.md).
 Gateway access logs are explicitly deferred after automatic approval review rejected account-level

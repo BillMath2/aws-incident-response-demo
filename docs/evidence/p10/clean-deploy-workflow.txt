@@ -1,0 +1,30 @@
+{"account": "498084841421", "region": "us-east-2"}
+arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-workflow/febcdb80-c16a-11f1-b00e-02d72ca12757
+AI agent detected
+
+
+✨  Synthesis time: 21.95s
+
+incident-demo-workflow: creating CloudFormation changeset...
+incident-demo-workflow: deploying... [1/1]
+
+✅  incident-demo-workflow (no changes)
+
+✨  Deployment time: 0s
+
+Outputs:
+incident-demo-workflow.AnalystRoleOutput = arn:aws:iam::498084841421:role/incident-demo-p07-analyst
+incident-demo-workflow.ApiUrlOutput = https://ko8n1lkhkc.execute-api.us-east-2.amazonaws.com
+incident-demo-workflow.ApprovalsTableOutput = incident-demo-p07-approvals
+incident-demo-workflow.ApproverRoleOutput = arn:aws:iam::498084841421:role/incident-demo-p07-approver
+incident-demo-workflow.BusArnOutput = arn:aws:events:us-east-2:498084841421:event-busv2/incident-demo-p07/apclyoy2y11jty8053bvcx5sw
+incident-demo-workflow.DeadLetterUrlOutput = https://sqs.us-east-2.amazonaws.com/498084841421/incident-demo-p07-dlq
+incident-demo-workflow.MachineArnOutput = arn:aws:states:us-east-2:498084841421:stateMachine:incident-demo-p07
+incident-demo-workflow.RunsTableOutput = incident-demo-p07-runs
+incident-demo-workflow.SandboxTableOutput = incident-demo-p07-sandbox
+incident-demo-workflow.SubscriberArnOutput = arn:aws:events:us-east-2:498084841421:subscriber/incident-demo-p07-start/5y98c6tkkrjcl4h3q56ry2fqg
+incident-demo-workflow.TesterRoleOutput = arn:aws:iam::498084841421:role/incident-demo-p07-tester
+Stack ARN:
+
+✨  Total time: 25.58s
+

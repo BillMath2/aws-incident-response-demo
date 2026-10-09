@@ -1,7 +1,9 @@
 # AWS incident response demo
 
 **Current: P08 and P09 are owner-approved green for the demo scope. P09 was reviewed in
-local and cloud modes. P10 is next: fresh replay, recording and cleanup verification.** Launch the screen with:
+local and cloud modes. P10 is in progress: clean-environment deployments and evidence export
+are complete; recording and cleanup remain.** See [P10 status](docs/p10-acceptance.md) and
+[recording instructions](docs/p10-recording-runbook.md). Launch the screen with:
 
 ```powershell
 .venv/Scripts/python.exe scripts/p09_operator.py

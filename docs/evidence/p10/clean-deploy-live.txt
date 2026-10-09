@@ -1,0 +1,29 @@
+{"account": "498084841421", "region": "us-east-2"}
+arn:aws:cloudformation:us-east-2:498084841421:stack/incident-demo-live/2df71330-c11f-11f1-8dd1-0a0dbddaa5d9
+AI agent detected
+
+✨  Synthesis time: 20.98s
+
+incident-demo-live: creating CloudFormation changeset...
+incident-demo-live: deploying... [1/1]
+
+✅  incident-demo-live (no changes)
+
+✨  Deployment time: 0s
+
+Outputs:
+incident-demo-live.BudgetTableOutput = incident-demo-live-budget
+incident-demo-live.EndpointArnOutput = arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator-yxOMou90km/runtime-endpoint/smoke
+incident-demo-live.InvestigatorRoleOutput = arn:aws:iam::498084841421:role/incident-demo-investigator
+incident-demo-live.LogsKeyArnOutput = arn:aws:kms:us-east-2:498084841421:key/afbebae5-f530-4513-b859-d0d2d3622a49
+incident-demo-live.RuntimeArnOutput = arn:aws:bedrock-agentcore:us-east-2:498084841421:runtime/incident_demo_investigator-yxOMou90km
+incident-demo-live.RuntimeIdOutput = incident_demo_investigator-yxOMou90km
+incident-demo-live.RuntimeLogGroupOutput = /aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-DEFAULT
+incident-demo-live.TrailBucketOutput = incident-demo-trail-498084841421-us-east-2
+incident-demo-live.getrecentchangesOutput = arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-recent-changes
+incident-demo-live.getrecentlogsOutput = arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-recent-logs
+incident-demo-live.getservicehealthOutput = arn:aws:lambda:us-east-2:498084841421:function:incident-demo-diag-service-health
+Stack ARN:
+
+✨  Total time: 24.34s
+

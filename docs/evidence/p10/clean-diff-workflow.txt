@@ -1,0 +1,9 @@
+{"account": "498084841421", "region": "us-east-2"}
+AI agent detected
+
+Stack incident-demo-workflow (aws://498084841421/us-east-2)
+There were no differences
+
+
+✨  Number of stacks with differences: 0
+

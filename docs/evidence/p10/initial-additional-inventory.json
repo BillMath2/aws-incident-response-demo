@@ -1,0 +1,128 @@
+{
+  "project_log_groups": [
+    {
+      "logGroupName": "/incident-demo/foundation",
+      "retentionInDays": 7,
+      "storedBytes": 0,
+      "kmsKeyId": null
+    },
+    {
+      "logGroupName": "/incident-demo/p07/api",
+      "retentionInDays": 7,
+      "storedBytes": 0,
+      "kmsKeyId": "arn:aws:kms:us-east-2:498084841421:key/003ae626-a881-4f90-ab65-1cd8c3d8a989"
+    },
+    {
+      "logGroupName": "/incident-demo/p07/bridge",
+      "retentionInDays": 7,
+      "storedBytes": 1994,
+      "kmsKeyId": "arn:aws:kms:us-east-2:498084841421:key/003ae626-a881-4f90-ab65-1cd8c3d8a989"
+    },
+    {
+      "logGroupName": "/incident-demo/p07/callbacks",
+      "retentionInDays": 7,
+      "storedBytes": 245870,
+      "kmsKeyId": "arn:aws:kms:us-east-2:498084841421:key/003ae626-a881-4f90-ab65-1cd8c3d8a989"
+    },
+    {
+      "logGroupName": "/incident-demo/p07/decision",
+      "retentionInDays": 7,
+      "storedBytes": 4863,
+      "kmsKeyId": "arn:aws:kms:us-east-2:498084841421:key/003ae626-a881-4f90-ab65-1cd8c3d8a989"
+    },
+    {
+      "logGroupName": "/incident-demo/p07/dispatch",
+      "retentionInDays": 7,
+      "storedBytes": 254843,
+      "kmsKeyId": "arn:aws:kms:us-east-2:498084841421:key/003ae626-a881-4f90-ab65-1cd8c3d8a989"
+    },
+    {
+      "logGroupName": "/incident-demo/p07/executor",
+      "retentionInDays": 7,
+      "storedBytes": 1423,
+      "kmsKeyId": "arn:aws:kms:us-east-2:498084841421:key/003ae626-a881-4f90-ab65-1cd8c3d8a989"
+    },
+    {
+      "logGroupName": "/incident-demo/p07/finish",
+      "retentionInDays": 7,
+      "storedBytes": 1041,
+      "kmsKeyId": "arn:aws:kms:us-east-2:498084841421:key/003ae626-a881-4f90-ab65-1cd8c3d8a989"
+    },
+    {
+      "logGroupName": "/incident-demo/p07/intake",
+      "retentionInDays": 7,
+      "storedBytes": 5056,
+      "kmsKeyId": "arn:aws:kms:us-east-2:498084841421:key/003ae626-a881-4f90-ab65-1cd8c3d8a989"
+    },
+    {
+      "logGroupName": "/incident-demo/p07/observe",
+      "retentionInDays": 7,
+      "storedBytes": 754,
+      "kmsKeyId": "arn:aws:kms:us-east-2:498084841421:key/003ae626-a881-4f90-ab65-1cd8c3d8a989"
+    },
+    {
+      "logGroupName": "/incident-demo/p07/read",
+      "retentionInDays": 7,
+      "storedBytes": 15526,
+      "kmsKeyId": "arn:aws:kms:us-east-2:498084841421:key/003ae626-a881-4f90-ab65-1cd8c3d8a989"
+    },
+    {
+      "logGroupName": "/incident-demo/p07/register",
+      "retentionInDays": 7,
+      "storedBytes": 1612,
+      "kmsKeyId": "arn:aws:kms:us-east-2:498084841421:key/003ae626-a881-4f90-ab65-1cd8c3d8a989"
+    },
+    {
+      "logGroupName": "/incident-demo/p07/starter",
+      "retentionInDays": 7,
+      "storedBytes": 3555,
+      "kmsKeyId": "arn:aws:kms:us-east-2:498084841421:key/003ae626-a881-4f90-ab65-1cd8c3d8a989"
+    },
+    {
+      "logGroupName": "/incident-demo/p07/workflow",
+      "retentionInDays": 7,
+      "storedBytes": 22194,
+      "kmsKeyId": "arn:aws:kms:us-east-2:498084841421:key/003ae626-a881-4f90-ab65-1cd8c3d8a989"
+    },
+    {
+      "logGroupName": "/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-DEFAULT",
+      "retentionInDays": 7,
+      "storedBytes": 0,
+      "kmsKeyId": "arn:aws:kms:us-east-2:498084841421:key/afbebae5-f530-4513-b859-d0d2d3622a49"
+    },
+    {
+      "logGroupName": "/aws/bedrock-agentcore/runtimes/incident_demo_investigator-yxOMou90km-smoke",
+      "retentionInDays": 7,
+      "storedBytes": 128383,
+      "kmsKeyId": "arn:aws:kms:us-east-2:498084841421:key/afbebae5-f530-4513-b859-d0d2d3622a49"
+    }
+  ],
+  "project_managed_policies": [
+    {
+      "PolicyName": "incident-demo-cfn-execution",
+      "Arn": "arn:aws:iam::498084841421:policy/incident-demo-cfn-execution",
+      "AttachmentCount": 1
+    },
+    {
+      "PolicyName": "incident-demo-p07-cfn-execution",
+      "Arn": "arn:aws:iam::498084841421:policy/incident-demo-p07-cfn-execution",
+      "AttachmentCount": 1
+    },
+    {
+      "PolicyName": "incident-demo-p05-monitoring-execution",
+      "Arn": "arn:aws:iam::498084841421:policy/incident-demo-p05-monitoring-execution",
+      "AttachmentCount": 1
+    },
+    {
+      "PolicyName": "incident-demo-p06-cfn-execution",
+      "Arn": "arn:aws:iam::498084841421:policy/incident-demo-p06-cfn-execution",
+      "AttachmentCount": 1
+    },
+    {
+      "PolicyName": "incident-demo-p05-cfn-execution",
+      "Arn": "arn:aws:iam::498084841421:policy/incident-demo-p05-cfn-execution",
+      "AttachmentCount": 1
+    }
+  ],
+  "scope_note": "Stack resources plus named project logs/policies. Historical replaced or untagged resources, object versions and backups require cleanup reconciliation."
+}

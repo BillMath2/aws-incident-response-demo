@@ -1,0 +1,50 @@
+{
+  "at": "2026-10-07T11:13:11.170562+00:00",
+  "account": "498084841421",
+  "region": "us-east-2",
+  "stacks": 5,
+  "resources": 147,
+  "tables_exported": 5,
+  "run_artifacts_exported": 92,
+  "artifact_bytes_read": 2081837,
+  "workflow_runs": [
+    {
+      "run_id": "p07-6c5e661cae0e7e9fdae1f9c6a13421647be1aa07",
+      "status": "unresolved"
+    },
+    {
+      "run_id": "p07-b0b557f6f18bbcc84ef86015427806267464aefa",
+      "status": "escalated"
+    },
+    {
+      "run_id": "p07-f97a887312143763d0114ed07ccbc38e9e68bb1c",
+      "status": "failed"
+    },
+    {
+      "run_id": "p07-7ef80d3030d0be5f3a4eb299a49ff554685d351a",
+      "status": "rejected"
+    },
+    {
+      "run_id": "p07-16476b92278b620f7f1dfb4c4a639091290a1391",
+      "status": "resolved"
+    },
+    {
+      "run_id": "p07-29fc92017c9a8cf5b1bf74008eb32e9ea9dff2a5",
+      "status": "expired"
+    },
+    {
+      "run_id": "p07-8e62505150176fe27e3fe1d8c9682826153b9dd9",
+      "status": "rejected"
+    },
+    {
+      "run_id": "p07-4fe745515876639a812053e5bf8c75c3066ef0e2",
+      "status": "escalated"
+    }
+  ],
+  "active_workflows": [],
+  "stack_statuses_complete": true,
+  "cloud_mutations": 0,
+  "model_calls": 0,
+  "cleanup_complete": false,
+  "export_scope": "Current JSON objects under runs/ plus sanitized table state; not a full bucket version, CloudTrail or CloudWatch archive"
+}

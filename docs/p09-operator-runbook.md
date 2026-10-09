@@ -9,7 +9,8 @@ for the demo scope, with reasoning limitations accepted and the full benchmark u
 From the repository root:
 
 ```powershell
-.venv/Scripts/python.exe scripts/p09_operator.py
+cd C:\Github\aws-incident-response-demo
+.\.venv\Scripts\python.exe .\scripts\p09_operator.py
 ```
 
 Open **http://127.0.0.1:8765** in your browser. Use this exact address; alternate hostnames
@@ -27,8 +28,12 @@ artifacts are checked against the stored hashes when loaded. No saved example is
 With an active `incident-demo` AWS session:
 
 ```powershell
-.venv/Scripts/python.exe scripts/p09_operator.py --cloud
+cd C:\Github\aws-incident-response-demo
+.\.venv\Scripts\python.exe .\scripts\p09_operator.py --cloud --port 8766
 ```
+
+Open **http://127.0.0.1:8766** for cloud mode. This separate port lets the saved-evidence
+server remain on 8765. Run the command from the repository root, not `.venv\Scripts`.
 
 The launcher validates account `498084841421`, reads `infra/cdk.out/workflow-outputs.json`
 from the existing deployment, and uses `us-east-2`. If sign-in has expired, renew the existing
